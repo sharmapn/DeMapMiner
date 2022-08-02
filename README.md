@@ -8,9 +8,10 @@ A. Database <br/>
   - restore the ‘peps_new’ database <br/>
 
 B. Code <br/>
+  - download the code from this repository.  <br/>
   - install the Eclipse IDE for the code, and <br/>
   - configure the projects in Eclipse <br/>
-  - copy the libraries (_available as a zip file_) to a 'lib' directory <br/>
+  
 
 C. Generating the results. This includes the following aspects: <br/>
   - TO DO.
