@@ -1,0 +1,7 @@
+Put Notes here.
+
+Relation extraction
+ note code has been modified. so update the one in main pc.
+ 
+ after relation extraction - run automaticLabelExtraction for summaried automatic extatracted labels
+ 

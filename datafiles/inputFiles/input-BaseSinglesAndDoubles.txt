@@ -1,0 +1,36 @@
+% singles and doubles
+% where we match these single and double terms in sentence 
+% will be matched as one string so space between label is okay eg space between draft and pep [draft,draft pep] is okay,
+% but make sure ther eis comma between idea and label
+
+% singles
+
+accepted,accepted!
+accepted,accepted:)
+accepted,accepted :)
+% doubles
+draft,draft pep
+draft,rough draft
+consensus,community consensus
+draft,initial draft
+draft,first draft
+updated,second draft
+updated,redraft
+updated,redrafted
+updated,third draft
+updated,fourth draft
+updated,fifth draft
+updated,final draft
+updated,round 2
+updated,round 3
+updated,round 4
+updated,round 5
+updated,round 6
+updated,round 7
+vote_results,results of the vote
+vocal minority,vocal minority
+% pep: xxx
+% new pep submission
+% pep submission
+% four versions
+ready_review,request for pronouncement

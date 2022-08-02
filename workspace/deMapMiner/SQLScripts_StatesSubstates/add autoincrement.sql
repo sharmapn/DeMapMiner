@@ -1,0 +1,1 @@
+ alter table pepstates_danieldata_datetimestamp add id INT NOT NULL AUTO_INCREMENT PRIMARY KEY;

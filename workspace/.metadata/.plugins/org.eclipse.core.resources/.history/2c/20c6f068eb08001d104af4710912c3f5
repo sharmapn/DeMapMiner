@@ -1,0 +1,143 @@
+package miner.process;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+//import RationaleMiner.PrepareTrainingTestingData.ProcessPastMessages;
+//import coreference.Coreference;
+import wordnet.jaws.WordnetSynonyms;
+import connections.properties.PropertiesFile;
+import stanfordParser.Coreferencer;
+import stanfordParser.StanfordNLPTools;
+
+//Aug 2020 reasons is not et integrated
+
+//This script now should have everything integrated and can be used for these based on choice:
+// processMining
+// relationExtraction and sentence writing to db table 'allsentences' are combined
+// sentenceExtractionForTopicModelling
+// nearby sentences and paragraphs
+// manualReasonExtraction
+// automatic candidate reason extraction
+
+//August 2020, reasons script not yet integrated
+
+//feb 2020 we added support for writing to table how many messages were silt based on 'tab' and 'smp' identifier
+// and also how many were split when we found multiple peps in same message
+
+//add finalize methods to all clases that are inside any loop and call system.gc to invoke it
+//Jan 2019, don't forget singles and Doubles file, C:\DeMap_Miner\datafiles\inputFiles\input-LabelsSinglesAndDoublesTriples.txt
+
+
+
+public class DeMAP_Miner_Process {	
+	//dec 2018..we leaving out reason extraction during state substate extraction
+	//			..also not checking the main states in commit data so in the labels table, set the tocheck column to false to save processing time 
+	//             (C:\DeMap_Miner\sqlscripts\SQL\STATE_SUBSTATES\MainStudy\setLabelsTable_ToCheckField.sql)..change back if you need this states
+	//dec 2018..now we going to combine state and reason extraction together..cannot be done as we need major stae dates to be well defined beforehand
+	//feb 2018
+	// The way I am able to quickly capture reasons for states is that for major states, especially accepted or deferred,
+	// I find the dates fo these states based on state data, then for the reasons, I look back few days of that state and maybe few days forward
+	//This way we would be able to eliminate a lot of data which is for other peps but are also present for the current pep
+	//implmentation
+	//for each pep, find the states, then teh dates, then only look for reasons in messages of that pep few days before of later
+	//of course we are looking for all processes and this approach would not capture all substates like voting etc which are not explicitly stated.
+	//pep 308 acceptance for example, is stated because of long diwscussion, but tehre were two votes there as well.
+	
+	//what do we want the script to do
+    //which states for find message author role
+	public static void main(String[] args) throws IOException {
+		//set the parameters we want to pass to methods
+		ProcessingRequiredParameters prp = new ProcessingRequiredParameters();	//set all values to null, as we may use different combinations with this class to pass parameters					
+		Process_MessageSelection ms = new Process_MessageSelection();	
+		
+		//List<String> list3 = new ArrayList<String>();	//merge the conditional and negation terms
+	    //list3.addAll(Arrays.asList(conditionalList));	    //list3.addAll(Arrays.asList(negationTerms));
+	    //negationTerms = list3.toArray(new String[list3.size()]);
+		
+		//read properties file and set common parameters
+		prp.readPropertiesFile_setProcessingRequiredParameters();	
+		
+		//purpose of script
+		//variable properties which can be changed
+		PropertiesFile wpf = new PropertiesFile();	
+		String scriptPurpose = wpf.readFromPropertiesFile("scriptpurpose",false).toLowerCase();
+		System.out.println("ScriptPurpose = "+ scriptPurpose);
+		//feb 2020..cos of too much output
+		Boolean outputfordebug = Boolean. valueOf(wpf.readFromPropertiesFile("outputfordebug",false).toLowerCase()); 
+		prp.setOutputfordebug(outputfordebug);
+		System.out.println("Outputfordebug = "+ outputfordebug);
+		
+		System.out.println("RestartAfterEachProposal = " + prp.getRestartAfterEachProposal());
+		
+		String proposalIdentifier = wpf.readFromPropertiesFile("proposalIdentifier",false).toLowerCase(); 
+		//String scriptPurpose = "processmining";//"relationextraction"; //jan 2019, if doing two things, we better hard code this
+		prp.setScriptPurpose(scriptPurpose);		System.out.println("\nScriptPurpose:"+scriptPurpose);
+		prp.setProposalIdentifier(proposalIdentifier);		System.out.println("\nProposalIdentifier:"+proposalIdentifier);
+		prp.setProposalTableName(proposalIdentifier+"details");	System.out.println("\nProposalTableName: "+proposalIdentifier + "details");
+		if(scriptPurpose.equals("processmining")) prp.setProcessMining(true);
+		else if(scriptPurpose.equals("currentandnearbysentenceretrievalforterms")) {
+			prp.setCurrentAndNearbySentences(true);
+			 System.out.println("set the script's purpose.currentandnearbysentenceretrievalforterms ");
+			 //System.exit(0);
+		}
+		else if(scriptPurpose.equals("relationextraction")) {
+			prp.setRelationExtraction(true);
+			String tableToStoreExtractedRelations = wpf.readFromPropertiesFile("tableToStoreExtractedRelations",false).toLowerCase();
+			prp.setTableToStoreExtractedRelations(tableToStoreExtractedRelations);
+			prp.setIncludeStateData(false);	//we dont want to process state data in relation extraction
+		}
+		//we allow sentence and paragraph writing to tables which could be an independent process from relation extraction
+		//but normally we have scriptpurpose = relation extraction and set sentence and paragraph writing as true
+		else if(scriptPurpose.equals("onlysentenceextractionfortopicmodelling")) { //Sentence Extraction For Topic Modelling
+			prp.setSentenceExtractionForTopicModelling(true);  
+			//PrintWriter pwForTopicModellingSentences = new PrintWriter(new File(prp.getOutputFileNameForTopicModellingSentences()));		//topicModellingSentencesOutFile		
+		}
+		else if(scriptPurpose.equals("manualreasonextraction")) {} //setManualReasonExtraction(true); 
+		else if(scriptPurpose.equals("candidateReasonsentencesuggestion")) {} //setCandidateReasonSentenceSuggestion(true); 
+		
+		//dec 2019
+		else if(scriptPurpose.equals("reasonextraction")) {
+			System.out.println("Here scriptPurpose. = reasonextraction.");
+		}
+		
+		else { System.out.println("Unable to set the script's purpose. Please set the 'scriptPurpose' variable in Propoerties File "); }
+		
+		//IMPORTANT, DO WE WANT TO WRITE TO THE ALLSENTENCES TABLE? EVERYTIME?
+		if(prp.getSentenceParagraphWritingToTable())  {	//if we want to just write each sentence to a database table	
+			System.out.println("getSentenceWritingToTable: "+prp.getSentenceParagraphWritingToTable());
+			//15-07-2022 commented as we shifted this class with the newly created rationale miner project 
+//			prp.setTDM();  //TermDiscoveryFromMessages tdm = new TermDiscoveryFromMessages();
+			WordnetSynonyms wn = new WordnetSynonyms();
+//			prp.getTdm().initialiseTermLists(wn);	//read the term lists from file into arraylists
+		} 
+		prp.initialiseLibraries();	System.out.println("Libraries Initialised");		
+		//if (prp.getProcessMining())
+		prp.ReadAllLabels(); //read double, triple and reason labels		
+		//Main process starts here
+			
+		ms.selectMessages(prp); //select and later process messages
+		
+		//dec 2018 ..we comment teh above anbd try tpo run below
+		//Coreference cr = new Coreference(); 
+		/*
+		StanfordNLPTools snp = new StanfordNLPTools();
+		String input = "PEP 289 is a good example of this. It was originally rejected because of poor syntax and a lack of use cases. It was " 
+				  + "recently revived with much better syntax and a small boatload of use cases, and it looks like it's on the fast path to being included into 2.4.";  
+		
+		//String input = "I've tweaked some text in this PEP and approved it..";
+		System.out.println("input: " + input);
+		//String output = snp.resolveCoRef(input);
+		//System.out.println("output: " + output);
+		
+		Coreferencer c = new Coreferencer(); c.init();
+		String pepText = " The history of PEP 289 is a good example of this. " 
+				+" It was originally rejected because of poor syntax and a lack of use cases. " 
+				+" It was recently revived with much better syntax and a small boatload of use cases, and it looks like it's on the fast path to being included into 2.4. ";
+		//arraylist version now not used ArrayList<String> sentences = c.getdCoreferencedText(pepText);		
+		//for (String se :sentences){			System.out.print(se + " ");		}	System.out.println();
+		*/
+	}
+}

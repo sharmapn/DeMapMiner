@@ -1,0 +1,48 @@
+while in python subject matching woudl have give us lots of unanted results, we need to do it for bips
+as you can see the quoted mesage was never captured as it dos not have a bip number, or bip title.
+
+
+From lf-lists at mattcorallo.com  Mon Mar 27 19:32:30 2017
+From: lf-lists at mattcorallo.com (Matt Corallo)
+Date: Mon, 27 Mar 2017 19:32:30 +0000
+Subject: [bitcoin-dev] Segregated witness p2p layer compatibility
+In-Reply-To: <CAFp6fsHhqdL=MNyAAyfwA7qw5-MhW19Whky+kY3n3=+u61bXBg@mail.gmail.com>
+References: <CAFp6fsHhqdL=MNyAAyfwA7qw5-MhW19Whky+kY3n3=+u61bXBg@mail.gmail.com>
+Message-ID: <B12B2CE9-9A7A-4D8A-8393-528942285CCF@mattcorallo.com>
+
+Just to expand a tiny bit here, while the testnet setup of only a few nodes acting as "bridges", mainnet already has many systems which act as effective bridges today - there are several relay networks in use which effectively bypass the P2P network, including my legacy relay network (which many miners historically have used, and I'd expect those who aren't paying attention and don't upgrade will not turn off, fixing the issue for them), ViaBTC's super aggressive bandwidth-wasting block announcement network which pushes blocks from several pools to many nodes globally, and Bitcoin.com's private relay network. (Of course many other miners and pools have private relay networks, but the several other such networks I'm aware of are already segwit-compatible, even for pools not signaling segwit).
+
+Matt
+
+On March 27, 2017 12:22:43 PM PDT, Suhas Daftuar via bitcoin-dev <bitcoin-dev at lists.linuxfoundation.org> wrote:
+>Hi,
+>
+>There have been two threads recently that have made references to
+>peer-to-peer implementation details in Bitcoin Core's Segregated
+>Witness
+>code that I would like to clarify.
+>
+>In the thread "Issolated Bitcoin Nodes" (
+>https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2017-March/013765.html),
+>there was some discussion about how Bitcoin Core's block download logic
+>behaves after segwit activation.  After segwit activation, Bitcoin Core
+>nodes will not (currently) attempt to download any blocks from
+>non-segwit
+>peers (nodes that do not set the NODE WITNESS service bit).  This is a
+>bandwidth optimization to prevent a node from downloading a block that
+>may
+>be invalid only because the sender omitted the witness, requiring
+>re-download until the block is received with the required witness data.
+>
+>But to be clear, non-segwit blocks -- that is, blocks without a witness
+>commitment in the coinbase, and whose transactions are serialized
+>without
+>witnesses, and whose transactions are not spending segwit outputs which
+>require a witness -- are evaluated under the same rules as prior,
+>pre-segwit versions of the software.  So such non-segwit blocks that
+>are
+>valid to older, pre-segwit nodes are also valid to segwit-nodes.
+>
+>In
+>https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2017-March/013796.html,
+>Eric Voskuil wrote:

@@ -1,0 +1,34 @@
+
+
+That would be difficult, given that there are now two leading
+contenders (if <cond>: x else: y vs. <cond> ?? x || y).  Given that both
+have only emerged in the last day or so, there's been no time to
+evaluate which is ahead.  I propose to let the discussion simmer another
+week or so before voting.
+-- 
+Aahz (aahz@pythoncraft.com)           <*>         http://www.pythoncraft.com/
+
+Register for PyCon now!  http://www.python.org/pycon/reg.html
+
+
+From guido@python.org  Tue Feb 11 16:24:36 2003
+
+-------------------------------------------------------------------------
+	<fb6fbf560603070719w4b6a9420rc846d5f618af5e7e@mail.gmail.com>
+	<440DA6CE.6040108@holdenweb.com>
+
+
+    ...
+
+Right, but the only effect of that on the examples is that they both  
+need an 'else None' continuation or thereabouts.
+
+I also predict widespread over-use of the new toy and agree with Jim  
+that mandatory parentheses around the whole (X if Y else Z) construct  
+would ameliorate legibility a bit.
+
+
+Alex
+
+
+From jendroska at psychologie.uni-wuerzburg.de  Tue Mar  7 16:42:32 2006

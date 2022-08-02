@@ -1,0 +1,20 @@
+//accept
+PEP 201 has been accepted by the BDFL.
+PEP 214 and 221 are accepted, as per recent BDFL pronouncements.
+This proposal has been accepted by the BDFL.
+Both PEP 201 Lockstep Iteration and SF patch #101030 have been accepted by the BDFL.
+PEP 214, Extended print Statement, has been accepted by the BDFL.
+This PEP was accepted by the BDFL on November 22. 
+Daniel submitted PEPs 425 and 427 to python-dev for acceptance, and I have formally accepted 427 as BDFL delegate.
+
+//vote
+everyone , please vote +1 or -1 .
+null from ncoghlan at gmail.com thu jan 14 12:46:19 2010 from : ncoghlan at gmail.com -LRB- nick coghlan -RRB- date : thu , 14 jan 2010 21:46:19 +1000 subject : -LSB- python-dev -RSB- pep 391 - please vote !
+please understand that i do n't have a lot of time to moderate the discussion ; i 'll just wait for the community to discuss the proposal and agree on some way to count votes , then count them . .
+no more votes , please ! .
+please read/comment/vote .
+* please vote * 
+comments and votes , please ! .
+so , can you please indicate your vote for or against incorporating pep 391 into python ?
+please participate in both votes if you have the time , but be sure to vote in the official one if you care about the outcome of pep-308 .
+please answer with +1 / +0 / -0 / -1 for each proposal : - ` p -LSB- q -RSB- ` joins path q to path p - ` p + q ` joins path q to path p - ` p / q ` joins path q to path p - ` p.join -LRB- q -RRB- ` joins path q to path p -LRB- you can include a rationale if you want , but do n't forget to vote :--RRB- -RRB- thank you antoine .

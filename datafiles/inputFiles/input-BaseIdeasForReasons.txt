@@ -1,0 +1,167 @@
+% STATES
+% BDFL
+bdfl_accept_pep bdfl accept pep
+bdfl_accepted_pep bdfl accepted pep
+bdfl_reject_pep bdfl reject pep
+bdfl_rejected_pep bdfl rejected pep
+
+% bdfl
+bdfl_accepted pep accepted bdfl
+bdfl_approves_vote you approval vote
+bdfl_final_pep bdfl final pep
+bdfl_pronouncement_accept_pep bdfl pronouncement accept
+bdfl_pronouncement_accepted_pep bdfl pronouncement accepted
+bdfl_pronouncement_accept_pep pronouncement accept pep
+bdfl_pronouncement_conditionally_accept_pep pronouncement conditionally pep
+bdfl_pronouncement_reject_pep pronouncement reject pep
+bdfl_proposes_pep bdfl propose pep
+bdfl_proposed_pep bdfl proposed pep
+bdfl_withdraw_pep bdfl withdraw pep
+
+% bdfl
+bdfl_accepted_pep guido accept pep
+bdfl_accepted_pep guido accepted pep
+bdfl_reject_pep guido reject pep
+bdfl_rejected_pep guido rejected pep
+
+bdfl_asked_volunteer guido asked volunteer
+co_bdfl_delegate_accepted_pep co-bdfl-delgate 
+
+bdfl_took_proposals_to_conference guido took proposals_to_europython
+
+%rewriting
+agreed it was agreed
+rewriting_needed pep needed rewritten
+working_on_changes i working changes_to_pep
+revisions pep been revisions
+revisions i will_revise document
+
+%received comments
+received_feedback i received comments
+received_feedback i received comments_on_this_proposal
+
+%summarize 
+asks_for_pep_summary someone summarize new_material
+
+% updated
+pep_updated i updated pep
+pep_updated i checked changes
+pep_updated i revise document
+pep_updated i revise pep
+pep_updated i revised pep
+comments_addressed i addressed comments
+comments_addressed i addressed all_the_comments
+
+% poll
+call_for_poll i propose poll
+call_for_poll i have poll
+call_for_poll i run poll
+call_for_poll i would_like_run poll
+call_for_poll poll please vote
+poll_closed poll closed
+poll_results poll results clear
+
+% vote
+call_for_vote feel vote free
+call_for_vote you indicate vote
+call_for_vote please vote vote
+call_for_vote vote on pep
+call_for_vote answer with +1
+call_for_vote you email votes
+call_for_vote you can vote
+call_for_vote dont_forget vote
+call_for_vote you please indicate your_vote
+
+approval_to_vote you have approval_hold_vote
+pep_vote_showed pep_vote showed
+pep_vote_showed pep_vote wanted
+
+% voting related
+voting_method preference voting method
+voting_method anybody have preference we use voting_method
+vote_held vote was held
+vote_result ballot result result
+vote_result vote result vote
+vote_summary summary of votes
+vote_summary vote is summarized
+comments_invited comments invited pep
+ready_for_review review ready pep
+
+% alternate votes
+advisory_poll advisory poll pep
+alternate_vote alternate vote pep
+alternate_vote_results alternate vote results
+complimentary_vote complimentary vote pep
+complimentary_vote_results complimentary vote results
+consensus community consensus pep
+consensus reach consensus pep
+discussion_on_voting_scheme which election method
+informal_vote informal vote vote
+
+% consensus
+hope_consensus i hope rough_consensus
+consensus i think consensus
+consensus we reaching consensus
+consensus consensus was_reached
+consensus_appears consensus appears
+consensus consensus has_been_reached
+consensus consensus reached_quickly
+consensus we reached_consensus pep
+consensus consensus is
+consensus consensus seems to_be_emerging
+consensus community consensus
+consensus community reached consensus
+consensus consensus emerged
+consensus community reach consensus
+no_consensus community has unable_reach_consensus
+no_consensus unable reach consensus
+no_consensus fail reach consensus
+no_consensus never reach consensus
+no_consensus never reached consensus
+no_consensus not reach consensus
+no_consensus not reached consensus
+no_consensus consensus never_been_reached
+no_consensus thread died before_consensus_reached
+no_consensus community unable_to_reach consensus
+no_consensus we never_reach consensus
+no_consensus we never consensus
+
+no_majority_support no majority support
+
+pep_ready_review pep ready review
+pep_ready_final_review pep ready final_review
+
+%arguments 
+not_convinced no_argument is convincing_totally
+
+% syntax
+propose_syntax i propose syntax
+syntax_accepted syntax accepted
+discussion_came_down_to_syntax discussion came_down syntax
+
+% dont know state
+not_asked_vote i not_asked vote
+dont_know_community_consensus i dont_know state_of_community_consensus
+state_of_community_consensus state of community_consensus
+author_feels_community i feeling community_discussions
+pep_received_favourably pep received favourably
+
+%reasons
+pep_rejected_lack_of_majority rejected lack majority
+pep_superceded pep superseded pep
+
+%
+decision_overwritten_last_moment decision overridden last_moment
+decision_overwritten_last_moment decision overridden no_debate
+
+% FINAL STAGES - implemented, final
+
+implemented i make implementation
+implemented i make implementation_with_these_changes
+
+pep_marked_final pep marked final
+pep_final pep has status_final
+pep_final pep is final
+pep_final pep moved finished_section
+
+pep_implemented implementation_for_pep is_done

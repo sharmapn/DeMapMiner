@@ -1,0 +1,689 @@
+% Notes - How this file is structured
+% States with more information and therefore more priority are first. Eg, bdfl_accepted pep has more information than pep_accepted. Done because a sentence may capture both and we
+% want that label with more information
+% Also the file follows the same pattern as how a pep is proposed, reviewed, and accepted or rejected, final/implemented
+% This makes file easier to understand, maintain and search
+% Start with Triples and doubles are therefore at the end of file
+
+% _ = and
+% - = or
+% in cases of two verbs in clause - ("PEP 488", "is", "marked as accepted")
+% can extend this to include all states in one line, pep is was accepted rejected
+% really important for making sure somne terms exist together and after another, especially bdfl pronouncement
+
+% Additional states - may be important
+previous_version_rejected previous_version_pep rejected
+acceptance_deferred acceptance_of_pep deferred
+you_include_rationale you_can include rationale
+
+small_edits_left small_edits are still
+
+% TRIPLES
+% normal events
+
+% IDEA STAGE maybe in ideas list
+%  : ("the moratorium idea", "got", "fairly positive responses On python-ideas")
+idea_positive_response idea got positive_response
+positive_feedback pep got positive_feedback
+positive_feedback_again pep got positive_feedback_again
+
+% "FYI i"	"submitted"	"the below PEP draft to receive a proper version number just"
+get_pep_number i submitted pep_draft_editors_version
+extensive_discussions topic saw discussion
+draft_extensive_discussions draft saw discussion
+
+
+no_remaining_controvesy i do_n't_see remaining_controversy
+implementation_done implementation done
+written_pep i written pep
+
+last_chance_before_python_dev last_chance_suggest changes before_python-dev
+last_chance_suggest_object last_chance_suggest changes
+last_chance_suggest_object last_chance_object changes
+
+% assign pep numbers
+ask_for_pep_number please assign pep_numbers
+
+% idea_rejected idea rejected pep
+
+% PROPOSAL STAGE
+proposal i propose-proposed-present pep
+proposal pep propose-proposes-proposed-presents
+proposal i present you
+proposal i put proposal
+proposal i would purpose
+proposal there was proposal
+proposal document helps discussion
+proposal i would-like propose
+proposal below is pep
+
+% draft
+draft pep is draft
+draft here is first_draft
+draft this first_draft pep
+draft here is draft-draft_pep-rough_draft_pep
+draft pep_draft found here
+draft i ve update_first_draft
+draft draft_pep is here
+draft attached is draft
+
+first_draft here is first_draft_pep
+early_draft it a early_draft
+acceptance_final pep_acceptance is final
+first_draft i have first_draft_pep
+latest_draft here is latest_draft_pep
+
+second_draft_pre_pep attached is second_draft_pre-pep
+second_draft attached is second_draft
+
+new_round_discussion we can-have new_round_comments_pep
+
+reviewed i reviewed pep
+final i changed pep_final
+accepted i moved pep_status_accepted
+
+% feedback
+call_for_feedback please read comment
+requests_feedback feedback is_requested
+requests_feedback i hope people_give_input
+requests_feedback i hope input
+requests_feedback i need feedback
+requests_feedback i welcome feedback
+requests_feedback review invited pep
+requests_feedback i welcome suggestion
+requests_feedback please express approval_or_disapproval
+requests_feedback please send_suggestions improvements
+requests_feedback feedback is welcome
+requests_feedback feedback_gratefully received
+requests_feedback comments invited pep
+requests_feedback your has feedback
+requests_feedback feedback received gratefully
+feedback_previous_draft feedback received previous_draft
+last_call_for_comments here is last_call_comments_arguments_against_approval
+last_call_for_comments here is last_call_comments
+
+% other list
+sig_positive sig was positive_idea
+wrote_pep i wrote pep
+
+% discussion
+discussion discussion took place
+discussion we discussing off_and_on
+discussion discussion continued python_dev
+discussion discussion on python_dev
+discussion posts were_made
+discussion_never_end pep_discussion never_end
+discussion_oriented_syntax discussion oriented syntax
+discussion discussion happened already
+
+
+% discussion all below commented to save time processing - not required anymore as they are really not discussion
+% discussion i think good_idea
+% discussion i think idea
+% discussion i agree suggestion
+% discussion i would_agree here
+% discussion i dislike
+% discussion i like
+% discussion i like idea
+% discussion i would_prefer
+% discussion i see advantage
+% discussion the_proposed syntax
+% discussion proposal is reasonable
+% discussion i like pep
+% discussion i like proposal
+% discussion i think proposal
+% discussion i m neutral
+
+% people continue
+discussion_continued people continuing discussion
+
+another_round_discussion we need another_round_discussion
+another_round_of_refinements pep is	ready_another_round_refinement
+another_round_discussion i proposing discussion_another_round 
+
+% vote
+% vote i vote
+
+% first draft round
+% latest round of discussion
+% last round
+% last round of discussion
+% round 5
+
+% Round of work
+new_round_work i like new_round_pep
+another_round_comments i expect another_round_comments
+
+another_round_review i think another_round_review
+another_round_review this is another_round_review
+
+% responses
+responses_summary here s summary_responses
+
+% off list discussion
+off_list_discussion we off_list_conversation guido
+% issue_closed i closed issue
+previous_version_rejected previous_version was_rejected
+previous_version_rejected previous_version rejected
+
+% stalled
+discussion_stalled discussion stalled
+
+% updated
+updated i made update
+updated i ve updated_pep
+updated i tweaked pep
+updated pep resurrected
+updated i request updated
+being_updated pep tweaked still
+
+% bdfl delegate stage
+bdfl_allocated i am willing_bdfl
+willing_bdfl i am willing_bdfl
+
+% feedback
+% Propositions     : ("No negative feedback", "was received", "on generator comprehensions")
+no_negative no_negative_feedback received
+positive_response response was positive
+no_objections no_objections were_raised
+
+% disagreement
+disagreement there be two_camps
+disagreement there is-are-were two_camps
+disagreement two_camps are
+disagreement there is-was disagreement
+
+% Review
+ask_bdfl_review guido wants bdfl_stick
+ask_bdfl_review i need bdfl
+ask_bdfap_review i need bdfap
+ask_bdfap_review he wants bdfap
+ready_review pep ready review
+ready_review pep is ready_for_review
+ready_review pep ready final_review
+ready_review pep is ready_for_final_review
+ready_review next is pep_review
+
+pep_addressed_concerns pep addressed key_concerns
+pep_addressed_concerns pep addressed concerns
+
+ask_pronouncement i can pronouncement
+
+% pep editor
+pep_editor i sent pep_editor
+
+% arguments 
+not_convinced no_argument is convincing_totally
+
+% dont know state
+not_asked_vote i not_asked vote
+dont_know_community_consensus idont_know state_of_community_consensus
+state_of_community_consensus state of community_consensus
+author_feels_community i feeling community_discussions
+received_favourably pep received favourably
+
+% complete_rewrite 
+complete_rewrite this is complete_rewrite_PEP
+complete_rewrite_second_author this is complete_rewrite_PEP_second_author
+
+% rewriting
+agreed it was agreed
+% agreed_PEP_needed_rewritten it agreed pep_rewritten
+rewriting_needed pep needed rewritten
+updated i working changes_to_pep
+updated pep reworked accordingly
+reviewed i reviewed pep
+rewritten my has rewritten_pep
+rewritten my rewritten_pep now_up
+rewritten pep is-being rewritten
+
+will_revise i will_revise document
+
+% received comments
+received_feedback favorable_comments received
+received_feedback i received comments
+received_feedback which received comments
+received_feedback i received comments_on_this_proposal
+
+% summarize 
+asks_for_pep_summary someone summarize new_material
+
+% updated
+updated i updated pep
+updated i checked changes
+updated i checked update
+updated i revised document
+updated i revise pep
+updated i revised pep
+updated i ve_updated_pep
+updated i requested updated
+updated here s updated_draft
+updated pep been revisions
+updated we polished pep
+draft_update here is draft_update_for_pep
+updated here s updated_draft_for_pep
+comments_addressed i addressed comments
+comments_addressed i addressed all_the_comments
+
+% a
+bdfl_approval issues resolved bdfl_approval_lack_objections
+lack_of_objections issues resolved lack_objections
+
+% b
+revived it was revived
+
+% resurrected after discussion
+resurrected_after_discussion pep resurrected after_discussion
+resurrected_after_discussion_python_dev pep resurrected after_discussion_python-dev
+
+
+% redraft/(reproposal)
+reproposal here is resurrected_pep
+resurrected PEP has_been resurrected
+redraft pep_redraft proposes
+update_pep_redraft i update pep_redraft
+propose_another_round_discussion i proposing discussion_another_round
+discussed pep discussed some_time
+serious_issues all have serious_issues
+last_call here is last_call_for_any_comments
+issues_resolved issue resolved
+
+complimentary_vote_results i posted results_complementary_vote
+
+no_remaining_controvesy idon't_see remaining_controversy
+no_remaining_controvesy i see remaining_controversy
+
+%waiting
+waiting_accepted pep is_waiting to_be_accepted
+waiting_consensus it waiting consensus
+waiting_pronouncement it waiting pronouncement
+
+% wasnt pronounced
+pep_wasnt_pronounced pep was_n't_pronounced upon
+% reasons why not pronounced - disagreements
+disagreement disagreements_pep	there-were
+disagreement disagreements there_were
+disagreement disagreements there
+disagreement disagreements were
+
+% Reasons and Transitions
+
+% REASONS - also another file for reasons
+% sometimes reasons exist on its own in a message completely seprate than the state therefore these are needed to be coded here
+pep_rejected_lack_of_majority rejected lack majority
+pep_superceded pep superseded pep
+initial_proposal_lost initial_proposal lost noise
+% revival after year, rejected to accepted
+motivation motivating_case was prevalance
+% best judgement call
+no_consensus previous_community stymied lack_consensus
+bdfl_call issue resolved bdfl_call
+no_remaining_controversy i do_n't_see remaining_controversy
+no_majority proposal has no_popular_support
+
+% poll reason
+options people think various_formats
+
+% reasons for acceptance or rejection
+consensus consensus converged proposed
+consensus consensus converged syntax
+
+
+% Transitions
+vote_after_discussion vote held following_the_discussion
+
+
+
+% REVIEW DECISION STAGE
+accepted pep is marked_as_accepted
+accepted pep is-was accepted-approved
+accepted pep accepted pep
+accepted pep approved pep
+accepted pep has_been_accepted
+accepted pep is-was accepted
+accepted pep is marked_as_accepted
+accepted pep moved accepted
+accepted pep accepted
+accepted pep is_accepted
+accepted pep approved
+accepted pep gets accepted
+accepted i approve pep
+accepted i accept-accepted pep
+accepted i accepting ipaddrress
+accepted i accepting pep
+accepted i declare accepted
+accepted i declare pep_accepted
+accepted he accept pep
+accepted it s a_deal
+accepted pep has acceptance
+accepted it was accepted
+accepted pep accepted
+accepted acceptance is final
+accepted pep moved accepted
+accepted pep accepted for_python
+
+rejected pep rejected author
+rejected pep rejected formally
+rejected pep is_rejected
+rejected pep was_rejected
+rejected pep was rejected
+rejected pep has_been_rejected
+rejected it was rejected
+rejected it rejected now
+rejected i reject it
+rejected guido rejected pep
+rejected_bdfl_decree pep rejected bdfl_decree
+
+withdrawn pep withdrawn bdfl
+superceeded pep rejected favor_of_pep
+bdfl_pronouncement_reject_pep bdfl pronouncement pep_is_rejected
+bdfl_pronouncement_reject_pep pep rejected bdfl_pronouncement
+
+final pep final pep
+rejected pep rejected pep
+
+withdraw pep withdraw pep
+public_poll_decided poll conducted will
+quick_consensus quick reached consensus
+
+% PEP AUTHOR ACTIONS IN ADDITION TO PROPOSAL
+author_requests_feedback i know ideas
+updated i checked changes
+updated i updated pep
+rejected_by_author pep rejected author
+rejected author rejected proposals
+
+% polls and votes
+% poll
+call_for_poll i would_like_run poll
+call_for_poll i would run_poll
+call_for_poll i propose poll
+poll i have poll
+poll i run poll
+poll poll please vote
+poll it s poll
+poll_vote it please vote
+poll poll linked wiki
+poll poll there_was
+informal_poll informal_poll was_taken
+call_informal_poll i like run_informal_poll
+poll_shows quick_poll shows proposal_no_popular_support
+
+% TRY
+% pollute pollutes requires effort
+
+poll_closed poll closed
+poll_results poll results clear
+% poll results
+people_preferred_pep_format people preferred formatting_proposed_pep
+
+%  : ("Thedivision operator", "came out", "first in a poll") - subject and object changed places so that it matches in code the way code is setup
+poll_results poll came
+informal_poll informal_poll taken
+informal_poll informal_poll was_taken
+informal_poll_results_clear_preferred_format poll_results clear preferred_format
+poll_result poll indicated no_proposal_majority
+poll_closed poll closed now
+poll_closed polls closed now
+
+% vote
+inviting_votes you can_vote
+inviting_votes you vote
+inviting_votes feel free vote
+inviting_votes you indicate vote
+inviting_votes you please vote
+inviting_votes you can-please indicate_vote
+inviting_votes please vote vote
+inviting_votes vote on pep
+inviting_votes answer with +1
+inviting_votes you email votes
+inviting_votes you can vote
+inviting_votes dont_forget vote
+inviting_votes you please indicate your_vote
+inviting_votes you please indicate_your_vote
+you_vote you forget vote
+call_for_vote vote run stages
+call_for_vote i plan run_vote
+call_for_vote it please vote
+
+approval_to_vote you have approval_hold_vote
+
+
+% voting related
+voting_method preference voting method
+voting_method anybody have preference we use voting_method
+vote_held vote was_held
+vote_result ballot result result
+vote_result vote result vote
+vote_summary summary of votes
+vote_summary vote is summarized
+comments_invited comments invited pep
+ready_for_review review ready pep
+voting_method_preference anybody have voting_method
+voting_method_preference i support majority_rules
+voting_method_preference here is condorcet_method
+
+% results
+informal_poll_results informal poll results
+vote_result results disclosed
+vote_result vote_results disclosed
+vote_showed vote showed
+vote_held vote was_held
+majority_said_no_change majority said no_change
+vote_showed pep_vote showed
+vote_showed pep_vote wanted
+vote_result_no_change vote resulted do_n't_change
+vote_result_no_change vote resulted don't_change
+vote_users_wanted pep_vote showed users_wanted
+vote_summary pep_vote summarized at
+vote_held vote held
+
+% alternate votes
+advisory_poll advisory poll pep
+alternate_vote alternate vote pep
+alternate_vote_results alternate vote results
+complimentary_vote complimentary vote pep
+complimentary_vote_results complimentary vote results
+
+discussion_on_voting_scheme which election method
+informal_vote informal vote vote
+unofficial_vote i decided to_organize_unofficial_vote
+unofficial_vote i decided unofficial_vote
+complementary_unofficial_vote_results results are complementary_unofficial_vote
+complementary_vote complementary_vote uses different_type_ballot
+official_complementary_confirm condorcet_results_official_vote confirm complementary_vote
+
+% majority
+no_majority no_proposal had majority
+
+% FINAL DECISION MECHANISMS
+%  consensus, rough consensus, no consensus, bdfl, bdfl pronouncement (influential individual), vocal minority 
+
+rough_consensus rough consensus
+vocal_minority vocal minority
+
+% syntaxes_proposed syntaxes proposed pep
+format_no_majority no_format was draw_majority
+
+% response positive
+response_was_positive response was positive
+no_objections no_objections raised
+uncontroversial ideas seem uncontroversial
+acceptance_stalled acceptance stalled
+
+% consensus
+hope_rough_consensus i hope rough_consensus
+consensus i think consensus
+consensus we reached-reaching consensus
+consensus consensus was_reached
+consensus_appears consensus appears
+consensus consensus has_been_reached
+consensus consensus reached_quickly
+consensus we reached_consensus pep
+consensus consensus is
+consensus consensus seems to_be_emerging
+consensus community consensus
+consensus community reached consensus
+consensus consensus emerged posts
+consensus community reach consensus
+consensus community_consensus emerged post
+consensus community consensus pep
+consensus reach consensus pep
+consensus_emerged consensus emerged
+
+no_consensus community has unable_reach_consensus
+no_consensus unable reach consensus
+no_consensus community has unable_to_reach_a_consensus 
+no_consensus fail reach consensus
+no_consensus never reach consensus
+no_consensus never reached consensus
+no_consensus not reach consensus
+no_consensus not reached consensus
+no_consensus consensus never_been_reached
+no_consensus thread died before_consensus_reached
+no_consensus community unable_to_reach consensus
+no_consensus we never_reach consensus
+no_consensus we never consensus
+no_consensus zero_consensus emerging
+no_consensus we 're far_consensus
+
+consensus_split consensus is 50-50
+
+% 
+
+issues_not_reach_consensus issues not_reach consensus
+
+% majority support
+no_majority_support no majority support
+no_support no_support has original
+
+negative_responses pep did-generate negative_responses
+
+% BDFL
+bdfl_accept_pep bdfl accept pep
+bdfl_accepted_pep bdfl accepted pep
+bdfl_reject_pep bdfl reject pep
+bdfl_rejected_pep bdfl rejected pep
+bdfl_acceptance guido has acceptance
+
+% bdfl
+bdfl_accepted pep accepted bdfl
+bdfl_approves_vote you approval vote
+bdfl_final_pep bdfl final pep
+bdfl_pronouncement_accept_pep bdfl pronouncement accept
+bdfl_pronouncement_accepted_pep bdfl pronouncement accepted
+bdfl_pronouncement_accept_pep pronouncement accept pep
+bdfl_pronouncement_accept_pep bdfl_pronouncement_pep accepted
+bdfl_pronouncement_accept_pep pronouncement_pep accepted
+bdfl_pronouncement_conditionally_accept_pep pronouncement conditionally pep
+bdfl_pronouncement_reject_pep pronouncement reject pep
+bdfl_pronouncement_reject_pep bdfl_pronouncement_pep rejected
+bdfl_pronouncement_reject_pep pronouncement_pep rejected
+bdfl_proposes_pep bdfl propose pep
+bdfl_proposed_pep bdfl proposed pep
+bdfl_withdraw_pep bdfl withdraw pep
+bdfl_pronouncement issue resolved bdfl_best_judgment_call
+
+% bdfl
+bdfl_accepted_pep guido accept pep
+bdfl_accepted_pep guido accepted pep
+bdfl_reject_pep guido reject pep
+bdfl_rejected_pep guido rejected pep
+
+
+
+
+bdfl_asked_volunteer guido asked volunteer
+co_bdfl_delegate_accepted_pep co-bdfl-delgate 
+
+bdfl_took_proposals_to_conference guido took proposals_to_europython
+
+% pep czar
+volunteer_pep_czar myself pep_czar pep
+pep_czar_appointed * is pep_czar
+
+
+% do
+decision_overwritten_last_momentdecision overridden last_moment
+decision_overwritten_last_momentdecision overridden no_debate
+% ----
+draft_update here is draft_update
+not_approved pep is_n't_approved yet
+
+no_consensus no_clear_consensus there_is
+decided_bdfl_consensus topics decided consensus_bdfl
+
+discussion pep s under_discussion
+rejected pep is-was rejcted
+agreed several_people agreed
+bdfl guido agreed pep_rejected
+no_disagreement no_one disagreed
+no_spoke no-one spoke rejected
+% ----
+
+
+
+% FINAL STAGES - implemented, final
+
+implemented i make implementation
+implemented i make implementation_with_these_changes
+implemented implementation_for_pep is_done
+implementation_closed implementation closed
+
+%  final
+final pep is-marked final
+final pep has status_final
+final pep moved finished_section
+
+
+% DOUBLES
+% standard states
+% this creates a lot of false positives
+draft pep draft
+open pep open
+active pep active
+pending pep pending
+closed pep closed
+final pep final
+accepted pep accepted
+deferred pep deferred
+replaced pep replaced
+rejected pep rejected
+postponed pep postponed
+incomplete pep incomplete
+superceded pep superseded
+
+% more states I added
+% The bdfl pronouncement is commented is it return too many false positives
+% bdfl_pronouncement bdfl pronouncement
+
+% submitted pep submitted
+revised pep revise
+rejected pep has_been_rejected
+accepted pep approved
+withdraw pep withdraw
+vote vote held
+draft posted rough_draft_pep
+
+% conflicting bdfl
+bdfl_intervention guido used poll_not_enough_support
+
+% IGNORE TRIPLES - MAYBE NOT NEEDED
+
+% SUB PEP - PARTS OF PEP
+% form, syntax, scheme -dont include these
+ignore_propose_syntax i propose syntax
+ignore_syntax_proposed syntax proposed
+ignore_syntax_accepted syntax accepted
+ignore_discussion_came_down_to_syntaxdiscussion came_down syntax
+ignore_form_rejected form rejected pep
+ignore_form_rejected forms rejected bdfl
+ignore_form_rejected bdfl rejected form
+ignore_idea_rejected idea rejected pep
+ignore_scheme_rejected scheme rejected explicitly
+ignore_scheme_rejected scheme rejected
+ignore_review pep was ready_for_review
+
+bug_opened bug_opened
+ignore_issue_closed issue_closed
+ignore_issues_closed issues_closed

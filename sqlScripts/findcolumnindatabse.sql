@@ -1,0 +1,4 @@
+SELECT DISTINCT TABLE_NAME 
+    FROM INFORMATION_SCHEMA.COLUMNS
+    WHERE COLUMN_NAME IN ('totalNumberOfUniqueStandardPEPTypeInWhichAuthorPosted')
+        AND TABLE_SCHEMA='peps_new';

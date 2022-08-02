@@ -1,0 +1,7 @@
+Sentence: Since there has been some controversy about the joining syntax used in PEP 428 (filesystem path objects), I would like to run an informal poll about it.
+		Matched Pattern: &[subj_N:1] &AUX_ &RB_ $_ &[obj_N:2]
+	cause,effect: some controversy about the joining syntax used in PEP 428 -LRB- filesystem path objects -RRB-,an informal poll about it
+	
+Sentence: Accordingly, the PEP was rejected due to the lack of an overwhelming majority for change.
+	Matched Pattern: &C2_ [2] due &RB_ to &[N:1]
+cause,effect: the lack of an overwhelming majority for change,Accordingly , the PEP was rejected

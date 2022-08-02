@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-15">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/antlr-runtime-3.2.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/guava-19.0.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/opennlp-maxent-3.0.3.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/opennlp-tools-1.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/opennlp-uima-1.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/natty-0.7.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/jaws-bin.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/commons-io-2.5.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/guava-20.0.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/WritingToExcel/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/WritingToExcel/xmlbeans-2.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/WritingToExcel/poi-bin-3.17-20170915/poi-3.17/poi-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/WritingToExcel/poi-bin-3.17-20170915/poi-3.17/poi-examples-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/WritingToExcel/poi-bin-3.17-20170915/poi-3.17/poi-excelant-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/WritingToExcel/poi-bin-3.17-20170915/poi-3.17/poi-ooxml-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/WritingToExcel/poi-bin-3.17-20170915/poi-3.17/poi-ooxml-schemas-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/WritingToExcel/poi-bin-3.17-20170915/poi-3.17/poi-scratchpad-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/WritingToExcel/xmlbeans-current/xmlbeans-1.0.3/lib/jaxen-1.1-beta-2.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/WritingToExcel/xmlbeans-current/xmlbeans-1.0.3/lib/xbean.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/WritingToExcel/xmlbeans-current/xmlbeans-1.0.3/lib/xbean_xpath.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,14 @@
+Based
+on
+the
+favorable
+feedback,
+Guido
+has
+accepted
+the
+PEP
+for
+Py2
+.4.
+_END_OF_SENTENCE_

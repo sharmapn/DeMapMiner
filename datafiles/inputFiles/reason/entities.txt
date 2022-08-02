@@ -1,0 +1,63 @@
+pep dictator
+pep champion
+bdfl
+bdfls
+bdfl's
+bdfl delegate
+bdfl delegate's
+bdfl delegates'
+committer
+committers
+committer's
+committers'
+committer's vote
+committers' vote 
+committers vote
+core developers
+core developer's
+core developers'
+czar
+pep czar
+pep-bdfl
+pep editor
+pep editor's
+pep editors'
+bpd
+bpc
+flufl
+community
+community's
+committee
+committee's
+committee
+committee
+dictatorship
+dictator
+delegate
+delegates
+delegates'
+i
+i am
+i'm
+i 'm
+i've
+i 've
+my
+guido
+guidos
+guido's
+guido 's	
+-- Special terms .. additional 'points in time' which are important we have found
+-- below added cos of pep 391 acceptance
+author
+nobody
+people
+-- aug 2018
+anyone
+everyone
+them
+developer
+developers
+-- nov 2018 pep 475
+you
+no one

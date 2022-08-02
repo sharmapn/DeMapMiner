@@ -1,0 +1,11 @@
+Tom
+has
+accepted
+the
+PEP
+as
+favourable
+feedback
+in
+community
+_END_OF_SENTENCE_

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 4 packages to &apos;src&apos;&#x0D;&#x0A;- Original project: &apos;javaStringSimilarity&apos;&#x0D;&#x0A;- Destination element: &apos;src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     javaStringSimilarity/src/test.java.info.debatty.java&#x0D;&#x0A;     javaStringSimilarity/src/main.java.info.debatty.java&#x0D;&#x0A;     javaStringSimilarity/src/EnglishOrJavaCode&#x0D;&#x0A;     javaStringSimilarity/src/info.debatty.java&#x0D;&#x0A;- Update references to refactored element" description="Move packages" element1="/src&lt;test.java.info.debatty.java" element2="/src&lt;main.java.info.debatty.java" element3="/src&lt;EnglishOrJavaCode" element4="/src&lt;info.debatty.java" flags="589830" fragments="4" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1658399267913" target="/common/src" version="1.0"/>
+</session>

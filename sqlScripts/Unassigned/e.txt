@@ -1,0 +1,40 @@
+From tim_one@email.msn.com  Thu Aug 17 04:47:04 2000
+From: tim_one@email.msn.com (Tim Peters)
+Date: Wed, 16 Aug 2000 23:47:04 -0400
+In-Reply-To: <14747.22851.266303.28877@anthem.concentric.net>
+Message-ID: <LNBBLJKPBEHFEDALKOLCIEDGHAAA.tim_one@email.msn.com>
+
+[Greg Ewing]
+> Looks reasonably good. Not entirely sure I like the look
+> of >> though -- a bit too reminiscent of C++.
+>
+> How about
+>
+>    print to myfile, x, y, z
+
+[Barry Warsaw]
+> Not bad at all.  Seems quite Pythonic to me.
+
+Me too!  +1 on changing ">>" to "to" here.  Then we can introduce
+
+   x = print from myfile, 3
+
+as a synonym for
+
+   x = myfile.read(3)
+
+too <wink>.
+
+People should know that Guido doesn't seem to like the idea of letting print
+specify the output target at all.  "Why not?"  "Because people say print is
+pretty useless anyway, for example, when they want to write to something
+other than stdout."  "But that's the whole point of this change!  To make
+print more useful!"  "Well, but then ...".  After years of channeling, you
+get a feel for when to change the subject and bring it up again later as if
+it were brand new <wink>.
+
+half-of-channeling-is-devious-persuasion-ly y'rs  - tim
+
+
+
+

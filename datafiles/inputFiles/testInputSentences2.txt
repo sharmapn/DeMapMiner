@@ -1,0 +1,35 @@
+null From scott+python-dev at scottdial.com  Mon Jan 30 19:19:56 2012
+ From: scott+python-dev at scottdial.com (Scott Dial)
+ Date: Mon, 30 Jan 2012 13:19:56 -0500
+ Subject: [Python-Dev] PEP 408 -- Standard library __preview__ package
+In-Reply-To: <CAGE7PNJv1Vqji49PeBz2xDjFrGUovXpUN5xWeC80ym7FYmP_yQ@mail.gmail.com>
+References: <CAF-Rda_wFaOf=nAcTX00xAHbqpM3SXiQuZD4U3kEF5Qbv5Zu8A@mail.gmail.com>
+	<loom.20120127T182159-635@post.gmane.org>
+	<CAGE7PNJv1Vqji49PeBz2xDjFrGUovXpUN5xWeC80ym7FYmP_yQ@mail.gmail.com>
+Message-ID: <4F26DF4C.5080006@scottdial.com>
+
+On 1/29/2012 4:39 PM, Gregory P. Smith wrote:
+> An example of this working: ipaddr is ready to go in. It got the
+> eyeballs and API modifications while still a pypi library as a result
+> of the discussion around the time it was originally suggested as being
+> added.  I or any other committers have simply not added it yet.
+
+This is wrong. PEP 3144 was not pronounced upon, so ipaddr is not just
+ This is wrong. PEP 3144 was not pronounced upon, so ipaddr is not just
+waiting for someone to commit it; it's waiting on consensus and
+pronouncement.
+
+PEP 3144 wasn't pronounced upon because there were significant
+ PEP 3144 wasn't pronounced upon because there were significant
+disagreements about the design of the API proposed in the PEP. As it
+stands, I believe the authorship of ipaddr either decided that they were
+not going to compromise their module or lost interest.
+
+See Nick Coghlan's summary:
+
+http://mail.python.org/pipermail//python-ideas/2011-August/011305.html
+
+-- 
+Scott Dial
+scott at scottdial.com
+

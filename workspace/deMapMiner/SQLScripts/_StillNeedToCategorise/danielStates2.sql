@@ -1,0 +1,1 @@
+DELETE from allmessages where messageID >= 5000000

@@ -1,0 +1,5 @@
+select distinct(messageid), sendername, inReplyToUser, date2, subject                                                                                                                       
+from allmessages 
+where sendername in (select author from alldevelopers) 
+OR inReplyToUser in (select author from alldevelopers)
+INTO OUTFILE 'c:\\scripts\\socialNetworkAllDevelopers_24-04-2017.txt';

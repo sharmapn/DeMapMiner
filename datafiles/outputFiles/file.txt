@@ -1,0 +1,53 @@
+1 	X	with pprov l just checked in minor ch nge to th t cl rifies the signific nce of inform tion s.
+2 	X	diff u r apr new feature or implementation for python.
+3 	X	n inform tion l describes python design issue or provides gener l guidelines or inform tion to the python community but does not propose new fe ture.
+4 	X	inform tion l do not represent python community consensus or recommend tion so users nd re free to ignore inform tion l or follow their dvice.
+5 	X	with pprov l just checked in minor ch nge to th t cl rifies the signific nce of inform tion s.
+6 	X	diff u r apr new feature or implementation for python.
+7 	X	n inform tion l describes python design issue or provides gener l guidelines or inform tion to the python community but does not propose new fe ture.
+8 	X	inform tion l do not represent python community consensus or recommend tion so users nd re free to ignore inform tion l or follow their dvice.
+9 	X	if people disagree about this view of informational as advisory please speak up now so we can discuss this issue.
+10 	X	with pprov l just checked in minor ch nge to th t cl rifies the signific nce of inform tion s.
+11 	X	diff u r apr new feature or implementation for python.
+12 	X	n inform tion l describes python design issue or provides gener l guidelines or inform tion to the python community but does not propose new fe ture.
+13 	X	inform tion l do not represent python community consensus or recommend tion so users nd re free to ignore inform tion l or follow their dvice.
+14 	X	if people disagree about this view of informational as advisory please speak up now so we can discuss this issue.
+15 	X	if people disagree about this view of informational as advisory please speak up now so we can discuss this issue.
+16 	X	this came up because of the recently posted .
+17 	X	some people on the python list dont like s interf ce t ll nd other people think the whole ide of st nd rd pi for block encryption is .
+18 	X	it seems impossible to come to consensus so i wanted to that informational dont bind people to the interfaces they describe.
+19 	X	www ca i was continually connected with the whole world and never got any rest.
+20 	X	t the moment i spend only few hours weekly on the net th ts just better for me.
+21 	X	if people disagree about this view of informational as advisory please speak up now so we can discuss this issue.
+22 	X	this came up because of the recently posted .
+23 	X	some people on the python list dont like s interf ce t ll nd other people think the whole ide of st nd rd pi for block encryption is .
+24 	X	it seems impossible to come to consensus so i wanted to that informational dont bind people to the interfaces they describe.
+25 	X	www ca i was continually connected with the whole world and never got any rest.
+26 	X	t the moment i spend only few hours weekly on the net th ts just better for me.
+27 	X	seems to me that if an informational gets approval its binding but possibly not .
+28 	X	im not sure what the point of an informational that has no consensus is though such documentation be spread by other means.
+29 	X	com http www com.
+30 	X	what if there were no questions.
+31 	X	seems to me that if an informational gets approval its binding but possibly not .
+32 	X	im not sure what the point of an informational that has no consensus is though such documentation be spread by other means.
+33 	X	com http www com.
+34 	X	what if there were no questions.
+35 	X	specify anything related to programming or python though.
+36 	X	i dont think its worth defining new c tegory to from d t b se pi or .
+37 	X	regarding suggestion of introducing an experimental category whats the distinction be between experimental and informational if neither status carries any that users should to the .
+38 	X	for example would be experimental or informational and why.
+39 	X	specify anything related to programming or python though.
+40 	X	i dont think its worth defining new c tegory to from d t b se pi or .
+41 	X	regarding suggestion of introducing an experimental category whats the distinction be between experimental and informational if neither status carries any that users should to the .
+42 	X	for example would be experimental or informational and why.
+43 	X	seem suited for this and its how are used too.
+44 	X	i could just stick it on r ndom web p ge somepl ce but like re much less likely to v nish nd re much shorter to reference.
+45 	X	most start their life as experimental.
+46 	X	then they either become standard with draft status in between or rejected or informational if no consensus is reached but the is still useful i expect the s to go here.
+47 	X	some start out informational if they are of historical .
+48 	X	for most practical purposes are with and i expect that just as the rfc process became more as the community grew well have to become more anal about rules too.
+49 	X	most start their life as experimental.
+50 	X	then they either become standard with draft status in between or rejected or informational if no consensus is reached but the is still useful i expect the s to go here.
+51 	X	some start out informational if they are of historical .
+52 	X	for most practical purposes are with and i expect that just as the rfc process became more as the community grew well have to become more anal about rules too.
+53 	X	van home page http www python org .

@@ -1,0 +1,7 @@
+PEP 201 has been accepted by the BDFL.
+PEP 214 and 221 are accepted, as per recent BDFL pronouncements.
+This proposal has been accepted by the BDFL.
+Both PEP 201 Lockstep Iteration and SF patch #101030 have been accepted by the BDFL.
+PEP 214, Extended print Statement, has been accepted by the BDFL.
+This PEP was accepted by the BDFL on November 22. 
+Daniel submitted PEPs 425 and 427 to python-dev for acceptance, and I have formally accepted 427 as BDFL delegate.

@@ -1,0 +1,8 @@
+% pep type,label,SUB,VERB,OBJ
+pep_accepted,pep_accepted,pep,accepted,
+,pep_accepted,pep,was,accepted
+,pep_gets_accepted,pep,gets,accepted
+,,,,
+pep_rejected,,pep,rejected,
+,,pep,was,rejected
+,,pep,gets,rejected

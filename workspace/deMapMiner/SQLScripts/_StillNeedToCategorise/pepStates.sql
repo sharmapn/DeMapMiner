@@ -1,0 +1,1 @@
+select * from allpeps where pep = 2 and messageID > 500000 order by dateTime

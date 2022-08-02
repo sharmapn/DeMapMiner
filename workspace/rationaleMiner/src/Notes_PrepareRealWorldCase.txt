@@ -1,0 +1,6 @@
+Here we test the prepared model againt all the sentences and metadata from teh repository.
+
+1 - we select the sentences and other necessary columns from the 'allsentences' table
+2 - before that we have to populate that 'allsentences' table with the '.java' script
+
+ 

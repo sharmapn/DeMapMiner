@@ -1,0 +1,12 @@
+poll, polls, polling, polled
+poll result
+vote, voting, voted, voter
+vote result
+survey, surveyed, surveys, surveying
+survey results
+review, reviews,reviewing,reviewed
+pronounce, pronounces,pronouncing,pronounced, pronouncement, pronunciation
+-- request number
+-- implement
+-- resolution
+-- notice

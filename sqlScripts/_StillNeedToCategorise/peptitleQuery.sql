@@ -1,0 +1,1 @@
+select * from pepdetails where title like '%string concatenation%'

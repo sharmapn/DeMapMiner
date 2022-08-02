@@ -1,0 +1,4 @@
+sent = = SUMIF(Edges[Vertex 1],[@Vertex],Edges[Edge Weight])
+received = SUMIF(Edges[Vertex 1],[@Vertex],Edges[Edge Weight])
+total =[@Sent]+[@Received]
+sent % =[@Sent]/[@Total]

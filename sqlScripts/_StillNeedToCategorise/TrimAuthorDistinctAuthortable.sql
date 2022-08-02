@@ -1,0 +1,1 @@
+update distinctauthors SET author = TRIM(author);

@@ -1,0 +1,19 @@
+-- wordforms and deraivitly simailr words retrived using wordnet, etc
+-- noun synonyms and verb synonyms not considered as too out of line
+draft, drafting, drafted
+accepted, accept, accepting, approve, approved, approving, add, added, acceptable, acceptance, acceptive, acceptation, acceptant
+deferred, defer, deferring, deferred, defers, deferment, deference, deferent, deferral
+rejected, reject, rejects, rejecting, get-rid
+proposed, propose, proposes, proposing, proposed, proposal, proposer, proposition
+withdraw, withdraws, withdrawing, withdrew, withdrawn
+postponed, postpone, postponing, postpones
+replaced, replace, replacing, replaces
+incompleted, incomplete, incompleting
+pending
+superceded, supercede, superceding
+finalized, final, finalizing
+closed, close, closing
+updated, updating, update
+wrote, write, writing, written
+update, updating, updated
+revised, revise, revising, revisal, revision, rescript,

@@ -1,0 +1,4 @@
+not-so-obvious syntax	PEP 204 was rejected , mostly
+being too magical , and too confusing to those who are n't expecting it	but this was rejected
+using a different type of ballot	and a different method of tallying the results -LRB- Condorcet 's Method -RRB-
+the PEP	some changes after the discussions we had with Martin on Distutils-SIG on how versions are defined

@@ -1,0 +1,12 @@
+
+
+-- all communications in python lists
+-- QUERIES
+-- ONLY DEVELOPERS -- USED FOR TOP COMMUNITY MEMBER ANALYSIS AND ADMIN REPLACEMENT PART 1 
+-- (this is also part 1 of the admin replacement query, part 2 is below somewhere)
+select distinct(messageid), clusterBySenderFullName, inReplyToUserUsingClusteredSender, date2, subject                                                                                                                       
+from allmessages 
+where (clusterBySenderFullName in (select clusterBySenderFullName from alldevelopers) OR inReplyToUserUsingClusteredSender in (select clusterBySenderFullName from alldevelopers))
+	AND clusterBySenderFullName IS NOT NULL AND inReplyToUserUsingClusteredSender IS NOT NULL
+	AND folder = 'C:\\datasets\\python-dev'
+INTO OUTFILE 'C:\\scripts\\SQLResults\\SocialNetworkAnalysis\\Analysis\\TopCommunityMembers\\SNA_AllDevelopersOnly__PythonDevOnly_withoutNulls_withAdmin__04-06-2017.txt';

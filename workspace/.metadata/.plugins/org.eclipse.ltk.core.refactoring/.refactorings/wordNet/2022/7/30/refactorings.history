@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 3 packages to &apos;src&apos;&#x0D;&#x0A;- Original project: &apos;wordNet&apos;&#x0D;&#x0A;- Destination element: &apos;src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     wordNet/src/WordNet&#x0D;&#x0A;     wordNet/src/jaws&#x0D;&#x0A;     wordNet/src/edu.cmu.lti.abstract_wordnet&#x0D;&#x0A;- Update references to refactored element" description="Move packages" element1="/src&lt;WordNet" element2="/src&lt;jaws" element3="/src&lt;edu.cmu.lti.abstract_wordnet" flags="589830" fragments="3" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1658399303339" target="/common/src" version="1.0"/>
+</session>

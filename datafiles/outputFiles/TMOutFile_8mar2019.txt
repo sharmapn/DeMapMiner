@@ -1,0 +1,662 @@
+1 	X	pep generator expression second draft.
+2 	X	file system path pep draft.
+3 	X	draft of how be develop essay.
+4 	X	the consensus be that we should link share against.
+5 	X	draft of how be develop essay.
+6 	X	modify file pep pep be rename and pep be add.
+7 	X	this pep be accept by the on november.
+8 	X	constructive feedback negative or positive about this port be welcome and should be address to at the mail address below.
+9 	X	follow recent discussion of the introduction of new platform in this case ive write pep on remove support for platform that nobody be interested.
+10 	X	there be no overwhelming consensus on whether to remove the assert name or the fail name both be in common use.
+11 	X	the have pronounce that no renaming be to occur in the module.
+12 	X	draft of how be develop essay.
+13 	X	this pep have be reject as obsolete.
+14 	X	think this pep be dead new feature request be last add in.
+15 	X	let not add more feature request to it instead let change the intro to say the pep be reject.
+16 	X	the implementation of the loop through the string be do in the following way.
+17 	X	replacement note although the size of the list in this pep be much less scary than that in pep it turn out not to be enough justification for the duplication of information and with it the danger of one of the copy to become out of date.
+18 	X	there be few proponent and few opponent people express concern that the pep be too generic and isnt really related to python development so promise to revoke the pep after the switch to and.
+19 	X	notice that there be no more open issue.
+20 	X	have no remain issue or hesitation about this pep and be happy to see it resolve.
+21 	X	most of the feedback receive to date.
+22 	X	pep generator expression second draft.
+23 	X	and this be still true in committee work by consensus and there be so many goofy thread model out there consensus will never be reach keep that in mind as you ponder how pep should proceed wink.
+24 	X	feedback be more than welcome include spelling fix and the like.
+25 	X	augmented assignment be schedule to go in soon well before at least and if you dont spot the loony now well have to live with it forever.
+26 	X	the open issue as well as some confusion between range and slice syntax raise enough question for not to accept it for python and later to reject the proposal altogether.
+27 	X	although see that common trend these day be to form some kind of narrow consensus hype it repeatedly and in the name of one cause to push another agenda entirely all whilst ignore the original problem that get people think in the first place be quite sure that as respected python contributor this be not goal of yours in write the pep.
+28 	X	if pep be sorely after only year of its life there clearly be something wrong with the pep.
+29 	X	other empty pep be also move to the defer category since they be effectively empty too.
+30 	X	mark as defer since it seem like this will never get finish.
+31 	X	reject longstanding empty pep also allow for the removal of the empty pep section from the categorical index.
+32 	X	pep rename to add new linear algebra operator at request of.
+33 	X	this incorporate the comment receive.
+34 	X	notice that this draft be rather more developed than the average first round pep post because its already be the round of all the various numerical package mailing list to build consensus no point in ask for the wrong thing.
+35 	X	some of they seem hopelessly antiquated be propose long ago and the language have move on.
+36 	X	pep be hijack and rename loop counter iteration.
+37 	X	most of the feedback receive to date.
+38 	X	on june the concur with it be obsolete and hereby reject the pep.
+39 	X	enumerate introduce in pep cover the propose in this pep and the pep author have be unreachable.
+40 	X	the former problem be address with enumerate add in see pep.
+41 	X	property solve this exact problem.
+42 	X	pep and be accept as per recent pronouncement.
+43 	X	ive now read pep and think ill reverse my opinion its okay.
+44 	X	jump into the thread himself explain he reasoning in detail refute many of the decisively agree he would reconsider it for explain why he reconsider whether or not print grow one small and option be in the grand scheme of thing about as trivial as issue get.
+45 	X	approve of the general idea.
+46 	X	throughout the existence of the python documentation special interest group doc consensus on single standard format have never be reach.
+47 	X	this pep be reject by the author.
+48 	X	to establish as standard format by attain accept status python community consensus pronouncement.
+49 	X	it will be supersede by new pep at which time this notice will be update.
+50 	X	have ask to pronounce on this pep.
+51 	X	all the disagreement be about which subset should be choose.
+52 	X	this pep be withdraw by the author.
+53 	X	other empty pep be also move to the defer category since they be effectively empty too.
+54 	X	pep and be accept as per recent pronouncement.
+55 	X	however there seem little interest from the python community and time be lack so this pep be defer to some future.
+56 	X	however there seem little interest from the python community and time be lack so this pep have be defer to some future python release.
+57 	X	response be overwhelmingly positive no objection be raise.
+58 	X	pep be reject by decree.
+59 	X	the attribute pep didnt get in and be unlikely to get in in its current form because dont like the syntax much and because the way to look up the be weird and ugly have to use something like or forget which both weird and ugly.
+60 	X	really dont like the syntax the binding between the and the document identifier be too weak.
+61 	X	its not the implementation its the syntax it doesnt convey clear enough coupling between the variable and the doc string.
+62 	X	withdrawal this pep have be withdraw in of pep.
+63 	X	rejection there be serious problem with the feature.
+64 	X	change status to defer until paul update the text wink.
+65 	X	pep move to defer but this will probably change to finish once paul update the text.
+66 	X	what be up with this pep progress on this seem to have stall so propose mark it deferred and move it out of the active pep category to where im not yet sure.
+67 	X	but the have pronounce solid on this.
+68 	X	give you the pep number for and last night check initial implementation into the tree.
+69 	X	version of this pep have be withdraw for now these may be the.
+70 	X	the follow topic have be decide by consensus or pronouncement.
+71 	X	most of the feedback receive to date.
+72 	X	move all the open issue to resolve issue with brief explanation of how they be resolve.
+73 	X	resolve issue the following topic have be decide by consensus or pronouncement.
+74 	X	as you point out there be no consensus.
+75 	X	open issue we expect that these issue will be resolve over time as more feedback be receive or we gather more experience with the initial implementation.
+76 	X	the need outline in the rationale section have be address to some extent by the acceptance of pep for decimal arithmetic.
+77 	X	my impression of the discussion be that the consensus so far be maybe and its too painful and that why be still argue.
+78 	X	the need outline in the rationale section have be address to some extent by the acceptance of pep for decimal arithmetic.
+79 	X	pep be marked final and move to the finish section.
+80 	X	dont worry about pep it have be by pep.
+81 	X	modify file pep log message reject by the author.
+82 	X	there be no opposition to the proposal but only mild interest in use it not enough to justify add the module to the standard library.
+83 	X	pep be probably worth look at although believe it be basically by pep.
+84 	X	dont like have equal sign there but can add this as alternative and leave it for pronouncement and count vote in favour or against.
+85 	X	after yesterday meet the status of pep be change to reject.
+86 	X	while at some point expect that python will have interface it would be naive to expect it to resemble the syntax in this pep.
+87 	X	feedback be of course welcome so think have better it here rather than rely on would be commenter to get it from im also specifically the author since he involve in this rewrite and of course owe it to he to change or clearly attribute to myself anything he doesnt like to have under he own name.
+88 	X	anyway im at least on drop this the reservation be just because dont think everybody else will agree with this and dont want to be appear to imply that consensus between you and imply any sort of community consensus on this point.
+89 	X	something much better be about to happen its too early to say exactly what but its not go to resemble the proposal in this pep too closely so its better to start new pep.
+90 	X	it have one known weakness that currently dont know how to fix the return code in case of fail authentication be always bad syntax.
+91 	X	currently dont complain when there be serious order disagreement.
+92 	X	speak up either way and it be now reject.
+93 	X	this pep be stub entry and eventually abandon without have be.
+94 	X	informal poll of indicate split on this subject perhaps set up as day swing vote.
+95 	X	most of the feedback receive to date.
+96 	X	comment be invite on the revise pep.
+97 	X	no argument on either side be totally convincing so have consult my language designer intuition.
+98 	X	it tell that the syntax propose in the pep be exactly right not too hot not too cold.
+99 	X	approach maybe just even presentation approach that focus on the relevant and minimality will be easier to push down people throat from the and the pep it seem that the pep be the result of motivated self select group with difficulty to reach consensus and so neglect minimality.
+100 	X	this proposal seem to have run out of steam.
+101 	X	approach maybe just even presentation approach that focus on the relevant and minimality will be easier to push down people throat from the and the pep it seem that the pep be the result of motivated self select group with difficulty to reach consensus and so neglect minimality.
+102 	X	while this may serve as interesting design document for the it be no longer slate for inclusion in the standard library.
+103 	X	pep pep log message pep reject by user community with record unanimity.
+104 	X	you feedback be welcome on this issue.
+105 	X	in pep the have pronounce that he want to avoid any more tinker with print.
+106 	X	the user community unanimously reject this so will pursue this idea any further.
+107 	X	pep reject by user community with record unanimity.
+108 	X	think about add specific to make it faster but find that the current implementation make that more complicated than it should be because you have to keep track of repetition.
+109 	X	there be no such consensus.
+110 	X	have assign the pep number to this pep.
+111 	X	consider the above pep ready for review by the developer.
+112 	X	record that pep resolve some open issue leave hang in.
+113 	X	if anyone have objection to pep raise they now.
+114 	X	several people agree and no one disagree so the pep be now.
+115 	X	pronouncement this pep be reject because the need for it have be largely fulfil by sort builtin function.
+116 	X	work he magic and you can now read the current first draft of pep at.
+117 	X	while this pep be nice idea have yet emerge to do the work of hash out the difference between this pep pep and pep.
+118 	X	it have fail to generate sufficient community support in the six year since its proposal.
+119 	X	this pep be withdraw by the author.
+120 	X	the introduction of eliminate this situation since create sequence without duplicate be just matter of choose different datum structure set instead of list.
+121 	X	modify file pep pep be withdraw.
+122 	X	modify file pep this pep be withdraw by its author.
+123 	X	this pep have be withdraw by its author.
+124 	X	consensus be that we should adopt.
+125 	X	paul not encumber by corporate consensus the distinction between the real twentieth century and the one be base on the convincing idea that the century bout of violence both within nation and between they possess definite historical coherence that they constitute to put it simply single story.
+126 	X	it be withdraw after observation that substantially all of its benefit be subsume by generator expression couple with the constructor.
+127 	X	on the pep be change to reflect this reality by update its status to accept and update the field.
+128 	X	paul not encumber by corporate consensus.
+129 	X	consider the pep ready for review by the developer.
+130 	X	rejection notice similar pep for python pep be already reject so this proposal have no chance of be accept either.
+131 	X	all of the suggestion for add step size to the syntax have be ugly and unworkable to the point where everyone have agree that its not worthwhile.
+132 	X	pep be withdraw so no need to worry about that.
+133 	X	input implementation surprisingly lot of output be do through.
+134 	X	comment invite pep enhance generator.
+135 	X	most of the feedback receive to date.
+136 	X	before send generator comprehension portion to for pronouncement would like to get all of you vote or on just the part about generator comprehension.
+137 	X	modify file pep pep be rename to the enumerate build in function since the old title didnt reflect its accept proposal.
+138 	X	on june the concur with it be obsolete and hereby reject the pep.
+139 	X	comment from the community the response to the generator comprehension proposal have be mostly.
+140 	X	deferral while this pep be nice idea have yet emerge to do the work of hash out the difference between this pep pep and pep.
+141 	X	on june the concur with it be obsolete and hereby reject the pep.
+142 	X	on june the concur with it be obsolete and hereby reject the pep.
+143 	X	consensus be that we should adopt.
+144 	X	consensus be that we should adopt.
+145 	X	suggest update pep integer for loop but several people speak up against it include so the pep be reject.
+146 	X	however even with the the proposal do not garner support.
+147 	X	the majority of reviewer so far be in range from dont hate it to yes please.
+148 	X	despite the negative feedback ive decide to accept the pep.
+149 	X	there be lot of negative feedback but there be also lot of support for the pep.
+150 	X	other than that be there any concrete issue that have be raise that need to be address by the pep.
+151 	X	pep deferral further exploration of the concept cover in this pep have be defer for lack of current champion interested in promote the goal of the pep and collect and incorporate feedback and with sufficient available time to do so effectively.
+152 	X	new file pep pep title standard format version revision last modified date author user net david discussion to doc python status draft type informational create mar post history replace by pep notice this pep be reject by the author.
+153 	X	im assume that there be consensus in the doc that rest be the right solution.
+154 	X	the attribute pass capability never build follow do not have clear implementation and do not have clean way for the run generator to access its own.
+155 	X	pep generator expression second draft.
+156 	X	yes consensus clearly converge on the propose syntax the mention of generator in the construct name be the part that think prompt the desire for yield have they be call expression suspect nobody would have miss yield even transiently.
+157 	X	base on the feedback here and on python have accept the pep for.
+158 	X	the rationale be that the benefit be marginal since generator can already be code directly and the cost be high because implementation and maintenance require major effort with the parser.
+159 	X	here be rough draft on the resurrect pep.
+160 	X	after much discussion on the list the pep have be resurrect its present form.
+161 	X	base on the feedback here and on have accept the pep for.
+162 	X	after much discussion it be decide that the first outermost should be evaluate immediately and that the remain expression be evaluate when the generator be execute.
+163 	X	after see expression come up wit generator expression and decide like that better.
+164 	X	poll miss urgent datum python close by.
+165 	X	the pep have now be move to the finish pep list.
+166 	X	its not too onerous simple note state pep be ready for review to pep python would be sufficient.
+167 	X	no one disagree and the pep be reject.
+168 	X	disagree and the pep be reject.
+169 	X	modify file pep pep pep be reject by decree.
+170 	X	pep be reject by decree.
+171 	X	you pep do not address how to deal with this at all.
+172 	X	this pep be withdraw by the author.
+173 	X	this pep be withdraw by the author in of pep.
+174 	X	this pep be reject for failure to generate significant interest.
+175 	X	rejection notice this pep be reject for failure to generate significant interest.
+176 	X	have look at the pep for the first time have number of comment.
+177 	X	author withdraw some pep by mail on.
+178 	X	reject pep which would have encourage the definition of module level main function instead of the current.
+179 	X	revisit pep the general consensus recently be that the if name main idiom for module that can be both support module and main module be both ugly and unintuitive.
+180 	X	if ask for quick pronouncement its go to be no its not worth the change in doc user habit and there nothing particularly break.
+181 	X	its not worth the change in doc user habit and there nothing particularly break.
+182 	X	consensus be quickly reach that should first work on get the module accept into the language.
+183 	X	the thread die off before consensus be reach unfortunately.
+184 	X	and of course can pronounce otherwise im just say dont think anything less than such pronouncement be require to remove it from.
+185 	X	hey this be the positive response be hope for.
+186 	X	consensus be quickly reach that should first work on get the module accept into the language.
+187 	X	no one speak up for it and some against so it be now reject.
+188 	X	the proposal be also problematic in term of clarity and obviousness.
+189 	X	its not that the feature be undesirable or the specific approach at solve the problem just nobody be interested to work on it.
+190 	X	pep be withdraw as it be move to the with permission from the author.
+191 	X	pep be withdraw as it have be move to the with permission from the author.
+192 	X	now we just have to figure out which election method to use to vote for which election method to use to vote on the pep and well be do.
+193 	X	this complementary vote use different type of ballot as well as different method of tally they method which should provide additional insight into the preference of the python community regard pep.
+194 	X	the result show below be for the complementary unofficial vote on the issue of add ternary operator to python pep.
+195 	X	you can download package contain this software as well as all the datum use for this vote from.
+196 	X	the pep vote be at.
+197 	X	while there be overall interest in have some form of if then else expression no one format be able to draw majority support.
+198 	X	accordingly the pep be reject due to the lack of overwhelming majority for change.
+199 	X	the consensus that emerge on python be the propose syntax the be how it be reference on the page the new keyword use prefix block of decorator before the statement.
+200 	X	after long discussion ive decide to add shortcut conditional expression to python.
+201 	X	accordingly the pep be reject due to the lack of overwhelming majority for change.
+202 	X	that issue be resolve by simply defer to best judgment call.
+203 	X	and this become reason for to just decide on he original no explanation offer.
+204 	X	after year of argue over which syntax to use and finally give up since nobody could agree the benevolent dictator do what only dictator can do and just make damn decision already.
+205 	X	think if nothing else the vote show that the community pretty strongly prefer the order to.
+206 	X	the community be prevent from come to decision.
+207 	X	really want to keep the name the same from now until the pep be ready for review this little proposal doesnt deserve as many name change as the project after all.
+208 	X	as result reject the entire pep.
+209 	X	well pep have be submit for review so with any luck since its not very controversial well have somewhere to put compose.
+210 	X	no objection be raise so long as the underlie lock mechanism overly expensive some initial benchmark indicate that this approach be viable at least on and.
+211 	X	there appear to be no issue with the technical aspect of the pep please correct now if be wrong.
+212 	X	have people cast vote with the following result see for interpretation of the syntax number.
+213 	X	one final note at the bottom of this email have include all comment receive.
+214 	X	suggest accept pep simple implicit lambda which result in the most discussion of any of the pep recommendation.
+215 	X	however hate the unary colon syntax and it be decide that the pep need to go back to the draw board and find more syntax perhaps alternative unary operator.
+216 	X	while the majority of python user deem this to be nice to have feature the community be unable to reach consensus on the proper syntax after more than two year of intensive debate the pep be introduce in early april.
+217 	X	while the majority of python user deem this to be feature the community be unable to reach on whether nine should be represent as the modern form or the classic form.
+218 	X	vote that the immediately reject this pep so that we can put this issue to rest once and for all.
+219 	X	the thread die off before consensus be reach unfortunately.
+220 	X	while the official compiler cant get change at point release everyone agree that make the directory work out of the box and add appropriate be good idea.
+221 	X	more variation along these line wont make the language more elegant or easier to learn.
+222 	X	rejection if this pep be accept nearly all exist python code would need to be review and probably revise even if all the above argument in favour of explicit instantiation be accept the improvement in clarity be too minor to justify the cost of do the revision and the risk of new bug introduce thereby.
+223 	X	im not entirely sure why acceptance get stall the way it do.
+224 	X	id support the majority rule algorithm.
+225 	X	wherever the consensus be then use the annotation pseudo module there.
+226 	X	im afraid that absolutely zero consensus be emerge ive withdraw myself entirely from the discussion as proven completely useless.
+227 	X	there be poll link from the decorator that now say consider the poll now close.
+228 	X	pronouncement this pep be reject in of pep.
+229 	X	it have incomplete patch that be almost two year old and no activity since then.
+230 	X	the response be strongly positive but almost everyone preferred have function instead of multiple object method.
+231 	X	copyable be nice idea but after four year no implementation or widespread interest have emerge.
+232 	X	pronouncement this pep be reject in of pep.
+233 	X	it would result in the overloading of the and function but there be no general consensus in python some people like it due to its similarity to use list float long but other include himself think that and should produce.
+234 	X	pep be reject because the usefulness of the feature be marginal.
+235 	X	this pep be ready for you review.
+236 	X	however this conversation be somewhat academic since there do not seem to be consensus that add support for construction with scale and precision parameter be of general use.
+237 	X	im afraid that absolutely zero consensus be emerge ive withdraw myself entirely from the discussion as proven completely useless.
+238 	X	there hasnt be lot of emotion attach and nobody have get seriously annoyed with the multiple dot idea.
+239 	X	comment be invite on new pep.
+240 	X	status the pep be self reject by the author due to the unprecedented level of enmity it generate from developer.
+241 	X	pronouncement believe that verification tool have some value.
+242 	X	if someone want to add it to no pep be require.
+243 	X	pretty much everyone agree that byte object should be mutable sequence of in the range.
+244 	X	the author have express lack of time to continue to shepherd it and discussion on have move to slightly different proposal which will eventually be write up as new pep.
+245 	X	no one disagree with the basic premise though just some question about the particulars of the server.
+246 	X	with that say believe there be general consensus that this kind of thing would be useful.
+247 	X	modify pep trunk pep pep trunk pep log be withdraw by author.
+248 	X	while the response be overall positive there be few differ opinion list here.
+249 	X	more generally the whole point of be that everyone agree that it be the only new operator anyone would need except maybe for decade or two if that not true infinity be better number than.
+250 	X	amongst other reason really dislike that the pep add to the for all use of these operator even though almost no call site will ever need the feature.
+251 	X	after nine month no support have grow beyond the original poster.
+252 	X	many people include agree and the pep be reject.
+253 	X	after nine month no support have grow beyond the original poster the pep do however generate some negative response when on it make some people stomach churn the pep fail the test of obviousness and necessity it also fail with respect to clarity and explicitness.
+254 	X	please dont waste time change module for which there be no consensus that this should be do.
+255 	X	pep deferral further exploration of the concept cover in this pep have be defer for lack of current champion interested in promote the goal of the pep and collect and incorporate feedback and with sufficient available time to do so effectively.
+256 	X	im afraid that absolutely zero consensus be emerge ive withdraw myself entirely from the discussion as proven completely useless.
+257 	X	if dont hear any objection ill switch along with pep and the doc patch to the new semantics sometime this weekend.
+258 	X	note this pep be withdraw and move to the python developer guide.
+259 	X	but pep be already withdraw by the there wont be any ruby like block because they hide control flow.
+260 	X	be reject this pep in of pep.
+261 	X	the work do there so far in these pep be basically try to have consensus on the missing standard that be lack in and that be partially solve by.
+262 	X	on accept this now anybody against.
+263 	X	implement pep be re withdraw pep and thought on pep.
+264 	X	the thread die off before consensus be reach unfortunately.
+265 	X	as result reject the entire pep.
+266 	X	the idea be postpone until at least one release after pep implementation enter python so that people can have some more experience with.
+267 	X	amazingly none of those objection seem to be direct toward which somehow seem on the verge of acceptance even without use case clear motivation example or draft implementation.
+268 	X	the thread die off before consensus be reach unfortunately.
+269 	X	after accept the idea of add with method to the context protocol pep be revert to propose until the remain detail could be iron out the end result be.
+270 	X	modify pep trunk pep clarify the original meaning intend for various term and record the fact that gain consensus on the terminology be still open issue.
+271 	X	as far as be aware there arent any more open issue so it be once again ready for pronouncement.
+272 	X	the follow issue be resolve by approval and lack of any major objection on.
+273 	X	think the note at the top make it perfectly clear that pep be supersede by pep which have correct python version.
+274 	X	numbering note this pep have be renumber to pep.
+275 	X	as far as can tell no consensus be reach for new terminology and so the old definition still prevail.
+276 	X	round pep version identification and dependency specification version.
+277 	X	most of the discussion have already take place.
+278 	X	ive review pep and pep and be satisfied that after some small improvement they will be accept.
+279 	X	add pep user define with statement by nick withdraw by the author.
+280 	X	at my request it be withdraw immediately after submission the part think be important be take on board for pep.
+281 	X	also read pep for compete pep to pep and that gradually converge to pep.
+282 	X	as result reject the entire pep.
+283 	X	im sick of the abuse consider the pep reject.
+284 	X	as result reject the entire pep.
+285 	X	while the community may be interested there be no desire to make the standard library conform to this standard.
+286 	X	strong opposition to pep the freeze protocol finally win out and reject the pep.
+287 	X	pretty much everyone agree that this be good idea.
+288 	X	think it be horrible idea and would like to see it reject in way that bring finality.
+289 	X	pretty much everyone agree that this be good idea.
+290 	X	do anybody see any problem with it.
+291 	X	believe this be pretty much its much weaker version of pep which be rightfully reject for be too radical.
+292 	X	naturally not everything could go in because some minor mostly preference base issue do not reach consensus.
+293 	X	also the pep have generate no widespread interest.
+294 	X	believe reject this pep for lot of reason.
+295 	X	while the official compiler cant get change at point release everyone agree that make the directory work out of the box and add appropriate be good idea.
+296 	X	this pep have linger and while the discussion flare up from time to time its time to put this pep out of its misery.
+297 	X	as for the numeric pep have of my own implement irrational number type.
+298 	X	it doesnt look like itll cause any problem.
+299 	X	it be near the acceptance stage and have previously be discuss on.
+300 	X	didnt like it and in particular didnt like how the property put the instance method of property at different level than other instance method and require fix name for the property function.
+301 	X	initial post of this pep in draft form be to python idea on and the response be generally positive.
+302 	X	this be strong consensus definitely so we can conclude that this point be decide.
+303 	X	the decision be make that the present pep do not meet the burden of proof for the introduction of new syntax view which have be put forward by some from the beginning of the discussion.
+304 	X	after read all this really dont believe that add egg support to the at this time be the right thing to do.
+305 	X	ive update the pep to incorporate the feedback from this thread.
+306 	X	numbering note this pep have be renumber to pep.
+307 	X	pep deferral further exploration of the concept cover in this pep have be defer for lack of current champion interested in promote the goal of the pep and collect and incorporate feedback and with sufficient available time to do so effectively.
+308 	X	with this implementation could make version of peak import that do its own lazy module but use the base system for all the hook.
+309 	X	this pep be reject by its author because it be supersede by the new.
+310 	X	this pep be withdraw by its author because it be supersede by the new.
+311 	X	rejection notice this pep be reject by its author because it have be supersede by the new.
+312 	X	withdrawal notice this pep have be withdraw by its author as much of the detailed design be no longer valid follow the migration to in python.
+313 	X	have accept my user site directory pep today.
+314 	X	if no one have any other argument to the contrary ill run with the new name scheme.
+315 	X	adjust thread article date shift open issue to close for pep.
+316 	X	its early draft and any help feedback be welcome.
+317 	X	the consensus be to have one and only one way to install distribution in python and way to retrieve information on install distribution and they file.
+318 	X	and of course can pronounce otherwise im just say dont think anything less than such pronouncement be require to remove it from.
+319 	X	note that the pep implementation be mainly do in.
+320 	X	tell in private he now accept the pep since there consensus.
+321 	X	while be highly likely to just accept the consensus on something like this that doesnt eliminate the need for he to actually say that he be approve the pep on that basis.
+322 	X	pep rejection this pep be reject by as it impose too great increase in complexity without proportional increase in expressiveness and correctness.
+323 	X	the conversation on the thousand separator seem to have wind down and the pep have.
+324 	X	withdraw pep at the request of the author.
+325 	X	of course welcome any feedback.
+326 	X	officially accept the pep on june.
+327 	X	know there be few detail worth quibble over but they be not go to acceptance of the pep.
+328 	X	pep round use index support for external to package file host.
+329 	X	the work do there so far in these pep be basically try to have consensus on the missing standard that be lack in and that be partially solve by.
+330 	X	we be just discuss the pep here at.
+331 	X	have number of comment and technical clarification on the pep.
+332 	X	file system path pep draft.
+333 	X	if everyone who claim they understand the issue actually do why be it so hard to reach consensus.
+334 	X	the pep be number and be just about ready for you review.
+335 	X	it seem that there be consensus to separate the and and that also make sense to.
+336 	X	then you can vote on pep up or down still.
+337 	X	believe that the current situation be as close to consensus as we will get on and in the interest of avoid month of further discussion which wont take thing any further propose to allow final comment from python and then look for final decision.
+338 	X	round pep version identification and dependency specification version.
+339 	X	this pep have be supersede by the version identification and dependency specification scheme define in pep.
+340 	X	most of the discussion have already take place.
+341 	X	think reach consensus on those two pep.
+342 	X	as you say consensus have be reach so just stamp of approval be all can think of.
+343 	X	believe that the current situation be as close to consensus as we will get on and in the interest of avoid month of further discussion which wont take thing any further.
+344 	X	as expect we didnt find full consensus on the final pep schema on.
+345 	X	ill update the pep then and if no more feedback here ill propose it at.
+346 	X	but yes its poll right now on the website code and if you feel strongly about it please add you vote there rather than here.
+347 	X	so there really any more feedback on the last post of the pep other than fix and another.
+348 	X	replacement pep base on pep will be create that define the minimum amount of information need to generate archive give source or checkout.
+349 	X	need you feedback to make this feature as useful and as easy to use as possible.
+350 	X	full view pep be believe ready for review.
+351 	X	believe address all the comment make on the discussion thread mention in the pep and so im not sure what more need to do to get pronouncement.
+352 	X	there have be some comment in favour of the proposal no objection to the proposal as whole and some question and objection about specific detail.
+353 	X	though have the feeling from community discussion that the pep have be generally favourably receive well would think that.
+354 	X	these be believe by the author to have be address by make change to the pep.
+355 	X	believe have address these with change to the pep.
+356 	X	any and all feedback be welcome.
+357 	X	have agree to eventually pronounce on pep.
+358 	X	just disagree with that usage because there be two camp that interpret differently.
+359 	X	give the feedback so far be happy to pronounce pep as accept.
+360 	X	as the pep czar for pep have review it and be happy to say that can accept it.
+361 	X	let not get side track know its python idea and side tracking be fun but still.
+362 	X	it seem the consensus at the we sprint be that implicit package directory be wonderful idea and we should have more of those.
+363 	X	this pep be withdraw by the author in december as other significant change in the time since it be write have render several aspect obsolete.
+364 	X	rejection notice this pep be reject by its author because it have be supersede by the new.
+365 	X	most significantly this pep be currently defer as it require significant change in order to be make compatible with the removal of mandatory file in pep which have be implement and release in python.
+366 	X	as far as can tell no consensus be reach for new terminology and so the old definition still prevail.
+367 	X	pep deferral further exploration of the concept cover in this pep have be defer for lack of current champion interested in promote the goal of the pep and collect and incorporate feedback and with sufficient available time to do so effectively.
+368 	X	second draft pep python launcher for window.
+369 	X	however everyone agree that its so unlikely to be of issue that its not and the work can move forward.
+370 	X	formally could accept the pep be withdraw and the feature integrate anyway but still consider that bad style.
+371 	X	martin request that be the pep czar for so the rush kick off now.
+372 	X	thanks to mark for kick it off for write up the code martin for recent update and everyone in the community who contribute to the discussion.
+373 	X	pep deferral further exploration of the concept cover in this pep have be defer for lack of current champion interested in promote the goal of the pep and collect and incorporate feedback and with sufficient available time to do so effectively.
+374 	X	it seem the consensus at the we sprint be that implicit package directory be wonderful idea and we should have more of those.
+375 	X	on the first day of sprint at we we have long and fruitful discussion about pep and pep.
+376 	X	rejection notice on the first day of sprint at we we have long and fruitful discussion about pep and pep.
+377 	X	anonymous function be because there be no consensus about without huge change to the way python parser treat indentation inside parenthesis indentation be currently not significant.
+378 	X	pep withdrawal the thread discuss this pep persuade that it be essentially am unnecessarily cryptic wholly inferior version of pep statement local.
+379 	X	instead its because think flesh out the concept explore syntax variant create reference implementation and generally champion the idea be go to require more time than can give it in the time frame.
+380 	X	as the latest round of update that and push to the pep have address my few remain question be accept pep for inclusion in python.
+381 	X	pep deferral the import system be already see substantial change in python to handle package split across multiple directory pep and potentially to make the import semantics in the main module better match those in other module pep.
+382 	X	while provide encapsulation of the import state be still highly desirable it be better tackle in new pep use pep as foundation and permit only the use of pep compatible finder and loader as those avoid many of the issue of direct manipulation of global state associate with the previous loader.
+383 	X	currently this concern can block new addition even when the core development team consensus be that particular addition be good idea in principle.
+384 	X	there be certainly no consensus and the possible benefit be not obviously substantially more than the cost.
+385 	X	pep round network security enhancement for python.
+386 	X	pep round python network security enhancement.
+387 	X	currently this concern can block new addition even when the core development team consensus be that particular addition be good idea in principle.
+388 	X	peter moody actually address all my comment from last year alas forget that python idea get drop from the latter part of the email chain so it become private discussion between peter and myself.
+389 	X	pep rejection base on he experience with similar lab in engine have reject this pep in favour of the simpler alternative of explicitly mark provisional module as such in they documentation.
+390 	X	read you objection and disagree.
+391 	X	pep decimal the implementation be ready for review.
+392 	X	this idea be reject see the pep.
+393 	X	after discussion with victor have decide to reject pep.
+394 	X	however everyone agree that its so unlikely to be of issue that its not and the work can move forward.
+395 	X	the pep receive mostly positive feedback.
+396 	X	accord to the pep be discuss in the language summit and overall view positively although no final decision have be reach.
+397 	X	pep round network security enhancement for python.
+398 	X	pep round python network security enhancement.
+399 	X	pep withdrawal with the acceptance of pep meaning that pip will be available to most new python user by default this will hopefully reduce the pressure to add new module to the standard library before they be sufficiently mature.
+400 	X	indeed the wrangling have go too far already.
+401 	X	my aim be for the end result to better reflect the reason why accept the pep than own reason for want it.
+402 	X	at the python language summit add the mock library to the python standard library be discuss and agree.
+403 	X	pep deferral further exploration of the concept cover in this pep have be defer for lack of current champion interested in promote the goal of the pep and collect and incorporate feedback and with sufficient available time to do so effectively.
+404 	X	peter address all the substantive comment that be make regard the draft and he go to provide update to the pep shortly that should get it into state where can mark it as approve.
+405 	X	have just review pep package and send my detailed feedback most of it be minor or request for example and im sure hell fix it to my satisfaction.
+406 	X	but since find official reference refuse pep believe consensus be possible.
+407 	X	as the newly self appoint pep czar hereby accept this pep.
+408 	X	any feedback be very welcome.
+409 	X	this pep be reject by its author because it be supersede by the new.
+410 	X	this pep be withdraw by its author as much of the detailed design be no longer valid follow the migration to in python.
+411 	X	do masterful job at balancing and address the input from the python development community and the pep look great.
+412 	X	ask for pronouncement id like to know if anyone have any outstanding concern that should be address first.
+413 	X	however it sound like there be some grow consensus towards the idea of simply notify interested class member of they class membership so if there end up be consensus to that protocol and what part of the class building process it get invoke in then will implement or use such if someone else implement it when actually start port my library to python.
+414 	X	feedback be welcome particularly from from other.
+415 	X	pep preserve class attribute definition order round.
+416 	X	pep preserve class attribute definition order round.
+417 	X	pep deferral defer until at the earliest.
+418 	X	the consensus be that two level of nesting be prefer.
+419 	X	further exploration of the concept cover in this pep have be defer for lack of current champion interested in promote the goal of the pep and collect and incorporate feedback and with sufficient available time to do so effectively.
+420 	X	pep incorporate the new version algorithm section from pep directly rather than by reference with the clarification that top level release should be sort before the first alpha release accept pep reject pep there lot of irrelevant stuff in there about change itself which be never go to happen buy daniel several beverage of he choice at we for put up with all this extra cleanup of the spec that he expect when he propose he update.
+421 	X	for what its worth there be people who argue the opposite too but eventually it seem like consensus be reach.
+422 	X	round pep version identification and dependency specification version.
+423 	X	second draft of plan for new source tree format.
+424 	X	my idea this time be to take divide and conquer approach this text try to all the stuff that it seem like we have mostly reach consensus on in the previous thread call with blank chunk marked where there be specific point that still need to be determine.
+425 	X	my idea this time be to take approach this text try to all the stuff that it seem like we have mostly reach consensus on in the previous thread call with blank chunk marked where there be specific point that still need to be determine.
+426 	X	since there be some controversy about the join syntax use in pep path object would like to run informal poll about it.
+427 	X	you can include rationale if you want but dont forget to vote.
+428 	X	here be the last call for any comment or argument against approval before mark the pep accept or change he mind.
+429 	X	file system path pep draft.
+430 	X	here be the last call for any comment or argument against approval before mark the pep accept or change he mind.
+431 	X	since there have be some controversy about the join syntax use in pep path object would like to run informal poll about it.
+432 	X	well with the approval ive see here have absolutely no problem with appoint myself pep czar and accept the pep.
+433 	X	the implementation have turn out to be exceedingly complex due to have to convert back and forth between the local time and during arithmetic and adjust the for each arithmetic step with ambiguous time be particularly hard to get right.
+434 	X	this be likely to become much easier if the be store internally and use for all arithmetic and investigation into change the object to use internally should be do.
+435 	X	can look into splitting into separate bootstrap and shutdown translation unit after those less controversial change have be review the split may not even be all that practical outside the pep branch since it would involve expose quite few currently static variable to the linker.
+436 	X	so due to those practical resource constraint the proximity of python deadline and recognition that make too many significant change to the low level infrastructure in one release be likely to be unwise further work on this pep have be defer to the python development cycle.
+437 	X	my list be almost empty the implementation be do.
+438 	X	the pep be previous attempt propose various other alternative but no consensus could be reach.
+439 	X	to be honest really dont think these two camp be as irreconcilable as lot of people seem to be treat they.
+440 	X	pep be ready for final review.
+441 	X	have review the latest version of pep and see that it be very good.
+442 	X	congratulation go to and for pull it through one of the most thorough review and process any pep have see.
+443 	X	we ability to come together and produce agreement on not only contentious but long wish for feature show off the best of we community.
+444 	X	id also like to mark this one as reject by at we in favour of update pep.
+445 	X	however the specific issue raise by this pep be take into account the second iteration of the pep.
+446 	X	from what ive see the consensus view of the team be that remove opt in for unverifiable external link be not on the table indeed there move to simply not allow they at all at some point.
+447 	X	pep round use index support for external to package file host.
+448 	X	pep round use repository support for external to.
+449 	X	do need delegate for this pep do not have the time to do it and the other logical candidate for centric pep be myself but dont feel its.
+450 	X	ive review the latest version of the pep and as much as can of the discussion but the history of the whole issue be pretty messy and may well have miss something.
+451 	X	pep rejection this pep have be reject in favour of more explicit mechanism that should achieve the same end result in more reliable fashion.
+452 	X	however its first draft of the idea so feedback be definitely welcome.
+453 	X	round pep version identification and dependency specification version.
+454 	X	just push final round of edit in response to the feedback on the last pep thread and as such im happy to announce that be accept pep as the recommend approach to identify version and specify dependency when distribute python software.
+455 	X	think at this point resolve any major issue with the pep spec that can be resolve without whole new pep.
+456 	X	dont think there be any outstanding task so im happy that the pep be ready for pronouncement.
+457 	X	pep be ready for final review.
+458 	X	pep type hint second draft.
+459 	X	no open issue remain from my point of view.
+460 	X	so with this decision make be there any open issue leave.
+461 	X	be there any open issue.
+462 	X	pep deferral further exploration of the concept cover in this pep have be defer for lack of current champion interested in promote the goal of the pep and collect and incorporate feedback and with sufficient available time to do so effectively.
+463 	X	consider that this third version of the pep be ready for final review.
+464 	X	change the pep accord to the discuss on.
+465 	X	ok think that the best consensus here be to add new set block function.
+466 	X	reject alternative be previous attempt propose various other alternative but no consensus could be reach.
+467 	X	have review the pep and think it be good.
+468 	X	thank you so much for push this topic and for you very thorough review of all the feedback related issue and so on it be exemplary pep.
+469 	X	propose that we wait for one more day for any feedback from other in response to this post and then accept the pep.
+470 	X	assume no material objection appear to the new syntax and semantics can approve the pep later this week.
+471 	X	give that believe all outstanding issue with pep have be resolve will accept it in its current form last modified august so the immediate change may be make and publicity of the change can be start.
+472 	X	but approve of the general idea.
+473 	X	there be couple of outstanding issue that be aware of but dont believe that either of these affect of the pep.
+474 	X	think have address all of the issue raise.
+475 	X	im pleased to announce that cannon and nick the delegate have accept pep for inclusion in python.
+476 	X	other than that im not aware of any for the pep.
+477 	X	make some smaller change to the pep as well and it should finally be ready for pronouncement.
+478 	X	pep round explicit of pip in python installation.
+479 	X	pep round explicit of pip in python installation.
+480 	X	consider that this third version of the pep be ready for final review.
+481 	X	after several exchange with victor pep have reach status which consider ready for so if you have any last minute comment now be the time.
+482 	X	the discussion have settle down for the most part and there be consensus amongst participant on the of the feature and its characteristic.
+483 	X	review the latest pep text at python pep pep.
+484 	X	the implementation of argument clinic be do enough to be ready to go in.
+485 	X	pep deferral this pep depend on pep which have itself be defer see the pep deferral section in that pep for detail.
+486 	X	this pep be make obsolete by the acceptance of pep which introduce more extended formatting language for byte object in conjunction with the operator.
+487 	X	resolution this pep be make obsolete by the acceptance of pep which introduce more extended formatting language for byte object in conjunction with the operator.
+488 	X	in string format the consensus be evidently that its difficult enough to measure improvement objectively that sufficiently plausible experiment will still be admit into the or not in the case of the much delay pep way to go the decision not to have backward compatible formatting for be itself experiment in this sense.
+489 	X	pep round network security enhancement for python.
+490 	X	this pep be withdraw by the author.
+491 	X	this pep have be withdraw by the author in favour of the base proposal in pep.
+492 	X	this pep be currently defer acceptance or rejection of the proposal in pep.
+493 	X	know there be many other alternative and email on python idea but still we find viable alternative.
+494 	X	didnt expect many people to actually care about it since its unused.
+495 	X	because this way be compatible with the exist consensus and because it give we consistent rule that all the build in numeric operator also apply in manner to array the reverse convention would lead to more special case.
+496 	X	have close the issue of file name formatting as the informal poll result be very clear on the preferred format and also close the idea of embed the level in the file that can be another pep if someone care to write that one.
+497 	X	this idea be reject for this pep as that ignore the fact that there be people who do find the pre exist level for useful.
+498 	X	since this close out the last open issue need either decision or to be assign to make decision.
+499 	X	pep round network security enhancement for python.
+500 	X	pep round python network security enhancement.
+501 	X	pep round select network security enhancement for python.
+502 	X	this pep be primarily about establish the consensus need to allow they to carry out this work.
+503 	X	from python checkin at python nick subject python checkin have accept pep message id mail python.
+504 	X	believe that change address main remain concern so think this version be ready for pronouncement.
+505 	X	it be now withdraw as now believe enhancement to migration tool and library be better option than make change to python.
+506 	X	for the record review initial draft of this pep and do some light copy editing when add it to the pep so this pep can be take as reflect my perspective as well.
+507 	X	pep round use index support for external to package file host.
+508 	X	round of pep believe ive address the comment from the previous thread.
+509 	X	pep round use repository support for external to.
+510 	X	do need delegate for this pep do not have the time to do it and the other logical candidate for centric pep be myself but dont feel its.
+511 	X	there have be no further feedback on pep and have incorporate all the feedback so im happy to announce that be approve it.
+512 	X	accept the latest version of the pep.
+513 	X	the window implementation of pep be basically do and the implementation be write but not work yet.
+514 	X	consider that the pep be discuss enough to collect all possible option variation of the and that main flaw have be detect ben modify he pep to list all these option.
+515 	X	ben modify he pep to list all these option and for each option give advantage and drawback.
+516 	X	it seem to there general agreement that the basic in pep be good with not fan at first but it seem he on board after further discussion.
+517 	X	so due to those practical resource constraint the proximity of python deadline and recognition that make too many significant change to the low level infrastructure in one release be likely to be unwise further work on this pep have be defer to the python development cycle.
+518 	X	this pep be currently defer acceptance or rejection of the proposal in pep.
+519 	X	this pep have be withdraw by the author in favour of the base proposal in pep.
+520 	X	if you have anything to say please chime in quick.
+521 	X	because of the exceptionally short period from first draft to acceptance the main objection bring up after acceptance be carefully consider and have be reflect in the alternate proposal section below.
+522 	X	however none of the discussion change the mind and the pep acceptance be now final.
+523 	X	this be probably issue be never go to get actual consensus on so unless there be arbitrator of who get to decide feel its.
+524 	X	as say earlier hope to have rough consensus before commit to before the last alpha.
+525 	X	pep type hint second draft.
+526 	X	as say earlier hope to have rough consensus before commit to before the last alpha.
+527 	X	this pep be accept by the on november.
+528 	X	pep type hint second draft.
+529 	X	as say earlier hope to have rough consensus before commit to before the last alpha.
+530 	X	pep type hint second draft.
+531 	X	most people contribute to this thread have probably not be involve in the earlier discussion know tune out of the thread on python idea so be now react at short notice to what look like big change.
+532 	X	since there be considerable disagreement about the right way to handle fuzzy comparison when both absolute and relative error be give people who disagree with the default definition can simply subclass and redefine the equal method.
+533 	X	however and ive try to say this multiple time and no one disagree or agree yet.
+534 	X	let know if should restructure it or put it anywhere else before it get review but in the meantime welcome any feedback.
+535 	X	be the pep ready for pronouncement now think so ive address one way or another everything bring up here.
+536 	X	have update the code and pep on with change that be no or seem to have clear consensus.
+537 	X	see no roadblock but have run out of time to review the pep one more time.
+538 	X	think so ive address one way or another everything bring up here.
+539 	X	will accept the pep in day unless storm of objection get pile onto this thread.
+540 	X	not be any further question or comment so think im happy with it.
+541 	X	if anyone have any issue with the pep please speak up before then.
+542 	X	pep preserve class attribute definition order round.
+543 	X	pep preserve class attribute definition order round.
+544 	X	everyone on the be positive with the idea so write pep get positive feedback from the again and so now present to you pep for discussion.
+545 	X	the second open issue on the common case file name be something to reasonably debate and come to consensus on.
+546 	X	have poll go on to see what people think of the various propose file name format at plus post.
+547 	X	feel free to vote if you have opinion.
+548 	X	open issue this idea be reject for this pep as that ignore the fact that there be people who do find the pre exist level for useful.
+549 	X	have close the issue of file name formatting as the informal poll result be very clear on the preferred format and also close the idea of embed the level in the file that can be another pep if someone care to write that one.
+550 	X	since this close out the last open issue need either decision or to be assign to make decision.
+551 	X	the implementation for pep be basically do san window installer stuff.
+552 	X	have try to skim the recent discussion only and dont see much remain controversy.
+553 	X	informal poll be take and people clearly prefer the formatting propose by the pep.
+554 	X	also kindly volunteer to serve as so we have clear path to pronouncement if nobody notice any new problem or concern that didnt come up in previous discussion.
+555 	X	the topic be both controversial and so think its better not to give the usual warning on ill just post my decision there.
+556 	X	make some smaller change to the pep as well and it should finally be ready for pronouncement.
+557 	X	rather than prolong the debate let just reject pep.
+558 	X	operator have its share of fan as well as detractor and will happily wait until more of consensus appear.
+559 	X	read it again do year ago but review it now.
+560 	X	the consensus among security professional be that be not safe in security context.
+561 	X	think the discussion peter out and nobody ask to approve it yet or lose track of it.
+562 	X	if there be no major objection intend to take it to in day or two for discussion and ruling.
+563 	X	this pep be withdraw by the author in favour of the base proposal in pep.
+564 	X	the decision be essentially base on.
+565 	X	the only open issue in the pep at the moment be the topic of what to name the sub section contain the requirement package build or package build system we reach consensus among the three of we on this.
+566 	X	build system requirement pep draft.
+567 	X	ive read over this implement enough of it and think its go through enough nit pick.
+568 	X	the only open issue in the pep at the moment be the topic of what to name the sub section contain the requirement package build or package build system we reach consensus among the three of we on this.
+569 	X	the consensus among security professional be that be not safe in security context.
+570 	X	im happy with the latest version.
+571 	X	at the sprint today we discuss pep several people be keen to see it get into.
+572 	X	this specification be translation of the consensus reach there into pep form along with some arbitrary choice on the minor remain question.
+573 	X	oh sure think everyone agree that the file format choice be not make or break decision and that ultimately this be good case for of style pronouncement rather than endless consensus seek.
+574 	X	build system requirement pep draft.
+575 	X	more seriously as im entirely happy with this version.
+576 	X	file system path pep draft.
+577 	X	ive read it once more and find nothing worth bicker about so be hereby approve pep.
+578 	X	recent discussion have be about type hint which be orthogonal to the pep so thing have seem to have reach steady state.
+579 	X	pep preserve class attribute definition order round.
+580 	X	pep preserve class attribute definition order round.
+581 	X	usually accept such hasty pep but the idea in it seem pretty uncontroversial and in line with the exist expectation for await.
+582 	X	after lot of discussion over the year the general consensus in the python community be that space be the only way to go.
+583 	X	but since dont want it accept dont care.
+584 	X	after sit open for four year it have fail to generate sufficient community interest.
+585 	X	this pep be withdraw at request.
+586 	X	on python idea the moratorium idea get fairly positive response more positive than id expect in fact but im brace myself for fierce discussion here on python.
+587 	X	but yesterday both mention issue be close as reject with suggestion that it would probably require pep to modify python in this aspect as there be no clear consensus.
+588 	X	the reference list compatibility to python as reason for not protect true and false but it seem the general consensus from various thread ive examine be to have they protect.
+589 	X	my point about massive revision would be true regardless of how much consensus be reach on python pep often change radically once throw into the wild.
+590 	X	feedback also about misrepresentation of alternative dont be most welcome either to directly or as to this post.
+591 	X	quick poll during my keynote presentation at show this proposal have no popular support.
+592 	X	but at that time use that poll as indication there be not enough support.
+593 	X	in the case of case switch there be no consensus on what the statement should do how it should work what purpose it have or what syntax it should use.
+594 	X	rejection notice quick poll during my keynote presentation at show this proposal have no popular support.
+595 	X	while pep have not be formally accept accord to the web page the idea contain receive general approval from more or less everyone involve in the discussion or at least more or less everyone who have write and or consume annotation in the past.
+596 	X	because as you have notice in this thread there be already ton of compete solution and no consensus be reach.
+597 	X	as say earlier hope to have rough consensus before commit to before the last alpha.
+598 	X	pep type hint second draft.
+599 	X	have not accept or reject the pep yet.
+600 	X	see lukewarm support for keep these at most and probably lukewarm support for remove they at well.
+601 	X	any feedback be very welcome.
+602 	X	the latest round of feedback be sufficiently friendly that be confident that it will be welcome addition.
+603 	X	the latest round of feedback have be sufficiently friendly that be confident that it will be welcome addition.
+604 	X	view run script within package as.
+605 	X	pep deferral further exploration of the concept cover in this pep have be defer for lack of current champion interested in promote the goal of the pep and collect and incorporate feedback and with sufficient available time to do so effectively.
+606 	X	pep deferral further exploration of the concept cover in this pep have be defer for lack of current champion interested in promote the goal of the pep and collect and incorporate feedback and with sufficient available time to do so effectively.
+607 	X	there enough support in the feature to be remove isnt all that harmful and there be some use case that would become harder.
+608 	X	rejection notice this pep be reject.
+609 	X	the implementation lack these virtue and little performance be common case for much better performance in uncommon case.
+610 	X	there be virtually no discussion follow the post of this pep meaning that everyone agree it should be accept.
+611 	X	acceptance there be virtually no discussion follow the post of this pep meaning that everyone agree it should be accept.
+612 	X	give the lack of discussion follow the post of the pep let accept it.
+613 	X	it be not clear how it should be implement or what the precise semantics should be in edge case and there arent enough important use case give response have be lukewarm at best.
+614 	X	after reply and count the only thing that be clear be the controversy around this pep most people be very strong for or against it with little middle ground in between.
+615 	X	after short discussion on the python list the pep be accept by in its current form.
+616 	X	the latest round of feedback be sufficiently friendly that be confident that it will be welcome addition.
+617 	X	rejection notice this pep have help push pep towards saner more minimalistic approach but give the latest version of pep much prefer that.
+618 	X	pep have not be officially accept but many part have be add anyway.
+619 	X	suggest ask on python for pronouncement on the pep.
+620 	X	ive formally reject the pep now refer to this message.
+621 	X	that about as positive as it get for any proposal.
+622 	X	plan to accept the pep within day or two bar major objection and expect to start implement soon after.
+623 	X	after long conversation on the list id like to bring this before you.
+624 	X	for those of you not on the pep mail list have express well to the idea.
+625 	X	let just save everyone lot of time and say that im oppose to this change and that believe that it would cause way too much disturbance to be accept this close to beta.
+626 	X	this pep be withdraw in of pep.
+627 	X	the latest round of feedback be sufficiently friendly that be confident that it will be welcome addition.
+628 	X	pep deferral further exploration of the concept cover in this pep have be defer for lack of current champion interested in promote the goal of the pep and collect and incorporate feedback and with sufficient available time to do so effectively.
+629 	X	believe pep be ready for you review.
+630 	X	accord to have see substantial amount of traffic about and comparison and the general consensus be that these be not comparable.
+631 	X	pep pronounce upon because there be significant disagreement about the design of the propose in the pep.
+632 	X	peter moody actually address all my comment from last year alas forget that python idea get drop from the latter part of the email chain so it become private discussion between peter and myself.
+633 	X	believe peter have satisfactorily resolve the concern previously raise with the propose and if miss anything well that why we have alpha release and the new provisional status.
+634 	X	peter address all the substantive comment that be make regard the draft and he go to provide update to the pep shortly that should get it into state where can mark it as approve.
+635 	X	pep pronounce upon because there be significant disagreement about the design of the propose in the pep.
+636 	X	ive collate the objection to the original proposal on few different occasion throughout the long pep review process and as note in the background section the latest version of the pep have address the key concern that be raise.
+637 	X	so unless there be any new objection id like to approve for inclusion in python.
+638 	X	pep deferral further exploration of the concept cover in this pep have be defer for lack of current champion interested in promote the goal of the pep and collect and incorporate feedback and with sufficient available time to do so effectively.
+639 	X	this can be deal with in the bug tracker.
+640 	X	the consensus be that we should link share against.
+641 	X	pep withdrawal with unladen swallow go the way of the blue this pep have be deem to have be withdraw.
+642 	X	mark pep as accept follow decision at we.
+643 	X	it seem however the consensus to be that on demand creation be useful enough to keep since it reduce clutter in source directory.
+644 	X	have close the issue of file name formatting as the informal poll result be very clear on the preferred format and also close the idea of embed the level in the file that can be another pep if someone care to write that one.
+645 	X	this idea be reject for this pep as that ignore the fact that there be people who do find the pre exist level for useful.
+646 	X	since this close out the last open issue need either decision or to be assign to make decision.
+647 	X	so after some cool down and the last round of discussion which trigger some on part im accept pep future execute computation asynchronously.
+648 	X	anonymous function be because there be no consensus about without huge change to the way python parser treat indentation inside parenthesis indentation be currently not significant.
+649 	X	both can be think as part of and vice so neither be likely to meet consensus to be make subclass of the other.
+650 	X	be send this review as the for pep.
+651 	X	as the for pep hereby accept it for inclusion into python.
+652 	X	congratulation to for produce great pep that have broad acceptance in the python development community with from all the major implementation of python.
+653 	X	reject the pep because it disallow some use case create and then wait for it.
+654 	X	pep deferral further exploration of the concept cover in this pep have be defer at least until after pep have be resolve.
+655 	X	it look like we make choice.
+656 	X	still need some kind of or delegate to do that though unless be allow to mark my own pep accept.
+657 	X	as far as can say this have be proposal and it bring fairly obvious improvement to the table which table.
+658 	X	if there no further opposition id like to mark this pep accept or let someone else do it in hour so that the implementation can be integrate before sunday.
+659 	X	havent see any strong objection so would like to go ahead and commit pep soon be anyone against it.
+660 	X	there be one problem though imagine it will be relatively easy to put something together that work on as wait on pipe be cover by the exist select poll mechanism.
+661 	X	so with the name settle it be and lot of other thing still to do need for pep.
+662 	X	this reflect the fact that the implementation be now in the tree and its have be pretty much validate during all previous discussion mostly on the tulip.

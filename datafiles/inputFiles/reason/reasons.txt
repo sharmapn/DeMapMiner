@@ -1,0 +1,193 @@
+issues raised
+concerns raised
+addressed issues raised
+consensus,no consensus
+controversy,argument,arguing,disputation,tilt
+reached
+rough consensus
+community consensus 
+-- guido community consensus
+-- bdfl community consensus
+feedback,favorable feedback
+interest,little interest
+python community
+-- support  -- too  many false positives
+support,no support,no popular support
+majority,no majority
+overwhelming majority
+poor syntax
+limited utility
+difficulty implementation
+bug magnet
+stalled
+wrangling, wrangle, haggling, haggle
+rant, rants,ranting,ranted,ranted
+-- pep 397 dec 2019
+discussion, discussions
+dictatorship
+majority
+pronounce,pronouncing, pronouncement, pronouncements
+best judgement
+lazy consensus
+lazy majority
+-- added july 2018 these are after seeing whats in teh manual extracted terms for training data
+-- some of the following are made up of combination of terms which maybe can be categoried and new rules and combinations can be made
+no more open issues
+open issues
+conversations
+comments addressed
+questions addressed
+objections addressed
+no remaining issues
+my opinion
+no issues
+reviewed
+-- improvements
+response feedback,response
+announce
+objections,objection
+reason, reasons,reasoning,reasoned
+all for it
+lukewarm support,lukewarm
+controversy
+open issues
+in favour
+no objections
+discussed agreed,discussed
+open issues
+issues resolved
+incorporated feedback
+addressed everything
+great shape
+remaining controversy
+round feedback
+responses enthusiastic positive
+resolved concerns
+jiggery-pokery
+last rounds discussion
+no discussion
+agreed, everyone agreed
+remaining concern
+ready pronouncement 
+antiquated
+language moved on
+author unreachable
+problem addressed
+solves exact problem
+dont like syntax
+like syntax 
+needs addressed pep
+bdfl decree
+not worth change
+dislike pep 
+sick of abuse
+community interested
+horrible idea
+increase in complexity
+in favour
+enough support, enough support in favour 
+anti-pattern
+lukewarm response
+pep is dead
+long conversation
+lukewarmness
+democracy,republic,majority rule,commonwealth,democracy
+usefulness marginal
+self rejected author 
+enmity it generated
+disagreed,no-one disagreed, no one agreed
+quick poll
+no popular support 
+pep abandoned
+author lack of time
+no support grown
+negative responses
+pep necessity
+mild interest
+no-one spoke, no one spoke
+generate interest
+no widespread interest
+no interest
+pep lingered
+discussion flares up
+pep out of misery
+reach a consensus
+obsolete, obsoletes,obsoleting,obsoleted
+need largely fulfilled
+benefits marginal
+burden of proof
+serious problems, serious problems feature
+similar pep no chance either
+incompatible change 
+problematic clarity obviousness
+justify cost revision, justify cost
+risk of bugs introduced
+-- superceded is checked here instead of states
+superceded, superseded
+author superceded
+strong for
+against it
+no material objection
+response to the feedback
+addressed all the substantive comments
+discussed and agreed, the discussing
+all outstanding issues
+everyone agreed
+addressed
+overwhelming majority
+right thing
+-- added aug 2018 ...refer to email sent during these days as to how many were left
+controversial
+seriously annoyed, annoyed
+-- pep 500
+debate, debates,debating,debated,debated
+opposition
+controvery
+-- pep 385
+no roadblocks
+steady state
+abandoned
+out of steam
+self rejected
+withdrawn
+garner support
+-- pep 464
+decree
+-- pep 443
+comments,comment,argument
+-- pep 421
+addressing
+-- pepe 435
+reviewing,bikeshedding,reviewed
+-- pep 475
+say
+-- pep 476
+issues
+speak
+-- pep 3137
+positive
+-- pep 3144
+objections
+key concerns,concerns
+pronounced,disagreements
+-- pep 519
+bickering
+-- pep 428
+steady state,steady
+-- pep 371
+arguments
+-- pep 378
+stabilized
+favor, in favor
+bdfl decree
+-- pep 244
+meeting
+-- pep 210
+empty pep
+-- 
+dont like
+don t like
+-- pep 508 march 2019
+nit picking
+-- pep 451
+blockers

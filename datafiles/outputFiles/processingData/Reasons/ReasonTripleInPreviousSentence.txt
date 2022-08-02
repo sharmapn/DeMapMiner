@@ -1,0 +1,81 @@
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | proposal | has | no popular support | I therefore reject it .
+PEP 222 | deferred | no_support | little interest | seemed | community | and time was lacking , so this PEP has been deferred to some future !
+PEP 222 | deferred | no_support | little interest | seemed | community | and time was lacking , so this PEP has been deferred to some future !
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 312 | deferred | pep_needs_work | pep | needs | back drawing board | The PEP is now deferred .
+PEP 312 | deferred | pep_needs_work | pep | needs | back drawing board | The PEP is now deferred .
+PEP 312 | deferred | pep_needs_work | pep | needs | back drawing board | The PEP is now deferred .
+PEP 336 | bdfl_pronouncement | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 3103 | rejected | no_consensus | proposal | has | no popular support | I therefore reject it '' .
+PEP 3103 | bdfl_pronouncement | no_consensus | no proposal | had | majority | But at that time Guido used that poll as an indication there was not enough support .
+PEP 3103 | bdfl_pronouncement | no_consensus | no proposal | had | majority | But at that time Guido used that poll as an indication there was not enough support .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | proposal | has | no popular support | I therefore reject it .
+PEP 237 | updated | positive_feedback | i | had | positive responses | I 've updated a few parts of the PEP for more accuracy and to reflect more implementation details .
+PEP 237 | updated | positive_feedback | i | had | positive responses | I 've updated a few parts of the PEP for more accuracy and to reflect more implementation details .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 312 | deferred | pep_needs_work | pep | needs | back drawing board | The PEP is now deferred .
+PEP 312 | deferred | pep_needs_work | pep | needs | back drawing board | The PEP is now deferred .
+PEP 312 | deferred | pep_needs_work | pep | needs | back drawing board | The PEP is now deferred .
+PEP 336 | bdfl_pronouncement | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 414 | accepted | no_consensus | wrangling | gone | too far | I 'm accepting the PEP .
+PEP 414 | accepted | no_consensus | wrangling | gone | too far | I 'm accepting the PEP .
+PEP 414 | accepted | no_consensus | wrangling | gone | too far | I 'm accepting the PEP .
+PEP 3103 | rejected | no_consensus | proposal | has | no popular support | I therefore reject it '' .
+PEP 3103 | bdfl_pronouncement | no_consensus | no proposal | had | majority | But at that time Guido used that poll as an indication there was not enough support .
+PEP 3103 | bdfl_pronouncement | no_consensus | no proposal | had | majority | But at that time Guido used that poll as an indication there was not enough support .

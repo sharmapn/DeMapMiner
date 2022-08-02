@@ -1,0 +1,55 @@
+% maybe we can read this file data into <labelslesserstatesreasonlabels> table
+
+% label, reason, label sentence, reason sentence
+complementary_vote, complement_official_vote, vote,intended,complement_official_vote,It is for a different vote that is intended to COMPLEMENT the results of the official vote, by using a different type of ballot, and a different method of tallying the results (Condorcet's Method), 
+ 
+ % below only one clause extracted, the label, so the reason has to be extracted some other way
+ % "PEP 433"	"was rejected"
+ 
+ 
+rejected, replaced, PEP 433 was rejected, replaced with the PEP 446.
+accepted, bdfl pronouncements, PEP 214 and 221 are accepted, as per recent BDFL pronouncements.
+
+% effect, cause, 
+vote after discussion,
+vote because of no_consensus 
+
+% Label,LesserState,Reason
+accepted,bdfl_pronouncement_accepted,,			$ 	PEP 214 and 221 are accepted, as per recent BDFL pronouncements.
+accepted,co_bdfl_delegate_accepted_pep	,,
+accepted,,positive_feedback
+accepted,,favourable_feedback
+accepted,,rough_consensus
+accepted,,consensus
+accepted,,bdflpronouncement
+accepted,,consensus
+accepted,,majority
+accepted,,pollresult
+accepted,,voteresult
+accepted,,debate
+rejected,bdfl_pronouncement_rejected,,
+rejected,,no_support
+rejected,,no_consensus
+rejected,,superseded
+rejected,,poorsyntax
+rejected,,difficulty_of_implementation
+rejected,,no_one_spoke_for
+rejected,,no_popular_support
+rejected,,pollresult
+rejected,,voteresult
+rejected,,majority
+draft,,idea_positive
+open,,	
+active,,	
+pending,,	
+close,,	
+final,,	
+defer,,	
+replace,,	
+postponed,,	
+incomplete,,	
+superseded,,	
+vote,,no_consensus
+vote,,discussion 
+poll,,no_consensus
+vote,,community_consensus_unknown

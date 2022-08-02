@@ -1,0 +1,2 @@
+ After the BDFL accepted the pep, i had a few folks ask that this be recorded in the pep by including a link to the bdfl pronouncement email .
+ Based on the favorable feedback, Guido has accepted the PEP for Py2 .4 . .

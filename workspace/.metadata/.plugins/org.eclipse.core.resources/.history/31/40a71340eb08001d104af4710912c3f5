@@ -1,0 +1,130 @@
+import java.io.File;
+import java.sql.Connection;
+
+import readCommits.Input.Extractor;
+import readCommits.Input.ExtractorDaniel;
+import readCommits.Input.OutputWritter;
+import readCommits.Input.Reader;
+import connections.MysqlConnect;
+import connections.PropertiesFile;
+import readCommits.structs.insertIntoDB;
+
+public class Main {
+	//Post Running- Run eliminateDuplicates2.sql to remove duplicates
+	//This library had been modified to Read Directly From Checkin Messages
+	//jan 2021...for reading the bips repo, i have to change line 133 in ExtractorDaniel.java
+	
+	//Nov 2019 ..we have downloaded all new data for PEP commits till 2019	
+	//main command from the bash shell 
+	//$ git clone http://www.python.org/dev/peps/
+    //cd peps - try again this command..esp after restart
+	//cd peps
+	//git log -p | clip  (which will copy to clipboard and from where we paste into notepad)
+	
+	//Tutorials
+	//https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
+	//https://git-scm.com/docs/git-log
+	//https://www.youtube.com/watch?v=Ew8HQsFyVHo
+	//we wanted all of these commits
+	//https://github.com/python/peps/commit/23c9dd411500296d22f82d315e51e8cb5037f3d7
+		
+	//Jan 2019....so many PEPs have more states added but it doesnt show in table 'pepstates_danieldata_datetimestamp', so we read again
+	//feb 2018 this script has been made generic now..reading all variable information from properties file 
+	static String proposalIdentifier = null;
+	//This script seems to work fine, timestamp issue resolved, 
+	//remember many times one message has sevearl commits and those commits dont have a date , so we use the only date in that message
+	//to do this, we dont nullify date after sending data for a inserting into database, also we must always have the same dta for each "From: " message
+
+	//i have coded so that it retrives all different states for peps mto be similar to daniel code but that way, also we have multiple entries for the same state for a pep as it occurs multiple times sometimes
+	//for example, pep 308 'draft' states are repeated in file 'python-checkins\2003-February.txt'
+	//so we have to maybe just choose the first instance of each state - would be fine as states dont overlap.
+	
+	//current table which is being used to store the output and which is used in main analysis is 'pepstates_danieldata_datetimestamp' 
+	//table 'pepStates_danieldata' is table for daniel data from his test.txt file
+	static String proposalStateTableName = null;		//contains state data with timestamp..from any source, daniels or commit/checkin files
+	static Integer startMessageIDForStates=5000000;		//5 million as reading in the data we found lots of messages - should be a number not already in allmessages table, 5 mil is good
+	
+	//Notes to understand code, (1) One file can have multiple messages and (2) One message can have multiple One commit file or checkin file will contain several commits...we have to first differentiate them using split 
+	
+	//aug 2018..need to run this script to update 'approved' to 'accepted' ...2 Peps would be updated
+	//UPDATE pepstates_danieldata_datetimestamp set email = 'Status : ACCEPTED' where email like '%Status : APPROVED%';
+	
+	//not needed now as read in from properties file
+//$	public static File checkins_folder = new File("C:/datasets/python-checkins/");	//public static File commits_folder = new File("C:/datasets/python-committers/");
+//$	public static File dev_folder = new File("C:/datasetsb/");
+	
+	//instead of only reading in datasets directly, we can read in the data file that daniel somehow got
+//	public static File danielData_folder = new File("H:/Code/workspaces/third/davery488-git-crawler/data/");
+	//jan 2021 bitcoin bips state data
+	public static File newStateData2019nov_folder = new File("C:/datasets/bip-statecommit-data/");  
+	//nov 2019..we extract all new data  //c:/datasets/pep-statecommit-data/
+	//states are written to database in ReadEachMessageInsertInDatabase function in Extractor.java file 
+		
+	public static void main(String[] args) throws Exception {
+		//There are two datasets, and two ways of reading
+		//use whichever one you require - have to comment and uncomment the sections below
+		insertIntoDB db = new insertIntoDB();
+		MysqlConnect mc = new MysqlConnect();//mysql connection
+		Connection conn = mc.connect();
+		if (conn == null){
+			System.exit(0);
+		}
+		
+		PropertiesFile wpf = new PropertiesFile();/*read properties file */					System.out.println("\nRead in values from properties File");
+		proposalIdentifier = wpf.readFromPropertiesFile("proposalIdentifier",false).toLowerCase();								System.out.println("\tproposalIdentifier: " + proposalIdentifier);
+		proposalStateTableName = wpf.readFromPropertiesFile("proposalStateTableName",false).toLowerCase();/*includeStateData */	System.out.println("\tproposalStateTableName: " + proposalStateTableName);
+		String stateChangeKeyword = "State";	//Status for PEPs, State for JEPs
+		db.initialiseVariables(proposalStateTableName, conn,startMessageIDForStates);//My Reader - read the checkin files directly
+		String mailing_lists[] = wpf.readFromPropertiesFile("MailingListsContainingStateChanges",false).split(" ");
+		
+		
+		//nov 2019 we just use daniel extractor for temp time
+		//Extractor ex = new Extractor();		
+		ExtractorDaniel ex = new ExtractorDaniel();
+		String delimeter = "From: ";
+		ex.setProposalIdentifier(proposalIdentifier);
+		
+		delimeter = "commit ";
+		
+		//State commit data till 2019 nov
+		ex.searchFilesForFolder(proposalIdentifier, newStateData2019nov_folder, newStateData2019nov_folder,db,delimeter,stateChangeKeyword);		
+		System.out.println("Finished processing " + newStateData2019nov_folder);
+		
+		/*
+		ex.searchFilesForFolder(checkins_folder, checkins_folder,db,delimeter);		System.out.println("Finished processing " + checkins_folder);
+		ex.searchFilesForFolder(commits_folder, commits_folder,db,delimeter);		System.out.println("Finished processing " + commits_folder);		
+		*/
+		//now we read the above information from properties file
+		
+		//read mailing lists to read into database table		
+		
+		//nov 2019 commented...but THIS IS NORMALLY USED AS WELL JUST TO MAKE SURE WE DIDNT MISS ANY
+		/*for (String ml: mailing_lists) {
+			File mailingList = new File(ml);
+			System.out.println("\nStarted processing mailing_list: " + mailingList);
+			ex.searchFilesForFolder(proposalIdentifier, mailingList, mailingList,db,delimeter,stateChangeKeyword);
+			System.out.println("Finished processing " + mailingList);
+		}
+		*/
+		
+		//Note: For JEPs we have to read the information from all mailing list folders as there isnt commit of checkin mailing lists
+		
+		//we still missing some data so we include daniel file fort extraction
+		
+		//734 rows 
+		/*
+			ex.searchFilesForFolder(danielData_folder, danielData_folder,db,delimeter);	System.out.println("Finished processing " + danielData_folder);
+		/*
+		//check duplicates after entry
+		//select pep,datetimestamp,email from pepstates_danieldata_datetimestamp order by pep,datetimestamp
+		
+		//Read daniel's old data his way...not really needed unless we want to work with old limited dataset
+		/*
+		ExtractorDaniel exDan = new ExtractorDaniel();
+		exDan.searchFilesForFolder(danielData_folder,danielData_folder);
+		//output data
+		OutputWritter.write(exDan.getResults(), "c:\\scripts\\danOut.txt");
+		*/
+		db.closeDB();
+	}
+}

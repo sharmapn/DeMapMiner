@@ -1,0 +1,13 @@
+ Personally , if I got a vote , I would have been +1 on at least this part of PEP 289 , but it was rejected due to limited utility and difficulty of implementation . .
+ It was originally rejected because of poor syntax and a lack of use cases .
+ I 've updated PEP 345 with this feedback .
+
+ I 've updated the PEP accordingly , and also made some changes after the discussions we had with Martin on Distutils-SIG on how versions are defined . .
+ Having read the PEP I heartily approve .
+ Since there has been some controversy about the joining syntax used in PEP 428( filesystem path objects)   I would like to run an informal poll about it .
+ I 've updated PEP 428 following the previous discussion .
+ Following our discussion of last week , here is a first draft of the PEP .
+ but this was rejected for being too magical , and too confusing to those who are n't expecting it . . . 
+% this one is split into 2 sentences
+ I have reviewed the latest version of PEP 435 and I see that it is very good . I hereby declare PEP 435 as Accepted .
+ An informal poll was taken and people clearly preferred the formatting proposed by the PEP( 9) _ .

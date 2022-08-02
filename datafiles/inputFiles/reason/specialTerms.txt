@@ -1,0 +1,14 @@
++pronouncement
+quick pronouncement
++pep acceptance:
+pep rejection
++pep deferral
++acceptance
++resolution:
+resolution
+rejection notice
+bdfl pronouncement
++pep deferral
++rejection
+-- "resolution",
+-- standard states changes by users i want to capture 

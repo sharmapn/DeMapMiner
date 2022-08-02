@@ -1,0 +1,35 @@
+% reasons
+% not all reaons are captured this way using triples
+% other reasons exist in singles and doubles and should 
+% be captured that way
+
+% reasons for proposal of idea
+
+% reasons for deferement
+
+% reasons for withdrawal
+
+% reasons for acceptance or rejection
+
+consensus,consensus,converged,proposed
+consensus,consensus,converged,syntax
+
+no_majority,proposal,has,no_popular_support
+no_majority,poll,shows,no_popular_support
+little_support,little_interest,seemed,community
+pep_received_favourably,pep,received,favourably
+pep_rejected_lack_of_majority,rejected,lack,majority
+pep_superceded,pep,superseded,pep
+
+% these have one of S,V,O term similar so other decide on other two, e.g. s and v
+% i == pep == proposal 
+% poll
+% favourable_comments == favourably == supermajority
+% benefits_marginal == lack majority == no_popular_support == little_interest
+
+received_feedback,i,received,favourable_comments
+pep_received_favourably,pep,received,favourably
+clarify,i,hope,clarifies
+no_options_get_supermajority,no_options,get,supermajority
+benefits_marginal,rationale,is,benefits_marginal
+no_remaining_controversy,i,do_n't_see,remaining_controversy

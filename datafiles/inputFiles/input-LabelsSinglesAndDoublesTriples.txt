@@ -1,0 +1,72 @@
+% singles and doubles
+% where we match these single and double terms OCCUR TOGETHER in a sentence 
+% will be matched as one string so space between label is okay eg space between draft and pep [draft,draft pep] is okay,
+% but make sure ther is comma between label and single or double terms
+
+% singles, all the below are singles as they are matched as a whole term
+
+% singles for checking in message
+% Jan we dont check these (main states) for now
+% accepted,accepted!
+% accepted,accepted:)
+% accepted,accepted :)
+
+% singles for checking in message subject line
+pre-pep,pre-pep
+% proposal,proposed pep
+draft,draft pep
+draft,rough draft
+% consensus,community consensus
+draft,initial draft
+draft,first draft
+secondDraft,second draft
+% we see these patterns for thrird draft where number was used so we set for all
+secondDraft,draft 2
+updated,redraft
+updated,redrafted
+thirdDraft,third draft
+thirdDraft,draft 3
+fourthDraft,fourth draft
+fourthDraft,draft 4
+fifthDraft,fifth draft
+fifthDraft,draft 5
+updated,final draft
+round2,second round
+round2,round 2
+round3,third round
+round3,round 3
+round4,fourth round
+round4,round 4
+round5,fifth round
+round5,round 5
+round6,sixth round
+round6,round 6
+round7,seventh round
+round7,round 7
+% updated,update to pep
+% not sure about tyehse labels below
+% vote_results,results of the vote
+% vocal_minority,vocal minority
+% pep: xxx
+% new pep submission
+% pep submission
+% four versions
+% ready_review,request for pronouncement
+% ready_review,for review
+
+% message subject are mostly not complete sentences. 
+% Therefore to extract meaningful information regarding a pep state, we dont do clause checking, but Noun and verb checking.
+% check doubles triples in message subject using pos based on each term
+% subject(noun),verb,object(noun)
+% this can be done automatically by extarcting all nouns and verbs from all message subjects, removing stopwords
+
+%             sub      verb    obj
+% propose_rejection,rejection,propose,pep
+% propose_acceptance,acceptance,propose,pep
+% propose_rejection,pep,,rejection
+% propose_acceptance,pep,,acceptance
+
+% check below doubles triples and code
+% Mark PEP accepted.
+% 248283 Let's do it. PEP accepted. -- this is hard to code
+% PEP 384 accepted - Python mailing list - Python.org

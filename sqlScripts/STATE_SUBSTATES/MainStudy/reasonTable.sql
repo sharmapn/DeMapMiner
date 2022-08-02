@@ -1,0 +1,20 @@
+CREATE TABLE `results` (
+	`pep` INT(11) NOT NULL,
+	`author` TEXT NULL,
+	`date` DATE NULL DEFAULT NULL,
+	`label` TEXT NULL,
+	`currentSentence` TEXT NULL,
+	`reverb` TEXT NULL,
+	`clausie` TEXT NULL,
+	`ollie` TEXT NULL,
+	`repeatedLabel` TEXT NULL,
+	`role` TEXT NULL,
+	`reason` TEXT NULL,
+	`ps` TEXT NULL,
+	`ns` TEXT NULL,
+	`pp` TEXT NULL,
+	`ep` TEXT NULL,
+	`np` TEXT NULL
+)
+ENGINE=InnoDB
+;

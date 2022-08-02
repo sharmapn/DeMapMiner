@@ -1,0 +1,381 @@
+package rankingEvaluation;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.commons.lang3.ArrayUtils;
+
+import connections.MysqlConnect;
+import edu.stanford.nlp.ling.Sentence;
+import excelwrite.ExcelFile_Evaluation_AutoVsManual;
+import GUI.helpers.GUIHelper;
+import miner.process.ProcessMessageAndSentence;
+import miner.process.PythonSpecificMessageProcessing;
+//Feb 2019, updated to check paragraphs and messages?
+import opennlp.tools.sentdetect.SentenceDetectorME;
+import opennlp.tools.sentdetect.SentenceModel;
+import opennlp.tools.util.Span;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+//Nov/Dec 2019..I think is that this is part of the main script. It is the second script called by the main script 'DynamicWeightAllocation.java to do the evaluation
+//This is is called by another script which sends various probabilities to this scripts main method 'DynamicWeightAllocation.java'
+
+//Note: Uncomment updateRowForMachineLearning() function 
+
+//Feb 2019, updated to check paragraphs and messages?
+//This script is used to check the automatic extracted reasons using heuristics against the manually checked ones
+//also this script is run to update the 'containsreason' column in the ml table
+//oct 2018, alos update trainingdata columns, but only needed once, not always..for this set the flag 'updateTrainingDataColumns'
+//just run this to make sure
+//update trainingdata set label = trim(label);
+public class Evauation_MemoryBased {
+	static PythonSpecificMessageProcessing pm = new PythonSpecificMessageProcessing();
+	static EvaluationMethods em = new EvaluationMethods();
+	static String manualreasonextractionTable 		= "trainingData",				 
+				  reasonCandidatesSentencesTable 	= "autoextractedreasoncandidateSentences", 
+				  reasonCandidatesParagraphsTable 	= "autoextractedreasoncandidateParagraphs", 
+				  reasonCandidatesMessagesTable 	= "autoextractedreasoncandidateMessages", 
+				  stateTable				  		= "pepstates_danieldata_datetimestamp";
+	
+	static GUIHelper guih = new GUIHelper();
+	static ExcelFile_Evaluation_AutoVsManual reeval        = new ExcelFile_Evaluation_AutoVsManual();
+	static Connection connection;
+	static 	List<Integer> listTotalDistinctProposalsCommittedReasonSentenceManuallyEntered    = new ArrayList<Integer>();
+	static 	List<Integer> listTotalDistinctProposalsCommittedReasonSentenceNotManuallyEntered = new ArrayList<Integer>();	//dec 2018
+	
+	static boolean sel = false; //whether to processs selected proposals ..jan 2020....to see why some sentences are not matched
+	static boolean debugforsentenceslist =false; //debug ..jan 2020  //TRYNOT TO USE - IT REALLY SLPOWS DOWN PROCESSING
+	static int[] selectedListItems = {3131}; //391}; //382};//, 391}; //308,336,340,382,389,391,402,437,438,439,443,449,451,464,470,485,495,507,508,518,519,3103,3134,3139,3152}; //204,270,275,289,295,299,330,336,340,382,402,437,438,439,443,449,451,464,470,485,495,507,508,518,519,3103,3134,3139,3152}; //, }; 308, 318
+	
+	//feb 2020 - we set this to trur so we can get the date difference range - but its normally false
+	//outputtofiles is set to false during optimisation --- when we do a lot if runs 
+	static boolean outputForDebug = false, outputToFiles = true, updateRowForMachineLearning = true, outputFinalOutput=true;
+	//stopped at just the starting of 479
+	
+	//Feb 2019, Now this Evaluation can be done at different levels; sentence, paragraph and message
+	//boolean message= false, paragaraph=false, sentence=true;
+	static InputStream inputStream;
+	static SentenceModel model;
+	static SentenceDetectorME detector;
+	
+	private static void createDateDirectory(File theDir) {
+		// if the directory does not exist, create it
+		if (!theDir.exists()) {
+//		    System.out.println("creating directory: " + theDir.getName());
+		    boolean result = false;
+		    try{		        theDir.mkdir();		        result = true;		    } 
+		    catch(SecurityException se){	}	        //handle it		    	
+		    if(result) {
+//		        System.out.println("DIR created");
+		    }
+		}
+	}
+	
+	
+	
+	// main function is called by the main script 'DynamicWeightAllocation.java to do the evaluation
+	// it sends various probabilities to this  main method 
+	public static void main(ArrayList<Probability> List, HashMap<Integer,String> hmapMessages , double incrementCounter0, double incrementCounter1, double incrementCounter2, 
+			double incrementCounter3, double incrementCounter4, double incrementCounter5, double incrementCounter6, double incrementCounter7, double incrementCounter8, 
+			double incrementCounter9, double incrementCounter10, double incrementCounter11, double incrementCounter12,double incrementCounter13, String evalLevel ) 
+			throws SQLException, IOException { //before was args[]
+		Statement stmt = null,stmt2=null;
+		connections.MysqlConnect mc = new MysqlConnect();		connection = mc.connect();
+		
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+		String newdate = dateFormat.format(date);
+		
+		String fileDir  = "D:\\DeMapMiner\\results\\2020\\Reasons\\eval";
+		//String filename = "C:\\Users\\psharma\\Google Drive\\PhDOtago\\Code\\outputFiles\\postProcessResults_"  +  ".csv";		
+		File theDir = new File(fileDir + newdate);	 
+		//System.out.println("Output directory: " + fileDir);
+		createDateDirectory(theDir);		//,
+		
+		//feb 2019
+		try {
+			inputStream = new FileInputStream("C://lib//openNLP//en-sent.bin"); 
+		    model = new SentenceModel(inputStream); 	    									
+			detector = new SentenceDetectorME(model);  //Instantiating the SentenceDetectorME class
+		}
+		catch(Exception e){
+			
+		}
+		//System.out.println("\t here c");
+		//empty tracking table
+		//emptyTrackingTables(connection); 
+		
+		//Run the program which will compute vales and then will write the result to database
+				
+		//We evaluate for all three ways: sentence, paragraph and message
+		//NOV 2019, we want to get results for sentence level as well
+//$$	String evaluationLevels[] = {"sentencesfromdistinctmessages"};//"sentences",/*"sentencesfromdistinctmessages",*/ "paragraphs","messages"}; //}; //, 
+		
+		//we get this from the calling class
+		//String evaluationLevels[] = {"sentencesfromdistinctmessages"};//"sentences
+		//String evaluationLevels[] = {"messages"};
+		
+		//jan 2020 ...now that eval levels are controlled from dynamicallocation.java..this has to go otherwise it just repeats the process unnecessarily
+//		for(String evalLevel: evaluationLevels) 
+//		{
+			//reasonCandidatesTable=reasonCandidatesTable+evalLevel;	//change tablename
+			String excelOutputfileName 				= theDir + "\\"    + "eval"+evalLevel+".xlsx", 
+				   excelOutputOnlyUnmatchedfileName = theDir + "\\"    + "evalUnmatched"+evalLevel+".xlsx";
+			if(outputToFiles)
+				reeval.initialiseExcelFile(excelOutputfileName);		
+			
+			//for wordcloud and knowledge graph
+			boolean extractSentencesForWordCloud=false,updateTrainingDataColumns=true;
+			FileWriter fw = new FileWriter("c:\\scripts\\wordCloud"+evalLevel+".txt", true);
+		    BufferedWriter bw = new BufferedWriter(fw);
+		    
+		    FileWriter fwAO = new FileWriter(theDir + "\\"    + "AllOut"+evalLevel+".txt", true);	    	BufferedWriter bwAO = new BufferedWriter(fwAO);
+		    
+		    BufferedWriter bwSO = new BufferedWriter(fw);
+		    
+			String sentenceOrParagraph = "", mid = "", dateVal = "", termsMatched = "", level = "", folderML = "",	author = "";
+			Boolean reason = false;
+			int arrayCounter = 0,proposalNum=0; //int recordSetCounter = 0; 
+			
+			//		for (int i = 0; i < 479; i++) 		{		//479
+			String statesToCheck[] = {"accepted","final","rejected"};			//"accepted","final",  "final",
+			
+			//START WRITING HEADERS
+			if(outputToFiles) {
+				writeHeadersToFile(bwAO, bwSO);
+			}
+			Integer manualLabelCounter=0, top5=0, top10=0, top15=0,top30=0,top50=0,top100=0,outsideTop100=0,notMatched=0;
+			//march 2019
+			 
+			
+			//END WRITING HEADERS
+			boolean foundaccepted=false; String accepted = "accepted";
+			Integer finalPlusAcceptedCounter=0,finalMinusAcceptedCounter=0;
+			//FIRST, WE START BY CHOOSING WHICH LABEL WE WANT TO DISCOVER	
+			for(String state: statesToCheck) {
+				//clear tehse lists so that they can start from 0 when checking for different states. Since the class is inherited from, its better to make sure they are cleared
+				listTotalDistinctProposalsCommittedReasonSentenceManuallyEntered.clear();
+				listTotalDistinctProposalsCommittedReasonSentenceNotManuallyEntered.clear();
+				//System.out.println("\t\t\t I VALUE 5 =  incrementCounter1: "+ incrementCounter1);
+				em.forEachState(List, hmapMessages, incrementCounter0, incrementCounter1, incrementCounter2, incrementCounter3, incrementCounter4, incrementCounter5, incrementCounter6, incrementCounter7,
+						incrementCounter8, incrementCounter9, incrementCounter10, incrementCounter11, incrementCounter12, incrementCounter13, stmt2, evalLevel, extractSentencesForWordCloud,
+						updateTrainingDataColumns, bw, bwAO, bwSO, mid, accepted, finalPlusAcceptedCounter, 						finalMinusAcceptedCounter, state, selectedListItems );
+			}	//end for each label
+			if(outputToFiles) {
+				reeval.writeAndCloseFile();//close excel file
+				//reevalNoMatch.writeAndCloseFile();
+				bw.close();		
+				bwAO.close();	
+				//bwSO.close();
+			}
+//		} //end for each level, sentence, paragraph and message
+			
+	}
+
+	
+
+	private static void writeHeadersToFile(BufferedWriter bwAO, BufferedWriter bwSO) throws IOException {
+		reeval.writeEvaluationResultsHeaderToExcelFile("Proposal","MID","State", "labelToCheck", "ManualCauseSentence", "AutoExtractedSentenceOrParagraph", "Ranking", "Location", "sentenceMatchPercent",
+				"sentenceHintProbablity","sentenceLocationHintProbability","messageSubjectHintProbablityScore","dateDiffProbability","authorRoleProbability","negationTermPenalty");
+		reeval.writeEvaluationResultsHeaderToExcelFile_UniqueRows("Proposal","MID","State", "labelToCheck", "ManualCauseSentence", "AutoExtractedSentenceOrParagraph", "Ranking", "Location", "sentenceMatchPercent",
+				"sentenceHintProbablity","sentenceLocationHintProbability","messageSubjectHintProbablityScore","dateDiffProbability","authorRoleProbability","negationTermPenalty");
+
+		bwAO.write("proposalNum,label,ranking,manualSentence,autosentence,probability,sentenceHintProbablity,"
+				+ "messageSubjectHintProbablityScore,authorRoleProbability,sentenceLocationHintProbability,dateDiffProbability,negationTermPenalty");		
+		bwAO.newLine();
+		bwSO.write("proposalNum,label,ranking,manualSentence,autosentence,probability,sentenceHintProbablity,"
+				+ "messageSubjectHintProbablityScore,authorRoleProbability,sentenceLocationHintProbability,dateDiffProbability,negationTermPenalty");		
+		bwSO.newLine();
+	} 
+	
+	
+	
+	
+	//D C G
+	//take all ranking for a proposal - will include multiple query results
+	//look at matched rows only
+	
+	public static double returnLog(int rank) {
+		double  l = Math.log(rank);
+		System.out.println("Math.log(" + rank + ")=" + l);
+		return l;
+	}
+	
+	//march 2019, we extend this function to write more data in table for evaluation 
+	public static void updateRowForMachineLearning(int id, Integer containsReason, Integer rankBySQL, Integer rankBySystem){		  
+		try {
+			// create the java mysql update preparedstatement
+			String query = "update autoextractedreasoncandidatesentences set containsReasonnew = ?, rankBySQL = ?, rankBySystem = ?  where id = ?";
+			PreparedStatement preparedStmt;
+			preparedStmt = connection.prepareStatement(query);
+			preparedStmt.setInt(1, containsReason);			preparedStmt.setInt(2, rankBySQL);
+			preparedStmt.setInt(3, rankBySystem);			preparedStmt.setInt(4, id);
+			// execute the java preparedstatement
+			preparedStmt.executeUpdate();	
+			if(outputForDebug)
+				System.out.println("\tUpdated Evaluation values for Result record id:"+ id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		
+	}
+	
+	//dec 2018..we update teh trainigdata fields
+	//we update all messagetype in the allmessages table
+	//public static void updateTrainingDataTable(Integer rowid,Integer mid, Integer datediff, Integer proposal, String label, String sentence) throws SQLException {
+	public static void updateTrainingDataTable(Integer rowid, Integer datediff) throws SQLException {
+		  //String updateQuery = "update trainingdata set extractedMessageid = ?, datediff = ? where pep = ? and label = ? and id = ?";
+		  String updateQuery = "update trainingdata set datediff = ? WHERE id = ?";
+		  PreparedStatement preparedStmt = connection.prepareStatement(updateQuery);
+		  preparedStmt.setInt (1, datediff);			 // preparedStmt.setInt(2, datediff); preparedStmt.setInt(3, proposal);	preparedStmt.setString(4, label); 
+		  preparedStmt.setInt(2, rowid);
+		  int i = preparedStmt.executeUpdate();
+		  if(i>0)   { 		          //System.out.println("updated authorsrole ="+authorRole+" where messageID = "+ mid);				  
+		  }
+		  else  {	         
+			  if(outputForDebug)
+				  System.out.println("stuck updateTableWithMessageType mid " + rowid + " sentence  " + datediff);		  }
+		  updateQuery =null;
+	}
+	
+	public static void insertDateDiffValues(Integer rowid, Integer datediff) {
+		Integer epSize=0,npSize=0,ppSize=0;
+		Statement stmt = null;
+		try {		
+			String updateQuery = "INSERT INTO datedifftally (datediff,id) VALUES (?,?)";
+			  PreparedStatement preparedStmt = connection.prepareStatement(updateQuery);
+			  preparedStmt.setInt (1, datediff);			 // preparedStmt.setInt(2, datediff); preparedStmt.setInt(3, proposal);	preparedStmt.setString(4, label); 
+			  preparedStmt.setInt(2, rowid);
+			  int i = preparedStmt.executeUpdate();
+			  if(i>0)   { 		          //System.out.println("updated authorsrole ="+authorRole+" where messageID = "+ mid);				  
+			  }
+			  else  {	         
+				  if(outputForDebug)
+					  System.out.println("stuck updateTableWithMessageType mid " + rowid + " sentence  " + datediff);		  }
+			  updateQuery =null;
+
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();			//System.out.println("Error..." + stmt.toString());			System.out.println("Error..." + ar1 + "," + re + "," + ar2);
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();			//System.out.println("Error..." + stmt.toString());			System.out.println("Error..." + ar1 + "," + re + "," + ar2);
+		} finally {
+			// finally block used to close resources
+//			try {
+//				if (stmt != null)
+//					conn.close();
+//			} catch (SQLException se) {
+//			}// do nothing
+//			try {
+//				if (conn != null)
+//					conn.close();
+//			} catch (SQLException se) {
+//				se.printStackTrace();
+//			}// end finally try
+		}// end try
+		//System.out.println("Goodbye!");
+	}// end main
+	
+	public static void printList(List<String> terms) {
+		System.out.print("\t{");
+		for (String t: terms) {
+			System.out.print(t+" ");
+		}
+		System.out.println("}");
+	}
+	//check that first n words of manual sentence exists in automatic sentnec
+	//pass both manual and automatic sentence as parameter
+	//pass number of terms to check
+	public static boolean checkWordOrder(List<String> automaticSentenceOrParagraph, List<String> manualCauseSentenceTerms, int numOfTermsToCheck ){
+		try {
+			//feb 2019..check no of terms first			
+			while(manualCauseSentenceTerms.size() < numOfTermsToCheck) {
+				numOfTermsToCheck--;
+			}
+			List<String> manualTermsSubset = new ArrayList<String>(manualCauseSentenceTerms.subList(0, numOfTermsToCheck));
+			List<String> autoTermsSubset;// = new ArrayList<String>(automaticSentenceOrParagraph.subList(0, numOfTermsToCheck));
+			List<String> subsetCommonTerms = new ArrayList<String>();
+			//find the first manual term in automatic..can be multiple occurence
+			String firstManualTerm = manualTermsSubset.get(0); //get first manual term to check
+	//$$		System.out.println(" firstManualTerm: "+firstManualTerm);
+			for (int i=0; i< automaticSentenceOrParagraph.size()-numOfTermsToCheck; i++) {		//we dont want to reach arrayindex out of range therefore we minus
+				String autoTerm = automaticSentenceOrParagraph.get(i);
+				if(autoTerm.contains(firstManualTerm) ) {			// as soon as first manual term is matched in auto sentence
+					//extract subset 
+					autoTermsSubset = new ArrayList<String>(automaticSentenceOrParagraph.subList(i, i+numOfTermsToCheck));	//check next n number of terms
+	//$$				System.out.println(" i: "+i+" manualTermsSubset: "+manualTermsSubset+", autoTermsSubset: "+autoTermsSubset.toString());
+					//make sure next x terms are the same in both the subsets
+					subsetCommonTerms=findCommonElement(manualTermsSubset,autoTermsSubset); //System.out.println(" subsetCommonTerms: "+subsetCommonTerms.toString());
+					//if(subsetCommonTerms.size() == numOfTermsToCheck) 
+					//	return true;
+					for (int j=0; j< numOfTermsToCheck; j++) {
+						if(!autoTermsSubset.get(j).equals(manualTermsSubset.get(j)))
+							return false;				//if any of these elements is not matched, return false
+					}
+					return true;
+				}
+			}
+		}
+		catch (Exception e){
+			System.out.println("Exception 300 (FILE) " + e.toString()); 
+			System.out.println(StackTraceToString(e)  );
+		}
+		return false;
+	}
+	
+	public static List<String> findCommonElement(List<String>  a, List<String>  b) {
+        List<String> commonElements = new ArrayList<String>();
+        for(String i: a) {
+            for(String j: b) {
+                    if(i.equals(j)) {  
+                    //Check if the list already contains the common element
+                      //  if(!commonElements.contains(a[i])) {
+                            //add the common element into the list
+                            commonElements.add(i);
+                      //  }
+                    }
+            }
+        }
+        return commonElements;
+	}
+	
+	public static String[] removeNullOrEmpty(String[] a) {
+	    String[] tmp = new String[a.length];
+	    int counter = 0;
+	    for (String s : a) {
+	        if (s == null || s.isEmpty() || s.equals("")) {}
+	        else {
+	            tmp[counter++] = s;
+	        }
+	    }
+	    String[] ret = new String[counter];
+	    System.arraycopy(tmp, 0, ret, 0, counter);
+	    return ret;
+	}
+	
+	public static String StackTraceToString(Exception ex) {
+		String result = ex.toString() + "\n";
+		StackTraceElement[] trace = ex.getStackTrace();
+		for (int i=0;i<trace.length;i++) {
+			result += trace[i].toString() + "\n";
+		}
+		return result;
+	}
+}

@@ -1,0 +1,275 @@
+% This is the training sentences for reasons in OSSD repository Python.
+% For each of the training PEPs, we specify reason for state changes
+% Initial PEP training list. PEP {289,308,313,318,336,340,345,376,388,389,391,414,428,435,441,450,465,484,488,498,485,471,505,3003,3103,3131,3144}
+% reasons have been extracted from document names "justreasons.docx" which was prepared after manually analysis
+% These training data is only for adjacent sentences. For reasons on its own, we have triple captures.
+
+Note: PEP ready for pronouncement ..rmainly means that all issues have been sorted out and there are no more objections..can be indicator of lazy consensus or consensus
+
+% Structure based on Haussan, CAUSE, EFFECT, and RELATOR
+%	[Causal Cue Phrase]R [Cause Phrase,]C [Effect Phrase.]E
+%	[Toshiba’s early investment]C will [[heighten]R its chances of beating its competitors.]E
+%   A company spokesman said the [decision to eliminate the dividend]E [resulted from]R a [quarterly appraisal]C and that circumstances had changed since the December announcement. 
+
+% Los Angeles investor Marvin Davis, whose [$240-a-share offer for UAL in August]C [triggered]R [a bidding war,]E says he remains interested in the airline. 
+
+% Reasons for all 13 major states {"draft","open","active", "pending", "close", "final","accepted", "deferred","replaced","rejected","postponed", "incomplete" ,"superseded"}
+
+% new added states for which i want to capture the reasons
+% {"bdfl","proposal","update", "vote", "poll"};//removed "consensus" 	
+
+% new 2 peps added after 465 was removed
+
+% PEP 259
+% REJECTED
+PEP 259 rejected by user community with record unanimity.
+% unanimity means consensus
+
+% PEP 279
+# ACCEPTING after Vote
+Thanks to all for the feedback.  
+I think I've seen slightly more votes for enumerate than for itemize, and after some thought I think the LaTeX example (where enumerate creates numbered items) *does* help --  Even if few Python users know LaTeX, I trust the linguistic sensibilities of LaTeX' author. So enumerate() it is.  		
+
+% PEP 285 
+% Acceptance
+[Despite]R the [negative feedback]C , I 've decided to [accept the PEP]E . 
+
+% PEP 289 [REJECTED, ACTIVE, DRAFT, ACCEPTED, FINAL]
+% Accepted
+[Based]R on the [favorable feedback]C, Guido has [accepted the PEP]E for Py2 .4.
+
+
+% PEP 308 [REJECTED,ACTIVE,DRAFT,ACCEPTED,FINAL]
+
+% Why proposed /active draft
+In the past month alone, there have been threee separate threads on clp started, I believe, by three separate people asking for or about such.  
+I believe that it is by far the most freqenctly asked-for new feature in that arena. 
+OK, I'll write a PEP (I doubt waiting for Eric is gonna pay off).
+Given that if-then-else expressions keep being requested, I hereby put forward a proposal.  
+
+% Why complementary vote
+Ballot for Complementary PEP308 Ternary VOTE. 
+It is for a different vote that is intended to COMPLEMENT the results of the official vote, by using a different type of ballot, and a different method of tallying the results (Condorcet's  Method).
+
+%  why rejected after vote
+Anyone want to update it to include the vote results and change it to "Rejected"?
+Following the discussion, a vote was held.  
+While there was an overall interest in having some form of if-then-else expressions, no one format was able to draw majority support.  
+Accordingly, the PEP was rejected due to the lack of an overwhelming majority for change.
+
+% why accepted
+After a long discussion I've decided to add a shortcut conditional expression to Python 2.5.
+
+% PEP 313 [DRAFT, REJECTED]
+% Rejected
+BDFL Pronouncement This [PEP is rejected]E. 
+While the majority of Python users deemed this to be a nice-to-have feature, [the community was unable to reach a consensus]C on whether nine should be represented as IX, the modern form, or VIIII, the classic form
+Rejection of `PEP 313`_ ("Adding Roman Numeral Literals to Python" - yes, this is a real PEP!) was proposed, and the PEP was rejected.
+
+% PEP 318 [DRAFT,FINAL]
+
+% poll
+
+There was a poll linked from the decorators wiki, that now says (consider the poll now closed).  
+If it were a democracy, the standings are: 
+Both C1 and E1, which are the clear favorites, have been previously rejected by Guido for various reasons.
+% consensus
+% no reason for acccepted as accepted state dopes mnot exist for this pep
+
+% PEP 336  {DRAFT,REJECTED}
+% Rejected
+% Reason in next paragraph
+BDFL Pronouncement
+This PEP is rejected. 
+It is considered a feature that None raises an error when called. 
+The proposal falls short in tests for obviousness, clarity, explictness, and necessity. 
+The provided Switch example is nice but easily handled by a simple lambda definition. 
+See python-dev discussion on 17 June 2005  .
+After nine months, no support has grown beyond the original poster.  
+The PEP did however generate some negative responses when brought-up on comp.lang.python (it made some people's stomach churn).
+
+% PEP 340 {DRAFT,REJECTED}
+I am rejecting this PEP in favor of PEP 343. 
+See the motivational section in that PEP for the reasoning behind this rejection. GvR.
+
+%PEP 343 {DRAFT,ACCEPTED,FINAL}
+% Updated
+This PEP was originally written in first person by Guido, and subsequently updated by Nick Coghlan to reflect later discussion on python-dev.
+
+% PEP 345 {DRAFT,ACCEPTED}
+% Updated
+I've updated PEP 345 with this feedback.
+I've updated the PEP accordingly, and also made some changes after the discussions we had with Martin on Distutils-SIG on how versions are defined.
+
+% PEP 376 {DRAFT,ACCEPTED}
+% Accepted
+Guido told me in private he's now [accepting the PEP]E since [there's consensus]C.
+
+% PEP 391 {DRAFT,ACCEPTED,FINAL}
+% Vote reason
+I've not asked for a vote and so I don't know the state of community consensus regarding this PEP.
+
+% Accepted reason in new paragraph
+There have been some comments in favour of the proposal, no objections to the proposal as a whole, and some questions and objections about specific details. 
+These are believed by the author to have been addressed by making changes to the PEP.
+Having read the PEP I heartily approve. 
+The PEP can be moved to Accepted state. 
+
+% PEP 414 {DRAFT,ACCEPTED,FINAL}
+% Accepted and there was disagreement - not explicitly stated in nearby sentences, but disagreement is stated in earlier message 
+
+% PEP 428 {DRAFT,ACCEPTED,FINAL}
+% Poll reason
+Since there has been some controversy about the joining syntax used in PEP 428 (filesystem path objects), I would like to run an informal poll about it. 
+% another message 
+I have a poll going on G+ to see what people think of the various proposed file name formats at https://plus.google.com/u/0/+BrettCannon/posts/fZynLNwHWGm . 
+% Updated
+I've updated PEP 428 following the previous discussion . Following our discussion of last week , here is a first draft of the PEP. 
+
+% PEP 435 {DRAFT,ACCEPTED,FINAL}
+I have reviewed the latest version of PEP 435 and I see that it is very good.  I hereby declare PEP 435 as Accepted.
+
+PEP 441	{DRAFT,ACCEPTED,FINAL}
+% PEP author thinks no objection anymore
+The discussion on PEP 441 (started in thread https://mail.python.org/pipermail/python-dev/2015-February/138277.html and on the issue tracker at http://bugs.python.org/issue23491) seems to have mostly settled down.I don't think there are any outstanding tasks, so I'm happy that the PEP is ready for pronouncement. 
+% BDFL Accepts in seprate message but same thread
+Accepted! Thanks for your patience, Paul, and thanks everyone for their feedback.
+
+PEP 450{DRAFT,ACCEPTED,FINAL}
+% the community statues
+I think that PEP 450 is now ready for a PEP dictator. There have been a number of code reviews, and feedback has been taken into account. The test suite passes. I'm not aware of any unanswered issues with the code. 
+At least two people other than myself think that the implementation is ready for a dictator, and nobody has objected.
+% Accepted 
+Congrats, I've accepted the PEP. Nice work! Please work with the reviewers on the issue on the code.
+
+PEP 471	{DRAFT,ACCEPTED,FINAL}
+% The PEP is accepted.
+I asked privately Guido van Rossum if I can be the BDFL-delegate for the PEP 471 and he agreed. I accept the latest version of the PEP:
+
+% reason not explicitly stated in mailing list but is on pep page
+% https://www.python.org/dev/peps/pep-0471/ uder support section
+
+% why final
+FYI I commited the implementation of os.scandir() written by Ben Hoyt. I hope that it will be part of Python 3.5 alpha 2 (Ben just sent the final patch today). Thanks to everyone that worked on getting this PEP through to Final status!
+
+PEP 484	{DRAFT,ACCEPTED}
+%accepted
+I am pleased to announce that I am accepting PEP 484 (Type Hints).
+
+PEP 485	{DRAFT,ACCEPTED,FINAL}
+% idea (in ideas mailing list)- wrote pep
+After much discussion on this list, I have written up a PEP, and it is ready for review (see below) It is also here: https://www.python.org/dev/peps/pep-0485/
+% guido accept
+I think it's time to accept PEP 485. I've re-read it once more, and it looks like the text is in great shape. 
+% ADD ACCEPTANCE TO TRIPLES
+% ADD DIASAGREEMENT TO TRIPLES
+I don't think you can reasonably disagree that a PEP is needed -- not with so much discussion and apparently still no agreement.
+% ADD FOLLWING OFFLIST DISCUSSION TO TRIPLES
+% no need for mystery here -- I asked off-list for feedback from Steven and a couple others, then posted the PEP without having given them much time to respond.
+
+%CLEAR CONSENSUS
+I've gone through all the messages in this thread since I posted the draft PEP. I have updated the code and PEP (on gitHub) with changes that were no brainers or seemed to have clear consensus. 
+
+% need to go off list
+I suggest that in the interest of not flooding everyone's inboxes, we take that off-list until we have either a concensus or at least agreement that we cannot reach concensus.
+
+Does it need to go off-list? I'm still unclear about the arguments over asymmetric vs symmetric (I suspect, as you alluded to earlier,that they reflect a more fundamental problem, which is that there are 2 different types of use case with different constraints) so I'd like to at least be aware of the content of any discussion...
+
+No, it doesn't need to go off-list, but I'm suffering badly from email fatigue, not just because of this thread but it is one of the major causes, and I'm sure I'm not the only one.
+> nope :-)
+
+But one reason to take it off-list is that these very long, if not endless, circular conversations gives the impression that it really matters which specif choices are made, and that we will never come to a consensus about it, so this should not go in the stdlib.
+
+If I kept track correctly, we didn't get any -1s on the whole concept -- thanks!
+% guido asks now
+Is the PEP ready for pronouncement now?
+% pep author
+I think so -- I've addressed (one way or another) everything brought up here.
+The proposed implementation needs a bit more work, but that's, well, implementation. ;-)
+% guido again
+I see no roadblocks but have run out of time to review the PEP one more time.
+
+% PEP 488 {DRAFT,ACCEPTED,FINAL}
+% Two states and reasosn stated here, 
+% wrote_pep and its reason[Everyone on SIG was positive], 
+% present_discussion/proposal and its reason [positive feedback].
+Everyone on the SIG was positive with the idea so I wrote a PEP, got positive feedback from the SIG again, and so now I present to you PEP 488 for discussion.
+% why poll
+I have a poll going on G+ to see what people think of the various proposed file name formats at https://plus.google.com/u/0/+BrettCannon/posts/fZynLNwHWGm .
+% Here is the latest draft of the PEP. I have closed the issue of file name  formatting thanks to the informal poll results being very clear on the  preferred format and also closed the idea of embedding the optimization  level in the bytecode file metadata (that can be another PEP if someone  cares to write that one). 
+
+% why bdfl review ..cos above poll results very clear
+% I think this PEP is close enough to be finished to ask whether Guido wants to wield his BDFL stick for this PEP or if he wants to delegate to a BDFAP.
+
+An informal poll was taken and  people clearly preferred the formatting proposed by the PEP [9]_. 
+Since this topic is non-technical and of personal choice, the issue is considered solved. 
+
+%why accepted
+Awesome, that's what I was hoping. Accepted! Congrats and thank you very much for writing the PEP and guiding the discussion.
+% in a previous message to which teh above is a reply
+I am willing to be the BDFL for this PEP. I have tried to skim the recent discussion (only python-dev) and I don't see much remaining controversy.
+
+% PEP 498	{DRAFT,ACCEPTED}
+% why draft
+Following a long discussion on python-ideas, I've posted my draft of PEP-498. It describes the "f-string" approach that was the subject of the "Briefer string format" thread. I'm open to a better title than "Literal String Formatting".
+% why accepted
+I think it's now ready for Guido to pronounce on it.
+
+I'm accepting PEP 498. Congratulations Eric! And thanks to everyone who contributed. A lot of thought and discussion went into this -- Eric himself was against the idea when it first came up!
+
+% PEP 3003 {DRAFT,ACCEPTED,FINAL}
+% accepted
+Thanks Brett.  I've moved the moratorium PEP to Status: Accepted.
+% this message (by guido) is in a different message than the acceptance message
+I haven't seen substantial opposition against the PEP -- in fact I can't recall any, and many people have explicitly posted in support of it. So unless opposition suddenly appears in the next few days, I'll move it to the Accepted state next Monday. 
+
+% PEP 3103 {DRAFT,REJECTED}
+% REJECTED
+A quick poll during my keynote presentation at PyCon 2007 shows this proposal has no popular support. I therefore reject it.
+
+% PEP 3144 {DRAFT,ACCEPTED,FINAL}
+% ACCEPTED
+Based on the current version of PEP 3144 and its reference implementation, I am formally accepting ipaddress into the standard library. I believe Peter has satisfactorily resolved the concerns previously raised with the proposed API, and if I missed anything... well, that'swhy we have alpha releases and the new provisional API status :)
+PEP 3144 wasn't pronounced upon because there were significant disagreements about the design of the API proposed in the PEP. 
+
+
+
+
+% PEPs APART FROM TRAINING ONES
+
+% PEP 388 - no pep as 388
+
+% pep 386
+% was discussed on distutils-sig 
+% community status
+(This is the email I will send to python-dev, so everyone can review it before it is sent)
+On behalf of the Distutils-SIG, I would like to propose PEP 386 for inclusion in the sdtlib, and have a final discussion here on Python-dev.
+This PEP has been discussed for some time in Distutils-SIG, and we agreed there that it's important to have it accepted for the future of packaging because:
+As I expected, we didn't find a full consensus on the final PEP 386 schema on Distutils-SIG. But the one presented is good enough for what we need to express, as far as I am concerned (and some other people).
+So I am proposing to see this PEP discussed for one more round here, then rejected or approved by the highest authority :) so we can move on to the final changes we are planning on PEP 345 and PEP 376 (those are the next PEP we want to propose here)
+
+% reviewed - this is on dev
+I've reviewed PEP 345 and PEP 386 and am satisfied that after some  small improvements they will be accepted. Most of the discussion has already taken place. 
+% accepted - this is on dev
+Since this is done I now approve both PEP 345 and PEP 386 (which is not to say that small editorial changes to the text couldn't be made). 
+
+% PEP 504
+% DRAFT
+Based on the feedback in the recent threads, I've written a draft PEP that dispenses with the userspace CSPRNG idea, and instead proposes:
+
+% PEP 204
+% REJECTED
+PEP 204 was rejected, mostly because of not-so-obvious syntax.
+
+% PEP 319
+Pronouncement This PEP is rejected in favor of PEP 343.
+
+% This pep was removed from the initial 29 peps as
+PEP 465	{DRAFT,ACCEPTED,FINAL}
+% discussed in numpy mailing list..also not veruy straightforward maybe vote or poll is used but I havent seen any
+% Acceptance
+I'm now accepting the PEP, so you all can stop joking around.
+
+% PEP 3131	{DRAFT,ACCEPTED,FINAL}
+% acceptance . This was discussed in python 3000 mailing list...no reason could be found for accceptance of pep.
+I have accepted PEP 3131.

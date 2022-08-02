@@ -1,0 +1,690 @@
+# a lot of times it  seems that cause and effect are included as trails in the same message.
+# where someone is asking for something and a person replies by approving or disapproving. This can be teh cause and effect pairs 
+# we just have to strip the  quotation signs and get the main message.
+
+# some peps do directly to final from draft like pep 3147
+# Note: PEP ready for pronouncement ..rmainly means that all issues have been sorted out and there are no more objections..can be indicator of lazy consensus or consensus
+
+# PEP 3
+# update..state data
+I've attached a proposed revision of PEP 3 below. Feedback would be appreciated, and once we have a reasonable consensus that it accurately describes our current processes I can check it in and Martin can update the tracker to reflect any changes.
+
+# why withdrawn
+So if dev/workflow stays, PEP 3 should be withdrawn.
+# another message on why withdrawn
+Log: PEP 3 is obsolete; withdraw it
+
+PEP 4
+# Proposal..state data
+I just finished a first draft of a PEP on deprecating (and eventually removing) modules from the standard Python library; it is available from  http://python.sourceforge.net/peps/pep-0004.html
+
+If you have comments or suggestions on the proposed procedures, or the wording of the text, please send me a message. According to the PEP procedures (PEP 1), this is the preferred way of progressing this PEP (rather than discussing it on these lists), at least initially.
+# Active
+# why active ...
+Since everyone seems happy with the proposal to keep deprecated modules in Python 3 until Python 2.7 reaches EOL, here are my proposed changes to PEP 4. If no one objects I will commit the change and then update formatter and imp to say they will be removed once Python 2.7 is no longer supported.
+# no more states after active for this pep
+
+# PEP 42, 100, 160 very hard to find reasons as no reasons are explicitly stated.
+
+# mass deferrel
+# Deferred reason
+
+Mass deferral as proposed on python-dev
+
+files:
+  pep-0337.txt |   9 ++++++++-
+  pep-0368.txt |   9 ++++++++-
+  pep-0396.txt |   9 ++++++++-
+  pep-0400.txt |   9 ++++++++-
+  pep-0419.txt |  10 +++++++++-
+  pep-0423.txt |   7 ++++++-
+  pep-0444.txt |  14 +++++++++++++-
+  pep-3124.txt |   2 +-
+  pep-3143.txt |  10 +++++++++-
+  pep-3145.txt |   9 ++++++++-
+  pep-3152.txt |   9 ++++++++-
+  
+  # reason
++PEP Deferral
++
++    Further exploration of the concepts covered in this PEP has been deferred
++    for lack of a current champion interested in promoting the goals of the
++    PEP and collecting and incorporating feedback, and with sufficient
++    available time to do so effectively.
+
+#PEP 3333
+
+FIRST MESSAGE FOR PEP 3333 is below..seems like it was some other pep, maybe 333 and duiscussed at length and then assigned 3333
+
+>>> I'm happy approving Final status for the
+>>> PJE's corrections.
+>>
+>> Can we make it PEP 3333, then? ?;-)
+>
+> That works for me.
+
+Go for it.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+# message in checkins
+Mark as Final
+See Guido's approval at:
+https://groups.google.com/forum/#!msg/python-web-sig/PBxKNkDVoag/EqXvt_-4zEEJ
+Modified:
+   peps/trunk/pep-3333.txt
+
+Modified: peps/trunk/pep-3333.txt
+==============================================================================
+--- peps/trunk/pep-3333.txt	(original)
++++ peps/trunk/pep-3333.txt	Thu Jan 13 00:11:21 2011
+@@ -4,7 +4,7 @@
+ Last-Modified: $Date$
+ Author: P.J. Eby <pje at telecommunity.com>
+ Discussions-To: Python Web-SIG <web-sig at python.org>
+-Status: Draft
++Status: Final
+
+# REASON in the url above in python-web-sig
+
+>> Ok, now that we've had a week of back and forth about this, let me repeat
+>> my "threat". Unless more concerns are brought up in the next 24 hours, can
+>> PEP 3333 be accepted? It seems a lot of people are waiting for a decision
+>> that enables implementers to go ahead and claim PEP 333[3] compatibility.
+>> PEP 444 can take longer.
+>
+> With the lack of responses, can I assume this has been or will be shortly
+> marked as "accepted"?
+Yep. Phillip, can you do the honors?
+
+# just about to be accepted but then objections
+
+> Note that Guido just recently wrote on that list that he considers that
+> PEP to be de facto accepted.
+
+That was conditional on there not being any objections in the next 24
+hours. There have been plenty, so I'm retracting that.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+# mark as final
+Mark as Final
+
+See Guido's approval at:
+
+https://groups.google.com/forum/#!msg/python-web-sig/PBxKNkDVoag/EqXvt_-4zEEJ
+
+# pep 333
+# Note for every PEP, we check in the draft status message, it would shed light on how it was created,
+# wether through issue, bug or replacing another PEP.
+
+Modified: peps/trunk/pep-0333.txt
+==============================================================================
+--- peps/trunk/pep-0333.txt	(original)
++++ peps/trunk/pep-0333.txt	Fri Mar  4 05:58:22 2011
+@@ -9,7 +9,7 @@
+ Content-Type: text/x-rst
+ Created: 07-Dec-2003
+ Post-History: 07-Dec-2003, 08-Aug-2004, 20-Aug-2004, 27-Aug-2004, 27-Sep-2010
+-Replaced-By: 3333
++Superseded-By: 3333
+
+# another message
+
+Modified:
+   peps/trunk/pep-3333.txt
+
+Modified: peps/trunk/pep-3333.txt
+==============================================================================
+--- peps/trunk/pep-3333.txt	(original)
++++ peps/trunk/pep-3333.txt	Fri Jan  7 16:46:57 2011
+@@ -17,7 +17,8 @@
+ 
+ This is an updated version of PEP 333, modified slightly to improve
+ usability under Python 3, and to incorporate several long-standing
+-de-facto amendments to the WSGI protocol.
+
+---$
+
+Modified:
+   peps/trunk/pep-3333.txt
+
+Modified: peps/trunk/pep-3333.txt
+==============================================================================
+--- peps/trunk/pep-3333.txt	(original)
++++ peps/trunk/pep-3333.txt	Mon Oct  4 17:48:11 2010
+@@ -8,7 +8,7 @@
+ Type: Informational
+ Content-Type: text/x-rst
+ Created: 26-Sep-2010
+-Post-History: 27-Sep-2010
++Post-History: 26-Sep-2010, 04-Oct-2010
+ Replaces: 333
+ 
+ # why pep 333 would be have a new pep to 3333
+ This is a very laudable initiative and I approve of the changes -- but
+I really think it ought to be a separate PEP rather than pretending it
+ ---$
+ # on pep 444 also similarto pep 333
+ 
+ This looks like good progress (and does not seem to block the progress
+of PEP 444) but would it be possible to do it as a different PEP
+rather then just an update; or adding an explicit "these are the
+differences between v1 and v2" section? It seems like it will end up
+different enough to be a different specification, closely related to
+the original, but different enough to trip up all the people
+maintaining current WSGI servers and apps.
+
+---- $
+# pep 3156
+ I am posting PEP 3156 here for early review and discussion.
+ 
+ ..
+ Let the bikeshedding begin!
+ 
+ # accepted
+ Hello,
+I have decided to mark PEP 3156 accepted. This reflects the fact that the implementation is now in the stdlib tree, and its API has been pretty much validated during all previous discussions (mostly on the tulip mailing-list).
+I cannot stress enough that the main preoccupation right now should be to write and integrate module docs inside the CPython source tree :-)
+Congratulations to Guido and all people involved! This is a large and very significant addition to the stdlib, and as far as I can tell both design and implementation have benefitted from the contributions of many people (perhaps someone should add them to Misc/ACKS?).
+
+--
+FINAL MEANS IMPLEMENTED
+
+messqage below for final
+search for ... +Status: Final
+3156 has also been committed.
+
+# pep 3154
+# DRAFT DOESNT HAVE MUCH as to why it is proposed..bug or issue. Only
+Feel free to suggest any additions.
+
+# soon after guido apperoves it
+On Fri, Aug 12, 2011 at 3:58 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> This PEP is an attempt to foster a number of small incremental
+> improvements in a future pickle protocol version. The PEP process is
+> used in order to gather as many improvements as possible, because the
+> introduction of a new protocol version should be a rare occurrence.
+
+Thanks. this sounds like a good idea. That's not to say that I have already approved the PEP. :-) But from skimming it I have no objections except that it needs to be fleshed out.
+
+# proposal to be accepted  
+https://mail.python.org/pipermail/python-dev/2013-November/130296.html
+> I think it would be good to get the PEP and the implementation accepted
+> for 3.4. As far as I can say, this has been a low-controvery proposal,
+> and it brings fairly obvious improvements to the table (which table?).
+> I still need some kind of BDFL or BDFL delegate to do that, though --
+> unless I am allowed to mark my own PEP accepted :-)
+
+# guido comments
+Assuming Tim doesn't object (hi Tim!) I think this PEP is fine to accept --
+all the ideas sound good, and I agree with moving to support 8-byte sizes
+and framing. I haven't looked at the implementation but I trust you as a
+reviewer and the beta release process.
+
+# accepted
+
+https://mail.python.org/pipermail/python-dev/2013-November/130439.html
+> If there's no further opposition, I'd like to mark this PEP accepted
+> (or let someone else do it) in 24 hours, so that the implementation can
+> be integrated before Sunday.
+
+I think Guido already spoke on this - but, if he didn't, I will.  Accepted :-)
+
+# guido then agrees
+Yup. Agreed. Ship it!
+
+# pep 3153
+# pep number assigned
+Add pep number to the body of the pep.
+# draft 
+I am posting PEP 3156 here for early review and discussion. 
+# superceeded
+Mark 3153 as superseded by 3156.
+
+# 3153 has been superceded by 3153. Exact reason is nt avaolable.
+# only this 
+ PEP 3153, while rejected, has a good write-up explaining the need
++  to separate transports and protocols.
+
+# pep 3152
+Mass deferral as proposed on python-dev
+
+files:
+  ..several peps here
+  pep-3152.txt |   9 ++++++++-
+  12 files changed, 97 insertions(+), 12 deletions(-)
+
+
+diff --git a/pep-0286.txt b/pep-0286.txt
+--- a/pep-0286.txt
++++ b/pep-0286.txt
+@@ -3,7 +3,7 @@
+ Version: $Revision$
+ Last-Modified: $Date$
+ Author: martin at v.loewis.de (Martin von L?wis)
+-Status: Draft
++Status: Deferred
+ Type: Standards Track
+ Created: 3-Mar-2002
+ Python-Version: 2.3
+@@ -16,6 +16,16 @@
+     an argument converter creates new memory.  To deal with these
+     cases, a specialized argument type is proposed.
+ 
++PEP Deferral
++
++    Further exploration of the concepts covered in this PEP has been deferred
++    for lack of a current champion interested in promoting the goals of the
++    PEP and collecting and incorporating feedback, and with sufficient
++    available time to do so effectively.
+
+----
+ pep-3152.txt |  9 +--------
+  1 files changed, 1 insertions(+), 8 deletions(-)
+
+
+diff --git a/pep-3152.txt b/pep-3152.txt
+--- a/pep-3152.txt
++++ b/pep-3152.txt
+@@ -3,7 +3,7 @@
+ Version: $Revision$
+ Last-Modified: $Date$
+ Author: Gregory Ewing <greg.ewing at canterbury.ac.nz>
+-Status: Deferred
++Status: Draft
+ Type: Standards Track
+ Content-Type: text/x-rst
+ Created: 13-Feb-2009
+@@ -27,13 +27,6 @@
+ independently of PEP 380 if so desired.
+ 
+ 
+-PEP Deferral
+-============
+-
+-Further exploration of the concepts covered in this PEP has been deferred
+-at least until after PEP 3156 has been resolved.
+
+# issue here as two peps in same sentence and both sentence clauses refererring seprately
+
+# maybe revided
+> PEP 3152 is currently marked as deferred. Maybe it's
+> time to revive it? If Yury's pep is to be considered,
+> we ought to discuss the relative merits of the two.
+
+# someone complains
+
+I'm sorry, but your current way of handling the
+discussion isn't really productive.  You don't
+listen to arguments by Victor Stinner, Andrew
+Svetlov, and me.  At this point, this whole PEP
+3152 related discussion isn't helping anyone.
+
+# rejection
+
+-Status: Draft
++Status: Rejected
+ Type: Standards Track
+ Content-Type: text/x-rst
+ Created: 13-Feb-2009
+@@ -26,6 +26,11 @@
+ it.  However, it would be possible to define and implement cofunctions
+ independently of PEP 380 if so desired.
+ 
++Rejection
++---------
++
++See https://mail.python.org/pipermail/python-dev/2015-April/139503.html
+which says
+*I just can't get used to this aspect of PEP 3152, so I'm rejecting it.*
+Sorry Greg, but that's the end. We must see `await` as a refinement of
+`yield from`, not as an alternative. (Yury: PEP 492 is not accepted yet,
+but you're getting closer.)
+
+# pep 3151
+I would like to propose the following PEP for feedback and review.
+
+# accept..reason braod acceptance
+On Tue, 11 Oct 2011 18:22:43 -0400
+Barry Warsaw <barry at python.org> wrote:
+> As the BDFOP for PEP 3151, I hereby accept it for inclusion into Python 3.3.
+> 
+> Congratulations to Antoine for producing a great PEP that has broad acceptance
+> in the Python development community, with buy-in from all the major
+> implementations of Python.  Antoine's branch is ready to go and it should now
+> be merged into the default branch.
+> 
+> PEP 3151 will bring some much needed sanity to this part of the standard
+> exception hierarchy, and I for one look forward to being able to write code
+> directly using it, one day finally eliminating most of my `import errno`s!
+
+Thanks Barry!
+I expect to merge the PEP 3151 into default soon (it's basically ready).
+
+# PEP 3150
+# DEFERREL
++PEP Deferral
++============
++
++This PEP is currently deferred at least until the language moratorium
++(PEP 3003) is officially lifted by Guido. Even after that, it will
++require input from at least the four major Python implementations
++(CPython, PyPy, Jython, IronPython) on the feasibility of implementing
++the proposed semantics to get it moving again.
+
+# WITHDRAWN
+ I had a new idea I think is significantly better, so this PEP is dead
+
+files:
+  1 files changed, 1 insertions(+), 1 deletions(-)
+
+
+diff --git a/pep-3150.txt b/pep-3150.txt
+--- a/pep-3150.txt
++++ b/pep-3150.txt
+@@ -3,7 +3,7 @@
+ Version: $Revision$
+ Last-Modified: $Date$
+ Author: Nick Coghlan <ncoghlan at gmail.com>
+-Status: Deferred
++Status: Withdrawn
+
+# pep 3149
+
+
+The first draft of PEP 3149 is ready for review.
+
+http://www.python.org/dev/peps/pep-3149/
+
+Plain text attached here for your convenience.  Comments, suggestions as
+always are welcome.  Thanks to everyone who participated in the original
+discussion.
+
+# accepted 
+This is to let you all know that PEP 3149 is accepted.
+
+-----
+Hey! I'm still here! :-)
+
+More to the point, you can assume that I'm happy to have every PEP decision made by someone else *except* if you see me participate in the thread. If I don't show up in the thread, you can assume that either (a) I don't care or know enough about the topic, or (b) I am
+confident that it's going in the right direction.
+
+> This goes along with identifying the ultimate PEP arbiter (UPA? :) as early as possible.
+
+I prefer acronyms derived from BDFL, like BDFM ("BD for the moment") or perhaps BDFP ("BD for the PEP"). (BDFM sounds better but BDFP is more accurate. I'll leave it up to the FLUFL to pick one.)
+
+>?As Raymond says, it
+> should be someone independent of the proposal, but with the interest, time,  and experience necessary to make an informed decision. ?We might even want to capture the arbiter selection in a PEP header (similar to the new Resolution
+> header for capturing the final decision reference).
+>
+> While I agree that we don't want decision by committee, I think we should > consider a preference for paired arbiters. ?I have the highest respect for all > the senior developers who would likely make up the pool of PEP deciders, but
+> it gave me great confidence to have both Benjamin and Georg decide the fate of > value a second person to sanity check my own thoughts on the matter and to > identify any holes in my understanding (or <shudder> missed emails :). ?I'd
+> say, let's state a preference (not a requirement) for two arbiters for any PEP > that's not decided by Guido.
+
+Hm... As long as we can make sure not to pick the same pair all the time this makes sense. (Not that I have any objections to how the Georg+Benjamin pair decided PEP 3149 -- to the contrary -- but I think it would be good to spread the power.)
+
+But if a pair can't be found I think a single BDFM/BDFP will work too.
+----
+
+On Fri, Sep 3, 2010 at 08:45, Guido van Rossum <guido at python.org> wrote:
+> On Fri, Sep 3, 2010 at 8:15 AM, Barry Warsaw <barry at python.org> wrote:
+>> One thing that would help would be for Guido to let us know early on when he'd
+>> prefer to delegate the decision.
+>
+> Hey! I'm still here! :-)
+>
+> More to the point, you can assume that I'm happy to have every PEP
+> decision made by someone else *except* if you see me participate in
+> the thread. If I don't show up in the thread, you can assume that
+> either (a) I don't care or know enough about the topic, or (b) I am
+> confident that it's going in the right direction.
+
+I guess the real question comes down to whether you want us to bug you
+to select the temp dictator or just make a call amongst ourselves?
+
+>
+>> This goes along with identifying the
+>> ultimate PEP arbiter (UPA? :) as early as possible.
+>
+> I prefer acronyms derived from BDFL, like BDFM ("BD for the moment")
+> or perhaps BDFP ("BD for the PEP"). (BDFM sounds better but BDFP is
+> more accurate. I'll leave it up to the FLUFL to pick one.)
+
+I personally like BDFN ("BD for now") or BDAGW ("BD at Guido's whim"),
+but this will bikeshed into eternity, so I am happy with the FLUFL
+being the dictator for the new acronym choice. =)
+
+>
+>>?As Raymond says, it
+>> should be someone independent of the proposal, but with the interest, time, and experience necessary to make an informed decision. ?We might even want to capture the arbiter selection in a PEP header (similar to the new Resolution header for capturing the final decision reference).
+>>
+>> While I agree that we don't want decision by committee, I think we should >> consider a preference for paired arbiters. ?I have the highest respect for all
+>> the senior developers who would likely make up the pool of PEP deciders, but >> it gave me great confidence to have both Benjamin and Georg decide the fate of
+>> value a second person to sanity check my own thoughts on the matter and to >> identify any holes in my understanding (or <shudder> missed emails :). ?I'd
+>> say, let's state a preference (not a requirement) for two arbiters for any PEP >> that's not decided by Guido.
+>
+> Hm... As long as we can make sure not to pick the same pair all the > time this makes sense. (Not that I have any objections to how the
+> Georg+Benjamin pair decided PEP 3149 -- to the contrary -- but I think > it would be good to spread the power.)
+
+I agree, and a RM as the backup/sanity check would not spread it out. Considering the position is held for 1.5 years (or more) and has in the past been held sequentially by the same person, that wouldn't
+exactly spread it about. It also limits trying to bring new people into the process as RMs tend to be old-hands and not new blood. Plus
+we are not about to make the lead on a PEP decision be a new person either.
+
+>
+> But if a pair can't be found I think a single BDFM/BDFP will work too.
+
+I agree. I would trust anyone who is given the ability to make a call to listen to reason enough to not necessarily need the sanity check. But a duopoly is not a bad thing overall either.
+
+>
+>> We'd talked before about allowing the RM for the target version to make the
+>> decision. ?Maybe the RM can serve as that second arbiter when no other obvious
+>> candidate is available.
+>
+> Good fallback plan.
+
+As long as it gets spread around and the fallback is not the default, I agree.
+
+>
+>> Raymond, you identified a great set of criteria that the arbiters should use
+>> to guide them to a decision. ?I'm willing to write up an informational PEP
+>> that codifies this and any other guidelines we come up with for non-BDFL PEP
+>> decisions.
+>>
+>> Finally a reminder to PEP authors that it is your responsibility to shepherd
+>> your PEP through the process. ?Don't be a pest, but do keep an eye on the
+>> release calendar so that you're not scrambling for a snap decision at the last
+>> minute. ?18 months can go by quickly. :)
+>
+> Well, realistically, there's only so much grief that anyone PEP author
+> can be expected to put up with. I expect that a lot of PEPs won't be
+> written or will be withdrawn in the face of prolonged discussion.
+> Early selection of a BDFM (maybe the M can also refer to mentorship)
+> ought to help in encouraging where encouragement would help -- and of
+> course sometimes the best thing to do is to encourage the PEP author
+> to drop the idea, if no consensus is in view (or if the author is
+> particularly hard-headed).
+
+Hopefully PEPs like this will get stopped before they even get checked in. The PEP editors have been sending PEPs back to their authors to share on python-ideas first for a little while now and that seems to have helped make sure the PEPs that do reach us are of sufficient
+--------------
+# all things addressed it seems
+I'd like to know if anybody has additional feedback, suggestions, or objections that you think still need to be addressed.  You can follow up here or in the tracker.
+Now that 2.6.6 is almost off my plate, I'd like to bring this PEP to its (hopefully successful) conclusion.
+--------------------
+I haven't heard a peep since my last RFC on PEP 3149.  Guido, would you care to pronounce on the PEP, or designate someone who can do so (remembering that Martin is off-line for a while)?  If acceptable, I'd like to get this into the tree before 3.2 alpha 2, currently scheduled for September 5.
+------------------------
+# direct draft to final 
+PEP 3149 has been accepted.
+
+Modified:
+   peps/trunk/pep-3149.txt
+...
+-Status: Draft
++Status: Final
+--------------------
+
+# pep 3148
+
+# pep 3147
+# only draft and then final 
+
+# ready for pronouncement in message subject 
+PEP 3147 ready for pronouncement and merging
+# body
+I think the PEP is ready for pronouncement, and the patch is pretty much ready for merging into py3k.  
+
+Everything else is implemented, tested, and has undergone four rounds of Rietveld reviews (thanks Antoine, Benjamin, Brett, and Georg!).  A fifth patch set has been uploaded and is available here:
+This addresses all previous comments,
+# bdfl reply
+Give me a couple of days; but I don't expect any problems given how the earlier discussion went. If you didn't hear from me by Friday go ahead and merge.
+# acceptance 
+Overall, congratulations! I'm fine with the implementation going in and the PEP being marked as accepted as long as you get to the clarifications I suggest below soon after.
+
+# pep 3144 - this ep is already part of the training peps 
+
+ pep 3143 
+ # why drsft
+ 
+ > My searches for such functionality haven't borne much fruit though.
+> Apart from scattered recipes, none of which cover all the essentials
+> (let alone the optional features) of 'daemon', I can't find anything
+> that could be relied upon. This is surprising, since I'd expect this
+> in Python's standard library.
+
+I've submitted PEP 3143 <URL:http://www.python.org/dev/peps/pep-3143/>
+to meet this need, and have re-worked an existing library into a new
+?python-daemon? 
+ #why deferrel
+ 
+ +PEP Deferral
++============
++
++Further exploration of the concepts covered in this PEP has been deferred
++for lack of a current champion interested in promoting the goals of the PEP
++and collecting and incorporating feedback, and with sufficient available
++time to do so effectively.
+
+pep 3142
+# looking for feedback
+Please find below PEP 3142: Add a "while" clause to generator
+expressions.  I'm looking for feedback and discussion.
+
+2 draft
+
+# rejected  ..there is a story..oen leads to another
+# reason in message before official state chage to rejected
+The PEP suffers from several problems. Some of them related to being 
+quite unclear in several edges, others are real problems.
+
+# rejected come in another message later
+>>   S  3142  Add a "while" clause to generator expressions           Britton
+>
+>
+> I had the impression that this had more or less been rejected. I suppose I
+> could try to dig up the discussion.
+I didn't know there was a PEP for that. I hereby reject it. No point
+wasting more time on it.
+
+# then came state
+
+pepe 3140
+3 same message as state 
++Rejection
++
++   Guido said this would cause too much disturbance too close to beta. See
++   http://mail.python.org/pipermail/python-3000/2008-May/013876.html.
+
+different message altogetehr
+
+Having str(container) calling str(item) and not repr(item) sounds like the
+right thing to do. However, PEP 3140 was rejected on the basis of the
+following statement of Guido:
+
+"Let me just save everyone a lot of time and say that I'm opposed to
+this change, and that I believe that it would cause way too much
+disturbance to be accepted this close to beta."
+
+
+pep 3139
+
+-- not much why it was rejected
+
++Rejection Notice
++================
++
++Guido's -0.5 put an end to this PEP.  See
++http://mail.python.org/pipermail/python-3000/2008-April/012977.html.
+
+pep 3138
+...no reason for acceptance found 
+
+pep 3137
+...no reason for acceptance found 
+
+pep 3136
+
++Rejection Notice
++================
++
++This PEP is rejected.
++See http://mail.python.org/pipermail/python-3000/2007-July/008663.html.
++
+
+pep 3135
+no reason given 
+
+pep 3134
+no clear reason given 
+
+pep 3143
+inserted in db
+
+3142
+
+spread out in mulriple messages
+This discussion belongs back on Python ideas, where it began and should 
+have stayed.
+
+As Aahz said, this needs to go back to python-ideas or c.l.p to see if
+it goes anywhere.
+
+I hereby reject it. No point wasting more time on it.
+
+pep 3131
+
+--too long..too many messages..
+
+survey was used for part for pep
+
+pep 3130
+
+3123
+why final 
+
+3121, 3120
+no reason found 
+
+3100
+For PEP 282, authorship was transferred from Trent Mick to Vinay Sajip.
+AMK removed himself from PEP 3100.
+
+[So I think this PEP is done.]
+
+3000 has no clear reason of final 
+
+3101
+
+
+
+
+
+
+
+ 
+
+
+
+ 
+ 

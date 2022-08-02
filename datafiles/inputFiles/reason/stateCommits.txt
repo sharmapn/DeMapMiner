@@ -1,0 +1,13 @@
+Status: Draft
+Status: Active
+Status: Accepted
+status: Rejected
+Status: Final
+Status: Defer
+Status: Withdraw
+Status: Postpone
+Status: Replace
+Status: Incomplete
+status: Superceded
+Status: Close
+Status: Pending

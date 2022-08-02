@@ -1,0 +1,61 @@
+% singles and doubles
+% where we match these single and double terms OCCUR TOGETHER in a sentence 
+% will be matched as one string so space between label is okay eg space between draft and pep [draft,draft pep] is okay,
+% but make sure ther is comma between label and single or double terms
+
+% singles, all the below are singles as they are matched as a whole term
+
+% singles for checking in message
+accepted,accepted!
+accepted,accepted:)
+accepted,accepted :)
+
+% singles for checking in message subject line
+pre-pep,pre-pep
+proposal,proposed pep
+draft,draft pep
+draft,rough draft
+consensus,community consensus
+draft,initial draft
+draft,first draft
+updated,second draft
+updated,redraft
+updated,redrafted
+updated,third draft
+updated,fourth draft
+updated,fifth draft
+updated,final draft
+updated,round 2
+updated,review round 2
+updated,round 3
+updated,round 4
+updated,round 5
+updated,round 6
+updated,round 7
+updated,update to pep
+% not sure about tyehse labels below
+vote_results,results of the vote
+vocal_minority,vocal minority
+% pep: xxx
+% new pep submission
+% pep submission
+% four versions
+ready_review,request for pronouncement
+ready_review,for review
+
+% message subject are mostly not complete sentences. 
+% Therefore to extract meaningful information regarding a pep state, we dont do clause checking, but Noun and verb checking.
+% check doubles triples in message subject using pos based on each term
+% subject(noun),verb,object(noun)
+% this can be done automatically by extarcting all nouns and verbs from all message subjects, removing stopwords
+
+%             sub      verb    obj
+propose_rejection,rejection,propose,pep
+propose_acceptance,acceptance,propose,pep
+propose_rejection,pep,,rejection
+propose_acceptance,pep,,acceptance
+
+% check below doubles triples and code
+% Mark PEP accepted.
+% 248283 Let's do it. PEP accepted. -- this is hard to code
+% PEP 384 accepted - Python mailing list - Python.org

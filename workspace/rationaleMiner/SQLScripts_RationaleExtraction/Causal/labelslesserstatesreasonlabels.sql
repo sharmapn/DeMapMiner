@@ -1,0 +1,16 @@
+insert into labelslesserstatesreasonlabels (label, reason) values ('rejected','consensus');
+insert into labelslesserstatesreasonlabels (label, reason) values ('accepted','bdfl_accepts_over_negative_feedback');
+insert into labelslesserstatesreasonlabels (label, reason) values ('accepted','vote results');
+insert into labelslesserstatesreasonlabels (label, reason) values ('accepted','bdfl_chooses_over_community_choice');
+insert into labelslesserstatesreasonlabels (label, reason) values ('accepted','discussion');
+insert into labelslesserstatesreasonlabels (label, reason) values ('updated','feedback');
+insert into labelslesserstatesreasonlabels (label, reason) values ('vote','state of community consensus');
+insert into labelslesserstatesreasonlabels (label, reason) values ('accepted','no objections');
+insert into labelslesserstatesreasonlabels (label, reason) values ('poll','controversy');
+insert into labelslesserstatesreasonlabels (label, reason) values ('updated','discussion');
+insert into labelslesserstatesreasonlabels (label, reason) values ('draft','discussion');
+insert into labelslesserstatesreasonlabels (label, reason) values ('accepted','nothing outstanding');
+insert into labelslesserstatesreasonlabels (label, reason) values ('accepted','no objections');
+insert into labelslesserstatesreasonlabels (label, reason) values ('final','completed implementation ');
+insert into labelslesserstatesreasonlabels (label, reason) values ('ready for review','completed implementation ');
+insert into labelslesserstatesreasonlabels (label, reason) values ('accepted','no objections');

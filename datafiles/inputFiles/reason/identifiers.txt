@@ -1,0 +1,15 @@
+pep
+peps
+pep's
+peps'
+proposal
+proposals
+proposal's
+proposals'
+idea
+ideas
+idea's
+ideas'
+-- feb 2019, need coreference
+it
+its

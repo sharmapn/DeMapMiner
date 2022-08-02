@@ -1,0 +1,1 @@
+ select * from trainingdata where pep = 443;

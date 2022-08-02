@@ -1,0 +1,18 @@
+because
+since
+based on
+due to
+thanks to
+accordingly
+as a result of
+through
+-- pep 445
+according to
+-- additional added oct 2018 based on ashleys paper
+but
+for example
+first of all
+however
+as a result
+since
+therefore

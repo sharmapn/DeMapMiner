@@ -1,0 +1,1 @@
+SELECT AUTHOR, emailmessageid, date2, inreplyto, email, inreplytouser from ALLMESSAGES WHERE inreplyto like "% %" INTO OUTFILE 'c:\\scripts\\errors.txt'

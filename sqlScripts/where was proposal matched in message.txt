@@ -1,0 +1,4 @@
+alter table allmessages 
+add COLUMN  pTitleMatchedinMsgSub TINYINT, 
+add COLUMN  pNumMatchedinMsgSub TINYINT, 
+add COLUMN  pNumMatchedinMsgBody TINYINT; 

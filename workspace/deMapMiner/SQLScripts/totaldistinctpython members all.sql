@@ -1,0 +1,1 @@
+SELECT count(DISTINCT(clusterBySenderName)) from distinctsenders;

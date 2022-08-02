@@ -1,0 +1,1 @@
+update allmessages SET senderName = TRIM(senderName);

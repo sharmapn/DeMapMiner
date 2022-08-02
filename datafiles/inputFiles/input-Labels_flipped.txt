@@ -1,0 +1,834 @@
+% Main labels input file 07 oct 2017.
+% Notes - How this file is structured
+% States with more information and therefore more priority are first. Eg, bdfl_accepted pep has more information than pep_accepted. Done because a sentence may capture both and we
+% want that label with more information
+% Also the file follows the same pattern as how a pep is proposed, reviewed, and accepted or rejected, final/implemented
+% This makes file easier to understand, maintain and search
+% Start with Triples and doubles are therefore at the end of file
+
+% _ = and
+% - = or
+% in cases of two verbs in clause - ("PEP 488", "is", "marked as accepted")
+% can extend this to include all states in one line, pep is was accepted rejected
+% really important for making sure somne terms exist together and after another, especially bdfl pronouncement
+
+% Reason triples right at the end
+
+% Additional states - may be important
+previous_version_rejected,previous_version_pep,rejected
+% acceptance_deferred acceptance_of_pep deferred
+deferred,acceptance_of_pep,deferred
+you_include_rationale,you_can,include,rationale
+
+small_edits_left,small_edits,are,still
+
+% TRIPLES
+% normal,events
+
+% how the proposal came about
+proposal_originated,proposal,originated,from
+
+
+% in,other,lists
+% IDEA,STAGE,maybe,in,ideas,list
+% ("the,moratorium,idea",,"got",,"fairly,positive,responses,On,python-ideas")
+idea_received_positively,sig,was,positive_idea
+idea_received_positively,idea,got,positive_response
+
+idea_approved,i,approve,general_idea
+idea_approved,i,approve,idea
+
+positive_feedback,pep,got,positive_feedback
+positive_feedback_again,pep,got,positive_feedback_again
+positive_feedback,response,was,positive
+positive_feedback,idea,got,positive_responses
+positive_feedback,he,received,positive_responses
+positive_feedback,i,had,positive_responses
+positive_feedback,response,has_been,positive
+positive_feedback,this,is,positive_response
+
+
+
+wrote_pep,i,wrote,pep
+wrote_pep,i,written,pep
+
+% pre-pep - same as draft- can be changed later
+
+pre-pep,*,proposed,pre-pep
+pre-pep,*,presented,pre-pep
+pre-pep,*,submitted,pre-pep
+pre-pep,*,introduced,pre-pep
+pre-pep,here,is,pre-pep
+pre-pep,here,'s,pre-pep
+pre-pep,here,'s,pre-pep
+pre-pep,this,circulated,pre-pep
+pre-pep,this,is,pre-pep
+% pre-pep,coming,addressing
+
+pre-pep,pre-pep,submitted,c.l. py
+pre-pep_changed,pre-pep,changed,
+
+check_pep_styles,barry,check,editorial_blunders
+check_in_pep,barry,check,in
+
+extensive_discussions,topic,saw,discussion
+draft_extensive_discussions,draft,saw,discussion
+
+no_remaining_controvesy,i,do_n't_see,remaining_controversy
+implementation_done,implementation,done
+
+% ask_for_pep_number,please,assign,pep_number
+request_pep_number,i,could_have,pep_number
+request_pep_number,i,have,pep_number
+request_pep_number,you,could_assign,pep_number
+request_pep_number,i,like,pep_number
+% "FYI,i"	"submitted"	"the,below,PEP,draft,to,receive,a,proper,version,number,just"
+request_pep_number,i,submitted,pep_draft_editors_version
+assigned_pep_number,i,propose,pep_number
+% can,use,NER,here,and,replace,anyone,in,place,of,Barry
+request_pep_number,barry,please,assign_number
+request_pep_number,barry,give,pep_number
+assigned_pep_number,barry,assigned,pep_number
+assigned_pep_number,barry,assign,pep_number
+request_pep_number,barry,give,number
+
+idea_rejected,idea,rejected,pep
+
+% PROPOSAL,STAGE
+proposal,i,propose,pep
+proposal,i,present,pep
+proposal,i,present,you
+proposal,i,proposed,pep
+proposal,i,put,proposal
+proposal,i,would,purpose
+proposal,there,was,proposal
+proposal,document,helps,discussion
+proposal,i,would-like,propose
+proposal,below,is,pep
+proposal,pep,propose
+proposal,pep,proposes
+
+% draft
+draft,pep,is,draft
+draft,here,is,first_draft
+draft,this,first_draft,pep
+draft,here,is,rough_draft_pep
+draft,here,is,draft_pep
+% draft,Here,is,draft
+draft,here,is,draft
+draft,pep_draft,found,here
+draft,i,ve,update_first_draft
+draft,draft_pep,is,here
+draft,attached,is,draft
+
+draft,here,is,first_draft_pep
+draft,it,a,early_draft
+draft,i,have,first_draft_pep
+draft,here,is,latest_draft_pep
+
+updated_pre_pep,attached,is,second_draft_pre-pep
+updated,attached,is,second_draft
+
+discussion,we,can-have,new_round_comments_pep
+
+received_favourably,pep,received,favourably
+
+reviewed,i,reviewed,pep
+final,i,changed,pep_final
+accepted,i,moved,pep_status_accepted
+
+% feedback
+requests_feedback,please,read,comment
+requests_feedback,feedback,is_requested
+requests_feedback,i,hope,people_give_input
+requests_feedback,i,hope,input
+requests_feedback,i,apreciate,feedback
+requests_feedback,i,need,feedback
+requests_feedback,i,welcome,feedback
+requests_feedback,review,invited,pep
+requests_feedback,i,welcome,suggestion
+requests_feedback,please,express,approval_or_disapproval
+requests_feedback,please,send_suggestions,improvements
+requests_feedback,feedback,is,welcome
+requests_feedback,feedback_gratefully,received
+requests_feedback,comments,invited,pep
+requests_feedback,your,has,feedback
+requests_feedback,feedback,received,gratefully
+requests_feedback,here,is,last_call_for_any_comments
+requests_feedback,comments,invited,pep
+requests_feedback,me,know,community_opinion
+requests_feedback,what,is,community_opinion
+
+% final,feedback_request
+requests_feedback,last_chance_suggest,changes,before_python-dev
+requests_feedback,last_chance_suggest,changes
+requests_feedback,last_chance_object,changes
+requests_feedback,here,is,last_call_comments_arguments_against_approval
+requests_feedback,here,is,last_call_comments
+
+% received feedback
+feedback_received,feedback,received
+feedback_received,received,feedback
+feedback_received,feedback,received,previous_draft
+
+
+
+% discussion
+discussion,discussion,took,place
+discussion,we,discussing,off_and_on
+discussion,discussion,continued,python_dev
+discussion,discussion,on,python_dev
+discussion,posts,were_made
+% discussion_never_end
+discussion,pep_discussion,never_end
+% discussion_oriented_syntax
+discussion,discussion,oriented,syntax
+discussion,discussion,happened,already
+discussion,i,bracing,discussion
+
+% discussion,all,below,commented,to,save,time,processing,-,not,required,anymore,as,they,are,really,not,discussion
+% discussion,i,think,good_idea
+% discussion,i,think,idea
+% discussion,i,agree,suggestion
+% discussion,i,would_agree,here
+% discussion,i,dislike
+% discussion,i,like
+% discussion,i,like,idea
+% discussion,i,would_prefer
+% discussion,i,see,advantage
+% discussion,the_proposed,syntax
+% discussion,proposal,is,reasonable
+% discussion,i,like,pep
+% discussion,i,like,proposal
+% discussion,i,think,proposal
+% discussion,i,m,neutral
+
+% people,continue
+% discussion_continued,people,continuing,discussion
+discussion,people,continuing,discussion
+
+another_round_discussion,we,need,another_round_discussion
+another_round_discussion,pep,is	ready_another_round_refinement
+another_round_discussion,i,proposing,discussion_another_round
+another_round_discussion,i,wanted,another_round_comments
+
+% Round,of,work
+% all,the,following,were,"another_round_discussion"
+discussion,i,like,new_round_pep
+discussion,i,expect,another_round_comments
+discussion,i,think,another_round_review
+discussion,this,is,another_round_review
+
+% vote
+% vote,i,vote
+
+% first,draft,round
+% latest,round,of,discussion
+% last,round
+% last,round,of,discussion
+% round,5
+
+
+% responses
+responses_summary,here,s,summary_responses
+
+% off,list,discussion
+off_list_discussion,we,off_list_conversation,guido
+% issue_closed,i,closed,issue
+previous_version_rejected,previous_version,was_rejected
+previous_version_rejected,previous_version,rejected
+
+% stalled
+discussion_stalled,discussion,stalled
+
+% updated
+updated,i,made,update
+updated,i,ve,updated_pep
+updated,i,tweaked,pep
+updated,pep,resurrected
+updated,i,request,updated
+% updated,pep,tweaked,still
+updated,pep,tweaked,still
+
+% bdfl,delegate,stage
+bdfl_allocated,i,am,willing_bdfl
+willing_bdfl,i,am,willing_bdfl
+
+% feedback
+% Propositions,,,,,:,("No,negative,feedback",,"was,received",,"on,generator,comprehensions")
+positive_response,no_negative_feedback,received
+positive_response,response,was,positive
+no_objections,no_objections,were_raised
+
+% Review
+ask_bdfl_review,guido,wants,bdfl_stick
+ask_bdfl_review,i,need,bdfl
+ask_bdfap_review,i,need,bdfap
+ask_bdfap_review,he,wants,bdfap
+ready_review,pep,ready,review
+ready_review,pep,is,ready_for_review
+ready_review,pep,ready,final_review
+ready_review,pep,is,ready_for_final_review
+ready_review,next,is,pep_review
+ready_review,i,can,pronouncement
+ready_review,review,ready,pep
+
+pep_addressed_concerns,pep,addressed,key_concerns
+pep_addressed_concerns,pep,addressed,concerns
+
+% pep,editor
+pep_editor,i,sent,pep_editor
+
+% arguments,
+% not_convinced,no_argument,is,convincing_totally
+
+% dont,know,state
+not_asked_vote,i,not_asked,vote
+dont_know_community_consensus,i,dont_know,state_of_community_consensus
+state_of_community_consensus,state,of,community_consensus
+author_feels_community,i,feeling,community_discussions
+
+
+% complete_rewrite,
+complete_rewrite,this,is,complete_rewrite_PEP
+complete_rewrite_second_author,this,is,complete_rewrite_PEP_second_author
+
+% rewriting
+rewriting_needed,pep,needed,rewritten
+updated,i,working,changes_to_pep
+updated,pep,reworked,accordingly
+reviewed,i,reviewed,pep
+rewritten,my,has,rewritten_pep
+rewritten,my,rewritten_pep,now_up
+rewritten,pep,is-being,rewritten
+
+% will_revise,i,will_revise,document
+updated,i,will_revise,document
+
+% received,comments
+received_feedback,favorable_comments,received
+received_feedback,i,received,comments
+received_feedback,which,received,comments
+received_feedback,i,received,comments_on_this_proposal
+
+% agreed
+% agreed,it,was,agreed
+% agreed_PEP_needed_rewritten,it,agreed,pep_rewritten
+% agreed,several_people,agreed
+
+% summarize,
+asks_for_pep_summary,someone,summarize,new_material
+
+% updated
+updated,i,updated,pep
+updated,i,checked,changes
+updated,i,checked,update
+updated,i,revised,document
+updated,i,revise,pep
+updated,i,revised,pep
+updated,pep	revised
+updated,pep	revised	based_feedback
+updated,i,ve_updated_pep
+updated,i,requested,updated
+updated,here,s,updated_draft
+updated,pep,been,revisions
+updated,we,polished,pep
+% draft_update,here,is,draft_update_for_pep
+updated,here,is,draft_update_for_pep
+updated,here,s,updated_draft_for_pep
+comments_addressed,i,addressed,comments
+comments_addressed,i,addressed,all_the_comments
+
+
+% a
+% bdfl_approval,issues,resolved,bdfl_approval_lack_objections
+bdfl_accepted,issues,resolved,bdfl_approval_lack_objections
+lack_of_objections,issues,resolved,lack_objections
+
+% b
+revived,it,was,revived
+
+% resurrected,after,discussion
+% was,'resurrected_after_discussion',now,simply,updated,updated
+updated,pep,resurrected,after_discussion
+updated,pep,resurrected,after_discussion_python-dev
+
+
+% redraft/(reproposal)
+% reproposal,here,is,resurrected_pep
+% was,'resurrected
+updated,here,is,resurrected_pep
+updated,pep,has_been,resurrected
+
+updated,pep_redraft,proposes
+updated,i,update,pep_redraft
+discussion,i,proposing,discussion_another_round
+discussion,pep,discussed,some_time
+serious_issues,all,have,serious_issues
+
+% issues_resolved,issue,resolved
+updated,issue,resolved
+
+complimentary_vote_results,i,posted,results_complementary_vote
+
+% waiting,-,too,many,states,and,therefore,these,dont,seem,that,necessary
+% waiting_accepted,pep,is_waiting,to_be_accepted
+% waiting_consensus,it,waiting,consensus
+% waiting_pronouncement,it,waiting,pronouncement
+
+% wasnt,pronounced
+pep_wasnt_pronounced,pep,was_n't_pronounced,upon
+
+
+% Reasons,and,Transitions
+
+% REASONS,-,also,another,file,for,reasons
+% sometimes,reasons,exist,on,its,own,in,a,message,completely,seprate,than,the,state,therefore,these,are,needed,to,be,coded,here
+pep_rejected_lack_of_majority,rejected,lack,majority
+superseded,pep,superseded,pep
+initial_proposal_lost,initial_proposal,lost,noise
+% revival,after,year,,rejected,to,accepted
+% motivation,motivating_case,was,prevalance
+% best,judgement,call
+
+
+no_remaining_controversy,i,do_n't_see,remaining_controversy
+no_remaining_controvesy,i,don't_see,remaining_controversy
+no_remaining_controvesy,i,see,remaining_controversy
+
+
+% poll,reason
+% options,people,think,various_formats
+
+% reasons,for,acceptance,or,rejection
+consensus,consensus,converged,proposed
+consensus,consensus,converged,syntax
+
+
+% Transitions
+vote_after_discussion,vote,held,following_the_discussion
+
+% REVIEW,DECISION,STAGE
+accepted,pep,is,marked_as_accepted
+accepted,pep,is-was,accepted-approved
+accepted,pep,accepted,pep
+accepted,pep,approved,pep
+accepted,pep,has_been_accepted
+accepted,pep,is-was,accepted
+accepted,pep,is,marked_as_accepted
+accepted,pep,moved,accepted
+accepted,pep,accepted
+accepted,pep,accepted,now
+accepted,pep,is_accepted
+accepted,pep,approved
+accepted,pep,gets,accepted
+accepted,i,approve,pep
+accepted,i,accept-accepted,pep
+accepted,i,accept,pep
+accepted,i,accepted,pep
+accepted,i,accepting,ipaddrress
+accepted,i,accepting,pep
+accepted,i,declare,accepted
+accepted,i,declare,pep_accepted
+accepted,he,accept,pep
+accepted,it,s,a_deal
+accepted,pep,has,acceptance
+accepted,it,was,accepted
+accepted,pep,accepted
+accepted,acceptance,is,final
+accepted,pep,moved,accepted
+accepted,pep,accepted,for_python
+% to,allow,pep,title,substitution
+accepted,i,decided,add_pep
+accepted,pep_acceptance,is,final
+accepted,mark,accepted,pep
+
+rejected,pep,rejected,author
+rejected,pep,rejected,formally
+rejected,pep,is_rejected
+rejected,pep,was_rejected
+rejected,pep,was,rejected
+rejected,pep,has_been_rejected
+rejected,it,was,rejected
+rejected,it,rejected,now
+rejected,i,reject,it
+rejected,i,reject,pep
+rejected,i,rejecting,pep
+rejected,i,rejected,pep
+rejected,i,declare,rejected
+accepted,pep,moved,rejected
+rejected,guido,rejected,pep
+
+% add all accepted type triples here
+rejected,mark,rejected,pep
+rejected,i,rejecting,pep
+rejected,pep_rejection,is,final
+
+withdrawn,pep,withdrawn,bdfl
+superseded,pep,rejected,favor_of_pep
+
+final,pep,final,pep
+rejected,pep,rejected,pep
+
+withdrawn,pep,withdraw,pep
+public_poll_decided,poll,conducted,will
+quick_consensus,quick,reached,consensus
+
+% PEP,AUTHOR,ACTIONS,IN,ADDITION,TO,PROPOSAL
+requests_feedback,i,know,ideas
+updated,i,checked,changes
+updated,i,updated,pep
+rejected_by_author,pep,rejected,author
+rejected,author,rejected,proposals
+
+% polls,and,votes
+% poll
+call_for_poll,i,would_like_run,poll
+call_for_poll,i,would,run_poll
+call_for_poll,i,propose,poll
+call_for_poll,i,have,poll
+call_for_poll,i,run,poll
+call_for_poll,poll,please,vote
+call_for_poll,it,s,poll
+call_for_poll,it,please,vote
+poll,poll,there_was
+poll,poll,linked,wiki
+informal_poll,informal_poll,was_taken
+call_informal_poll,i,like,run_informal_poll
+poll_result_no_support,quick_poll,shows,proposal_no_popular_support
+
+% TRY
+% pollute,pollutes,requires,effort
+
+poll_closed,poll,closed
+poll_result,poll,results,clear
+% poll,results
+people_preferred_pep_format,people,preferred,formatting_proposed_pep
+
+% ,:,("Thedivision,operator",,"came,out",,"first,in,a,poll"),-,subject,and,object,changed,places,so,that,it,matches,in,code,the,way,code,is,setup
+poll_result,poll,came
+informal_poll,informal_poll,taken
+informal_poll,informal_poll,was_taken
+informal_poll_results_clear_preferred_format,poll_results,clear,preferred_format
+poll_result,poll,indicated,no_proposal_majority
+poll_closed,poll,closed,now
+poll_closed,polls,closed,now
+
+% vote
+inviting_votes,you,can_vote
+inviting_votes,you,vote
+inviting_votes,feel,free,vote
+inviting_votes,you,indicate,vote
+inviting_votes,you,please,vote
+inviting_votes,you,can-please,indicate_vote
+inviting_votes,please,vote,vote
+inviting_votes,vote,on,pep
+inviting_votes,answer,with,+1
+inviting_votes,you,email,votes
+inviting_votes,you,can,vote
+inviting_votes,dont_forget,vote
+inviting_votes,you,please,indicate,your_vote
+inviting_votes,you,please,indicate_your_vote
+% the,following,were,call_for_vote,before-,presumably,for,official,votes
+inviting_votes,you,forget,vote
+inviting_votes,vote,run,stages
+inviting_votes,i,plan,run_vote
+inviting_votes,please,vote
+
+approval_to_vote,you,have,approval_hold_vote
+
+
+% voting,related
+voting_method,preference,voting,method
+voting_method,anybody,have,preference
+voting_method,anybody,have,preference,we,use,voting_method
+vote,vote,was_held
+vote,vote,held
+vote_summary,summary,of,votes
+vote_summary,vote,is,summarized
+voting_method_preference,anybody,have,voting_method
+voting_method_preference,i,support,majority_rules
+voting_method_preference,here,is,condorcet_method
+
+% results
+informal_poll_results,informal,poll,results
+vote_result,ballot,result,result
+vote_result,vote,result,vote
+vote_result,results,disclosed
+vote_result,vote_results,disclosed
+vote_result_no_change,vote,resulted,do_n't_change
+vote_result_no_change,vote,resulted,don't_change
+
+vote_showed,vote,showed
+vote_showed,pep_vote,showed
+vote_showed,pep_vote,wanted
+
+majority_said_no_change,majority,said,no_change
+vote_users_wanted,pep_vote,showed,users_wanted
+vote_summary,pep_vote,summarized,at
+
+
+% alternate,votes
+advisory_poll,advisory,poll,pep
+alternate_vote,alternate,vote,pep
+alternate_vote_results,alternate,vote,results
+complimentary_vote,complimentary,vote,pep
+complimentary_vote_results,complimentary,vote,results
+
+discussion_voting_scheme,which,election,method
+% informal_vote,informal,vote,vote
+unofficial_vote,informal,vote,vote
+unofficial_vote,i,decided,to_organize_unofficial_vote
+unofficial_vote,i,decided,unofficial_vote
+complementary_unofficial_vote_results,results,are,complementary_unofficial_vote
+complementary_vote,complementary_vote,uses,different_type_ballot
+official_complementary_confirm,condorcet_results_official_vote,confirm,complementary_vote
+
+% FINAL,DECISION,MECHANISMS
+% ,consensus,,rough,consensus,,no,consensus,,bdfl,,bdfl,pronouncement,(influential,individual),,vocal,minority,
+
+rough_consensus,rough,consensus
+rough_consensus,this,seems,rough_consensus
+rough_consensus,there,seems,rough_consensus
+rough_consensus,there,is,rough_consensus
+rough_consensus,there,was,rough_consensus
+rough_consensus,this,is,rough_consensus
+% vocal_minority,vocal,minority
+
+% syntaxes_proposed,syntaxes,proposed,pep
+
+% response,positive
+positive_response,response,was,positive
+no_objections,no_objections,raised
+uncontroversial,ideas,seem,uncontroversial
+acceptance_stalled,acceptance,stalled
+
+% consensus
+hope_rough_consensus,i,hope,rough_consensus
+consensus,i,think,consensus
+consensus,we,reached-reaching,consensus
+consensus,consensus,was_reached
+consensus,consensus,appears
+consensus,consensus,has_been_reached
+consensus,consensus,reached_quickly
+consensus,we,reached_consensus,pep
+consensus,consensus,is
+consensus,consensus,seems,to_be_emerging
+consensus,community,consensus
+consensus,community,reached,consensus
+consensus,consensus,emerged,posts
+consensus,community,reach,consensus
+consensus,community_consensus,emerged,post
+consensus,community,consensus,pep
+consensus,reach,consensus,pep
+% consensus_emerged,consensus,emerged
+consensus,consensus,emerged
+
+% double
+no_consensus,no_consensus,there_is
+no_consensus,no_consensus,is
+no_consensus,community,has,unable_reach_consensus
+no_consensus,unable,reach,consensus
+no_consensus,community,has,unable_to_reach_a_consensus
+no_consensus,fail,reach,consensus
+no_consensus,never,reach,consensus
+no_consensus,never,reached,consensus
+no_consensus,not,reach,consensus
+no_consensus,not,reached,consensus
+no_consensus,consensus,never_been_reached
+no_consensus,thread,died,before_consensus_reached
+no_consensus,community,unable_to_reach,consensus
+no_consensus,we,never_reach,consensus
+no_consensus,we,never,consensus
+no_consensus,zero_consensus,emerging
+no_consensus,we,'re,far_consensus
+no_consensus,we,re,far_consensus
+no_consensus,no_consensus,could_be_reached
+% consensus_split,consensus,is,50-50
+no_consensus,consensus,is,50-50
+% no_majority,no_proposal,had,majority
+no_consensus,no_proposal,had,majority
+% format_no_majority,no_format,was,draw_majority
+no_consensus,no_format,was,draw_majority
+% issues_not_reach_consensus,issues,not_reach,consensus
+no_consensus,issues,not_reach,consensus
+no_consensus,previous_community,stymied,lack_consensus
+no_consensus,proposal,has,no_popular_support
+
+% majority,support
+% no_majority_support,no,majority,support
+no_consensus,no,majority,support
+% no_support,no_support,has,original
+no_consensus,no_support,has,original
+
+% negative_responses,pep,did-generate,negative_responses
+% disagreement,pep,did-generate,negative_responses
+no_consensus,pep,did-generate,negative_responses
+
+% reasons,why,not,pronounced,-,disagreements
+no_consensus,disagreements_pep,there-were
+no_consensus,disagreements,there_were
+no_consensus,disagreements,there
+no_consensus,disagreements,were
+
+% disagreement
+no_consensus,there,be,two_camps
+no_consensus,there,is-are-were,two_camps
+no_consensus,two_camps,are
+no_consensus,there,is-was,disagreement
+
+
+% BDFL
+bdfl_pronouncement_accepted_pep,bdfl,accept,pep
+bdfl_pronouncement_accepted_pep,bdfl,accepted,pep
+bdfl_pronouncement_rejected_pep,bdfl,reject,pep
+bdfl_pronouncement_rejected_pep,bdfl,rejected,pep
+bdfl_pronouncement_accepted_pep,guido,has,acceptance
+
+% bdfl
+bdfl_approves_vote,you,approval,vote
+bdfl_final_pep,bdfl,final,pep
+bdfl_pronouncement_accepted_pep,pep,accepted,bdfl
+bdfl_pronouncement_accepted_pep,bdfl,pronouncement,accept
+bdfl_pronouncement_accepted_pep,bdfl,pronouncement,accepted
+bdfl_pronouncement_accepted_pep,pronouncement,accept,pep
+bdfl_pronouncement_accepted_pep,bdfl_pronouncement_pep,accepted
+bdfl_pronouncement_accepted_pep,pronouncement_pep,accepted
+bdfl_pronouncement_conditionally_accept_pep,pronouncement,conditionally,pep
+bdfl_pronouncement_rejected_pep,pronouncement,reject,pep
+bdfl_pronouncement_rejected_pep,bdfl_pronouncement_pep,rejected
+bdfl_pronouncement_rejected_pep,pronouncement_pep,rejected
+bdfl_pronouncement_rejected_pep,bdfl,pronouncement,pep_is_rejected
+bdfl_pronouncement_rejected_pep,pep,rejected,bdfl_pronouncement
+bdfl_pronouncement_rejected,pep,rejected,bdfl_decree
+
+bdfl_proposes_pep,bdfl,propose,pep
+bdfl_proposes_pep,bdfl,proposed,pep
+bdfl_withdraws_pep,bdfl,withdraw,pep
+bdfl_pronouncement,issue,resolved,bdfl_best_judgment_call
+bdfl_pronouncement,issue,resolved,bdfl_call
+% conflicting,bdfl
+bdfl_pronouncement,guido,used,poll_not_enough_support
+
+% bdfl
+
+bdfl_pronouncement_accepted_pep,guido,accept,pep
+bdfl_pronouncement_accepted_pep,guido,accepted,pep
+bdfl_pronouncement_rejected_pep,guido,reject,pep
+bdfl_pronouncement_rejected_pep,guido,rejected,pep
+
+% delegate - pep czar same as delegate
+bdfl_delegate_accepts_pep,i,accepting,pep_bdfl-delegate
+
+bdfl_asked_volunteer,guido,asked,volunteer
+co_bdfl_delegate_accepted_pep,co-bdfl-delegates,accepted,pep
+
+% bdfl_took_proposals_to_conference,guido,took,proposals_to_europython
+
+% pep,czar
+volunteer_bdfl_delegate,myself,pep_czar,pep
+% temp,commented,take,care,later
+% pep_czar_appointed,*,is,pep_czar
+
+bdfop_accepts_pep,i,accept,pep
+
+% do
+decision_overwritten_last_moment,decision,overridden,last_moment
+decision_overwritten_last_moment,decision,overridden,no_debate
+% ----
+update,here,is,draft_update
+% dont,need,below,label
+% not_accepted_yet,pep,is_n't_approved,yet
+
+no_consensus,no_clear_consensus,there_is
+decided_bdfl_consensus,topics,decided,consensus_bdfl
+
+discussion,pep,s,under_discussion
+rejected,pep,is-was,rejcted
+bdfl_pronouncement_rejected_pep,guido,agreed,pep_rejected
+% no_disagreement,no_one,disagreed
+consensus,no_one,disagreed
+no_spoke,no-one,spoke,rejected
+% ----
+
+
+
+% FINAL,STAGES,-,implemented,,final
+
+implemented,i,make,implementation
+implemented,i,make,implementation_with_these_changes
+implemented,implementation_for_pep,is_done
+implemented,implementation,closed
+
+% final
+final,pep,is-marked,final
+final,pep,has,status_final
+final,pep,moved,finished_section
+
+
+% DOUBLES
+% standard,states
+% this,creates,a,lot,of,false,positives
+draft,pep,draft
+open,pep,open
+active,pep,active
+pending,pep,pending
+closed,pep,closed
+final,pep,final
+accepted,pep,accepted
+deferred,pep,deferred
+replaced,pep,replaced
+rejected,pep,rejected
+postponed,pep,postponed
+incomplete,pep,incomplete
+superseded,pep,superseded
+
+% more,states,I,added
+% The,bdfl,pronouncement,is,commented,is,it,return,too,many,false,positives
+% bdfl_pronouncement,bdfl,pronouncement
+
+% submitted,pep,submitted
+updated,pep,revise
+rejected,pep,has_been_rejected
+accepted,pep,approved
+withdrawn,pep,withdraw
+withdrawn,pep,withdrawn
+withdrawn,pep,withdrawn,pep
+vote,vote,held
+draft,posted,rough_draft_pep
+
+
+% IGNORE,TRIPLES,-,MAYBE,NOT,NEEDED
+
+% SUB,PEP,-,PARTS,OF,PEP
+% form,syntax,scheme,patch,-dont include these
+% ignore_propose_syntax,i,propose,syntax
+% ignore_syntax_proposed,syntax,proposed
+% ignore_syntax_accepted,syntax,accepted
+% ignore_discussion_came_down_to_syntaxdiscussion,came_down,syntax
+% ignore_form_rejected,form,rejected,pep
+% ignore_form_rejected,forms,rejected,bdfl
+% ignore_form_rejected,bdfl,rejected,form
+% ignore_idea_rejected,idea,rejected,pep
+% ignore_scheme_rejected,scheme,rejected,explicitly
+% ignore_scheme_rejected,scheme,rejected
+% ignore_review,pep,was,ready_for_review
+
+% ignore_draft_patch,first_draft_patch,contributed,by
+
+% bug_opened,bug_opened
+% ignore_issue_closed,issue_closed
+% ignore_issues_closed,issues_closed
+
+%reasons
+little_support,little_interest,seemed,community 
+pep_received_favourably,pep,received,favourably
+pep_rejected_lack_of_majority,rejected,lack,majority
+pep_superceded,pep,superseded,pep
+received_feedback,i,received,favourable_comments
+pep_received_favourably,pep,received,favourably
+clarify,i,hope,clarifies
+no_options_get_supermajority,no_options,get,supermajority
+benefits_marginal,rationale,is,benefits_marginal
+superseded,it,superseded,pep
+withdrawn,pep,withdrawn,favor_pep

@@ -1,0 +1,4 @@
+select sendername, inReplyToUser
+from allmessages 
+where sendername in (select author from alldevelopers) 
+OR inReplyToUser in (select author from alldevelopers)

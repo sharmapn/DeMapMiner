@@ -1,0 +1,1 @@
+alter table allmessages add COLUMN ifProposalAtTheEndofMessage TINYINT;

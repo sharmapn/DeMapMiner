@@ -1,0 +1,2 @@
+ALTER TABLE allmessages ADD INDEX `inReplyToUserUsingClusteredSender` (`inReplyToUserUsingClusteredSender`(30));
+ALTER TABLE allmessages ADD INDEX `clusterBySenderFullName` (`clusterBySenderFullName`(30));

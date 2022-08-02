@@ -1,0 +1,1 @@
+ALTER TABLE allmessages DROP COLUMN statusFrom,statusTo, statusChanged, wordslist;

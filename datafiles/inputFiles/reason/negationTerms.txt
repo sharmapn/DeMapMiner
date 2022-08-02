@@ -1,0 +1,28 @@
+-- many negation terms here are actually conditional
+-- these terms apply in state extraction but not in reason as reason finding needs the existence of these terms sometimes..look at pep 345 reason 
+-- if
+not
+-- do not
+-- will be 
+-- can 
+-- can be 
+is n't 
+-- nor
+-- should 
+-- should be 
+-- would 
+-- needs to be 
+-- may 
+-- will 
+hav n't 
+have n't 
+might n't 
+whether 
+-- zero 
+-- no 
+-- never 
+-- never been 
+-- need 
+-- would need 
+-- before 
+-- zero

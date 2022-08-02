@@ -1,0 +1,375 @@
+PEP 0 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 0 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 0 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 0 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 0 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 0 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 0 | rejected | superseded | it | superseded | pep | txt , v retrieving revision 1.9 retrieving revision 1.10 diff C2 d r1 .9 r1 .10 pep 0216.txt 1 Apr 2002 15 31 11 0000 1.9 pep 0216.txt 1 Apr 2002 15 57 27 0000 1.10 6,14 Type Informational Created 31 Jul 2000 Notice This PEP is rejected by the author .
+PEP 0 | rejected | superseded | it | superseded | pep | txt , v retrieving revision 1.9 retrieving revision 1.10 diff C2 d r1 .9 r1 .10 pep 0216.txt 1 Apr 2002 15 31 11 0000 1.9 pep 0216.txt 1 Apr 2002 15 57 27 0000 1.10 6,14 Type Informational Created 31 Jul 2000 Notice This PEP is rejected by the author .
+PEP 0 | rejected | superseded | it | superseded | pep | txt , v retrieving revision 1.9 retrieving revision 1.10 diff C2 d r1 .9 r1 .10 pep 0216.txt 1 Apr 2002 15 31 11 0000 1.9 pep 0216.txt 1 Apr 2002 15 57 27 0000 1.10 6,14 Type Informational Created 31 Jul 2000 Notice This PEP is rejected by the author .
+PEP 0 | rejected_by_author | superseded | it | superseded | pep | txt , v retrieving revision 1.9 retrieving revision 1.10 diff C2 d r1 .9 r1 .10 pep 0216.txt 1 Apr 2002 15 31 11 0000 1.9 pep 0216.txt 1 Apr 2002 15 57 27 0000 1.10 6,14 Type Informational Created 31 Jul 2000 Notice This PEP is rejected by the author .
+PEP 0 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 0 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 0 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 0 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 0 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 0 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | updated | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | updated | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | updated | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 216 | rejected | superseded | it | superseded | pep | Status Rejected Type Informational Created 31 Jul 2000 Notice This PEP is rejected by the author .
+PEP 216 | rejected | superseded | it | superseded | pep | Status Rejected Type Informational Created 31 Jul 2000 Notice This PEP is rejected by the author .
+PEP 216 | rejected | superseded | it | superseded | pep | Status Rejected Type Informational Created 31 Jul 2000 Notice This PEP is rejected by the author .
+PEP 216 | rejected_by_author | superseded | it | superseded | pep | Status Rejected Type Informational Created 31 Jul 2000 Notice This PEP is rejected by the author .
+PEP 216 | rejected | superseded | it | superseded | pep | Status Rejected Type Informational Created 31 Jul 2000 Notice This PEP is rejected by the author .
+PEP 216 | rejected | superseded | it | superseded | pep | Status Rejected Type Informational Created 31 Jul 2000 Notice This PEP is rejected by the author .
+PEP 216 | rejected | superseded | it | superseded | pep | Status Rejected Type Informational Created 31 Jul 2000 Notice This PEP is rejected by the author .
+PEP 216 | rejected_by_author | superseded | it | superseded | pep | Status Rejected Type Informational Created 31 Jul 2000 Notice This PEP is rejected by the author .
+PEP 233 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 233 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 233 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 294 | rejected | consensus | no | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 303 | rejected | no_one_spoke_for | no | spoke | for it | No one spoke up for it and some against , so it is now rejected .
+PEP 303 | rejected | no_one_spoke_for | one | spoke | for it | No one spoke up for it and some against , so it is now rejected .
+PEP 303 | rejected | no_one_spoke_for | no | spoke | for it | No one spoke up for it and some against , so it is now rejected .
+PEP 303 | rejected | no_one_spoke_for | one | spoke | for it | No one spoke up for it and some against , so it is now rejected .
+PEP 303 | rejected | no_one_spoke_for | no | spoke | for it | No one spoke up for it and some against , so it is now rejected .
+PEP 303 | rejected | no_one_spoke_for | one | spoke | for it | No one spoke up for it and some against , so it is now rejected .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | updated | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | updated | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | updated | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 312 | deferred | pep_needs_work | pep | needs | back drawing board | The PEP is now deferred .
+PEP 312 | deferred | pep_needs_work | pep | needs | back drawing board | The PEP is now deferred .
+PEP 312 | deferred | pep_needs_work | pep | needs | back drawing board | The PEP is now deferred .
+PEP 336 | bdfl_pronouncement | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP null |  | superseded | pep | superseded | pep | 
+PEP 354 | accepted | superseded | pep | superseded | pep | The PEP was accepted by Guido on May 10th , 2013 LSB 1 RSB .
+PEP 354 | bdfl_pronouncement_accepted | superseded | pep | superseded | pep | The PEP was accepted by Guido on May 10th , 2013 LSB 1 RSB .
+PEP 354 | bdfl_pronouncement_accepted | superseded | pep | superseded | pep | The PEP was accepted by Guido on May 10th , 2013 LSB 1 RSB .
+PEP null |  | superseded | pep | superseded | pep | 
+PEP 354 | accepted | superseded | pep | superseded | pep | The PEP was accepted by Guido on May 10th , 2013 LSB 1 RSB .
+PEP 354 | bdfl_pronouncement_accepted | superseded | pep | superseded | pep | The PEP was accepted by Guido on May 10th , 2013 LSB 1 RSB .
+PEP 354 | bdfl_pronouncement_accepted | superseded | pep | superseded | pep | The PEP was accepted by Guido on May 10th , 2013 LSB 1 RSB .
+PEP 386 | proposal | superseded | pep | superseded | pep | tarek at ziade.org Status Accepted Status Superseded Type Standards Track Content Type text x rst Created 4 June 2009 Superseded By 440 Abstract This PEP proposes a new version comparison schema system in Distutils .
+PEP null |  | no_consensus | proposal | has | no popular support | 
+PEP 3103 | rejected | no_consensus | proposal | has | no popular support | I therefore reject it '' .
+PEP 3103 | poll_result | no_consensus | no proposal | had | majority | There the poll indicated no specific proposal had a majority , so for each specific proposal one could say it did n't have popular support , but the majority still prefered to have a conditional expression .
+PEP 3103 | poll_result | no_consensus | no proposal | had | majority | There the poll indicated no specific proposal had a majority , so for each specific proposal one could say it did n't have popular support , but the majority still prefered to have a conditional expression .
+PEP 3103 | bdfl_pronouncement | no_consensus | no proposal | had | majority | But at that time Guido used that poll as an indication there was not enough support .
+PEP 3103 | bdfl_pronouncement | no_consensus | no proposal | had | majority | But at that time Guido used that poll as an indication there was not enough support .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 308 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | updated | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | updated | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | updated | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 0 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 0 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 0 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 0 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 0 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 0 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 0 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 0 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 0 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change .
+PEP 0 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | bdfl_pronouncement | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | updated | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | updated | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 0 | updated | no_consensus | previous community | stymied | lack consensus | That issue was resolved by simply deferring to a BDFL best judgment call .
+PEP 233 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 233 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 233 | proposal | progress_stalled | progress | seems | stalled | Progress on this seems to have stalled , so I propose marking it Deferred '' and moving it out of the active PEP category to where , I 'm not yet sure .
+PEP 256 | proposal | consensus | consensus | is |  | This PEP proposes a Docstring Processing System DPS framework .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | bdfl_pronouncement_rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against including guido | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 284 | rejected | no_support | several people | spoke up | against it | Raymond suggested updating PEP 284 Integer for loops '' , but several people spoke up against it , including Guido , so the PEP was rejected .
+PEP 294 | rejected | consensus | no | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 294 | rejected | consensus | no one | disagreed |  | No one disagreed , and the PEP was rejected .
+PEP 303 | rejected | no_one_spoke_for | no | spoke | for it | No one spoke up for it and some against , so it is now rejected .
+PEP 303 | rejected | no_one_spoke_for | one | spoke | for it | No one spoke up for it and some against , so it is now rejected .
+PEP 303 | rejected | no_one_spoke_for | no | spoke | for it | No one spoke up for it and some against , so it is now rejected .
+PEP 303 | rejected | no_one_spoke_for | one | spoke | for it | No one spoke up for it and some against , so it is now rejected .
+PEP 303 | rejected | no_one_spoke_for | no | spoke | for it | No one spoke up for it and some against , so it is now rejected .
+PEP 303 | rejected | no_one_spoke_for | one | spoke | for it | No one spoke up for it and some against , so it is now rejected .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | vote_after_discussion | no_consensus | no format | was | draw majority | Following the discussion , a vote was held .
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 308 | rejected | no_consensus | no format | was | draw majority | Accordingly , the PEP was rejected due to the lack of an overwhelming majority for change . ''
+PEP 312 | deferred | pep_needs_work | pep | needs | back drawing board | The PEP is now deferred .
+PEP 312 | deferred | pep_needs_work | pep | needs | back drawing board | The PEP is now deferred .
+PEP 312 | deferred | pep_needs_work | pep | needs | back drawing board | The PEP is now deferred .
+PEP 318 | acceptance_stalled | acceptance_stalled | acceptance | stalled |  | I 'm not entirely sure why acceptance got stalled the way it did .
+PEP 318 | acceptance_stalled | acceptance_stalled | acceptance | stalled |  | I 'm not entirely sure why acceptance got stalled the way it did .
+PEP 333 | superseded | superseded | pep | superseded | pep | Or , you can create a new PEP that is an updated copy of PEP 333 , and just add a pointer to PEP 333 saying '' especially in the context of Python 3 this PEP is now superseded by PEP XXXX '' .
+PEP 333 | superseded | superseded | pep | superseded | pep | Or , you can create a new PEP that is an updated copy of PEP 333 , and just add a pointer to PEP 333 saying '' especially in the context of Python 3 this PEP is now superseded by PEP XXXX '' .
+PEP 333 | superseded | superseded | pep | superseded | pep | Or , you can create a new PEP that is an updated copy of PEP 333 , and just add a pointer to PEP 333 saying '' especially in the context of Python 3 this PEP is now superseded by PEP XXXX '' .
+PEP 333 | superseded | superseded | pep | superseded | pep | Or , you can create a new PEP that is an updated copy of PEP 333 , and just add a pointer to PEP 333 saying '' especially in the context of Python 3 this PEP is now superseded by PEP XXXX '' .
+PEP 336 | bdfl_pronouncement | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | bdfl_pronouncement | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | consensus_including_bdfl | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | no_consensus | no support | has | original | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus | many people | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 336 | rejected | consensus_including_bdfl | many people including guido | agreed |  | Many people , including Guido , agreed , and the PEP was rejected .
+PEP 354 | superseded | superseded | pep | superseded | pep | Marked PEP 354 as superseded by PEP 435 .
+PEP 354 | superseded | superseded | pep | superseded | pep | Marked PEP 354 as superseded by PEP 435 .
+PEP 354 | superseded | superseded | pep | superseded | pep | Marked PEP 354 as superseded by PEP 435 .
+PEP 354 | superseded | superseded | pep | superseded | pep | Marked PEP 354 as superseded by PEP 435 .
+PEP null |  | superseded | pep | superseded | pep | 
+PEP 354 | accepted | superseded | pep | superseded | pep | The PEP was accepted by Guido on May 10th , 2013 LSB 1 RSB .
+PEP 354 | bdfl_pronouncement_accepted | superseded | pep | superseded | pep | The PEP was accepted by Guido on May 10th , 2013 LSB 1 RSB .
+PEP 354 | bdfl_pronouncement_accepted | superseded | pep | superseded | pep | The PEP was accepted by Guido on May 10th , 2013 LSB 1 RSB .
+PEP 354 | superseded | superseded | pep | superseded | pep | Todo Mark PEP 354 superseded by '' this one , if accepted In docs describe the detailed extension API i.e. new .
+PEP null |  | superseded | pep | superseded | pep | 
+PEP 354 | accepted | superseded | pep | superseded | pep | The PEP was accepted by Guido on May 10th , 2013 LSB 1 RSB .
+PEP 354 | bdfl_pronouncement_accepted | superseded | pep | superseded | pep | The PEP was accepted by Guido on May 10th , 2013 LSB 1 RSB .
+PEP 354 | bdfl_pronouncement_accepted | superseded | pep | superseded | pep | The PEP was accepted by Guido on May 10th , 2013 LSB 1 RSB .
+PEP 354 | superseded | superseded | pep | superseded | pep | Todo Mark PEP 354 superseded by '' this one , if accepted In docs describe the detailed extension API i.e. new .
+PEP 386 | proposal | superseded | pep | superseded | pep | tarek at ziade.org Status Accepted Status Superseded Type Standards Track Content Type text x rst Created 4 June 2009 Superseded By 440 Abstract This PEP proposes a new version comparison schema system in Distutils .
+PEP 414 | accepted | no_consensus | wrangling | gone | too far | I 'm accepting the PEP .
+PEP 414 | accepted | no_consensus | wrangling | gone | too far | I 'm accepting the PEP .
+PEP 414 | accepted | no_consensus | wrangling | gone | too far | I 'm accepting the PEP .
+PEP 524 | rejected | superseded | pep | was rejected | in favor of | Crap , after reading more carefully , I see that PEP was rejected in favor of PEP 524 .
+PEP 524 | rejected | superseded | pep | was rejected | in favor of | Crap , after reading more carefully , I see that PEP was rejected in favor of PEP 524 .
+PEP 524 | rejected | superseded | pep | was rejected | in favor of | Crap , after reading more carefully , I see that PEP was rejected in favor of PEP 524 .
+PEP 524 | rejected | superseded | pep | was rejected | in favor of | Crap , after reading more carefully , I see that PEP was rejected in favor of PEP 524 .
+PEP 524 | superseded | superseded | pep | was rejected | in favor of | Crap , after reading more carefully , I see that PEP was rejected in favor of PEP 524 .
+PEP null |  | no_consensus | proposal | has | no popular support | 
+PEP 3103 | rejected | no_consensus | proposal | has | no popular support | I therefore reject it '' .
+PEP 3103 | poll_result | no_consensus | no proposal | had | majority | There the poll indicated no specific proposal had a majority , so for each specific proposal one could say it did n't have popular support , but the majority still prefered to have a conditional expression .
+PEP 3103 | poll_result | no_consensus | no proposal | had | majority | There the poll indicated no specific proposal had a majority , so for each specific proposal one could say it did n't have popular support , but the majority still prefered to have a conditional expression .
+PEP 3103 | bdfl_pronouncement | no_consensus | no proposal | had | majority | But at that time Guido used that poll as an indication there was not enough support .
+PEP 3103 | bdfl_pronouncement | no_consensus | no proposal | had | majority | But at that time Guido used that poll as an indication there was not enough support .

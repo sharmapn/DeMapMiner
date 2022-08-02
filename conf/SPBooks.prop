@@ -1,0 +1,206 @@
+<<<<<<< HEAD
+scriptpurpose=processmining
+-- processmining, 
+-- reasonextraction, 
+-- onlysentenceextractionfortopicmodelling
+-- processmining  -- actual substate extraction
+-- relationextraction -- relation extraction
+-- onlysentenceextractionfortopicmodelling
+-- manualreasonextraction, 
+-- candidatereasonsentencesuggestion ??
+-- important to set this 
+-- onlysentenceextractionfortopicmodelling -- can be run just for sentemnce and paragraph writing
+-- sentenceParagraphWritingToTable is also a script purpose for sentence and paragraph writing to db table
+-- To run limit initially 10000 for process mining, but lesser, maybe 50 for relatione extraction, 1000 for something
+-- reason extraction maybe 400, but we used 1000
+runForNumberOfMessagesLimit=5000
+-- this should be true, but not during process mining
+sentenceParagraphWritingToTable=false
+-- feb 2020...too much output
+outputfordebug=false
+-- feb2020..i noticed that not all substates were captured for pep 308 and none of pep 572..s
+-- maybe its due to procesising so many messages spanning peps ...so i think best to restart after each pep rather than a defines number of messages
+endprocessingaftereachproposal=true
+tableToStoreExtractedRelations=extractedRelations_clausie
+-- main substate extraction table
+tableToStoreProcessMiningResults=results
+proposalIdentifier=PEP
+database=spbooks
+-- database=jeps_2019
+mailing_list=C:\\datasets\\python-dev\\ C:\\datasets\\python-patches\\ C:\\datasets\\python-ideas\\ C:\\datasets\\python-announce-list\\ C:\\datasets\\python-distutils-sig\\ C:\\datasets\\python-authors\\ C:\\datasets\\python-bugs-list\\ C:\\datasets\\python-committers\\ C:\\datasets\\python-checkins\\ C:\\datasets\\python-3000\\ C:\\datasets\\python-lists\\ 
+-- I guess sthese are only for JEPs
+proposalStatuses=Draft Posted Submitted Candidate Funded Completed Withdrawn Rejected Active
+scriptsHomeFolderLocation=C://DeMap_Miner//datafiles//
+-- state data table
+proposalStateTableName=pepstates_danieldata_datetimestamp
+-- proposalStateTableName=pepStates_2019dec -- maybe we used this table for reasons
+MailingListsContainingStateChanges=C:\\datasets\\python-checkins\\ C:\\datasets\\python-committers\\
+stateCommitsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//stateCommits.txt
+mainStatesFileName=C://DeMap_Miner//datafiles//inputFiles//reason//mainStates.txt
+decisionMechanismsSubStatesFileName=C://DeMap_Miner//datafiles//inputFiles//reason//decisionMechanismsSubStates.txt
+reasonsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//reasons.txt
+identifiersFileName=C://DeMap_Miner//datafiles//inputFiles//reason//identifiers.txt
+reasonIdentifierTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//reasonIdentifierTerms.txt
+entitiesFileName=C://DeMap_Miner//datafiles//inputFiles//reason//entities.txt
+specialTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//specialTerms.txt
+decisionTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//decisionTerms.txt
+positiveTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//positive-words.txt
+negativeTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//negative-words.txt
+negationTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//negationTerms.txt
+conditionalTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//conditionalTerms.txt
+notCoOccurTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//notToCooccur.txt
+skipMessagesForProcessingLine=62328 1119585 329977
+manualPEPMIDRestart=false
+-- we dont consider these now as we just start from the last record messageid in results table, unless manual pep and messageid required
+-- pepNumberForRestart=2
+-- messageIDForRestart=0
+-- normally always true, even if processing a messageid from a pep
+-- mar 2020...because not all substates were captured, so instead of restart we restart after each pep
+restart=false
+restartaftereachproposal=true
+showInputFileTriplesAfterLoading=false
+-- debug messages	
+performCoReference=false
+checkReasons=false
+-- perform coreference if only these terms in previous and curr sentence
+coreferenceSubjects=pep proposal bdfl guido
+outputRelationExtractionDetails=false
+-- which peps to processeidin  //true															//normally true
+selectedAll=true
+selectedMinMax=false
+selectedSelected=false
+-- normally true when debugging
+selectedList=false
+processMessageID=false
+messageID=1126736
+readDummyFile=false
+selectedType=false
+rerunResults=false
+-- type; standard, process or informational
+-- Standard = about python language, functional enhancements - more action here, eg Pep 308 is standard pep, Process = related to python processes
+allStandard=false
+allProcess=false
+allInformational=false
+checkReverb=false
+checkClauseIETrue=true
+checkOllieTrue=false
+-- option to include checking triples in these libraries	
+repeatedLables=false
+repeatedSentences=false
+includeEmptyRows=false
+-- whether to include commit states or extract it ourselves
+includeStateData=true
+-- what to include in output
+readEntireFileAsMessage=true
+-- for processing dummy files
+linesToAnalyse=25
+-- limit our analysis to the first x number of lines of each message, except for commits and checkins messages which will have a particular pep well below this number 
+-- -1 for all lines				//but will many times have reasons for acceptance as well ...
+processBasedOnProposals=true
+-- sometimes a message will have several proposals. How to differentiate which sentences is for which
+-- Although very hard, an approach is to, between multiple proposals, if set to true, this will cause the analysis to skip everything as soon as another proposal is encountered and carry on as asoon as current proposal is encountered
+replaceCommas=false
+=======
+scriptpurpose=processmining
+-- processmining, 
+-- reasonextraction, 
+-- onlysentenceextractionfortopicmodelling
+-- processmining  -- actual substate extraction
+-- relationextraction -- relation extraction
+-- onlysentenceextractionfortopicmodelling
+-- manualreasonextraction, 
+-- candidatereasonsentencesuggestion ??
+-- important to set this 
+-- onlysentenceextractionfortopicmodelling -- can be run just for sentemnce and paragraph writing
+-- sentenceParagraphWritingToTable is also a script purpose for sentence and paragraph writing to db table
+-- To run limit initially 10000 for process mining, but lesser, maybe 50 for relatione extraction, 1000 for something
+-- reason extraction maybe 400, but we used 1000
+runForNumberOfMessagesLimit=5000
+-- this should be true, but not during process mining
+sentenceParagraphWritingToTable=false
+-- feb 2020...too much output
+outputfordebug=false
+-- feb2020..i noticed that not all substates were captured for pep 308 and none of pep 572..s
+-- maybe its due to procesising so many messages spanning peps ...so i think best to restart after each pep rather than a defines number of messages
+endprocessingaftereachproposal=true
+tableToStoreExtractedRelations=extractedRelations_clausie
+-- main substate extraction table
+tableToStoreProcessMiningResults=results
+proposalIdentifier=PEP
+database=spbooks
+-- database=jeps_2019
+mailing_list=C:\\datasets\\python-dev\\ C:\\datasets\\python-patches\\ C:\\datasets\\python-ideas\\ C:\\datasets\\python-announce-list\\ C:\\datasets\\python-distutils-sig\\ C:\\datasets\\python-authors\\ C:\\datasets\\python-bugs-list\\ C:\\datasets\\python-committers\\ C:\\datasets\\python-checkins\\ C:\\datasets\\python-3000\\ C:\\datasets\\python-lists\\ 
+-- I guess sthese are only for JEPs
+proposalStatuses=Draft Posted Submitted Candidate Funded Completed Withdrawn Rejected Active
+scriptsHomeFolderLocation=C://DeMap_Miner//datafiles//
+-- state data table
+proposalStateTableName=pepstates_danieldata_datetimestamp
+-- proposalStateTableName=pepStates_2019dec -- maybe we used this table for reasons
+MailingListsContainingStateChanges=C:\\datasets\\python-checkins\\ C:\\datasets\\python-committers\\
+stateCommitsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//stateCommits.txt
+mainStatesFileName=C://DeMap_Miner//datafiles//inputFiles//reason//mainStates.txt
+decisionMechanismsSubStatesFileName=C://DeMap_Miner//datafiles//inputFiles//reason//decisionMechanismsSubStates.txt
+reasonsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//reasons.txt
+identifiersFileName=C://DeMap_Miner//datafiles//inputFiles//reason//identifiers.txt
+reasonIdentifierTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//reasonIdentifierTerms.txt
+entitiesFileName=C://DeMap_Miner//datafiles//inputFiles//reason//entities.txt
+specialTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//specialTerms.txt
+decisionTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//decisionTerms.txt
+positiveTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//positive-words.txt
+negativeTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//negative-words.txt
+negationTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//negationTerms.txt
+conditionalTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//conditionalTerms.txt
+notCoOccurTermsFileName=C://DeMap_Miner//datafiles//inputFiles//reason//notToCooccur.txt
+skipMessagesForProcessingLine=62328 1119585 329977
+manualPEPMIDRestart=false
+-- we dont consider these now as we just start from the last record messageid in results table, unless manual pep and messageid required
+-- pepNumberForRestart=2
+-- messageIDForRestart=0
+-- normally always true, even if processing a messageid from a pep
+-- mar 2020...because not all substates were captured, so instead of restart we restart after each pep
+restart=false
+restartaftereachproposal=true
+showInputFileTriplesAfterLoading=false
+-- debug messages	
+performCoReference=false
+checkReasons=false
+-- perform coreference if only these terms in previous and curr sentence
+coreferenceSubjects=pep proposal bdfl guido
+outputRelationExtractionDetails=false
+-- which peps to processeidin  //true															//normally true
+selectedAll=true
+selectedMinMax=false
+selectedSelected=false
+-- normally true when debugging
+selectedList=false
+processMessageID=false
+messageID=1126736
+readDummyFile=false
+selectedType=false
+rerunResults=false
+-- type; standard, process or informational
+-- Standard = about python language, functional enhancements - more action here, eg Pep 308 is standard pep, Process = related to python processes
+allStandard=false
+allProcess=false
+allInformational=false
+checkReverb=false
+checkClauseIETrue=true
+checkOllieTrue=false
+-- option to include checking triples in these libraries	
+repeatedLables=false
+repeatedSentences=false
+includeEmptyRows=false
+-- whether to include commit states or extract it ourselves
+includeStateData=true
+-- what to include in output
+readEntireFileAsMessage=true
+-- for processing dummy files
+linesToAnalyse=25
+-- limit our analysis to the first x number of lines of each message, except for commits and checkins messages which will have a particular pep well below this number 
+-- -1 for all lines				//but will many times have reasons for acceptance as well ...
+processBasedOnProposals=true
+-- sometimes a message will have several proposals. How to differentiate which sentences is for which
+-- Although very hard, an approach is to, between multiple proposals, if set to true, this will cause the analysis to skip everything as soon as another proposal is encountered and carry on as asoon as current proposal is encountered
+replaceCommas=false
+>>>>>>> 68c3d87aa038ca1b96eecf1e9f7d6e47b26ed3f9
+--  and replace double empty spaces

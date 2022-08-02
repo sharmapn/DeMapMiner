@@ -1,0 +1,2 @@
+ALTER TABLE PEPDETAILS
+ADD INDEX `title` (`title`(50));

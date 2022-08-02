@@ -1,0 +1,3 @@
+-- the first reason term should not cooccur with any of teh rest
+argument, function, call, parameter,parameters, return,returns,returned, keyword, keywords, attribute, attributes
+resolution, high, monitor

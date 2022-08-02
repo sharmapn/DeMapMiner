@@ -1,0 +1,16 @@
+
+[Tim]
+
+[Paul Rubin, among others of similar mind]
+
+Alas, it didn't to Python's parser -- one-token lookahead isn't enough to
+distinguish
+and Python won't grow anything a simple parser can't sort out.
+
+Everything's cool if parens are required around a conditional expression,
+though, in which case:
+Seems a mixed bag, but I'm more interested in readability and the
+functionality than in minimizing keystrokes; requiring parens doesn't hurt
+the goals I care about.
+
+

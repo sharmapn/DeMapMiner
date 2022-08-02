@@ -1,0 +1,9 @@
+.nospam.ware
+nospam
+_nospam_
+.NOSPAM.ME
+ NoSpam 
+NOSPAMTHANKS
+donotspam
+_antispam
+NO_SPAM

@@ -1,0 +1,1 @@
+update results set authorrole = "bdfl" where messageid > 5000000 and messageid < 5010000

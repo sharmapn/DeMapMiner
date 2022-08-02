@@ -1,0 +1,1 @@
+select * from results where clausie = 'accepted' and (currentSentence like '%because%' or currentSentence like '%based on%') ;

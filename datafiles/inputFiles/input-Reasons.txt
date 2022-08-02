@@ -1,0 +1,185 @@
+% REASONS, these also included in main input file
+% sometimes,reasons,exist,on,its,own,in,a,message,completely,seprate,than,the,state,therefore,these,are,needed,to,be,coded,here
+
+% reasons for deferrment
+
+progress_stalled,progress,seems,stalled  	$ Progress on this seems to have stalled, so I propose marking it "Deferred" and moving it out of the active PEP category (to where, I'm not yet sure).
+
+% 
+
+%reasons for acceptance or rejection
+concerns_addressed,pep,addressed,key_concerns
+concerns_addressed,pep,addressed,concerns
+concerns_addressed,*,addressed,comments
+
+% reasons for acceptance
+% Propositions,,,,,:,("No,negative,feedback",,"was,received",,"on,generator,comprehensions")
+positive_feedback,no_negative_feedback,received
+positive_feedback,response,was,positive
+positive_feedback,pep,got,positive_feedback
+positive_feedback_again,pep,got,positive_feedback_again
+positive_feedback,response,was,positive
+positive_feedback,idea,got,positive_responses
+positive_feedback,he,received,positive_responses
+positive_feedback,i,had,positive_responses
+positive_feedback,response,has_been,positive
+positive_feedback,this,is,positive_response
+positive_feedback,pep,received,favourably
+positive_feedback,i,received,favourable_comments
+
+no_objections,no_objections,were_raised
+no_objections,no_objections,raised
+no_objections,issues,resolved,lack_objections
+
+uncontroversial,ideas,seem,uncontroversial
+
+acceptance_stalled,acceptance,stalled
+
+% reasons for rejection
+lack_of_majority,rejected,lack,majority
+lack_of_majority,no_options,get,supermajority
+
+no_support,little_interest,seemed,community
+no_one_spoke_for,no-one,spoke,for_it
+no_one_spoke_for,no-one,spoke,rejected
+no_support,several_people,spoke_up,against_including_guido
+no_support,several_people,spoke_up,against_it
+
+% reasons for vote and maybe poll
+community_consensus_unknown,i,do_n't_know,state_of_community_consensus		$	I've not asked for a vote and so I don't know the state of community consensus regarding this PEP
+community_consensus_unknown,i,do_n't_know,community_consensus				$	I've not asked for a vote and so I don't know the state of community consensus regarding this PEP
+state_of_community_consensus,state,of,community_consensus
+
+% complimentary vote reason
+complement_official_vote,vote,intended,complement_official_vote				$	It is for a different vote that is intended to COMPLEMENT the results of the official vote, by using a different type of ballot, and a different method of tallying the results (Condorcet's Method), 
+
+% FINAL,DECISION,MECHANISMS
+% ,consensus,,rough,consensus,,no,consensus,,bdfl,,bdfl,pronouncement,(influential,individual),,vocal,minority,
+
+hope_rough_consensus,i,hope,rough_consensus
+rough_consensus,rough,consensus
+rough_consensus,this,seems,rough_consensus
+rough_consensus,there,seems,rough_consensus
+rough_consensus,there,is,rough_consensus
+rough_consensus,there,was,rough_consensus
+rough_consensus,this,is,rough_consensus
+% vocal_minority,vocal,minority
+
+% syntaxes_proposed,syntaxes,proposed,pep
+
+% consensus is also a reason - not a state
+
+consensus,i,think,consensus					$ I think we've reached a consensus on those two PEPs.
+consensus,we,reached|reaching,consensus		$ it appears we are reaching some consensus.
+consensus,consensus,was_reached				
+consensus,consensus,appears					$ The consensus appears to be that there is no need to add a new CSPRNG to...
+consensus,consensus,has_been_reached		$ As you said, consensus has been reached, so just Guido's BDFL stamp of approval is all I can think of.'
+consensus,consensus,reached_quickly			$ consensus was quickly reached'
+consensus,we,reached_consensus,pep
+consensus,consensus,is						$ Guido told me in private he's now accepting the PEP since there's consensus.
+consensus,consensus,seems,to_be_emerging
+consensus,community,consensus
+consensus,community,reached,consensus
+consensus,consensus,emerged,posts			$ Yes, consensus clearly converged on the proposed syntax (the mention of "generators" in the construct's name was the part that I think prompted the desire for 'yield' -- had they been called "iterator expressions" I suspect nobody would have missed 'yield' even transiently:-).'
+consensus,community,reach,consensus
+consensus,community_consensus,emerged,post
+consensus,community,consensus,pep
+consensus,reach,consensus,pep
+% consensus_emerged,consensus,emerged
+consensus,consensus,emerged
+consensus,no-one,disagreed					$ no-one disagreed , and the pep was rejected.
+consensus,many_people,agreed
+consensus_including_bdfl,many_people_including_guido,agreed
+% reasons,for,acceptance,or,rejection
+consensus,consensus,converged,proposed		$	Yes, consensus clearly converged on the proposed syntax (the mention of "generators" in the construct's name was the part that I think prompted the desire for 'yield' -- had they been called "iterator expressions" I suspect nobody would have missed 'yield' even transiently:-).
+consensus,consensus,converged,syntax		$	Yes, consensus clearly converged on the proposed syntax (the mention of "generators" in the construct's name was the part that I think prompted the desire for 'yield' -- had they been called "iterator expressions" I suspect nobody would have missed 'yield' even transiently:-).
+consensus,ideas,contained,approval_everyone
+% no_disagreement,no_one,disagreed
+consensus,no_one,disagreed
+consensus,several_people,agreed,pep
+consensus,several_people,agreed,pep_rejected
+consensus,several_people,agreed,pep_rejcted
+consensus,everyone,agreed
+consensus,everyone,agreed,rejected
+
+% no community consensus - bdfl pronouncement needed or rejected
+no_consensus,no_consensus,there_is
+no_consensus,no_consensus,is
+no_consensus,community,has,unable_reach_consensus	$   While the majority of Python users deemed this to be a nice-to-have feature, the community was unable to reach a consensus on whether nine should be represented as IX, the modern form, or VIIII, the classic form.  '
+no_consensus,unable,reach,consensus					$	While the majority of Python users deemed this to be a nice-to-have feature, the community was unable to reach a consensus on whether nine should be represented as IX, the modern form, or VIIII, the classic form.  '
+no_consensus,community,has,unable_to_reach_a_consensus
+no_consensus,fail,reach,consensus					$ 	much like the last time this issue was brought up , `` the discussion fizzled out after having failed to reach a consensus on an obviously right way to go about it '' -LRB- greg ewing 's quite appropriate wording -RRB- .'
+no_consensus,never,reach,consensus
+no_consensus,never,reached,consensus
+no_consensus,not,reach,consensus
+no_consensus,not,reached,consensus
+no_consensus,consensus,never_been_reached
+no_consensus,thread,died,before_consensus_reached	$  The thread died off before a consensus was reached,unfortunately.
+no_consensus,community,unable_to_reach,consensus	$  While the majority of Python users deemed this to be a nice-to-have feature, the community was unable to reach a consensus on whether nine should be represented as IX, the modern form, or VIIII, the classic form.  '
+no_consensus,we,never_reach,consensus
+no_consensus,we,never,consensus						$  We well never reach consensus. 
+no_consensus,zero_consensus,emerging
+no_consensus,we,'re,far_consensus
+no_consensus,we,re,far_consensus
+no_consensus,no_consensus,could_be_reached
+% consensus_split,consensus,is,50-50
+no_consensus,consensus,is,50-50
+% no_majority,no_proposal,had,majority
+no_consensus,no_proposal,had,majority
+% format_no_majority,no_format,was,draw_majority
+no_consensus,no_format,was,draw_majority
+% issues_not_reach_consensus,issues,not_reach,consensus
+no_consensus,issues,not_reach,consensus
+no_consensus,previous_community,stymied,lack_consensus
+no_consensus,proposal,has,no_popular_support
+no_consensus,wrangling,gone,too_far
+no_consensus,wrangling,is,draining
+no_consensus,pep,bourne,arguing
+
+% majority,support
+% no_majority_support,no,majority,support
+no_consensus,no,majority,support
+% no_support,no_support,has,original
+no_consensus,no_support,has,original
+
+% negative_responses,pep,did-generate,negative_responses
+% disagreement,pep,did-generate,negative_responses
+no_consensus,pep,did_generate,negative_responses
+
+% reasons,why,not,pronounced,-,disagreements
+no_consensus,disagreements_pep,there_were
+no_consensus,disagreements,there_were
+no_consensus,disagreements,there
+no_consensus,disagreements,were
+
+% disagreement
+no_consensus,there,be,two_camps
+no_consensus,there,is|are|were,two_camps
+no_consensus,two_camps,are
+no_consensus,there,is|was,disagreement
+no_consensus,no_clear_consensus,there_is
+
+
+
+
+% unclassified
+% clarify,i,hope,clarifies
+benefits_marginal,rationale,is,benefits_marginal
+pep_needs_work,pep,needs,back_drawing_board
+
+% Reasons,and,Transitions
+initial_proposal_lost,initial_proposal,lost,noise
+% revival,after,year,,rejected,to,accepted
+% motivation,motivating_case,was,prevalance
+% best,judgement,call
+
+% Reasons for other states
+
+% superced is a reason for rejection
+superseded,it,superseded,pep 				$	This PEP is rejected by the author. It has been superseded by PEP 287.'
+superseded,pep,was_rejected,in_favor_of  		$  	'sorry , that should have been pep 340 , which was rejected in favor of 343 .
+superseded,pep,superseded,pep				$	'PEP 433 was rejected, replaced with the PEP 446.'
+
+% if this pep is approved , the following peps will be rejected due + to overlap : + + - pep 288 , generators attributes and exceptions .'
+
+withdrawn,pep,withdrawn,favor_pep			$ '+ pronouncement + + this pep is rejected in favor of pep 343 .'

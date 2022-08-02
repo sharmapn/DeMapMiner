@@ -1,0 +1,1 @@
+SELECT pep, type FROM pepdetails where type like '%standard%' order by pep asc

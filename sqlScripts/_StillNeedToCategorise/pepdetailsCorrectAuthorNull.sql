@@ -1,0 +1,1 @@
+UPDATE pepdetails SET authorcorrected =REPLACE(authorcorrected,'null , ','');

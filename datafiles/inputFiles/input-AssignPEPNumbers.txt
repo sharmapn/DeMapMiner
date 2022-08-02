@@ -1,0 +1,17 @@
+% STATES
+
+
+% TRIPLES
+% normal events
+
+% ideaa stage
+% asking for pep number on an idea
+request_pep_number i could_have pep_number
+request_pep_number i have pep_number 
+request_pep_number you could_assign pep_number
+
+%
+Barry: Please assign PEP numbers to these if possible
+
+%draft
+draft this first_draft pep

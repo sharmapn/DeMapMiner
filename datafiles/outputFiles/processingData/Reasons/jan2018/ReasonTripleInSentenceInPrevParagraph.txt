@@ -1,0 +1,80 @@
+PEP 319 | proposal | consensus | consensus | is |  | This PEP proposes that the protocol used by the with statement be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 319 | proposal | no_consensus | no consensus | is |  | This PEP proposes that the protocol used by the with statement be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 319 | proposal | consensus | consensus | is |  | This PEP proposes that the protocol used by the with statement be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 319 | proposal | no_consensus | no consensus | is |  | This PEP proposes that the protocol used by the with statement be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 319 | proposal | consensus | consensus | is |  | This PEP proposes that the protocol consisting of the enter and exit methods , and a context method that returns self be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 319 | proposal | no_consensus | no consensus | is |  | This PEP proposes that the protocol consisting of the enter and exit methods , and a context method that returns self be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 319 | proposal | consensus | consensus | is |  | This PEP proposes that the protocol consisting of the enter and exit methods , and a context method that returns self be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 319 | proposal | no_consensus | no consensus | is |  | This PEP proposes that the protocol consisting of the enter and exit methods , and a context method that returns self be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 319 | accepted | consensus | consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | accepted | no_consensus | no consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | accepted | consensus | consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | accepted | no_consensus | no consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | accepted | consensus | consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | accepted | no_consensus | no consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | accepted | consensus | consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | accepted | no_consensus | no consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 319 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | proposal | consensus | consensus | is |  | This PEP proposes that the protocol used by the with statement be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 340 | proposal | no_consensus | no consensus | is |  | This PEP proposes that the protocol used by the with statement be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 340 | proposal | consensus | consensus | is |  | This PEP proposes that the protocol used by the with statement be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 340 | proposal | no_consensus | no consensus | is |  | This PEP proposes that the protocol used by the with statement be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 340 | proposal | consensus | consensus | is |  | This PEP proposes that the protocol consisting of the enter and exit methods , and a context method that returns self be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 340 | proposal | no_consensus | no consensus | is |  | This PEP proposes that the protocol consisting of the enter and exit methods , and a context method that returns self be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 340 | proposal | consensus | consensus | is |  | This PEP proposes that the protocol consisting of the enter and exit methods , and a context method that returns self be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 340 | proposal | no_consensus | no consensus | is |  | This PEP proposes that the protocol consisting of the enter and exit methods , and a context method that returns self be known as the context management protocol '' , and that objects that implement that protocol be known as context managers '' .
+PEP 340 | accepted | consensus | consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | accepted | no_consensus | no consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | accepted | consensus | consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | accepted | no_consensus | no consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | accepted | consensus | consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | accepted | no_consensus | no consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | accepted | consensus | consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | accepted | no_consensus | no consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | consensus | consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 340 | bdfl_pronouncement_accepted | no_consensus | no consensus | is |  | This PEP was first accepted by Guido at his EuroPython keynote , 27 June 2005 .
+PEP 391 | inviting_votes | positive_feedback | pep | received | favourably | So , can you please indicate your vote for or against incorporating PEP 391 into Python ?
+PEP 391 | inviting_votes | positive_feedback | pep | received | favourably | So , can you please indicate your vote for or against incorporating PEP 391 into Python ?
+PEP 391 | inviting_votes | positive_feedback | pep | received | favourably | So , can you please indicate your vote for or against incorporating PEP 391 into Python ?
+PEP 391 | inviting_votes | positive_feedback | pep | received | favourably | So , can you please indicate your vote for or against incorporating PEP 391 into Python ?
+PEP 391 | inviting_votes | positive_feedback | pep | received | favourably | So , can you please indicate your vote for or against incorporating PEP 391 into Python ?
+PEP 391 | inviting_votes | positive_feedback | pep | received | favourably | So , can you please indicate your vote for or against incorporating PEP 391 into Python ?
+PEP 391 | inviting_votes | positive_feedback | pep | received | favourably | So , can you please indicate your vote for or against incorporating PEP 391 into Python ?
+PEP 391 | inviting_votes | positive_feedback | pep | received | favourably | So , can you please indicate your vote for or against incorporating PEP 391 into Python ?
+PEP 391 | inviting_votes | positive_feedback | pep | received | favourably | So , can you please indicate your vote for or against incorporating PEP 391 into Python ?
+PEP 391 | inviting_votes | positive_feedback | pep | received | favourably | So , can you please indicate your vote for or against incorporating PEP 391 into Python ?
+PEP 3003 | proposal | positive_feedback | idea | got | positive responses | Do note that the PEP proposes to be retroactive back to the 3.1 release , i.e. the frozen '' version of the language is the state in which it was released as 3.1 .
+PEP 3003 | proposal | positive_feedback | idea | got | positive responses | Do note that the PEP proposes to be retroactive back to the 3.1 release , i.e. the frozen '' version of the language is the state in which it was released as 3.1 .
+PEP 3103 | accepted | no_consensus | proposal | has | no popular support | Lemburg , Rejection Notice A similar PEP for Python 3000 , PEP 3103 2 , was already rejected , so this proposal has no chance of being accepted either . ''
+PEP 3103 | rejected | no_consensus | proposal | has | no popular support | Lemburg , Rejection Notice A similar PEP for Python 3000 , PEP 3103 2 , was already rejected , so this proposal has no chance of being accepted either . ''
+PEP 3103 | rejected | no_consensus | proposal | has | no popular support | Lemburg , Rejection Notice A similar PEP for Python 3000 , PEP 3103 2 , was already rejected , so this proposal has no chance of being accepted either . ''
+PEP null |  | no_consensus | proposal | has | no popular support | 

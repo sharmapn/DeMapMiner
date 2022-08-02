@@ -1,0 +1,6 @@
+% states
+pep-proposal i propose
+pep-proposal pep propose
+pep-accepted pep accepted
+pep-rejected pep rejected
+pep-rejected pep rejected

@@ -1,0 +1,1 @@
+Alter table allmessages add INDEX `inReplyTo` (`inReplyTo`(80));

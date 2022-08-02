@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;EnglishOrJavaCode&apos; to &apos;javaStringSimilarity/src&apos;&#x0D;&#x0A;- Original project: &apos;englishOrJavaCode&apos;&#x0D;&#x0A;- Destination element: &apos;javaStringSimilarity/src&apos;&#x0D;&#x0A;- Original element: &apos;englishOrJavaCode/src/EnglishOrJavaCode&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=javaStringSimilarity/src" element1="/src&lt;EnglishOrJavaCode" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1658398459087" version="1.0"/>
+</session>

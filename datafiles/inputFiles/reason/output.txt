@@ -1,0 +1,15 @@
+Based VBN N
+on IN N
+the DT N
+favorable JJ CB
+feedback NN CE
+, , N
+Guido NNP N
+has VBZ N
+accepted VBN EB
+the DT	EE
+PEP NN N
+for IN N
+Py2 NN N
+.4 CD N
+. . N

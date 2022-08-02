@@ -1,0 +1,8 @@
+-- Influence of Roles in peps
+TRUNCATE autoextractedinfluencecandidatemessages;
+TRUNCATE autoextractedinfluencecandidateparagraphs;
+TRUNCATE autoextractedinfluencecandidatesentences;
+
+SELECT * FROM autoextractedinfluencecandidatesentences
+SELECT * from autoextractedinfluencecandidatemessages;
+SELECT * FROM  autoextractedinfluencecandidateparagraphs;

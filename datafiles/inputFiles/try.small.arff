@@ -1,0 +1,9 @@
+@relation pep_test
+
+@attribute spamclass {spam,ham}
+@attribute text String
+
+@data
+spam,'Youll notice that this draft is rather more developed than the average first-round PEP posting because its already been the rounds of all the various numerical package mailing lists to build consensus no point in asking for the wrong thing.'
+ham,'I would like to purpose ..'
+spam,'This PEP proposes adding Roman numerals as a literal type .'

@@ -1,0 +1,40 @@
+<<<<<<< HEAD
+proposalIdentifier=PEP
+database=peps_new
+mailing_list=C:\\datasets-additional\\python-3000\\
+proposalStatuses=Draft Posted Submitted Candidate Funded Completed Withdrawn Rejected Active
+scriptsHomeFolderLocation=C://Users//psharma//Google Drive//PhDOtago//code//
+proposalStateTableName=pepStates_danieldata_datetimestamp
+MailingListsContainingStateChanges=C:\\datasets\\python-checkins\\ C:\\datasets\\python-committers\\
+stateCommitsFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//stateCommits.txt
+mainStatesFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//mainStates.txt
+decisionMechanismsSubStatesFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//decisionMechanismsSubStates.txt
+reasonsFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//reasons.txt
+reasonIdentifierTermsFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//reasonIdentifierTerms.txt
+entitiesFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//entities.txt
+specialTermsFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//specialTerms.txt
+positiveTermsFileName=C://Users//psharma//Google Drive//PhDOtago//Code//inputFiles//positive-words.txt
+negativeTermsFileName=C://Users//psharma//Google Drive//PhDOtago//Code//inputFiles//negative-words.txt
+pepNumberForRestart=1
+messageIDForRestart=720828
+=======
+proposalIdentifier=PEP
+database=peps_new
+mailing_list=C:\\datasets-additional\\python-3000\\
+proposalStatuses=Draft Posted Submitted Candidate Funded Completed Withdrawn Rejected Active
+scriptsHomeFolderLocation=C://Users//psharma//Google Drive//PhDOtago//code//
+proposalStateTableName=pepStates_danieldata_datetimestamp
+MailingListsContainingStateChanges=C:\\datasets\\python-checkins\\ C:\\datasets\\python-committers\\
+stateCommitsFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//stateCommits.txt
+mainStatesFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//mainStates.txt
+decisionMechanismsSubStatesFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//decisionMechanismsSubStates.txt
+reasonsFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//reasons.txt
+reasonIdentifierTermsFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//reasonIdentifierTerms.txt
+entitiesFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//entities.txt
+specialTermsFileName=C://Users//psharma//Google Drive//PhDOtago//code//inputFiles//reason//specialTerms.txt
+positiveTermsFileName=C://Users//psharma//Google Drive//PhDOtago//Code//inputFiles//positive-words.txt
+negativeTermsFileName=C://Users//psharma//Google Drive//PhDOtago//Code//inputFiles//negative-words.txt
+pepNumberForRestart=1
+messageIDForRestart=720828
+>>>>>>> 68c3d87aa038ca1b96eecf1e9f7d6e47b26ed3f9
+runForNumberOfMessagesLimit=1000

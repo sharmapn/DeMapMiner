@@ -1,0 +1,138 @@
+package wordforms;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import edu.smu.tspell.wordnet.SynsetType;
+import wordnet.jaws.WordnetSynonyms;
+
+//This script is needed to read all different forms of a word from 
+//- (1) the file borrowed from https://github.com/gutfeeling/word_forms/blob/master/word_forms/en-verbs.txt
+//- (2) wordnet
+public class GetWordForms {
+	static String filename="C:\\DeMapMiner\\datafiles\\inputFiles\\wordforms\\en-verbs.txt",line="",thisLine="";
+	static List<String[]> lines = new ArrayList<String[]>();
+	static WordnetSynonyms ws = new WordnetSynonyms();
+	public static void main(String[] args) {	
+		initialise();	ws.init();	
+		String words[] = {"decide","decisive","decision","reason","accept","accepted"};
+		for(String wordForm : words) {	
+			System.out.println(wordForm);
+			getAllWordForms(wordForm);
+			System.out.println("\tWordNet Synonyms for "+ wordForm);	System.out.println("\t"+ ws.returnSynonyms(wordForm));	System.out.println();
+			
+			// taken from https://github.com/xiejuncs/cross-document-coreference-resolution/blob/master/featureExtractor/Wordnet.java
+			// https://www.cs.uic.edu/~spurohit/documents/Algorithm%20details.pdf
+			Set<String> synonyms = ws.getSynonym(wordForm, SynsetType.NOUN); //region 
+			System.out.println("\tNOUN Synonyms for word: " + wordForm); System.out.print("\t");	for (String s : synonyms) {  System.out.print(s + ", ");	} System.out.println();
+			Set<String> synonymsVERB = ws.getSynonym(wordForm, SynsetType.VERB); //region 
+			System.out.println("\tVERB Synonyms for word: " + wordForm); System.out.print("\t");	for (String s : synonymsVERB) {  System.out.print(s + ", ");	} System.out.println();
+			Set<String> nounHypernyms = ws.getNounHypernym(wordForm);  //tent
+			System.out.println("\tNounHypernyms for word: " + wordForm); System.out.print("\t");	for (String s : nounHypernyms) {  System.out.print(s + ", ");	}	System.out.println();
+			Set<String> verbHypernyms = ws.getVerbHypernym(wordForm); //shout
+			System.out.println("\tVerbHypernyms for word: " + wordForm); System.out.print("\t");	for (String s : verbHypernyms) {  System.out.print(s + ", ");	}	System.out.println();
+			Set<String> derivationallyForm = ws.getDerivationallyRelatedForms(wordForm, SynsetType.VERB); //develop
+			System.out.println("\tDerivationallyForm for word: " + wordForm);	System.out.print("\t");	for (String s : derivationallyForm) {  System.out.print(s + ", ");	}	System.out.println();
+			/*
+			 * Looking at the outputs from below, we can use Word forms, NOUN Synonyms, VERB synonyms, and DerivationallyForm 
+			 * BUT NOT Verb Hyponyms
+			 * For states we only use wordforms and deriavationallyform
+			 * decide
+				Word forms = decide,decides,deciding,decided,decided,
+				WordNet Synonyms for decide
+				[determine, resolve, settle, decide, make up one's mind, adjudicate]			
+				NOUN Synonyms for word: decide				
+				VERB Synonyms for word: decide
+				determine, resolve, settle, decide, make up one's mind, adjudicate, 
+				NounHypernyms for word: decide				
+				VerbHypernyms for word: decide
+				determine, shape, regulate, cause, mold, stimulate, influence, induce, get, have, end, terminate, make, 
+				DerivationallyForm for word: decide
+				decisive, decision, deciding, 
+			decisive
+				WordNet Synonyms for decisive
+				[decisive, critical]			
+				NOUN Synonyms for word: decisive				
+				VERB Synonyms for word: decisive				
+				NounHypernyms for word: decisive				
+				VerbHypernyms for word: decisive				
+				DerivationallyForm for word: decisive				
+			decision
+				WordNet Synonyms for decision
+				[conclusion, decision, decisiveness, determination]			
+				NOUN Synonyms for word: decision
+				conclusion, decision, decisiveness, determination, 
+				VERB Synonyms for word: decision				
+				NounHypernyms for word: decision
+				termination, judgement, mind, resultant, final result, resolve, resoluteness, resolution, result, selection, judgment, pick, firmness, choice, outcome, firmness of purpose, option, 
+				VerbHypernyms for word: decision				
+				DerivationallyForm for word: decision				
+			reason
+				Word forms = reason,reasons,reasoning,reasoned,reasoned,
+				WordNet Synonyms for reason
+				[reason, grounds, intellect, reasonableness, conclude, understanding, cause, reason out, ground, argue, rationality]
+			
+				NOUN Synonyms for word: reason
+				reason, grounds, intellect, reasonableness, understanding, cause, ground, rationality, 
+				VERB Synonyms for word: reason
+				reason, conclude, reason out, argue, 
+				NounHypernyms for word: reason
+				rational motive, fact, mental faculty, module, saneness, sanity, justification, explanation, account, faculty, 
+				VerbHypernyms for word: reason
+				think, lay out, cogitate, cerebrate, present, represent, 
+				DerivationallyForm for word: reason
+				reason, reasoning, reasoner, 
+			done
+			 */
+		}
+		System.out.println("done");
+	}
+	
+	public static void initialise() {		
+		try {
+			BufferedReader abc = new BufferedReader(new FileReader(filename));			
+			while ((thisLine = abc.readLine()) != null) {
+				String line_array[] = thisLine.split(",");
+			     lines.add(line_array);
+			     /* for(String i : line_array) 
+			    	 { System.out.print(i+", ");}
+			     System.out.println(); */
+			}
+			abc.close();
+			// convert our list to a String array.
+			//String[][] array = new String[lines.size()][0];
+			//lines.toArray(array);		
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
+		// If you want to convert to a String[]
+		//String[] data = lines.toArray(new String[]{});
+	}
+	
+	public static Set getAllWordForms(String word) {
+		Set allWordForms = new HashSet();
+		boolean found= false;
+		for (String[] line : lines) {
+			if(line[0].toLowerCase().equals(word.toLowerCase())) {	//if stemmed version of term is found in index 0, output the other forms of the verb
+				System.out.print("\tWord forms = "); found=true;
+				for(String i : line){ 
+					if(i== null || i.isEmpty() || i.equals("")) {}
+					else{
+						//if(i.toLowerCase().equals(word.toLowerCase()))
+							System.out.print(i+",");
+							allWordForms.add(i);
+					}				
+				}
+				System.out.println();
+			}
+		}
+		return allWordForms;
+	}
+
+}

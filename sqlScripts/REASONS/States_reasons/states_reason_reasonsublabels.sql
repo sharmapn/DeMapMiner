@@ -1,0 +1,1 @@
+alter table states_reason_reasonsublabels add sublabel (TinyText);

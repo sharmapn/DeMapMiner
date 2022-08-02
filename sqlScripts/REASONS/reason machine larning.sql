@@ -1,0 +1,10 @@
+-- 
+select proposal, messageid, label, sentence,  authorroleweight,datediffweight, 
+reasonstermsfoundcount,reasonsIdentifierTermsCount,statesSubstatesCount,identifiersTermCount,entitiesTermCount,specialTermCount,decisionTermCount,
+messageSubjectStatesSubstatesListCount, messageSubjectEntitiesTermListCount,messageSubjectDecisionTermListCount,messageSubjectProposalIdentifiersTermListCount,messageSubjectSpecialTermListCount,
+containsreason 
+from autoextractedreasoncandidatesentences
+where locationMatched like '%adjacent%';
+-- isenglishorcode= 0;
+
+delete from autoextractedreasoncandidatesentences where proposal = 237;

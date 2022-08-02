@@ -1,0 +1,371 @@
+@relation pep_test
+
+@attribute Labelsclass{propose-syntax,syntax-accepted,proposal,sig-proposed,sig-positive,,first-draft,latest-draft,pep-checked-in,discussion,discussion-for-long-time,discussion-continued-on-and-off,discussion-may-never-end,discussion-at-conference,pep-discussion-direction,offline-discussion,more-work-needed,agreed-to-rewrite-pep,pep-rewritten-several-times,author-changes-pep,pep-revised,bdfl-asks-for-pep-summary,pep-submitted-rejected,change-primary-pep-author,willing-to-be-bdfl,waiting-for-bdfl-pronouncement,pep-maybe-a-bdfl-decision,thinking-that-consensus,few-alternatives-proposed,shouting-accusations,back-to-sqaure-one,something-else-to-proposal,pep-needs-update,pep-updated-to-current-state-of-play-in-community,discussion-around-syntax,need-decision,remaining-issue,call-for-feedback,pep-ready-for-review,author-made-changes-to-pep,author-will-revise,author-taken-comments-into-account,requesting-pronouncement,pep-author-addressed-all-comments-made-changes,bdfl-asking-if-consensus,pep-maynot-require-discussion,pep-author-made-changes,pep-author-doesnt-know-consensus,pep-author-thinks-community-favourable,community-commented,pep-accepted-after-discussion,author-agrees-to-modify,bdfl-accepted,pep-accepted,bdfl-offline-accept,bdfl-decision,bdfl-rejected,bdfl-decree-rejected,bdfl-decree-reject,bdfl-withdrawn,bdfl-pronouncement,bdfl-pronouncement-accept,bdfl-pronouncement-pep-rejected,bdfl-pronouncement-rejected,bdfl-pronouncement-conditionally-accepted,bdfl-provisionally-accepts,bdfl-consults,bdfl-decided,bdfl-asks-to-apply,bdfl-delegate-accept,co-bdfl-delegate-accept,author-reject-pep,asking-for-review,feedback-incorporated,asks-for-pronouncement,ready-for-pronouncement,pep-updated,ask-bdfl-pronouncement,pep-rejected,previousversionrejected,pep-finished,pep-status-draft,pep-status-accepted,pep-status-final,pep-status-final-rejected,pep-implementated,call-for-vote,vote,complimentary-vote,call-for-poll,poll,poll-result,poll-closed,complimentary-vote-reminder,vote-goahead,thinking-of-informal-vote,summary-of-votes,approval-for-vote,vote-held,vote-results,vote-results-interpret,voting-method,no-opposition,community-thinks-bdfl-mistake,community-preference,strong-preference,community-thinks-bdfl-mistaken,consensus,no-consensus,no-consensus-to-drop-pep,far-and-wide-discussion,consensus-merged,pep-stalled,pep-needs-consensus,two-camps,pepczar,bdfl-asks-someone-to-be-delegate,pep-superceded,pep-included-in-release,pep-release-nearing,decision-overidden-without-consultation,important}
+@attribute text String
+
+@data
+%syntax
+propose-syntax,'Proposed Syntax'
+propose-syntax,'Bear with me, but I'd like to propose one more syntax that is simple, easy for newbies to understand,  and nowhere near as powerful as the current PEP's syntax.  '
+syntax-accepted,'The syntax accepted for 2.4a2 is::'
+
+%proposal
+proposal,'I present to you PEP 488 for discussion.'
+proposal,'I would like to purpose ..'
+proposal,' This PEP proposes adding Roman numerals as a literal type .'
+proposal,'My humble hope is that this document helps to improve the quality of the ongoing discussion.'
+
+%proposal in another list
+sig-proposed,'Over on the import-sig I proposed '
+sig-positive,'Everyone on the SIG was positive with the idea so I wrote a PEP, got positive feedback from the SIG again, and so now I present to you PEP 488 for discussion.'
+
+%drsfts
+first-draft,'This is the first draft of a PEP describing new syntax for applying function modifiers (e.g. classmethod, staticmethod, etc). '
+latest-draft,'Here is the latest draft of the PEP. '
+pep-checked-in,'A new PEP was checked in:'
+
+%discussion
+discussion,'After submitting it to BDFL for approval, more work was needed and the discussion of PEP 318 on python-dev increased rapidly.'
+discussion-for-long-time,'We've been discussing this off and on for OVER A YEAR!'
+discussion-continued-on-and-off,'The discussion continued on and off on python-dev from February 2002'
+discussion,'Many hundreds of posts were made, with people proposing many possible syntax variations.  '
+discussion,'There has been a overwhelming amount of discussion on this.'
+discussion,'After submitting it to BDFL for approval, more work was needed and the discussion of PEP 318 on python-dev increased rapidly.'
+discussion,'Hundreds and hundreds of posts were made, with people proposing many possible syntax variations.  '
+discussion-may-never-end,'PEP 318 and the discussion that will never end'
+discussion-at-conference,'Guido took a list of proposals to `EuroPython 2004`_, where a discussion took place. '
+
+pep-discussion-direction,'Personally, I believe discussion over PEP 318 has wandered from an implementation and practical purity, into a syntactical nightmare.'
+pep-discussion-direction,'What most of the discussion came down to was syntax and the order of application.  '
+
+offline-discussion,'We had a short off-list conversation with Guido on PEP 376'
+
+%revision
+more-work-needed,'After submitting it to BDFL for approval, more work was needed and the discussion of PEP 318 on python-dev increased rapidly.'
+agreed-to-rewrite-pep,'In the end it was agreed the PEP needed to be thoroughly rewritten which has not occurred yet.'
+pep-rewritten-several-times,'Decorators Pep" and received various rounds of rewrites, none Michael of which have pleased everyone (surprised?  with this topic).'
+author-changes-pep,'I'm working on changes to PEP 318 which incorporate class decorators.'
+pep-revised,'After unprecedented community response (very food arguments were made both pro and con) this PEP has been revised with the help of Raymond Hettinger.'
+pep-revised,'We're happy to present the revised PEP 435, collecting valuable feedback from python-ideas discussions as well as in-person discussions and decisions made during the latest PyCon language summit. '
+pep-revised,'PEP 501 has been through a long series of revisions, involving ..'
+
+%pep summary
+bdfl-asks-for-pep-summary,'If someone could step up and summarize some of the new material (or better yet, update the file directly) it would be much appreciated.'
+
+pep-submitted-rejected,'PEP 317 is submitted and rejected.'
+
+%change person
+change-primary-pep-author,'Kevin Smith, the original PEP author, doesn't frequent python-dev much, and has indicated that he'd be happy to step down as primary author. Who would like to build on Kevin's work?'
+willing-to-be-bdfl,'I am willing to be the BDFL for this PEP. '
+
+
+waiting-for-bdfl-pronouncement,'But again, I think all the issues, opinions, etc. are covered in the PEP, so it doesn't make much sense to continue to debate the issue. '
+pep-maybe-a-bdfl-decision,'It will probably be a BDFL pronouncement.'
+thinking-that-consensus,'I think the consensus was d2'
+few-alternatives-proposed,'For syntax options which use a list-like syntax to specify the+ decorators a few alternatives have been proposed: '
+shouting-accusations,'Even shouting and mutual accusations have been reported'
+back-to-sqaure-one,'A few regularly scheduled syntactic duels later, we are still where we started: '
+something-else-to-proposal,'So, in principle, the BDFL can only pronounce on what is in the PEP, however, that is not really important.'
+pep-needs-update,' As I've stated already, I'm aware that PEP 318 needs an update. '
+pep-updated-to-current-state-of-play-in-community,'I've now updated the PEP to the current state of play,'
+discussion-around-syntax,'The discussion I've seen has been oriented mostly around syntax, partly around "this is ugly but Guido says it goes".'
+pep-checked-in,'Here's the version of PEP 318 I just checked in. '
+
+
+need-decision,'Since this closes out the last open issue, I need either a BDFL decision or a BDFAP to be assigned to make a decision. Guido?'
+remaining-issue,'The only remaining open issue is whether to special-case non-optimized bytecode file names and completely leave out the optimization level in that instance.'
+
+%add poll states
+
+%PEP AUTHOR
+%call for feedback
+call-for-feedback,'I hope more people give their input because it would be a real shame (if they care) not to take the opportunity to give some feedback. '
+call-for-feedback,'I need your feedback to make this feature as useful and as easy to use aspossible'
+call-for-feedback,'Please read/comment/vote'
+call-for-feedback,'Comments?'
+call-for-feedback,'All feedback gratefully received!'
+call-for-feedback,'Your review and comments are invited for PEP 279:'
+call-for-feedback,'So, I guess as far as I'm concerned, this is ready to go. Feedback welcome:'
+call-for-feedback,'please review the new more final draft of the pep and send out suggestions and feedback .'
+call-for-feedback,'Please take a look and express your approval or disapproval (+1, +0, -0,-1, or whatever). '
+call-for-feedback,'Please send suggestions for editorial improvements to peps at python.org. '
+call-for-feedback,'Feedback (also about misrepresentation of alternatives I don't favor) is most welcome, either to me directly or as a followup to this post.'
+
+% review
+pep-ready-for-review,'PEP 391 is, I believe, ready for review.'
+pep-ready-for-review,'As I understand it, the next step is to put the PEP forward for review, which is why I'm sending this mail. '
+author-made-changes-to-pep,'I have checked in some changes to the PEP (r76533) which take into account the comments you made.'
+%update
+author-will-revise,'I have already received a few comments and will revise the document soon.'
+author-taken-comments-into-account,'I have received many comments on this proposal already and have taken them into account in this proposal. '
+%
+requesting-pronouncement,I'm sorry I won't be able to come to the language summit, but I would like if possible to expedite a pronouncement on PEP 391 (configuring logging using dictionaries). '
+pep-author-addressed-all-comments-made-changes,'I believe I addressed all the comments made on the discussion threads mentioned in the PEP and so I'm not sure what more I need to do to get a pronouncement.'
+bdfl-asking-if-consensus,'Is the PEP in the stage of consensus yet? '
+pep-maynot-require-discussion,'Is the PEP in the stage of consensus yet? If so it may not even be necessary to discuss it at the summit (though I certainly won't stop people if they want to).'
+pep-author-made-changes,'I have had numerous helpful comments from some of you, and I have incorporated most of them into updates to the PEP.'
+pep-author-doesnt-know-consensus,'I've not asked for a vote and so I don't know the state of community consensus regarding this PEP.'
+pep-author-thinks-community-favourable,'Though I have the feeling from community discussions that the PEP has been generally favourably received '
+community-commented,'Now, PEP 391 was announced on python-list and python-dev in October 2009, so plenty of people have had an opportunity to comment on it.'
+
+%PEP status
+pep-accepted-after-discussion,'After months of intensive discussion (more than a 1000 emails in dozens of threads spread over two mailing lists, and a couple of hundred additional private emails), PEP 435 has been accepted '
+
+author-agrees-to-modify,'I'll make an implementation with these changes this weekend.'
+
+% BDFL 
+bdfl-accepted,'This PEP was accepted by the BDFL on November 22.'
+bdfl-accepted,'PEP 201 has been accepted by the BDFL'
+bdfl-accepted,'This proposal has been accepted by the BDFL'
+bdfl-accepted,'Both PEP 201 Lockstep Iteration and SF patch #101030 have been accepted by the BDFL.'
+bdfl-accepted,'PEP 214 Extended print Statement has been accepted by the BDFL.'
+bdfl-accepted,'Awesome, that's what I was hoping. Accepted! Congrats and thank you very much for writing the PEP and guiding the discussion.'
+bdfl-accepted,'PEP 488 is now marked as accepted.'
+bdfl-accepted,'Since this is done I now approve both PEP 345 and PEP 386 (which is not to say that small editorial changes to the text couldn't be made). '
+bdfl-accepted,' Particularly as I've just received the good news from Guido van Rossum that PEP 391 (Dictionary-Based Configuration For Logging) has been accepted, and my aim is to get it into Python 2.7 and Python 3.2.'
+bdfl-accepted,'Having read the PEP I heartily approve. The PEP can be moved to Accepted state. '
+pep-accepted,'Mark PEP 488 as accepted'
+
+bdfl-offline-accept,'Off-list he's told me he's happy with the PEP. I have to make some changes to typing.py to satisfy him;'
+bdfl-offline-accept,'Off-list he's promised he'll approve the PEP provisionally, and the window for beta 1 is closing'
+bdfl-decision,'So enumerate() it is.'
+bdfl-rejected,'guido rejected the pep '
+bdfl-rejected,'guido agreed , so the pep was rejected.'
+bdfl-rejected,'guido agreed again , and this pep too was rejected'
+bdfl-rejected,'+ + on 17 june 2005 , the bdfl concurred with it being obsolete and + hereby rejected the pep .'
+bdfl-rejected,'was proposed , and the pep was rejected.'
+bdfl-rejected,'many people , including guido , agreed , and the pep was rejected '
+bdfl-decree-rejected,'pep 224 is rejected by bdfl decree'
+bdfl-decree-reject,'PEP 295 is rejected by BDFL decree.'
+bdfl-withdrawn,'but pep 340 is already withdrawn by the bdfl .'
+
+%bdfl pronouncement
+bdfl-pronouncement,'BDFL Pronouncements'
+bdfl-pronouncement,'BDFL:  \"def\" it stays.'
+bdfl-pronouncement-accept,'PEP 214 and 221 are accepted, as per recent BDFL pronouncements.'
+bdfl-pronouncement-pep-rejected,'+ bdfl pronouncement this pep is rejected .'
+bdfl-pronouncement-pep-rejected,'pep 245 was rejected by bdfl pronouncement .'
+bdfl-pronouncement-pep-rejected,'+ bdfl pronouncement + + this pep is rejected .'
+bdfl-pronouncement-rejected,'+ bdfl pronouncement + + this pep is rejected because the need for it has been largely + fulfilled by py2 .4 '
+bdfl-pronouncement-rejected,'+ + on 17 june 2005 , the bdfl concurred with it being obsolete and + hereby rejected the pep .'
+bdfl-pronouncement-rejected,' + bdfl pronouncement + + this pep was rejected on 17 june 2005 with a note to python-dev .'
+bdfl-pronouncement-conditionally-accepted,'a c implementation and unit tests are at : http://www.python.org/sf/834422 + + bdfl pronouncement + ================== + + this pep has been conditionally accepted for py2 .4 .'
+bdfl-provisionally-accepts,'Drop the last two  bullets and it's a deal.'
+bdfl-consults,'No argument on either side is totally convincing, so I have consulted my language designer's intuition.'
+
+bdfl-decided,'Subsequent to this, he decided that we'd have the `Java-style`_@decorator syntax, '
+bdfl-asks-to-apply,'Guido asked for a volunteer to implement his preferred syntax, and Mark Russell stepped up and posted a `patch`_ to SF.  This new syntax was available in 2.4a2. :'
+
+%BDFL DELEGATE
+bdfl-delegate-accept,'Daniel submitted PEPs 425 and 427 to python-dev for acceptance, and I have formally accepted 427 as BDFL delegate'
+bdfl-delegate-accept,'I asked privately Guido van Rossum if I can be the BDFL-delegate for the PEP 471 and he agreed. I accept the latest version of the PEP: the PEP 471 and he agreed.'
+co-bdfl-delegate-accept,'Im pleased to announce that Brett Cannon and Nick Coghlan (the co-BDFL-delegates) have accepted PEP 451 for inclusion in Python 3.4.'
+
+% AUTHOR
+author-reject-pep,'this pep is rejected by the author'
+asking-for-review,'I believe PEP 3144 is ready for your review.  When you get a chance,can you take a look/make a pronouncement?'
+asking-for-review,'PEP 435 is ready for final review.'
+asking-for-review,'PEP 391 is, I believe, ready for review.'
+feedback-incorporated,' A lot of the feedback from the last few weeks of discussions has been incorporated. '
+asks-for-pronouncement,'Can I get a pronouncement? '
+ready-for-pronouncement,'I don't think there are any outstanding tasks, so I'm happy that the PEP is ready for pronouncement.'
+pep-updated,'I've updated PEP 391'
+ask-bdfl-pronouncement,'It's probably time to ask the BDFL for a pronouncement on the PEP.'
+
+% NOT CLEAR JUST STATE INFORMATION
+pep-accepted,'accepting pep 3144'
+pep-accepted,' I hereby declare PEP 435 as Accepted. '
+pep-accepted,'The PEP is accepted.'
+pep-accepted,'PEP 380 is pretty much approved.'
+pep-accepted,'PEP 376 has just been accepted. '
+pep-accepted,'PEP 3003: \"Python Language Moratorium\" has been accepted.'
+pep-accepted,'This PEP has been formally accepted for Python 3.3.'
+pep-accepted,'I'm accepting the PEP. It's about as harmless as they come. Make it so.'
+pep-accepted,'Accept PEP 3144, and clean up some typos and text duplication'
+pep-accepted,'Since this is done I now approve both PEP 345 and PEP 386 (which is not to say that small editorial changes to the text couldn't be made). '
+pep-accepted,'Based on the current version of PEP 3144 and its reference implementation, I am formally accepting ipaddress into the standardlibrary.'
+pep-accepted,'I am pleased to announce that I am accepting PEP 484 (Type Hints).'
+pep-accepted,'Thanks! PEP 488 is now marked as accepted. '
+pep-accepted,' I've approved your PEP. '
+pep-accepted,'Marked PEP 391 as Accepted.'
+pep-accepted,'Drop the last two  bullets and it's a deal.'
+
+
+pep-rejected,'I therefore reject it.'
+pep-rejected,'A similar PEP for Python 3000, PEP 3103 [2], was already rejected,'
+pep-rejected,'the pep was eventually rejected and has the details of why it was rejected in the end . .'
+pep-rejected,'pep 276 is now formally rejected'
+pep-rejected,'PEP 382 was essentially rejected. '
+pep-rejected,'pep 315 has been rejected .'
+pep-rejected,'guido officially rejected pep-317..'
+pep-rejected,'pep 317 is submitted and rejected .'
+pep-rejected,'* pep was submitted to be rejected .'
+pep-rejected,'this pep is therefore rejected '
+pep-rejected,'it has been rejected -LRB- as with all peps that have been pronounced upon , read the pep for the reasons why -RRB- , but the pep 's authors will nice enough to go ahead and finish the code for anyone who might want to use it anyway .'
+pep-rejected,'modified files : pep-0000.txt pep-0239.txt pep-0240.txt pep-0000.txt pep-0239.txt pep-0240.txt pep-0000.txt pep-0239.txt pep-0240.txt pep-0000.txt pep-0239.txt pep-0240.txt log message : mark peps 239 and 240 as rejected .'
+pep-rejected,'update pep 204 status to rejected .'
+pep-rejected,'pep 348 has been rejected .'
+pep-rejected,'PEP 382 was essentially rejected. '
+pep-rejected,'pep 204 : range literals 14 juli 2000 , rejected . '
+pep-rejected,'in light of the \`\` parade of peps '' message , i also have asked the pep administrator to move pep 276 to the withdrawn/rejected group .'
+pep-rejected,'as a result , guido rejected the entire pep .'
+previousversionrejected,'the previous version of this pep was rejected .'
+
+pep-finished,'peps 205 , 226 , 227 , 229 , 235 , 236 moved to finished -LRB- although not all are marked final yet ; waiting for confirmation from pep owners -RRB- . .'
+
+pep-status-draft,'+Status: Draft'
+pep-status-accepted,'+Status: Accepted'
+pep-status-final,'modified files : pep-0000.txt pep-0252.txt pep-0253.txt pep-0000.txt pep-0252.txt pep-0253.txt pep-0000.txt pep-0252.txt pep-0253.txt pep-0000.txt pep-0252.txt pep-0253.txt log message : marking peps 252 and 253 as final , with gvr 's approval .'
+pep-status-final,'peps 205 , 226 , 227 , 229 , 235 , 236 moved to finished -LRB- although not all are marked final yet ; waiting for confirmation from pep owners -RRB- . .'
+pep-status-final,'pep 160 marked as final pep 160 marked as final .'
+pep-status-final,'mark pep 200 as final now that 2.0 is out the door . .'
+pep-status-final,'pep-0352 has a status of \`\` final '' .'
+pep-status-final,'modified files : pep-0000.txt pep-0000.txt log message : moved 207 , 208 , 230 to final status . .'
+pep-status-final,'pep 217 final .'
+pep-status-final,'* mark the pep as final and implemented . . .'
+pep-status-final,'pep 221 is marked as final . .'
+pep-status-final,'pep 241 is marked final and moved to the finished section .'
+pep-status-final,'modified files : pep-0000.txt pep-0000.txt log message : moved 207 , 208 , 230 to final status . '
+pep-status-final,'pep 232 is final . .'
+pep-status-final,'modified files : pep-0000.txt pep-0000.txt log message : pep 232 is final .'
+pep-status-final,'mark pep 236 as final . .'
+pep-status-final,'modified files : pep-0000.txt pep-0000.txt log message : pep 232 is final .'
+pep-status-final,'modified files : pep-0000.txt pep-0000.txt log message : moved 207 , 208 , 230 to final status . .'
+pep-status-final,'modified files : pep-0000.txt pep-0285.txt pep-0000.txt pep-0285.txt pep-0000.txt pep-0285.txt log message : pep 285 is final .'move pep 333 to final status . .
+pep-status-final,'move pep 333 to final status . .'
+pep-status-final,' i 'm happy approving final status for the >> > * original * pep 333 and i 'm happy to approve a new pep which includes >> > * original * pep 333 and i 'm happy to approve a new pep which includes >> > pje 's corrections .'
+pep-status-final,'and move pep 333 to final status .'
+pep-status-final,'i 'll not worry about it then ; pep 393 is final '
+pep-status-final,'Mark PEP 488 as final'
+pep-status-final,'I changed the status of the PEP 471 to Final even if os.walk() was not modified yet.'
+pep-status-final,'Otherwise, I'll update the PEP and mark it as final.'
+pep-status-final-rejected,'modified files : peps 278 , 292 , 318 , and 324 can be marked as final , and that 215 can be marked as rejected . .'
+
+pep-implementated,'The implementation for PEP 488 is basically done '
+
+%CALL FOR VOTE, POLL, FEEDBACK
+call-for-vote,'If people want to get an alternative in I say vote on these four'
+call-for-vote,'You can vote +1, 0 or -1.'
+call-for-vote,'PEP 391 - Please Vote!'
+call-for-vote,'everyone , please vote +1 or -1 .'
+call-for-vote,'null from ncoghlan at gmail.com thu jan 14 12:46:19 2010 from : ncoghlan at gmail.com -LRB- nick coghlan -RRB- date : thu , 14 jan 2010 21:46:19 +1000 subject : -LSB- python-dev -RSB- pep 391 - please vote !'
+call-for-vote,'please understand that i do n't have a lot of time to moderate the discussion ; i 'll just wait for the community to discuss the proposal and agree on some way to count votes , then count them .'
+call-for-vote,'please read/comment/vote .'
+call-for-vote,'* please vote * '
+call-for-vote,'Feel free to vote if you have an opinion.'
+call-for-vote,'Vote by email no later than Noon (EST) on Sunday, March 9, 2003.Use the following format:'
+call-for-vote,'comments and votes , please ! .'
+call-for-vote,'please participate in both votes if you have the time , but be sure to vote in the official one if you care about the outcome of pep-308 .'
+call-for-vote,'please answer with +1 / +0 / -0 / -1 for each proposal .'
+call-for-vote,'So can you please indicate your vote for or against incorporating PEP 391 into Python?'
+call-for-vote,'If you like one of the above syntaxes but prefer a different symbol than @ (such as |), please vote for that syntax any way.'
+call-for-vote,'But as skeptical as I am (see what I added to FAQ 4.16), I'll take it for a vote on c.l.py and if it doesnt get a clear majority vote (and itll be up to the c.l.py folks to define what that is :-), itll remain rejected forever.'
+
+vote,'I vote for '
+
+complimentary-vote,'null from npetry@accesscomm.ca sun mar 9 18:45:13 2003 from : npetry@accesscomm.ca -LRB- norman petry -RRB- date : 09 mar 2003 12:45:13 -0600 subject : ballots : complementary pep308 ternary vote message-id : <mailman.1047245114.17718.clpa-moderators@python.org> .'
+
+%poll related
+call-for-poll,'I have a poll going on G+ to see what people think of the various proposed file name formats at. Feel free to vote if you have an opinion.'
+call-for-poll,'But yes, its a poll right now on the argparse website and if you feel strongly about it, please add your vote there (rather than here).'
+call-for-poll,' quick poll: could int, str, tuple etc. become type objects?'
+call-for-poll,'quick poll Guido asked if anyone would object violently to the builtin conversion functions becoming type objects on the descr-branch:'
+call-for-poll,'I would like to run an informal poll about it. Please answer with +1/+0/-0/-1 for each proposal:'
+call-for-poll,'There is a Poll running on the front of the PyPI page - you have to log in to see it/vote. '
+call-for-poll,'I have a poll going on G+ to see what people think of the various proposed file name formats at '
+call-for-poll,'Feel free to vote if you have an opinion.'
+call-for-poll,'But yes, it's a poll right now on the argparse website and if you feel strongly about it, please add your vote there (rather than here).'
+
+poll, 'There was a poll linked from the decorators wiki, that now says (consider the poll now closed). '
+
+%poll results
+poll-result,'If it were a democracy, the standings are: '
+poll-result,'In the poll that Doug ran, E1 had a slight margin over C1:'
+poll-closed,'the poll now closed.'
+poll-result,'There was a poll linked from the decorators wiki, that now says(consider the poll now closed).  If it were a democracy, the standings are:'
+poll-result,'the informal poll results being very clear on the preferred format and also closed the idea of embedding the optimization level in the bytecode file metadata '
+
+complimentary-vote-reminder,'this message is to remind you that tomorrow -LRB- saturday -RRB- is the last day to vote in the complementary , unofficial vote on adding a ternary operator to python -LRB- pep-308 -RRB- .'
+
+% VOTING SPECIFIC INFORMATION
+vote-goahead,' You have my approval to hold a vote'
+thinking-of-informal-vote,'I'd like to have an informal vote?'
+summary-of-votes,'SUMMARY OF VOTES The PEP 308 vote is summarized at:'
+approval-for-vote,'You have my approval to hold a vote.'
+vote-held,'+ following the discussion , a vote was held .'
+vote-results,'Can I get a pronouncement? Here's a summary of the responses. '
+vote-results-interpret,'the pep 308 vote showed that at least 84 % of the python users wanted a the pep 308 vote showed that at least 84 % of the python users wanted a ternary .'
+%what voting method
+voting-method, 'Does anybody have any preferences as to the voting method we should use?'
+%
+no-opposition,'I haven't seen substantial opposition against the PEP -- in fact I can't recall any, and many people have explicitly posted in support of it. '
+
+%Community
+community-thinks-bdfl-mistake,'I don't know about consensus, but there are a considerable number of people who think you're mistaken (it's gotten pretty heated over on c.l.py at times).'
+community-preference,'I think it's important to understand that we're now down to aesthetic choices about elegance, readability, ease of use, etc. For those reasons, we'll never agree because everyone has different tastes. '
+strong-preference,'I think there was a very strong preference for the opposite order to the one you've given here'
+community-thinks-bdfl-mistaken,'I don't know about consensus, but there are a considerable number of people who think you're mistaken '
+
+%CONSENSUS
+consensus,'Yes, consensus clearly converged on the proposed syntax (the mention of "generators" in the construct's name was the part that I think prompted the desire for 'yield' -- had they been called "iterator expressions" I suspect nobody would have missed 'yield' even transiently:-).'
+consensus,'Yes, consensus clearly converged on the proposed syntax ..'
+consensus,' I hope to have a rough consensus ...'
+consensus,'Guido told me in private he's now accepting the PEP since there's consensus.'
+consensus,'it appears we are reaching some consensus.'
+consensus,'The consensus appears to be that there is no need to add a new CSPRNG to...'
+consensus,'consensus has been reached'
+consensus,'consensus was quickly reached'
+consensus,'I think we've reached a consensus on those two PEPs.'
+consensus,'As you said, consensus has been reached, so just Guido's BDFL stamp of approval is all I can think of.'
+consensus,'no-one disagreed , and the pep was rejected.'
+consensus,'So what *is* the distutils-sig consensus?  The consensus is to have one and only one way to install distributions in Python, and a way to retrieve information on installed distributions, and their files. '
+consensus,'I've tried to reflect the concensus which seems to be emerging on the python-dev list, though I suspect I've done a poor job of that.  '
+consensus,'Community Consensus'
+consensus,' The consensus that emerged on comp.lang.python was the proposed J2 syntax (the "J2" was how it was referenced on the PythonDecorators wiki'
+no-consensus,'I'm afraid that absolutely zero consensus is emerging :( I've withdrawn myself entirely from the discussions as they've proven completely useless.'
+no-consensus-to-drop-pep,'Not enough people don't want the feature to convince Guido to drop it.  '
+no-consensus,'I'm afraid that absolutely zero consensus is emerging :
+no-consensus,'The thread died off before a consensus was reached,unfortunately.'
+no-consensus,'Beyond that there seems to be no clear consensus where to place this...'
+no-consensus,'community has been unable to reach a consensus.'
+no-consensus,'unlikely to reach consensus'
+no-consensus,'There was no consensus on which one we should use. '
+no-consensus,'We well never reach consensus.'
+no-consensus,'no consensus was reached'
+no-consensus,'community had not yet reached a consensus.'
+no-consensus,'consensus has never been reached'
+no-consensus,'While the majority of Python users deemed this to be a nice-to-have feature, the community was unable to reach a consensus on whether nine should be represented as IX, the modern form, or VIIII, the classic form.  '
+no-consensus,'naturally , not everything could go in because some minor mostly preference-based issues did not reach a consensus .'
+no-consensus,'much like the last time this issue was brought up , \`\` the discussion fizzled out after having failed to reach a consensus on an obviously right way to go about it '' -LRB- greg ewing 's quite appropriate wording -RRB- .'
+no-consensus,'As I expected, we didn't find a full consensus on the final PEP 386schema on Distutils-SIG'
+no-consensus,'pep-accepted,Naturally, not everything could go in because some minor (mostly preference-based) issues did not reach a consensus. '
+no-consensus,'While the majority of Python users deem this to be a nice-to-have feature, the community has been unable to reach a consensus on the proper syntax after more than two years of intensive debate (the PEP was introduced in early April 2003).'
+
+far-and-wide-discussion,'The discussions there and on comp.lang.python have ranged far and wide and thus resist summary in a finite amount of time.  '
+consensus-merged,'The consensus that emerged on comp.lang.python was the proposed J2 syntax (the "J2" was how it was referenced on the PythonDecorators wiki'
+
+%stalled
+pep-stalled,'the stalled PEP 3144 process.'
+pep-needs-consensus,'really needs consensus from domain experts '
+
+%two camps
+two-camps,'There seems to be two basic camps:  those that think an enum should be valueless, ..and those for whom the integer is an integral part of the enumeration, whether for sorting, comparing, selecting an index, or whatever. '
+
+%Roles
+pepczar,'Approved. Nick is PEP czar for PEP 3144. '
+bdfl-asks-someone-to-be-delegate,'So, Alex, do you want to approve this PEP?'
+
+%SUPERCEDED
+pep-superceded,'This PEP is rejected by the author. It has been superseded by PEP 287.'
+pep-superceded,'PEP 433 was rejected, replaced with the PEP 446.'
+pep-superceded,'+ pronouncement + + this pep is rejected in favor of pep 343 .'
+pep-superceded,'+ if this pep is approved , the following peps will be rejected due + to overlap : + + - pep 288 , generators attributes and exceptions .'
+pep-superceded,'sorry , that should have been pep 340 , which was rejected in favor of 343 .'
+
+%PEP Release
+pep-included-in-release,'PEP 318 is marked as Python 2.4.'
+pep-release-nearing,'If not now, when? This could drag on for another 14 months,otherwise - and I really don't want to hold up 2.4 final for that long.'
+
+%other
+decision-overidden-without-consultation,'I made a conscious decision to do that, and I'm a bit alarmed at this decision being overridden at the last moment with no debate.'
+important,'I understand that @allow_import_stop represents a compromise, an attempt at calming the waves that PEP 479 has caused. But I still want to push back pretty hard on this idea.'

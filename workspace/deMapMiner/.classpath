@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/antlr-runtime-3.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/ucanaccess-2.0.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/disco-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/edu.sussex.nlp.jws.beta.11.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/guava-19.0.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/ical4j-1.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/jsoup-1.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/natty-0.7.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/ollie-app-latest.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/reverb-latest.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/ws4j-1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/jaws-bin.jar"/>
+	<classpathentry kind="lib" path="C:/DeMapMiner/lib/jxl.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/clausIE"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/common"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

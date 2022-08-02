@@ -1,0 +1,5 @@
+
+Sent = =sumif(Edges[Vertex 1],Vertices[[#This Row],[Vertex]],Edges[Edge Weight])
+Received = =sumif(Edges[Vertex 2],Vertices[[#This Row],[Vertex]],Edges[Edge Weight])
+Total = =Vertices[[#This Row],[Sent]]+Vertices[[#This Row],[Received]]
+%_sent = =Vertices[[#This Row],[Sent]]/Vertices[[#This Row],[Total]]

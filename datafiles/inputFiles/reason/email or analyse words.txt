@@ -1,0 +1,6 @@
+> * PEP 3144: IP Address manipulation library
+
+This is pretty close to approval. Peter's addressed all the
+substantive comments that were made regarding the draft API, and he's
+going to provide an update to the PEP shortly that should get it into
+a state where I can mark it as Approved. 
