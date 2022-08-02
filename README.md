@@ -69,5 +69,5 @@ The DeMap Miner folder consists of; <br/>
 <br/>
 stanford-corenlp-3.8.0-models.jar (350MB) from https://repo1.maven.org/maven2/edu/stanford/nlp/stanford-corenlp/3.8.0/ <br/>
 stanford-corenlp-3.5.2-models.jar (329MB) from https://repo1.maven.org/maven2/edu/stanford/nlp/stanford-corenlp/3.5.2/ <br/>
-
+<br/>
 2. The Java code is run using the Eclipse IDE. Install the Eclipse IDE from `https://www.eclipse.org/downloads/`. A direct link to the current installer executable on that page is <br/> `https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2022-06/R/eclipse-inst-jre-win64.exe`
