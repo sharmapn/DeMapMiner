@@ -60,10 +60,10 @@ and therefore Step 3 is not required and wont be part of the installation steps,
 All of DeMaP Miner tool's code is within this repository. 
 All the different projects within the DeMap Miner repository is needed to execute the DeMap Miner. An exception is the Rationale Miner project, which is dependent on project within the DeMap Miner. 
 
-1. Download all the code from the `https://github.com/sharmapn/DeMaPMiner` repository. <br/>
+1. Download all the code from this repository, i.e. `https://github.com/sharmapn/DeMaPMiner` repository. <br/>
 Then, create a folder named `C:\DeMapMiner` folder and transfer the code in that directory. <br/>
 The DeMap Miner folder consists of; <br/>
-   - the Java code for the DeMap Miner  in the `DeMap Miner\workspace\deMapMiner` <br/>
+   - the Java code for the DeMap Miner folder `DeMap Miner\workspace\deMapMiner` <br/>
    - the dependent libraries in the `lib` folder <br/>
    - the input and output files in the `` <br/>
 
