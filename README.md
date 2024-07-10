@@ -1,6 +1,6 @@
 # DeMaPMiner
 
-**Replication Package for DeMaP Miner** DEcision Making Process Miner works on OSSD Repositories. Using the DeMap Miner requires configuring the database (in MySQL) and the code (Java). 
+**Replication Package for DeMaP Miner** Decision Making Process Miner works on OSSD Repositories. Using the DeMap Miner requires configuring the database (in MySQL) and the code (Java). 
 In brief, the basic tasks in these two parts are as follows.  
 
 A. Database <br/>
@@ -15,6 +15,8 @@ B. Code <br/>
 
 C. Generating the results. This includes the following aspects: <br/>
   - TO DO.
+
+![DeMaP_Miner_FullGUI](https://github.com/sharmapn/DeMapMiner/assets/17430034/9c164201-48aa-4add-945f-5cd823ee81f2)
 
 
 In detail, the steps to set up the Database and code are as follows.
