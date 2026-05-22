@@ -11,29 +11,27 @@ import connections.MysqlConnect;
  *
  * Main extraction pipeline for Preference Miner.
  *
- * First prototype:
- * - Read proposal messages from allmessages table.
- * - Split message body into sentences.
- * - Detect preference polarity.
- * - Compute heuristic score.
- * - Save high-scoring candidates into preference_candidates.
+ * Updated after checking the real DeMaP Miner database schema.
  *
- * NOTE:
- * This is intentionally lightweight for the first integration version.
- * The real system can later incorporate:
- * - NLP sentence splitting,
- * - role-aware ranking,
- * - SBS/MBS ranking,
- * - BERT/ML preference detection,
- * - temporal filtering.
+ * Instead of reading raw email bodies from allmessages and splitting them again,
+ * this version reads from the existing allsentences table.
+ *
+ * Useful real schema fields:
+ * - allsentences.proposal
+ * - allsentences.messageid
+ * - allsentences.sentence
+ * - allsentences.msgSubject
+ * - allsentences.msgAuthorRole
+ * - allsentences.dateDiff
+ * - allsentences.isEnglishOrCode
+ * - allsentences.positiveWordCount
+ * - allsentences.negativeWordCount
+ *
+ * This makes Preference Miner closer to Rationale Miner because we reuse the
+ * already-prepared sentence-level representation.
  */
 public class PreferenceExtractor {
 
-    /*
-     * Minimum score threshold.
-     *
-     * Only sentences scoring above this value will be stored.
-     */
     public static final double MINIMUM_SCORE = 1.0;
 
     public static void extractPreferences(int proposalNumber, String proposalIdentifier) {
@@ -45,98 +43,87 @@ public class PreferenceExtractor {
         try {
 
             connection = MysqlConnect.connect();
-
             statement = connection.createStatement();
 
+            String finalDecision = PreferenceDecisionResolver.getFinalDecision(
+                    connection,
+                    proposalNumber,
+                    proposalIdentifier
+            );
+
             /*
-             * IMPORTANT:
-             * This query assumes DeMaP Miner stores proposal-linked messages
-             * in the allmessages table.
-             *
-             * You may need to adapt column names depending on the exact schema.
+             * Use allsentences because the database already stores messages split
+             * into sentence-level units.
              */
-            String sql = "SELECT * FROM allmessages WHERE proposalNumber = " + proposalNumber;
+            String sql = "SELECT proposal, messageid, sentence, msgSubject, msgAuthorRole, "
+                    + "dateDiff, isEnglishOrCode, positiveWordCount, negativeWordCount "
+                    + "FROM allsentences "
+                    + "WHERE proposal = " + proposalNumber + " "
+                    + "AND sentence IS NOT NULL "
+                    + "AND TRIM(sentence) <> ''";
 
             rs = statement.executeQuery(sql);
 
+            int savedCount = 0;
+            int checkedCount = 0;
+
             while (rs.next()) {
 
-                String messageId = rs.getString("messageID");
-                String authorName = rs.getString("fromName");
-                String authorEmail = rs.getString("fromEmail");
-                String messageBody = rs.getString("body");
-                String messageDate = rs.getString("date");
+                checkedCount++;
 
-                /*
-                 * Split into sentences.
-                 *
-                 * Current implementation is intentionally simple.
-                 * Later versions should use Stanford CoreNLP sentence splitting.
-                 */
-                String[] sentences = messageBody.split("\\.");
+                String messageId = String.valueOf(rs.getInt("messageid"));
+                String sentence = rs.getString("sentence");
+                String authorRole = rs.getString("msgAuthorRole");
+                int daysBeforeDecision = rs.getInt("dateDiff");
 
-                for (String sentence : sentences) {
+                if (sentence == null || sentence.trim().length() < 5) {
+                    continue;
+                }
 
-                    sentence = sentence.trim();
+                sentence = sentence.trim();
 
-                    if (sentence.length() < 5) {
-                        continue;
-                    }
+                String polarity = PreferencePolarity.detectPolarity(sentence);
 
-                    String role = PreferenceRoleMapper.mapRole(authorEmail, authorName);
+                double score = PreferenceHeuristics.scoreSentence(
+                        sentence,
+                        authorRole,
+                        daysBeforeDecision
+                );
 
-                    String polarity = PreferencePolarity.detectPolarity(sentence);
+                if (score >= MINIMUM_SCORE && !polarity.equals("neutral")) {
 
-                    /*
-                     * Placeholder temporal distance.
-                     * Later versions should compute real distance from decision date.
-                     */
-                    int daysBeforeDecision = 5;
+                    PreferenceCandidate candidate = new PreferenceCandidate();
 
-                    double score = PreferenceHeuristics.scoreSentence(
-                            sentence,
-                            role,
-                            daysBeforeDecision
+                    candidate.proposalIdentifier = proposalIdentifier;
+                    candidate.proposalNumber = proposalNumber;
+
+                    candidate.messageId = messageId;
+                    candidate.authorName = null;
+                    candidate.authorEmail = null;
+                    candidate.authorRole = authorRole;
+
+                    candidate.messageDate = null;
+                    candidate.sentence = sentence;
+
+                    candidate.polarity = polarity;
+                    candidate.score = score;
+
+                    candidate.finalDecision = finalDecision;
+                    candidate.alignsWithDecision = PreferenceAlignmentAnalyzer.aligns(
+                            polarity,
+                            finalDecision
                     );
 
-                    if (score >= MINIMUM_SCORE) {
+                    PreferenceDatabaseWriter.saveCandidate(connection, candidate);
+                    savedCount++;
 
-                        PreferenceCandidate candidate = new PreferenceCandidate();
-
-                        candidate.proposalIdentifier = proposalIdentifier;
-                        candidate.proposalNumber = proposalNumber;
-
-                        candidate.messageId = messageId;
-                        candidate.authorName = authorName;
-                        candidate.authorEmail = authorEmail;
-                        candidate.authorRole = role;
-
-                        candidate.messageDate = messageDate;
-                        candidate.sentence = sentence;
-
-                        candidate.polarity = polarity;
-                        candidate.score = score;
-
-                        /*
-                         * Placeholder decision.
-                         * Future versions should retrieve real proposal outcome.
-                         */
-                        candidate.finalDecision = "accepted";
-
-                        candidate.alignsWithDecision =
-                                PreferenceAlignmentAnalyzer.aligns(
-                                        polarity,
-                                        candidate.finalDecision
-                                );
-
-                        PreferenceDatabaseWriter.saveCandidate(connection, candidate);
-
-                        System.out.println("Saved preference candidate: " + sentence);
-                    }
+                    System.out.println("Saved preference candidate: " + sentence);
                 }
             }
 
             System.out.println("Preference extraction completed.");
+            System.out.println("Sentences checked: " + checkedCount);
+            System.out.println("Preference candidates saved: " + savedCount);
 
         } catch (Exception e) {
             e.printStackTrace();
