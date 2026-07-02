@@ -66,6 +66,7 @@ Research extensions currently include:
 - `workspace/preferenceMiner`: mines whose preferences matter in OSS proposal decisions.
 - `workspace/influenceMiner`: mines how actors influence OSS proposal decisions through strategic, operational, functional, tactical, authority, compatibility, security, standards, ecosystem, economic, organizational, coalition, and user-demand signals.
 - `workspace/conflictMiner`: mines where and how OSS proposal decisions are contested, including conflict type, stance, intensity, target, civility, resolution status, and relationship to final proposal outcome.
+- `workspace/sentimentHealthMiner`: mines emotional tone and broader OSS community-health signals, including sentiment category, polarity, target, support/risk score, governance stress, sustainability risk, and relationship to final proposal outcome.
 
 1. Download all the code from this repository, i.e. `https://github.com/sharmapn/DeMaPMiner` repository. <br/>
 Then, create a folder named `C:\DeMapMiner` folder and transfer the code in that directory. <br/>
