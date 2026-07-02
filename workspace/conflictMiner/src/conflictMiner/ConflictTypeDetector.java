@@ -17,6 +17,7 @@ public class ConflictTypeDetector {
         }
 
         String s = sentence.toLowerCase();
+        String tokenized = " " + s.replaceAll("[^a-z0-9+\\-]", " ") + " ";
         String types = "";
 
         if (containsAny(s, new String[] {
@@ -51,8 +52,8 @@ public class ConflictTypeDetector {
         if (containsAny(s, new String[] {
                 "i prefer", "we prefer", "would prefer", "rather", "i want",
                 "we want", "i would like", "we would like", "+1", "-1",
-                "ack", "nack", "strong -1", "strong nack", "better", "worse"
-        })) {
+                "strong -1", "strong nack", "better", "worse"
+        }) || tokenized.contains(" ack ") || tokenized.contains(" nack ")) {
             types = append(types, "preference");
         }
 
