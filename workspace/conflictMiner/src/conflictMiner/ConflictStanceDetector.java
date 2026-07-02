@@ -14,13 +14,14 @@ public class ConflictStanceDetector {
         }
 
         String s = sentence.toLowerCase();
+        String tokenized = " " + s.replaceAll("[^a-z0-9+\\-]", " ") + " ";
 
         if (containsAny(s, new String[] {
                 "i disagree", "we disagree", "do not agree", "don't agree",
                 "i object", "we object", "object to", "oppose", "opposed",
-                "strong -1", "-1", "nack", "reject", "should be rejected",
+                "strong -1", "-1", "reject", "should be rejected",
                 "should not be accepted", "unacceptable", "not acceptable"
-        })) {
+        }) || tokenized.contains(" nack ")) {
             return "oppose";
         }
 
@@ -65,9 +66,9 @@ public class ConflictStanceDetector {
         }
 
         if (containsAny(s, new String[] {
-                "i agree", "we agree", "+1", "ack", "support", "supported",
+                "i agree", "we agree", "+1", "support", "supported",
                 "sounds good", "makes sense", "i accept", "we accept"
-        })) {
+        }) || tokenized.contains(" ack ")) {
             return "support";
         }
 
