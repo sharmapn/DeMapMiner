@@ -62,6 +62,10 @@ and therefore Step 3 is not required and wont be part of the installation steps,
 All of DeMaP Miner tool's code is within this repository. 
 All the different projects within the DeMap Miner repository is needed to execute the DeMap Miner. An exception is the Rationale Miner project, which is dependent on project within the DeMap Miner. 
 
+Research extensions currently include:
+- `workspace/preferenceMiner`: mines whose preferences matter in OSS proposal decisions.
+- `workspace/influenceMiner`: mines how actors influence OSS proposal decisions through strategic, operational, functional, tactical, authority, compatibility, security, standards, ecosystem, economic, organizational, coalition, and user-demand signals.
+
 1. Download all the code from this repository, i.e. `https://github.com/sharmapn/DeMaPMiner` repository. <br/>
 Then, create a folder named `C:\DeMapMiner` folder and transfer the code in that directory. <br/>
 The DeMap Miner folder consists of; <br/>
