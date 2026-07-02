@@ -1,0 +1,21 @@
+CREATE TABLE influence_candidates (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    proposal_identifier VARCHAR(20),
+    proposal_number INT,
+    message_id VARCHAR(100),
+    author_name VARCHAR(255),
+    author_email VARCHAR(255),
+    author_role VARCHAR(100),
+    message_date DATETIME,
+    sentence TEXT,
+    influence_types VARCHAR(255),
+    primary_influence_type VARCHAR(50),
+    influence_scope VARCHAR(50),
+    influence_direction VARCHAR(50),
+    influence_target VARCHAR(100),
+    influence_score DOUBLE,
+    final_decision VARCHAR(50),
+    aligns_with_outcome BOOLEAN,
+    extraction_scheme VARCHAR(30),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
