@@ -44,6 +44,8 @@ public class InfluenceResultAggregator {
         public int supporting, blocking, revising, neutral;
         public double scoreSum, maxScore;
         public Set<Integer> proposals = new HashSet<Integer>();
+        /* role -> count, so the cross-proposal row can show the most frequent role */
+        public Map<String, Integer> roleCounts = new LinkedHashMap<String, Integer>();
 
         public double averageScore() {
             return total == 0 ? 0.0 : scoreSum / total;
@@ -405,10 +407,18 @@ public class InfluenceResultAggregator {
         else if (d.equals("blocking")) s.blocking++;
         else if (d.equals("revising")) s.revising++;
         else s.neutral++;
-        // keep the "highest" role seen for this actor across proposals
-        if (InfluenceHeuristics.roleWeight(c.authorRole) > InfluenceHeuristics.roleWeight(s.authorRole)) {
-            s.authorRole = c.authorRole;
+        // across proposals a person may be author, delegate and plain core developer;
+        // label the actor with the role they held most often
+        inc(s.roleCounts, c.authorRole == null ? "unknown" : c.authorRole);
+        String best = null;
+        int bestN = -1;
+        for (Map.Entry<String, Integer> e : s.roleCounts.entrySet()) {
+            if (e.getValue().intValue() > bestN) {
+                bestN = e.getValue().intValue();
+                best = e.getKey();
+            }
         }
+        s.authorRole = best;
         if ((s.authorName == null || s.authorName.length() == 0) && c.authorName != null) s.authorName = c.authorName;
     }
 }
