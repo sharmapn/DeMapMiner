@@ -37,6 +37,65 @@ public class InfluenceConfig {
 
     public static final String EXTRACTION_SCHEME = "heuristic-v2";
 
+    /*
+     * Automated senders and mailing lists that carry no human discussion:
+     * commit notifications (which embed whole PEP texts), bug-tracker and
+     * patch-tracker robots. They are needed by DeMaP Miner's state mining but
+     * must not count as influence. Override with influenceExcludeSenders /
+     * influenceExcludeLists (comma-separated, case-insensitive substrings).
+     */
+    public static final String DEFAULT_EXCLUDE_SENDERS =
+            "python-checkins@python.org,report@bugs.python.org,status@bugs.python.org,noreply@sourceforge.net,"
+            + "new-bugs-announce@python.org,bugs@python.org,noreply@github.com,notifications@github.com";
+    public static final String DEFAULT_EXCLUDE_LISTS = "python-checkins,python-bugs-list,python-patches";
+
+    private static String[] cachedExcludeSenders;
+    private static String[] cachedExcludeLists;
+
+    public static String[] excludeSenders() {
+        if (cachedExcludeSenders == null) {
+            cachedExcludeSenders = splitList(read("influence.excludeSenders", "influenceExcludeSenders", DEFAULT_EXCLUDE_SENDERS));
+        }
+        return cachedExcludeSenders;
+    }
+
+    public static String[] excludeLists() {
+        if (cachedExcludeLists == null) {
+            cachedExcludeLists = splitList(read("influence.excludeLists", "influenceExcludeLists", DEFAULT_EXCLUDE_LISTS));
+        }
+        return cachedExcludeLists;
+    }
+
+    /*
+     * True when the message comes from an automated sender or an excluded list.
+     */
+    public static boolean isExcludedMessage(String senderEmail, String mailingList) {
+        String e = senderEmail == null ? "" : senderEmail.trim().toLowerCase();
+        String l = mailingList == null ? "" : mailingList.trim().toLowerCase();
+        String[] senders = excludeSenders();
+        for (int i = 0; i < senders.length; i++) {
+            if (e.length() > 0 && e.contains(senders[i])) return true;
+        }
+        String[] lists = excludeLists();
+        for (int i = 0; i < lists.length; i++) {
+            if (l.length() > 0 && l.contains(lists[i])) return true;
+        }
+        return false;
+    }
+
+    private static String[] splitList(String v) {
+        if (v == null || v.trim().length() == 0 || v.trim().equalsIgnoreCase("none")) {
+            return new String[0];
+        }
+        String[] parts = v.split(",");
+        java.util.List<String> out = new java.util.ArrayList<String>();
+        for (int i = 0; i < parts.length; i++) {
+            String p = parts[i].trim().toLowerCase();
+            if (p.length() > 0) out.add(p);
+        }
+        return out.toArray(new String[out.size()]);
+    }
+
     private static String cachedOutputDir;
     private static String cachedDataDir;
     private static Double cachedMinimumScore;

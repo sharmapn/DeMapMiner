@@ -42,6 +42,7 @@ public class InfluenceExtractor {
         public int proposalNumber;
         public int messagesProcessed;
         public int messagesSkippedEmpty;
+        public int messagesExcludedAutomated;
         public int sentencesProcessed;
         public int sentencesDuplicate;
         public int sentencesNoise;
@@ -56,7 +57,7 @@ public class InfluenceExtractor {
         public String error;
 
         public String toString() {
-            return "proposal " + proposalNumber + ": messages=" + messagesProcessed + " (empty " + messagesSkippedEmpty
+            return "proposal " + proposalNumber + ": messages=" + messagesProcessed + " (empty " + messagesSkippedEmpty + ", automated " + messagesExcludedAutomated
                     + "), sentences=" + sentencesProcessed + " (dup " + sentencesDuplicate + ", noise " + sentencesNoise
                     + "), shiftedNames=" + messagesWithShiftedNames + " (recovered " + namesRecovered + "), typed=" + sentencesWithInfluenceType + ", saved=" + candidatesSaved + ", outcome="
                     + finalDecision + (decisionDate != null ? " @ " + decisionDate : "") + " [" + outcomeSource + "]"
@@ -105,6 +106,11 @@ public class InfluenceExtractor {
 
                 InfluenceMessageSource.Message message = messages.get(mi);
 
+                // commit notifications / tracker robots are not discussion
+                if (InfluenceConfig.isExcludedMessage(message.authorEmail, message.mailingList)) {
+                    stats.messagesExcludedAutomated++;
+                    continue;
+                }
                 if (message.body == null || message.body.trim().length() == 0) {
                     stats.messagesSkippedEmpty++;
                     continue;

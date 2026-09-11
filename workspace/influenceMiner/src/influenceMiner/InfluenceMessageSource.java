@@ -46,10 +46,12 @@ public class InfluenceMessageSource {
         public String proposalType;
         /* raw senderFullName; "From xxx" marks rows whose name/role columns are shifted (see InfluenceAuthorResolver) */
         public String senderFullName;
+        /* mailing-list folder (allmessages.lastdir), used to skip commit/tracker lists */
+        public String mailingList;
     }
 
     public static class Columns {
-        public String proposal, messageId, date, body, bodyFallback, name, email, role, subject, proposalType, senderFullName;
+        public String proposal, messageId, date, body, bodyFallback, name, email, role, subject, proposalType, senderFullName, mailingList;
 
         static Columns discover(Connection connection, String table) throws Exception {
             Map<String, String> actual = new HashMap<String, String>();
@@ -74,6 +76,7 @@ public class InfluenceMessageSource {
             c.subject = first(actual, "subject", "processedsubject", "title");
             c.proposalType = first(actual, "peptype2020", "peptype", "proposal_type", "type");
             c.senderFullName = first(actual, "senderfullname");
+            c.mailingList = first(actual, "lastdir", "mailing_list", "listname", "folder");
 
             if (c.proposal == null) throw new Exception("No proposal-number column found in " + table);
             if (c.messageId == null) throw new Exception("No message-id column found in " + table);
@@ -135,6 +138,7 @@ public class InfluenceMessageSource {
             m.authorRole = get(rs, c.role);
             m.proposalType = get(rs, c.proposalType);
             m.senderFullName = get(rs, c.senderFullName);
+            m.mailingList = get(rs, c.mailingList);
             // allmessages contains duplicate messageIDs (same message imported twice); keep the first
             if (m.messageId != null && !seenIds.add(m.messageId)) {
                 continue;
