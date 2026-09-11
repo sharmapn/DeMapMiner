@@ -1,174 +1,213 @@
 package influenceMiner;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import connections.MysqlConnect;
 
 /*
  * InfluenceExtractor
  *
- * Main extraction pipeline for Influence Miner.
+ * Main extraction pipeline for Influence Miner (heuristic-v2).
  *
- * First prototype:
- * - Read proposal messages from allmessages table.
- * - Split message body into sentences.
- * - Detect influence types, direction, scope and target.
- * - Compute heuristic influence score.
- * - Save high-scoring candidates into influence_candidates.
+ * For one proposal:
+ *   1. resolve the real outcome / decision date / creation date  (InfluenceOutcomeResolver)
+ *   2. load proposal-linked messages with schema discovery         (InfluenceMessageSource)
+ *   3. clean each body and split into sentences                    (InfluenceTextPreprocessor)
+ *   4. de-duplicate sentences within the proposal
+ *   5. resolve the author's role                                   (InfluenceRoleMapper)
+ *   6. detect influence types + evidence, direction, scope, target (detectors)
+ *   7. compute temporal features                                   (InfluenceTemporalAnalyzer)
+ *   8. score and keep candidates >= InfluenceConfig.minimumScore()  (InfluenceHeuristics)
+ *   9. batch-insert into influence_candidates                      (InfluenceDatabaseWriter)
  *
- * NOTE:
- * This is intentionally lightweight for the first integration version.
- * The real system can later incorporate:
- * - better NLP sentence splitting,
- * - role-aware ranking from project metadata,
- * - temporal distance from actual decision date,
- * - reply-network features,
- * - proposal revision tracking,
- * - BERT/LLM multi-label influence detection.
+ * Nothing here claims causality: a stored row is a candidate influence
+ * SIGNAL whose direction can later be compared with the outcome.
+ *
+ * Parts that should be replaced by ML / NLP / LLM methods later: steps 3
+ * (sentence splitting), 6 (all four detectors) and 8 (scoring).
  */
 public class InfluenceExtractor {
 
     /*
-     * Minimum score threshold.
-     * Only sentences scoring above this value will be stored.
+     * Kept for callers of the first prototype; the configurable value is
+     * InfluenceConfig.minimumScore().
      */
-    public static final double MINIMUM_SCORE = 1.0;
+    public static final double MINIMUM_SCORE = InfluenceConfig.DEFAULT_MINIMUM_SCORE;
 
+    public static class ExtractionStats {
+        public int proposalNumber;
+        public int messagesProcessed;
+        public int messagesSkippedEmpty;
+        public int sentencesProcessed;
+        public int sentencesDuplicate;
+        public int sentencesNoise;
+        public int sentencesWithInfluenceType;
+        public int candidatesSaved;
+        public int messagesWithShiftedNames;
+        public int namesRecovered;
+        public String finalDecision = "unknown";
+        public String decisionDate;
+        public String outcomeSource;
+        public boolean failed;
+        public String error;
+
+        public String toString() {
+            return "proposal " + proposalNumber + ": messages=" + messagesProcessed + " (empty " + messagesSkippedEmpty
+                    + "), sentences=" + sentencesProcessed + " (dup " + sentencesDuplicate + ", noise " + sentencesNoise
+                    + "), shiftedNames=" + messagesWithShiftedNames + " (recovered " + namesRecovered + "), typed=" + sentencesWithInfluenceType + ", saved=" + candidatesSaved + ", outcome="
+                    + finalDecision + (decisionDate != null ? " @ " + decisionDate : "") + " [" + outcomeSource + "]"
+                    + (failed ? " FAILED: " + error : "");
+        }
+    }
+
+    /*
+     * Prototype-compatible entry point: opens the shared connection, makes
+     * sure the schema exists, and extracts one proposal.
+     */
     public static void extractInfluence(int proposalNumber, String proposalIdentifier) {
+        try {
+            Connection connection = MysqlConnect.connect();
+            if (connection == null) {
+                System.err.println("Database connection is null.");
+                return;
+            }
+            InfluenceSchemaManager.ensureSchema(connection);
+            ExtractionStats stats = extractInfluence(connection, proposalNumber, proposalIdentifier);
+            System.out.println(stats);
+            System.out.println("Influence extraction completed.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet rs = null;
+    public static ExtractionStats extractInfluence(Connection connection, int proposalNumber, String proposalIdentifier) {
+
+        ExtractionStats stats = new ExtractionStats();
+        stats.proposalNumber = proposalNumber;
+        String identifier = proposalIdentifier == null ? "pep" : proposalIdentifier.trim().toLowerCase();
 
         try {
+            InfluenceOutcome outcome = InfluenceOutcomeResolver.resolveOutcome(connection, identifier, proposalNumber);
+            stats.finalDecision = outcome.finalDecision;
+            stats.decisionDate = outcome.decisionDate;
+            stats.outcomeSource = outcome.source;
 
-            connection = MysqlConnect.connect();
-            statement = connection.createStatement();
+            List<InfluenceMessageSource.Message> messages = InfluenceMessageSource.loadMessages(connection, proposalNumber);
+            List<InfluenceCandidate> candidates = new ArrayList<InfluenceCandidate>();
+            Set<String> seen = new HashSet<String>();
+            double minimumScore = InfluenceConfig.minimumScore();
 
-            /*
-             * IMPORTANT:
-             * This query assumes DeMaP Miner stores proposal-linked messages
-             * in the allmessages table.
-             *
-             * You may need to adapt column names depending on the exact schema.
-             */
-            String sql = "SELECT * FROM allmessages WHERE proposalNumber = " + proposalNumber;
+            for (int mi = 0; mi < messages.size(); mi++) {
 
-            rs = statement.executeQuery(sql);
+                InfluenceMessageSource.Message message = messages.get(mi);
 
-            while (rs.next()) {
-
-                String messageId = rs.getString("messageID");
-                String authorName = rs.getString("fromName");
-                String authorEmail = rs.getString("fromEmail");
-                String messageBody = rs.getString("body");
-                String messageDate = rs.getString("date");
-
-                if (messageBody == null || messageBody.trim().length() == 0) {
+                if (message.body == null || message.body.trim().length() == 0) {
+                    stats.messagesSkippedEmpty++;
                     continue;
                 }
+                stats.messagesProcessed++;
 
-                /*
-                 * Split into sentences.
-                 * Current implementation is intentionally simple.
-                 * Later versions should use Stanford CoreNLP sentence splitting.
-                 */
-                String[] sentences = messageBody.split("(?<=[.!?])\\s+");
+                InfluenceAuthorResolver.Identity author = InfluenceAuthorResolver.resolve(connection, message);
+                if (author.rowUnreliable) {
+                    stats.messagesWithShiftedNames++;
+                    if (author.nameRecovered) stats.namesRecovered++;
+                }
 
-                for (int i = 0; i < sentences.length; i++) {
+                String role = InfluenceRoleMapper.mapRole(connection, identifier, proposalNumber,
+                        author.email, author.name, author.datasetRole, message.messageDate);
 
-                    String sentence = sentences[i].trim();
+                int daysBeforeDecision = InfluenceTemporalAnalyzer.daysBeforeDecision(message.messageDate, outcome.decisionDate);
+                String phase = InfluenceTemporalAnalyzer.detectDecisionPhase(message.messageDate, outcome.decisionDate, outcome.createdDate);
+                String era = InfluenceTemporalAnalyzer.governanceEra(message.messageDate);
 
-                    if (sentence.length() < 5) {
+                String cleaned = InfluenceTextPreprocessor.cleanMessageBody(message.body, author.name);
+                List<String> sentences = InfluenceTextPreprocessor.splitIntoSentenceList(cleaned);
+
+                for (int si = 0; si < sentences.size(); si++) {
+
+                    String sentence = sentences.get(si).trim();
+                    stats.sentencesProcessed++;
+
+                    if (InfluenceTextPreprocessor.isNoiseSentence(sentence)) {
+                        stats.sentencesNoise++;
                         continue;
                     }
 
-                    String role = InfluenceRoleMapper.mapRole(authorEmail, authorName);
-                    String influenceTypes = InfluenceTypeDetector.detectTypes(sentence);
+                    String key = sentence.toLowerCase().replaceAll("[^a-z0-9+\\-]+", " ").trim();
+                    if (!seen.add(key)) {
+                        stats.sentencesDuplicate++;
+                        continue;
+                    }
 
+                    String influenceTypes = InfluenceTypeDetector.detectTypes(sentence);
                     if (influenceTypes.equals("none")) {
                         continue;
                     }
+                    stats.sentencesWithInfluenceType++;
 
                     String primaryInfluenceType = InfluenceTypeDetector.primaryType(influenceTypes);
                     String influenceDirection = InfluenceDirectionDetector.detectDirection(sentence);
                     String influenceScope = InfluenceScopeDetector.detectScope(sentence, role);
                     String influenceTarget = InfluenceTargetDetector.detectTarget(sentence);
 
-                    /*
-                     * Placeholder temporal distance.
-                     * Later versions should compute real distance from decision date.
-                     */
-                    int daysBeforeDecision = 5;
-
                     double score = InfluenceHeuristics.scoreSentence(
-                            sentence,
-                            role,
-                            influenceTypes,
-                            influenceDirection,
-                            influenceScope,
-                            influenceTarget,
-                            daysBeforeDecision
-                    );
+                            sentence, role, influenceTypes, influenceDirection, influenceScope, influenceTarget, daysBeforeDecision);
 
-                    if (score >= MINIMUM_SCORE) {
-
-                        InfluenceCandidate candidate = new InfluenceCandidate();
-
-                        candidate.proposalIdentifier = proposalIdentifier;
-                        candidate.proposalNumber = proposalNumber;
-
-                        candidate.messageId = messageId;
-                        candidate.authorName = authorName;
-                        candidate.authorEmail = authorEmail;
-                        candidate.authorRole = role;
-
-                        candidate.messageDate = messageDate;
-                        candidate.sentence = sentence;
-
-                        candidate.influenceTypes = influenceTypes;
-                        candidate.primaryInfluenceType = primaryInfluenceType;
-                        candidate.influenceScope = influenceScope;
-                        candidate.influenceDirection = influenceDirection;
-                        candidate.influenceTarget = influenceTarget;
-                        candidate.score = score;
-
-                        /*
-                         * Placeholder decision.
-                         * Future versions should retrieve real proposal outcome.
-                         */
-                        candidate.finalDecision = "accepted";
-
-                        candidate.alignsWithOutcome =
-                                InfluenceOutcomeAlignmentAnalyzer.aligns(
-                                        candidate.influenceDirection,
-                                        candidate.finalDecision
-                                );
-
-                        InfluenceDatabaseWriter.saveCandidate(connection, candidate);
-
-                        System.out.println("Saved influence candidate: " + sentence);
+                    if (score < minimumScore) {
+                        continue;
                     }
+
+                    InfluenceCandidate candidate = new InfluenceCandidate();
+                    candidate.proposalIdentifier = identifier;
+                    candidate.proposalNumber = proposalNumber;
+                    candidate.messageId = message.messageId;
+                    candidate.authorName = displayName(author.name);
+                    candidate.authorEmail = author.email.length() == 0 ? null : author.email;
+                    candidate.authorRole = role;
+                    candidate.messageDate = message.messageDate;
+                    candidate.sentence = sentence;
+                    candidate.influenceTypes = influenceTypes;
+                    candidate.primaryInfluenceType = primaryInfluenceType;
+                    candidate.influenceScope = influenceScope;
+                    candidate.influenceDirection = influenceDirection;
+                    candidate.influenceTarget = influenceTarget;
+                    candidate.score = score;
+                    candidate.evidenceCues = InfluenceTypeDetector.detectEvidenceCues(sentence);
+                    candidate.finalDecision = outcome.finalDecision;
+                    candidate.alignsWithOutcome = InfluenceOutcomeAlignmentAnalyzer.aligns(influenceDirection, outcome.finalDecision);
+                    candidate.decisionDate = outcome.decisionDate;
+                    candidate.daysBeforeDecision = daysBeforeDecision;
+                    candidate.decisionPhase = phase;
+                    candidate.governanceEra = era;
+
+                    candidates.add(candidate);
                 }
             }
 
-            System.out.println("Influence extraction completed.");
+            stats.candidatesSaved = InfluenceDatabaseWriter.saveCandidates(connection, candidates);
 
         } catch (Exception e) {
+            stats.failed = true;
+            stats.error = e.getClass().getSimpleName() + ": " + e.getMessage();
             e.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (statement != null) {
-                    statement.close();
-                }
-            } catch (Exception closeException) {
-                closeException.printStackTrace();
-            }
         }
+
+        return stats;
+    }
+
+    /*
+     * "From marko ristin" -> "marko ristin"; keeps the original casing.
+     */
+    private static String displayName(String name) {
+        if (name == null) return null;
+        String n = name.replace("\t", " ").trim();
+        if (n.toLowerCase().startsWith("from ")) {
+            n = n.substring(5).trim();
+        }
+        return n.replaceAll("\\s+", " ");
     }
 }
