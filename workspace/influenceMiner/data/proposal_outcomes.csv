@@ -1,0 +1,3 @@
+proposal_identifier,proposal_number,title,status,decision_date,source
+# Optional fallback outcomes used only when neither accrejpeps nor the PEP state table knows the proposal.
+# Example: pep,9999,Example proposal,rejected,2020-01-01,manual

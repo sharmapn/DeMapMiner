@@ -1,0 +1,4 @@
+project,proposal_identifier,proposal_number,author_email,author_name,role,start_date,end_date,source
+# Optional manual role overrides, highest priority in InfluenceRoleMapper. Lines starting with # are ignored.
+# Leave proposal_number empty for a project-wide role; use start_date/end_date (yyyy-MM-dd) for time-bounded roles.
+python,pep,,guido@python.org,,BDFL,,2018-07-12,manual

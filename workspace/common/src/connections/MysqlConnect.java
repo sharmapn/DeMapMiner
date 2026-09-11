@@ -41,6 +41,18 @@ public class MysqlConnect {
         return properties;
     }
 
+    // Sept 2026: credentials can be overridden from the .prop file
+    // (databaseUser / databasePassword). If the configured password is
+    // refused we retry once with an empty password, which is the XAMPP
+    // MariaDB default, so the tools keep working across machines.
+    private static Properties getProperties(String user, String password) {
+        Properties p = new Properties();
+        p.setProperty("user", user);
+        p.setProperty("password", password);
+        p.setProperty("MaxPooledStatements", MAX_POOL);
+        return p;
+    }
+
     // connect database
     public static Connection connect() {
         if (connection == null) {
@@ -50,16 +62,31 @@ public class MysqlConnect {
         		// wpf.WriteToPropertiesFile("includeEmptyRows", includeEmptyRows.toString());
         		//includeStateData
         		databaseName = wpf.readFromPropertiesFile("database",false).toLowerCase();
-            	
+
+        		String user = wpf.readFromPropertiesFile("databaseUser", false);
+        		String password = wpf.readFromPropertiesFile("databasePassword", false);
+        		if (user == null || user.trim().isEmpty()) user = USERNAME;
+        		if (password == null) password = PASSWORD;
+
                 Class.forName(DATABASE_DRIVER);
-                connection = DriverManager.getConnection(DATABASE_URL+databaseName, getProperties());
-                
+                try {
+                    connection = DriverManager.getConnection(DATABASE_URL+databaseName, getProperties(user, password));
+                } catch (SQLException accessDenied) {
+                    String msg = accessDenied.getMessage() == null ? "" : accessDenied.getMessage();
+                    if (msg.contains("Access denied") && !password.isEmpty()) {
+                        System.out.println("\t Password for '" + user + "' refused; retrying with empty password (XAMPP default).");
+                        connection = DriverManager.getConnection(DATABASE_URL+databaseName, getProperties(user, ""));
+                    } else {
+                        throw accessDenied;
+                    }
+                }
+
                 if (connection != null) {
-        			System.out.println("\t Connection Successfull with "+databaseName + " database!");        			
+        			System.out.println("\t Connection Successfull with "+databaseName + " database!");
         		} else {
-        			System.out.println("Failed to make connection!");        		
+        			System.out.println("Failed to make connection!");
         		}
-                
+
             } catch (ClassNotFoundException | SQLException e) {
                 e.printStackTrace();
             }
