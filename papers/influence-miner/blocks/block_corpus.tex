@@ -1,0 +1,40 @@
+\subsection{Extending the Corpus to the Steering Council Era}
+\label{sec:extension}
+
+The DeMaP Miner corpus ends in November~2018, four months after the governance transition, so a comparison of eras needed new data. Python's discussions had meanwhile moved twice: the mailing lists migrated from Mailman~2 to Mailman~3 in mid-2019, and proposal discussion moved from python-dev and python-ideas to the Discourse forum at discuss.python.org, which PEP~1 now names as the default venue. The extension therefore had three sources, summarised in Table~\ref{tab:sources}, and was designed so that every new message passes through DeMaP Miner's own reader and PEP-linking code unchanged.
+
+\begin{table}[t]
+\caption{Sources of the corpus extension (November~2018 to September~2026).}
+\label{tab:sources}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llrr}
+\toprule
+Source & Period & Messages & PEP-linked \\
+\midrule
+python-dev (Mailman~2/3) & 2018-11 -- 2023-11 & 14,554 & 6,918 \\
+python-ideas (Mailman~2/3) & 2018-11 -- 2024-06 & 20,438 & 3,873 \\
+python-committers (Mailman~2/3) & 2018-11 -- 2023-07 & 1,925 & 744 \\
+python-list & 2018-11 -- 2025-05 & 25,565 & 1,175 \\
+python-checkins & 2018-11 -- 2023-08 & 27,658 & 1,715 \\
+python-bugs-list & 2018-11 -- 2022-04 & 133,818 & 5,219 \\
+Discourse: PEPs (223 topics) & 2019-03 -- 2026-09 & 15,180 & 14,892 \\
+Discourse: Ideas (2,041 topics) & 2018-02 -- 2026-09 & 34,293 & 2,849 \\
+Discourse: Core Dev.\ (952 topics) & 2019-10 -- 2026-09 & 11,880 & 1,991 \\
+Discourse: Committers (469 topics) & 2018-09 -- 2026-09 & 3,768 & 1,572 \\
+\midrule
+Total & & 289,079 & 40,948 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\paragraph{Mailing lists.} Mailman~2 monthly archives were downloaded from mail.python.org for the six lists the original study used; they are the same text format the reader was written for. From July~2019 the core lists exist only in Mailman~3, whose HyperKitty archiver exports a month at a time as an mbox with MIME bodies, folded headers and RFC~2047 encoded words. A converter, \texttt{HyperKittyMbox\allowbreak ToPipermail}, unfolds headers, takes the first \texttt{text/plain} part (falling back to tag-stripped HTML), decodes quoted-printable and base64, and rewrites each message in the Mailman~2 layout; on an overlapping month it produced exactly the same number of messages as the Mailman~2 archive. python-dev and python-ideas fell silent in 2023--2024 as discussion completed its move to Discourse.
+
+\paragraph{Discourse.} discuss.python.org exposes a JSON API. A crawler (\texttt{DiscourseToPipermail}) enumerates the topics of a category and fetches every post with its raw Markdown, then writes each post as a pipermail-style message: the Discourse username stands in for the address (\texttt{user at discuss.python.org}), the display name is kept, the topic title becomes the subject, the topic's first post becomes the \texttt{In-Reply-To} parent of every later post (or the quoted post when a reply is explicit), and \texttt{[quote]} blocks become quoted lines so that the existing quote removal applies. Two properties of the site had to be worked around: category listings stop after a few hundred topics in any sort order, so topics were enumerated with the search API restricted to topic-opening posts (\texttt{in:first}) in half-month windows; and anonymous search is rate-limited at roughly fifteen requests a minute, and requests that ask for \texttt{application/json} explicitly are throttled harder than plain ones. The four categories that correspond to the old lists---PEPs, Ideas, Core Development and Committers---yielded 3,685 topics and 63,714 posts. The PEPs category is the main venue of the Steering Council era: almost every post in it links to a PEP.
+
+\paragraph{PEP metadata and state history.} Instead of scraping python.org as the original tool did, the \texttt{python/peps} repository was cloned and its git history parsed: every commit that changes a \texttt{Status:} line yields a (PEP, from, to, timestamp) record, giving 1,859 status changes for 739 PEPs from 2000 to September~2026. On the PEPs both tables cover, the regenerated history agrees exactly with the state table of the original study (for example PEP~572: draft 28~Feb~2018, accepted 11~July~2018), and it adds the later transitions (PEP~572 final in November~2022; PEP~703 draft January~2023, accepted October~2023, final June~2026). PEP headers supplied title, authors, type, creation date, delegate, sponsor and the \texttt{Discussions-To} link for the 261 PEPs the original metadata table lacked.
+
+\paragraph{Roles.} The corpus's role vocabulary (BDFL, BDFL delegate, core developer, PEP editor, proposal author, community member) was extended with \emph{steering council}, assigned by name and term from the election results recorded in PEPs 8100--8107 (2019--2026). Core-developer status was refreshed from the devguide's core-team roster, which lists join and leave dates for 210 people, and matched on full name and on first plus last name (the roster spells out middle names). Proposal author and delegate remain proposal-specific and come from the PEP headers.
+
+\paragraph{Reading and post-reading.} The reader assigned message ids continuing after the corpus's maximum, and a post-reading script derived the sender address and name from the raw \texttt{From:} header of each message, keyed by message id, so that the row shift described in Section~\ref{sec:dataquality} cannot recur; cluster names were reused from the original corpus where the address was known. The reading of 289,079 messages took about an hour; the Influence Miner run over the extended corpus of 780 PEPs and 114,388 human-authored messages took 37~minutes and produced 291,100 candidates from 3,613 participants, of which 100,778 candidates on 579 PEPs fall after the governance split.

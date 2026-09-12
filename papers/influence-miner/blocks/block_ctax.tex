@@ -1,0 +1,24 @@
+\subsection{Controversial Mechanisms}
+\label{sec:controversial}
+
+The thirteen mechanisms above describe \emph{what} an argument appeals to. They say little about the forms of influence that the open source literature treats as contested: a leader deciding by fiat, a company steering a proposal towards its own product, a maintainer refusing to merge on the strength of ownership, a contributor threatening to leave or fork, hostility that silences opponents, agreements reached off-list, and process rules used to shut a discussion down. These are the episodes the software-engineering community remembers---the PEP~572 debate ended with the BDFL's resignation, and the Steering Council's constitution (PEP~13) is in part a response to them---so a tool that mines influence should be able to find them. Table~\ref{tab:controversial} defines seven further mechanisms, each grounded in a strand of the literature. They are detected with the same multi-label rules as the others, so a sentence can be both \emph{authority} and \emph{unilateral}, or \emph{organizational} and \emph{corporate interest}; the difference is that the thirteen base mechanisms classify the content of an argument, while the seven controversial ones classify the \emph{exercise of power} around it. Their cue lists are deliberately precision-oriented: most cues are first-person or explicit formulas (``I have decided'', ``my employer needs'', ``I will not merge'', ``I'll fork'', ``you clearly don't understand'', ``Guido and I agreed offline'', ``this belongs on python-ideas''), and the broad words only count near a disambiguating word (Appendix~\ref{app:rules}).
+
+\begin{table*}[t]
+\caption{Controversial influence mechanisms added to the taxonomy, with the literature that motivates each.}
+\label{tab:controversial}
+\small
+\begin{tabular}{p{0.16\textwidth}p{0.47\textwidth}p{0.31\textwidth}}
+\toprule
+Mechanism & What it captures (representative cues) & Literature \\
+\midrule
+Unilateral & A decision announced by fiat rather than argued: ``I have decided'', ``end of discussion'', ``already merged'', ``not up for debate'', ``pull rank'', ``as BDFL'' & Benevolent-dictator governance and its legitimacy \cite{raymond1999, omahony2007} \\
+Corporate interest & An employer, customer, funding or paid-time stake in the outcome: ``my employer needs'', ``our production code at \ldots'', ``we are paid to'', ``sponsored by'', ``conflict of interest'' & Firm participation in and capture of OSS projects \cite{dahlander2005, riehle2007, zhang2020} \\
+Gatekeeping & Refusal grounded in ownership or veto position rather than in the merits: ``I will not merge'', ``as the maintainer'', ``over my dead body'', ``dead on arrival'', ``$-$1000'' & Gatekeepers and maintainer power \cite{ducheneaut2005, jensen2007} \\
+Exit threat & Threats or announcements of exit, fork, withdrawal or burnout used as leverage: ``I'll fork'', ``I'm stepping down'', ``if this goes in I'm out'', ``withdraw the PEP'', ``permanent vacation'' & Exit versus voice \cite{hirschman1970}; forks \cite{robles2012, gamalielsson2014}; burnout \cite{raman2020} \\
+Incivility & Ridicule, hostility and personal attacks that pressure rather than persuade: ``stupid'', ``you clearly don't understand'', ``bikeshedding'', ``ad hominem'', ``code of conduct'' & Incivility and toxicity in OSS discussion \cite{ferreira2021, squire2015, raman2020} \\
+Backchannel & Decisions or agreements reached outside the public channel: ``offline'', ``in private'', ``at the sprint'', ``on IRC'', ``Guido and I agreed'', ``already been decided'', ``without discussion'' & Transparency of OSS decision-making \cite{schneider2016, omahony2007} \\
+Procedural control & Process rules used to redirect or close a discussion: ``wrong list'', ``take it to python-ideas'', ``needs a sponsor'', ``already discussed'', ``PEP~1 says'', ``locking this thread'' & Proceduralisation of OSS governance \cite{delaat2007, fitzgerald2006} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+

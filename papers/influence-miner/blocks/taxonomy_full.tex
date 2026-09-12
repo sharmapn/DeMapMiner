@@ -1,0 +1,78 @@
+\subsection{Strategic Influence}
+
+Strategic influence refers to arguments that shape the long-term direction, identity, or governance of the project. It includes claims that a proposal is consistent or inconsistent with project philosophy, project values, or the future direction of the language, protocol, or ecosystem. In Python, such influence may invoke simplicity, readability, maintainability, or language identity. In Bitcoin, it may invoke decentralisation, consensus safety, censorship resistance, or protocol conservatism.
+
+Examples of strategic influence include aligning a proposal with the project's long-term philosophy, arguing that a change affects the future direction of the language or protocol, invoking decentralisation or simplicity as a core value, and raising governance concerns about who has authority to decide. Strategic influence is especially important in proposals that affect language design, consensus rules, project governance, or ecosystem standards.
+
+\subsection{Operational Influence}
+
+Operational influence refers to arguments about implementation, maintenance, release management, tooling, deployment, testing, migration, and coordination. A proposal may be desirable in principle but difficult to implement, maintain, release, or deploy. Operational influence therefore determines whether a proposal can move from discussion to practical adoption.
+
+Examples include arguing that a proposal is difficult to implement, showing that maintenance cost is too high, identifying release-timing constraints, discussing migration paths, pointing to lack of implementer capacity, or raising concerns about documentation, testing, and backward-compatibility management. Operational influence often determines whether a theoretically attractive proposal becomes practically feasible.
+
+\subsection{Functional Influence}
+
+Functional influence refers to arguments about whether the proposed feature, behaviour, protocol change, or API actually solves the intended problem. It is centred on design adequacy and problem-solution fit. Functional influence can support a proposal by demonstrating clear utility or block a proposal by showing that it does not solve the claimed problem.
+
+Examples include demonstrating that the proposal does not meet user needs, showing that an alternative design solves the problem better, identifying edge cases, questioning whether the functionality is necessary, or arguing that the proposal introduces complexity disproportionate to its benefit. Functional influence is closely tied to technical evaluation and design quality.
+
+\subsection{Tactical Influence}
+
+Tactical influence refers to short-term moves in discussion that affect the direction of the debate. Tactical influence does not necessarily depend on formal authority; a participant can shape the trajectory of a thread by summarising disagreement, reframing a question, narrowing scope, requesting evidence, or proposing compromise.
+
+Examples include summarising the state of discussion, reframing a disagreement, proposing compromise wording, redirecting the thread to a narrower issue, requesting evidence, calling for a decision, challenging an assumption, asking for a concrete implementation, or moving the discussion toward deferral, revision, or closure.
+
+\subsection{Authority Influence}
+
+Authority influence occurs when a participant's formal or informal status gives weight to a claim. Authority may come from governance position, maintainer status, long-term contribution, technical expertise, authorship, or decision-making role. In Python, this may involve the BDFL, Steering Council, PEP delegates, core developers, release managers, or recognised experts. In Bitcoin, it may involve BIP editors, Bitcoin Core maintainers, influential implementers, cryptographic experts, or long-standing community participants.
+
+Examples include statements by a BDFL, steering council member, BDFL delegate, PEP delegate, core developer, BIP editor, maintainer, or recognised technical expert; references to previous decisions by authoritative actors; claims based on long-term project experience; and explicit pronouncements or veto-like interventions. Authority influence must be treated carefully. Influence Miner should not assume that all messages by high-status actors are influential; instead, it should detect whether their statements are taken up, deferred to, contested, or reflected in final outcomes.
+
+\subsection{Compatibility Influence}
+
+Compatibility influence refers to concerns about backward compatibility, interoperability, migration, deployment, or breaking changes. In mature OSS ecosystems, compatibility concerns can be decisive because even small changes may affect many downstream users, packages, clients, tools, nodes, or workflows.
+
+Examples include claims such as a change will break existing code, old nodes must remain compatible, users cannot migrate easily, an API change conflicts with existing behaviour, or the ecosystem is not ready. Compatibility influence is likely to be especially important in Python language changes and Bitcoin consensus or protocol changes.
+
+\subsection{Security Influence}
+
+Security influence refers to arguments based on risk, vulnerability, attack surface, safety, consensus failure, abuse, privacy, or robustness. A security objection can be highly influential even if it is raised by a small number of participants, particularly when the proposal affects protocol safety or user assets.
+
+Examples include identifying a new attack vector, questioning cryptographic assumptions, warning about unsafe implementation, raising denial-of-service, privacy, or consensus-safety issues, or arguing that the proposal reduces systemic resilience. In Bitcoin, security influence may be particularly important because protocol changes can affect funds, consensus, miners, nodes, wallets, and users.
+
+\subsection{Standards Influence}
+
+Standards influence refers to arguments that rely on existing standards, external specifications, interoperability norms, or cross-project conventions. A proposal may gain legitimacy because it aligns with an established standard, or it may be resisted because it conflicts with existing specifications.
+
+Examples include aligning with internet standards, adopting widely used conventions, rejecting a proposal because it conflicts with a standard, or arguing that standardisation is needed for ecosystem coordination. Standards influence is particularly relevant when a project interacts with wider technical ecosystems, such as web standards, cryptographic standards, packaging standards, or protocol specifications.
+
+\subsection{Ecosystem Influence}
+
+Ecosystem influence refers to arguments based on the needs or behaviour of external projects, libraries, wallets, exchanges, miners, businesses, users, educators, or downstream communities. Ecosystem influence captures the reality that OSS decisions are not isolated within the core repository; adoption often requires coordination across a wider socio-technical network.
+
+Examples include claims that major libraries already depend on an existing behaviour, wallet providers need a standard format, miners will not deploy a change, users are already relying on a pattern, or third-party implementations will be affected. Ecosystem influence is especially important in distributed projects where adoption requires coordination beyond the core repository.
+
+\subsection{Economic Influence}
+
+Economic influence refers to arguments based on incentives, cost, funding, market impact, transaction fees, business interests, or resource constraints. Economic influence is often explicit in blockchain settings, but it may also appear in language and infrastructure projects through maintenance cost, corporate adoption, and funded development.
+
+Examples include deployment costs, miner incentives, maintenance funding, cost to users, commercial ecosystem pressure, and trade-offs between economic incentives and technical ideals. This category is likely to be more visible in Bitcoin than in Python, although Python may also show economic influence through corporate users, package maintainers, and institutional stakeholders.
+
+\subsection{Organizational Influence}
+
+Organizational influence refers to influence from companies, foundations, teams, institutions, or organised groups. It captures the fact that OSS decisions may be shaped not only by individual technical arguments but also by institutional resources, organised development capacity, sponsorship, foundation governance, or release-team priorities.
+
+Examples include company-backed maintainers, foundation-level governance decisions, institutional support, release team priorities, organised working groups, and formal votes or committees. Organizational influence is not always explicit. It may appear through email domains, affiliations, funding acknowledgements, repeated coordination among participants, or the ability of an organization to implement and maintain a proposal.
+
+\subsection{Coalition Influence}
+
+Coalition influence occurs when multiple participants align around a position and create cumulative pressure. It differs from authority influence because the source of influence is not necessarily a single powerful actor but a visible convergence of multiple actors. Coalition influence may appear through repeated agreement, shared objections, mutual endorsement, or recurring references to a common concern.
+
+Examples include several core developers converging on the same objection, users repeatedly raising the same problem, implementers agreeing that a proposal is not feasible, or miners, wallet developers, or downstream maintainers forming a visible block. Coalition influence can be detected through repeated agreement, quoting, endorsement, shared arguments, reply networks, and convergence of sentiment or stance.
+
+\subsection{User-Demand Influence}
+
+User-demand influence refers to arguments based on what users need, request, misunderstand, or struggle with. User-demand influence connects technical decisions to community needs and adoption pressure. It is especially important where proposals are justified by usability, learnability, adoption, error prevention, or common pain points.
+
+Examples include claims such as users keep asking for this, this solves a common pain point, the current behaviour confuses beginners, this feature is needed by downstream users, or there is no real user demand. User-demand influence may support a proposal by demonstrating need, but it may also block a proposal if participants argue that demand is weak, misunderstood, or better addressed elsewhere.
+

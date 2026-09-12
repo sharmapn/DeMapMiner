@@ -1,0 +1,27 @@
+\begin{table*}[t]
+\caption{Three consecutive rows of the PEP~572 discussion in \texttt{allmessages}: the address column belongs to the following row.}
+\label{tab:shift}
+\small
+\begin{tabular}{llll}
+\toprule
+Message id & Address column & Clustered name & Raw \texttt{From:} header \\
+\midrule
+8182634 & chris.jerdonek@gmail.com & Chris Angelico & rosuav at gmail.com (Chris Angelico) \\
+8182635 & rosuav@gmail.com & Chris Jerdonek & chris.jerdonek at gmail.com (Chris Jerdonek) \\
+8182636 & ncoghlan@gmail.com & Chris Angelico & rosuav at gmail.com (Chris Angelico) \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\section{Data-Quality Findings in the Shared Corpus}
+\label{sec:dataquality}
+
+Two properties of the \texttt{allmessages} table would have silently distorted every actor-level result of this study, and are likely to affect other tools built on the same corpus. Both were found by inspecting the actor tables of early runs, which is itself an argument for producing such tables.
+
+\paragraph{Automated senders.} The table links 109,046 message rows to PEPs, but 28,412 of them are not discussion: commit notifications from \texttt{python-checkins} (each of which embeds the full text of the PEP being committed), bug- and patch-tracker robots (\texttt{report@\allowbreak bugs.python.org}, \texttt{status@\allowbreak bugs.python.org}, \texttt{noreply@\allowbreak sourceforge.net}) and similar. These rows are essential for DeMaP Miner's process mining, which reads state changes from commits, but they must be excluded from influence mining. The first full run that included them produced 565,952 candidates, and because every commit notification carries the shared address \texttt{python-checkins@python.org}, 307,000 of those candidates were credited to one committer. Influence Miner now skips a configurable list of senders and lists (28,412 rows; the batch log reports the count per proposal), and keys actors by the corpus's clustered display name rather than by address, which also merges a person's several addresses.
+
+\paragraph{Shifted sender columns.} The rows imported by a newer loader---identifiable by a sender field of the form ``From \emph{localpart}''; 10,831 PEP-linked rows, mostly from 2017--2018 and including the whole PEP~572 discussion---carry the sender address of the \emph{next} row. Checked against the raw \texttt{From:} header stored with each message body, the clustered display name agrees with the header for 9,532 of the 10,831 rows and the address column for only 3,155; the role column, which the original tool derived from the name, is consistent with the name. Table~\ref{tab:shift} shows the pattern. An earlier version of Influence Miner assumed the opposite---that the address was right and the name shifted---and rebuilt names from addresses, which credited PEP~572's discussion to the wrong people (the top three ``participants'' were an occasional poster, a core developer and a PEP editor who had each written a fraction of the attributed sentences). The tool now keeps the name and role on such rows and parses the address from the raw header, and the corpus extension derives sender fields from the header for every new row, keyed by message id, so the shift cannot recur.
+
+
+\paragraph{Duplicate message ids.} A message that mentions several PEPs is stored once per PEP with the same message id (109,046 PEP-linked rows, 91,562 distinct ids). This is by design, but sentence-level tools must collapse duplicates within a proposal, and any join on message id alone must also constrain the PEP.
+
+\paragraph{Consequence for earlier results.} Rationale Miner and Preference Miner results built on the same rows are not affected in their sentence-level findings, but any actor- or role-level statistic computed from the 2017--2018 rows should be re-checked, and the automated senders should be excluded wherever sentence counts are interpreted as participation.

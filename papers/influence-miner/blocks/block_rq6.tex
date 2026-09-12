@@ -1,0 +1,93 @@
+\subsection{RQ6: Controversial Influence}
+\label{sec:rq6}
+
+The seven controversial mechanisms were added after the base run, so they are reported from a second run of the tool over both corpora with the extended detector. The second run reproduces the base labels (199,418 candidates carry a base mechanism, against 199,409 before) and adds sentences that carry \emph{only} a controversial mechanism, which is why its totals are larger: 205,042 candidates on the original corpus and 299,192 on the extended one. All figures in this section are from the extended corpus unless stated otherwise; the original corpus gives the same picture (4.5\% of candidates controversial; the same ordering of mechanisms).
+
+\paragraph{How much and which.} 14,126 candidates (4.7\%) carry at least one controversial mechanism (Table~\ref{tab:rq6}). Incivility is the most frequent (1.5\%), followed by procedural control (1.3\%), backchannel references (0.7\%), unilateral decisions (0.4\%), corporate interest (0.3\%), gatekeeping (0.3\%) and exit threats (0.3\%). Two readings of these numbers are needed. First, they are small: even in a corpus that includes the PEP~572 debate, fewer than one candidate sentence in twenty exercises influence in a contested way, and the base mechanisms---arguing about implementation, function, ecosystem and compatibility---remain the ordinary currency of Python's decisions. Second, they are concentrated. Among proposals with at least 200 candidates, the highest densities belong to the governance PEPs themselves (PEP~8001 27.4\%, PEP~13 24.3\%, PEP~8016 22.9\%, PEP~1 12.4\%), where procedural control is the subject of discussion rather than a tactic; among language proposals the highest densities are exactly the debates the community remembers as bitter: PEP~572 (assignment expressions, 7.9\%), PEP~285 (\texttt{bool}, 7.9\%), PEP~238 (integer division, 7.2\%) and PEP~308 (conditional expressions, 7.0\%), against 4.7\% for the corpus. Controversial signals also cluster in time: they make up 6.4\% of candidates in the two weeks before a decision and 5.8\% during revision, against 4.0\% after the decision, and rejected proposals carry slightly more of them (5.1\%) than accepted ones (4.4\%), with gatekeeping highest on deferred proposals (0.6\%).
+
+\begin{table}[t]
+\caption{RQ6: controversial mechanisms in the extended corpus (299,192 candidates): count, share of all candidates, and share within each governance era.}
+\label{tab:rq6}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Mechanism & $n$ & \% all & \% BDFL era & \% SC era \\
+\midrule
+Incivility & 4,519 & 1.51 & 1.80 & 1.13 \\
+Procedural control & 3,837 & 1.28 & 0.95 & 1.96 \\
+Backchannel & 2,167 & 0.72 & 0.72 & 0.79 \\
+Unilateral & 1,172 & 0.39 & 0.46 & 0.30 \\
+Corporate interest & 1,011 & 0.34 & 0.29 & 0.47 \\
+Gatekeeping & 882 & 0.29 & 0.35 & 0.23 \\
+Exit threat & 753 & 0.25 & 0.26 & 0.27 \\
+\midrule
+Any controversial & 14,126 & 4.72 & 4.8 & 5.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Who.} Table~\ref{tab:rq6roles} gives the share of each role's candidates that carries each mechanism. The BDFL is not the most contested voice: 3.9\% of his candidates are controversial, the lowest of any role, and his unilateral share (0.44\%) is below that of PEP editors (0.71\%) and BDFL delegates (0.69\%), whose ``I hereby accept'' pronouncements the detector reads as decisions by fiat. Most of the BDFL's unilateral sentences are formal pronouncements after a debate (``I'm going to make this a BDFL pronouncement; I understand your argument but I don't agree with it'', PEP~285); the sentences that are unilateral in the stronger sense---closing a debate against its drift---are a subset the annotation study must separate (``Despite the negative feedback, I've decided to accept the PEP'', PEP~285; ``After an off-list discussion with Victor I have decided to reject PEP~410''). Incivility is a community-member phenomenon: 1.85\% of community members' candidates carry it, against 1.19\% for the BDFL and 1.00\% for Steering Council members. Steering Council members have the most distinctive profile of any role: the lowest unilateral (0.19\%) and gatekeeping (0.08\%) shares in the corpus, but the highest procedural control (2.38\%), backchannel (1.41\%) and corporate interest (0.69\%) shares. A council that decides in private meetings and announces by process rules produces exactly this signature---``This reflects internal discussion that, if the PEP is officially approved\ldots'' (PEP~788); ``It was decided that maintainers should write a PEP'' (PEP~651)---and its members' corporate-interest sentences are mostly disclosures (``because of how we at Google use Python'', PEP~587), which PEP~13's conflict-of-interest rule encourages.
+
+\begin{table}[t]
+\caption{RQ6: share of each role's candidates carrying each controversial mechanism (\%, extended corpus).}
+\label{tab:rq6roles}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Role & $n$ & Unil. & Corp. & Gate. & Exit & Inciv. & Back. & Proc. \\
+\midrule
+Community member & 110,893 & 0.28 & 0.35 & 0.29 & 0.19 & 1.85 & 0.50 & 1.12 \\
+Core developer & 82,277 & 0.39 & 0.31 & 0.37 & 0.26 & 1.40 & 0.70 & 1.52 \\
+Proposal author & 46,125 & 0.51 & 0.34 & 0.27 & 0.31 & 1.21 & 1.11 & 1.31 \\
+BDFL & 22,335 & 0.44 & 0.26 & 0.26 & 0.26 & 1.19 & 0.59 & 0.92 \\
+PEP editor & 20,783 & 0.71 & 0.18 & 0.28 & 0.41 & 1.58 & 0.93 & 0.91 \\
+Steering Council & 12,428 & 0.19 & 0.69 & 0.08 & 0.33 & 1.00 & 1.41 & 2.38 \\
+BDFL delegate & 4,191 & 0.69 & 0.41 & 0.19 & 0.10 & 0.93 & 0.69 & 1.19 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Before and after the transition.} The overall controversial share barely moves across the governance transition (4.8\% to 5.1\%), but its composition does (Table~\ref{tab:rq6}). Unilateral decisions fall by a third (0.46\% to 0.30\%), gatekeeping by a third (0.35\% to 0.23\%) and incivility by more than a third (1.80\% to 1.13\%); procedural control doubles (0.95\% to 1.96\%) and corporate-interest references rise by 60\% (0.29\% to 0.47\%); backchannel references and exit threats are flat. In the Steering Council era, in other words, the contested forms of influence are less about a person deciding or refusing and more about \emph{process}---which list, which sponsor, which PEP, what PEP~13 says---and more openly about who is paying for the work. The venue split within the era shows that this is not an artefact of the move to Discourse: incivility is actually lower on Discourse than on the lists (1.02\% vs.\ 1.28\%), unilateral sentences are lower (0.23\% vs.\ 0.40\%), and procedural control is higher on Discourse (2.18\% vs.\ 1.68\%), where category rules and thread moderation are part of the medium.
+
+\paragraph{Examples.} Table~\ref{tab:rq6examples} shows sentences the tool labelled with each mechanism, chosen among high-scoring candidates. They include the sentence with which the BDFL announced his resignation after PEP~572 \cite{transferofpower}, which the detector labels as an exit signal (``fight so hard''); a proposal author's ultimatum (``if it's clear that there's a large number of people who won't adopt the idea \ldots then I'm going to withdraw the PEP'', PEP~842); a delegate's refusal to recuse (``I will step down as PEP delegate if Paul asks me, but otherwise \ldots I have no plans to recuse myself'', PEP~722); and a proposal author reporting a decision reached in private (``Guido told me in private he's now accepting the PEP'', PEP~376). They also show the limits of cue matching: ``code of conduct'' and ``bikeshedding'' mark sentences that talk \emph{about} incivility as often as sentences that commit it, ``as BDFL-Delegate I am accepting'' is a legitimate pronouncement rather than a usurpation, and ``conflict of interest'' appears in the Steering Council election reports precisely because none was found. The labels are therefore best read as a high-recall index into the contested passages of a discussion; deciding which of them is an abuse of position is the qualitative step that follows.
+
+\begin{table*}[t]
+\caption{Sample sentences labelled with the controversial mechanisms (extended corpus; multi-label, so a sentence can also carry base mechanisms). Message text lightly trimmed.}
+\label{tab:rq6examples}
+\small
+\begin{tabular}{p{0.135\textwidth}p{0.175\textwidth}p{0.63\textwidth}}
+\toprule
+Mechanism & PEP, author (role) & Sentence \\
+\midrule
+Unilateral & 285, van Rossum (BDFL) & Despite the negative feedback, I've decided to accept the PEP. \\
+Unilateral & 329, van Rossum (BDFL) & Also, a heads up: unless this PEP gets a lot more support from folks whose first name isn't Raymond, I'm going to reject it. \\
+Unilateral & 505, van Rossum (BDFL) & Just to cut this thread short, I'm going to reject PEP 505, because ? is just too ugly to add to Python IMO. \\
+Unilateral & 686, Viktorin (SC) & The PEP was updated, so please consider it accepted. \\
+Corporate interest & 526, van Rossum (BDFL) & Many others at Dropbox (where we have been doing a fairly large-scale experiment with the introduction of mypy) agree. \\
+Corporate interest & 587, Wouters (SC) & I have need to poke at CPython internals quite a bit, because of how we at Google use Python and what CPython exposes. \\
+Corporate interest & 466, van Rossum (BDFL) & Hm, making Christian the BDFL-delegate would mean two out of three authors *and* the BDFL-delegate all working for Red Hat, which clearly has a stake. \\
+Corporate interest & 611, Shannon (author) & I suspect no one is going to do that unless paid to do so, or are guaranteed that the work won't be thrown away because the PEP is rejected. \\
+Gatekeeping & 3104, van Rossum (BDFL) & I strongly object against the addition of features of *any* kind to 3.0.1, no matter whether they were promised or announced in a PEP or in the docs or on the 8 o'clock news. \\
+Gatekeeping & 555, van Rossum (BDFL) & In any case this is completely academic because PEP 521 is not going to happen. \\
+Gatekeeping & 418, Simpson (author) & I have to say I'm -100 on any proposal where time.monotonic() returns non-monotonic time. \\
+Exit threat & 572, van Rossum (BDFL) & Now that PEP 572 is done, I don't ever want to have to fight so hard for a PEP and find that so many people despise my decisions. \\
+Exit threat & 842, Bierma (author) & To be straight: warning or not, if it's clear that there's a large number of people who won't adopt the idea because they consider it ``unpythonic'', then I'm going to withdraw the PEP. \\
+Exit threat & 722, Cannon (SC) & I will step down as PEP delegate if Paul asks me, but otherwise I disagree with your reasoning as to why I shouldn't be the PEP delegate in this situation, and so I have no plans to recuse myself. \\
+Exit threat & 557, Smith (author) & I don't feel strongly enough about it to change it, but part of that is because I'm burned out on the PEP. \\
+Incivility & 332, van Rossum (BDFL) & Summary: you don't understand the implementation well enough to suggest these kinds of things. \\
+Incivility & 3131, Reedy (core dev.) & It is ridiculous claims like this and the consequent refusal to admit, address, and ameliorate the 50x worse problems that would be introduced that lead me to oppose the PEP in its current form. \\
+Incivility & 460, Pitrou (author) & Because the PEP is IMO a much saner compromise than what you're trying to do (and would also stand a better chance of being accepted, if it weren't for your stupid maximalist opposition). \\
+Incivility & 616, Stinner (SC) & Maybe we should have a rule to disallow bikeshedding until the foundations of a PEP are settled. \\
+Backchannel & 410, van Rossum (BDFL) & After an off-list discussion with Victor I have decided to reject PEP 410. \\
+Backchannel & 376, Ziad\'e (author) & Guido told me in private he's now accepting the PEP since there's consensus. \\
+Backchannel & 397, Curtin (core dev.) & After talking with Martin and several others during the language summit and elsewhere around PyCon, PEP 397 should be accepted. \\
+Backchannel & 788, Na (SC) & This reflects internal discussion that, if the PEP is officially approved, the implementer should have enough time to proceed with the implementation before the beta cutoff. \\
+Procedural control & 479, van Rossum (BDFL) & In any case, as I tried to say before, redesigning the iterator protocol is most definitely out of scope here (you could write a separate PEP and I'd reject it instantly). \\
+Procedural control & 581, Moore (core dev.) & In theory, PEP 13 says that the council should look for consensus rather than making decisions on their own. \\
+Procedural control & 651, Galindo Salgado (SC) & It was decided that maintainers should write a PEP. \\
+Procedural control & 2026, Coghlan (core dev.) & (and we should probably stop this tangent here or else split it out to its own thread in the Ideas or Help categories, since it is getting borderline off-topic for this PEP's thread) \\
+\bottomrule
+\end{tabular}
+\end{table*}
+

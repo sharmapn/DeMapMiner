@@ -1,0 +1,47 @@
+\appendix
+
+\section{Detector Rules}
+\label{app:rules}
+
+The rules are reproduced here so that the labels in this paper can be reproduced and criticised. All cues are matched case-insensitively on word boundaries; British and American spellings are both listed.
+
+\paragraph{Mechanism cues (selection).} Table~\ref{tab:cues} lists representative cues per mechanism; the complete lists (about 60 cues per mechanism) are in \texttt{InfluenceTypeDetector.java}. Some broad words count only near a disambiguating word within 60 characters: \emph{break/breaks/broken} near \emph{compatib-, existing, code, API, user, change, backward}; \emph{risk} near \emph{security, attack, regression, break, compat, data, safety}; \emph{team} near \emph{release, core, dev, steering, security}; \emph{node(s)} near \emph{old, full, network, bitcoin, upgrade}; \emph{market} near \emph{fee, share, economic, incentive}; \emph{patch(es)} near \emph{submit, review, apply, reference, implement}; \emph{editor(s)} near \emph{PEP, BIP}; \emph{data} near \emph{show, evidence, measure, benchmark}. The word \emph{safe} on its own is not a cue. The controversial mechanisms are matched the same way, and their broad cues also need context: ownership claims (\emph{I maintain, my module, as the maintainer}) count only near a refusal or decision word; \emph{no way, no chance, won't happen} only near a proposal or refusal word; \emph{offline, in person, at PyCon, at the sprint} only near a discussion or decision word; \emph{internally, secret} only near deliberation words; \emph{grant, contract, hired, full-time} only near employer or funding words; \emph{exhausted, tired of, step down, walk away, hiatus, retire} only in the first person or near a project word; \emph{angry, insane, flame, insult, hostile} only next to a person or tone word; \emph{procedure, belongs on, the archives, drop it, please stop} only near a process, list or thread word.
+
+\begin{table*}[t]
+\caption{Representative cue phrases per mechanism (base mechanisms above the rule, controversial mechanisms below).}
+\label{tab:cues}
+\small
+\begin{tabular}{p{0.15\textwidth}p{0.81\textwidth}}
+\toprule
+Mechanism & Cues \\
+\midrule
+Strategic & long term, future direction, philosophy, principles, Zen of Python, pythonic, readability, simplicity, decentrali[s/z]ation, project values, governance \\
+Operational & implement(ation), maintain(ance), release, migration, deploy(ment), test suite, documentation, backport, feature freeze, reference implementation, CPython \\
+Functional & solves, use case, edge case, corner case, API, behavio[u]r, semantics, syntax, alternative design, better approach, what problem, special case \\
+Tactical & to summari[s/z]e, let's decide, can we agree, compromise, reframe, narrow, clarify, evidence, defer, postpone, next step, rough consensus, separate PEP, straw poll \\
+Authority & BDFL, steering council, delegate, core developer(s), committer, maintainer, BIP editor, release manager, pronounce(ment), veto, Guido, final decision \\
+Compatibility & backward(s) compatib-, incompatible, breaking change, existing code/users, legacy, Python 2/3, 2to3, deprecat-, regression, soft/hard fork \\
+Security & security, attack(er), vulnerab-, risk, unsafe, safety, privacy, robust(ness), denial of service, exploit, double spend, consensus failure, crash, data loss \\
+Standards & standard(s), specification, spec, RFC, convention, interoperab-, compliance, PEP~8, style guide, de facto standard \\
+Ecosystem & ecosystem, downstream, librar(y/ies), package(s), PyPI, stdlib, third-party, distros, wallet(s), exchange(s), miner(s), node(s), Lightning, full node \\
+Economic & cost(s), expensive, funding, incentive(s), fee(s), fee market, business, commercial, budget, developer time, block reward, mempool \\
+Organizational & company, foundation, PSF, organi[s/z]ation, working group, release team, committee, sponsor, employer, Google, Microsoft, Red Hat, Bitcoin Core \\
+Coalition & several/many people, we all agree, consensus seems/is, broad support, multiple developers, as others have said, unanimous(ly), seconded, me too \\
+User demand & users want/need, people keep asking, frequently requested, pain point, beginners, newcomers, students, real users, widely used, adoption \\
+\midrule
+Unilateral & I have decided, I'm going to reject/accept, I hereby, consider it accepted, end of discussion, not up for debate, overrule, by fiat, pull rank, already merged/committed, as BDFL, BDFL pronouncement, I get to decide, made up my mind \\
+Corporate interest & my employer, my/our company, at work, at Google/Dropbox/Microsoft/Red Hat/\ldots, our production, our customers, paid to, funded by, sponsored by, commercial interest, business needs, conflict of interest, internal fork, enterprise users, my manager \\
+Gatekeeping & I will not merge, I won't accept, not going to happen, over my dead body, I refuse, I will revert, I veto, I (strongly) object, not on my watch, as the maintainer, my approval, dead on arrival, won't fly, no chance, $-$1000, strong $-$1, the answer is no \\
+Exit threat & I'll fork, fork CPython, leaving python-dev, I quit, I resign, step down, count me out, I give up, walk away, stop contributing/maintaining, withdraw the PEP, if this goes in, burned out, fed up, last straw, ultimatum, unsubscribe, mute this thread, fight so hard, out of energy \\
+Incivility & stupid, idiot, ridiculous, absurd, nonsense, clueless, garbage, shut up, troll, flame war, you (clearly) don't understand, waste of time, bikeshedding, ad hominem, personal attack, insult, rude, hostile, toxic, condescending, arrogant, harassment, code of conduct, calm down, who cares \\
+Backchannel & offline, off-list, privately, in private, behind closed doors, at the sprint, language summit, at PyCon, on IRC/Zulip/Discord, I talked to, Guido and I, Guido told me, already been decided, without discussion, without consulting, python-committers, done deal, rubber stamp, cabal, inner circle, out of band, lack of transparency \\
+Procedural control & wrong list/venue, belongs on python-ideas, take it to, out of scope, scope creep, PEP~1 says, the PEP process, follow the process, proper channels, moderator, locking this thread, please stop, drop it, already discussed, dead horse, read the archives, needs a sponsor, write a PEP, too late for, after the freeze, PEP~13, formal vote \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Direction.} A sentence is \emph{supporting} on an explicit support phrase or a positive vote (\emph{+1, +0.5} at a token boundary), \emph{blocking} on an explicit objection or a negative vote (\emph{$-$1}); negated phrases are resolved first (\emph{I don't object, no objection, not against, can live with} $\rightarrow$ supporting; \emph{don't support, not in favour, not convinced, don't see the need, not worth} $\rightarrow$ blocking); a sentence with both supporting and blocking cues is ambiguous and stays \emph{neutral}; hedged sentences (\emph{maybe, perhaps, not sure, I wonder}) and questions never become supporting or blocking and are demoted to \emph{revising} when they carry a stance cue; otherwise \emph{revising} on revision cues (\emph{revise, alternative, compromise, defer, postpone, clarify, narrow the scope, needs more work, more evidence, instead of, what about, I'd prefer, unless, provided that}) and \emph{neutral} by default.
+
+\paragraph{Scope and target.} Scope is \emph{internal} when the author's resolved role is one of BDFL, steering council, delegate, proposal author, PEP/BIP editor, core developer, release manager or maintainer, or when the sentence names such actors; \emph{external} when the sentence names users, downstream projects, libraries, companies, wallets, exchanges, miners, standards bodies, educators, researchers or ``my employer''; \emph{mixed} when both apply. The role alone never makes a sentence external. Target is the first of governance, security, compatibility, implementation, ecosystem, users and proposal whose cue list matches.
+
+\paragraph{Preprocessing.} Lines are dropped when they start with a quote marker, are ``On \ldots wrote:'' introductions, mail headers, forwarded-message markers, message-id or address debris, Gmail-style dated quote introductions, divider lines, signature blocks (from ``\texttt{--}'' or a closing word such as \emph{regards, cheers, thanks} to the end unless prose resumes), mailing-list footers, embedded PEP text (from a ``PEP: \emph{n}'' header block onward), code, diffs or tracebacks. URLs become \texttt{<URL>}. Sentences are split on terminal punctuation followed by whitespace with abbreviations, version numbers and proposal references protected; short vote lines are kept whole; sentences of fewer than three words (other than votes), more than 120 words, or mostly non-alphabetic characters are dropped; duplicates within a proposal are collapsed after lower-casing and removing punctuation.
