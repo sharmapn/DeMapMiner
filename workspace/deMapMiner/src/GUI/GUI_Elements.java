@@ -890,8 +890,10 @@ public class GUI_Elements extends JFrame {
 		// so that clicking a row shows the source message exactly as for reasons.
 		JPanel influenceMinerTabRightSideOfFrame = new JPanel();
 		influenceMinerTabRightSideOfFrame.setLayout(new GridLayout(0, 2));
-		imMechanismCombo = new JComboBox<String>(new String[] { "All mechanisms", "strategic", "operational", "functional", "tactical",
-				"authority", "compatibility", "security", "standards", "ecosystem", "economic", "organizational", "coalition", "user_demand" });
+		imMechanismCombo = new JComboBox<String>(new String[] { "All mechanisms", "Controversial (any of the 7)", "strategic", "operational",
+				"functional", "tactical", "authority", "compatibility", "security", "standards", "ecosystem", "economic", "organizational",
+				"coalition", "user_demand", "unilateral", "corporate_interest", "gatekeeping", "exit_threat", "incivility", "backchannel",
+				"procedural_control" });
 		imDirectionCombo = new JComboBox<String>(new String[] { "All directions", "supporting", "blocking", "revising", "neutral" });
 		imRoleCombo = new JComboBox<String>(new String[] { "All roles", "BDFL", "steering council", "BDFL delegate", "proposal author",
 				"PEP editor", "core developer", "community member" });

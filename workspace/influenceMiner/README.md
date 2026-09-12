@@ -36,7 +36,7 @@ influenceMiner/
 │   ├── InfluenceMessageSource.java        schema-aware reader for allmessages (dedups messageIDs)
 │   ├── InfluenceAuthorResolver.java       recovers the address on rows with shifted e-mail columns (see Data notes)
 │   ├── InfluenceTextPreprocessor.java     quote/signature/code/header removal, sentence splitting
-│   ├── InfluenceTypeDetector.java         13-type multi-label cue detector + evidence cues
+│   ├── InfluenceTypeDetector.java         20-type multi-label cue detector (13 + 7 controversial) + evidence cues
 │   ├── InfluenceDirectionDetector.java    supporting | blocking | revising | neutral
 │   ├── InfluenceScopeDetector.java        internal | external | mixed | unknown
 │   ├── InfluenceTargetDetector.java       governance | implementation | security | ... | proposal
@@ -123,7 +123,7 @@ java -cp %CP% influenceMiner.InfluencePipeline pep --no-extract      (reporting 
 | `influence_proposal_summary.csv` | per proposal counts, outcome group, alignment ratio |
 | `influence_type_distribution.csv` | RQ1 – multi-label type counts |
 | `influence_direction_distribution.csv`, `influence_scope_distribution.csv`, `influence_role_distribution.csv` | |
-| `influence_actor_type_matrix.csv` | RQ2 – top-50 actors × 13 types |
+| `influence_actor_type_matrix.csv` | RQ2 – top-50 actors × 20 types |
 | `influence_era_comparison.csv` | RQ3 – type/direction/scope by governance era |
 | `influence_outcome_alignment.csv`, `influence_type_by_outcome.csv` | RQ4 – direction/type vs outcome |
 | `influence_preference_overlap.csv` | RQ5 – sentence overlap with `preference_candidates` |
@@ -167,6 +167,26 @@ java -cp %CP% influenceMiner.InfluencePipeline pep --no-extract      (reporting 
 | organizational | companies, foundations, teams, working groups, release teams |
 | coalition | visible group alignment, repeated agreement, collective pressure |
 | user_demand | user requests, beginner confusion, adoption pressure, pain points |
+
+### Controversial mechanisms (added September 2026)
+
+Seven further mechanisms cover the forms of influence that the OSS-governance literature treats as
+contested. They are stored in the same `influence_types` column; `influence_candidates.controversial`
+is 1 when a row carries at least one of them, and the report has a dedicated section (8).
+
+| type | meaning | literature |
+|------|---------|------------|
+| unilateral | a decision announced by fiat ("I have decided", "end of discussion", "already merged", "pull rank") | benevolent-dictator governance (Raymond; O'Mahony & Ferraro 2007) |
+| corporate_interest | an employer, customer, funding or paid-time stake in the outcome ("my employer needs", "we are paid to", "sponsored by") | firm participation in OSS (Dahlander & Magnusson 2005; Riehle 2010; Zhang et al. 2019) |
+| gatekeeping | refusal grounded in ownership or veto position ("I will not merge", "as the maintainer", "over my dead body", "-1000") | gatekeepers / maintainer power (Ducheneaut 2005; Jensen & Scacchi) |
+| exit_threat | threats or announcements of exit, fork, withdrawal or burnout ("I'll fork", "I'm stepping down", "if this goes in I'm out") | exit vs voice (Hirschman); forking (Robles & Gonzalez-Barahona 2012; Gamalielsson & Lundell 2014) |
+| incivility | ridicule, hostility, personal attacks, bikeshedding accusations, tone policing | incivility in OSS (Ferreira et al. 2021; Squire & Gazda 2015; Raman et al. 2020) |
+| backchannel | decisions or agreements reached off-list (in private, at sprints, on IRC, "Guido and I agreed") | transparency of OSS decision-making (Shaikh & Cornford; Schneider et al. 2016) |
+| procedural_control | process rules used to redirect or close a discussion ("wrong list", "needs a sponsor", "already discussed", "PEP 1 says") | proceduralisation of governance (de Laat 2007; Fitzgerald 2006) |
+
+Cue lists are precision-oriented (first-person and explicit phrases); the broad words only count near a
+disambiguating word (`NEAR_REQUIRED` in `InfluenceTypeDetector`). The GUI mechanism filter offers
+"Controversial (any of the 7)" in both the desktop tab and the web version.
 
 Direction: supporting / blocking / revising / neutral. Scope: internal / external / mixed / unknown.
 Target: governance / implementation / security / compatibility / ecosystem / users / proposal / unknown.

@@ -10,7 +10,10 @@ import java.util.regex.Pattern;
 /*
  * InfluenceTypeDetector
  *
- * Rule-based, multi-label detector for the thirteen influence mechanisms.
+ * Rule-based, multi-label detector for the influence mechanisms: the thirteen
+ * of the original taxonomy plus seven "controversial" mechanisms (unilateral
+ * decision, corporate interest, gatekeeping, exit threat, incivility,
+ * backchannel and procedural control) added in September 2026.
  * It stays transparent on purpose: every label can be traced back to the cue
  * phrases that fired (see detectEvidenceCues), which is what the annotation
  * study needs. A supervised / LLM classifier can replace detectTypes() later
@@ -36,8 +39,34 @@ public class InfluenceTypeDetector {
 
     public static final String[] TYPES = {
             "strategic", "operational", "functional", "tactical", "authority", "compatibility",
-            "security", "standards", "ecosystem", "economic", "organizational", "coalition", "user_demand"
+            "security", "standards", "ecosystem", "economic", "organizational", "coalition", "user_demand",
+            /* controversial mechanisms, added Sept 2026 */
+            "unilateral", "corporate_interest", "gatekeeping", "exit_threat", "incivility", "backchannel",
+            "procedural_control"
     };
+
+    /* The seven mechanisms the OSS-governance literature treats as contested. */
+    public static final String[] CONTROVERSIAL_TYPES = {
+            "unilateral", "corporate_interest", "gatekeeping", "exit_threat", "incivility", "backchannel",
+            "procedural_control"
+    };
+
+    public static boolean isControversial(String type) {
+        for (int i = 0; i < CONTROVERSIAL_TYPES.length; i++) {
+            if (CONTROVERSIAL_TYPES[i].equals(type)) return true;
+        }
+        return false;
+    }
+
+    /* True when the comma-separated influence_types value carries at least one controversial mechanism. */
+    public static boolean hasControversial(String influenceTypes) {
+        if (influenceTypes == null) return false;
+        String[] parts = influenceTypes.split(",");
+        for (int i = 0; i < parts.length; i++) {
+            if (isControversial(parts[i].trim())) return true;
+        }
+        return false;
+    }
 
     private static final Map<String, String[]> CUES = new LinkedHashMap<String, String[]>();
     private static final Map<String, Pattern[]> COMPILED = new LinkedHashMap<String, Pattern[]>();
@@ -151,6 +180,183 @@ public class InfluenceTypeDetector {
                 "wishlist", "faq", "stack overflow", "stackoverflow", "tutorial", "end users", "end-users", "the users"
         });
 
+        /* ------------------------------------------------------------------
+         * Controversial mechanisms (Sept 2026). These are the forms of influence
+         * the OSS-governance literature treats as contested: decisions by fiat,
+         * corporate stakes, ownership-based gatekeeping, exit threats, hostile
+         * pressure, decisions taken off-list and the use of process rules to
+         * close a discussion. The lists are precision-oriented: most cues are
+         * first-person or explicit phrases, and the broad ones only count near
+         * a disambiguating word (NEAR_REQUIRED below).
+         * ------------------------------------------------------------------ */
+        CUES.put("unilateral", new String[] {
+                "i have decided", "i've decided", "i decided", "my decision", "my final decision", "executive decision",
+                "i'm going to accept", "i am going to accept", "i'm going to reject", "i am going to reject",
+                "i'm going to pronounce", "i am going to pronounce", "i hereby", "i pronounce", "consider it accepted",
+                "consider it rejected", "consider this rejected", "consider this accepted", "end of discussion",
+                "end of story", "discussion is over", "the discussion is closed", "case closed", "no further discussion",
+                "this is final", "final answer", "i overrule", "overruled", "overruling", "unilateral", "unilaterally",
+                "by fiat", "fiat", "dictator", "dictatorial", "dictatorship", "benevolent dictator", "my call",
+                "not up for debate", "not open for discussion", "not open to discussion", "not negotiable",
+                "non-negotiable", "whether you like it or not", "like it or not", "i will merge", "i'm merging",
+                "i am merging", "i'll just merge", "i'll merge it", "i just committed", "i've committed",
+                "i've already committed", "already merged", "already committed", "already decided", "it's decided",
+                "it is decided", "decision has been made", "the decision has been made", "the decision is made",
+                "pull rank", "pulling rank", "pulled rank", "fait accompli", "i don't need consensus",
+                "don't need a vote", "we don't vote", "not a democracy", "isn't a democracy", "is not a democracy",
+                "i'm the bdfl", "i am the bdfl", "as bdfl", "as the bdfl", "bdfl decision", "bdfl pronouncement",
+                "my pronouncement", "i get to decide", "i decide", "i'll decide", "i will decide", "i make the call",
+                "i've made up my mind", "made up my mind", "my mind is made up", "i have spoken", "so let it be"
+        });
+        CUES.put("corporate_interest", new String[] {
+                "my employer", "our employer", "at my company", "my company", "our company", "at work we", "at work,",
+                "$work", "my day job", "day job", "i work at", "i work for", "we at google", "at google", "at dropbox",
+                "at microsoft", "at facebook", "at instagram", "at red hat", "at redhat", "at canonical", "at bloomberg",
+                "at jetbrains", "at meta", "at amazon", "at intel", "at ibm", "at oracle", "at mozilla", "at nvidia",
+                "at quansight", "at anaconda", "at continuum", "at enthought", "at yelp", "at linkedin", "at twitter",
+                "at netflix", "at spotify", "at shopify", "at stripe", "at cisco", "at rackspace", "at zope corporation",
+                "in our codebase", "our codebase", "our code base", "our production", "in production at",
+                "production code at", "our customers", "our product", "our products", "paid to", "being paid",
+                "getting paid", "paid by", "paid for by", "funded by", "funding for", "funding from", "grant",
+                "sponsored by", "sponsorship", "commercial interest", "commercial interests", "business interest",
+                "business interests", "business needs", "business reasons", "business case", "vendor lock",
+                "vendor lock-in", "conflict of interest", "conflicts of interest", "corporate agenda",
+                "corporate interests", "corporate interest", "company's interest", "company's needs", "company agenda",
+                "internal fork", "internal patch", "internal patches", "our internal", "internally at",
+                "we use it internally", "use it internally", "we depend on", "we rely on", "we need this for",
+                "we need this at", "customer demand", "customers are asking", "customers want", "customers need",
+                "enterprise customers", "enterprise users", "commercial users", "commercial support", "contract",
+                "consulting", "my clients", "our clients", "clients pay", "who pays", "follow the money",
+                "full-time", "full time", "hired", "hire", "employs", "employed by", "employee", "employees",
+                "on the clock", "company time", "work hours", "the company i work", "company i work for",
+                "corporations", "corporation", "management wants", "management has", "my manager", "my boss"
+        });
+        CUES.put("gatekeeping", new String[] {
+                "i will not merge", "i won't merge", "i'm not going to merge", "i am not going to merge",
+                "won't be merged", "will not be merged", "not going to be merged", "i will not accept", "i won't accept",
+                "i'm not going to accept", "i am not going to accept", "not going to happen", "won't happen",
+                "will not happen", "not happening", "over my dead body", "i refuse", "i'll refuse", "i will refuse",
+                "i will revert", "i'll revert", "i'm reverting", "i am reverting", "revert it", "reverted your",
+                "i will block", "i'll block", "i'm blocking", "i am blocking", "i block", "i veto", "i'll veto",
+                "i will veto", "my veto", "i object", "i strongly object", "i formally object", "formal objection",
+                "not on my watch", "no way", "absolutely not", "hell no", "never going to", "i will never",
+                "i'll never accept", "i'll never approve", "as long as i'm", "as long as i am", "while i'm the",
+                "while i am the", "my module", "my code", "my package", "i own", "i maintain", "i'm the maintainer",
+                "i am the maintainer", "as the maintainer", "as maintainer", "as the author of", "as the original author",
+                "as its author", "as its maintainer", "i wrote", "i designed", "i created", "i'm the author",
+                "i am the author", "i'm responsible for", "i am responsible for", "you need my", "requires my approval",
+                "my approval", "my sign-off", "sign-off from me", "my blessing", "needs my ok", "not without my",
+                "dead on arrival", "won't fly", "will not fly", "doesn't fly", "no chance", "not a chance",
+                "zero chance", "won't get in", "will not get in", "isn't going in", "is not going in", "not going in",
+                "reject it outright", "outright rejection", "rejected outright", "strong -1", "hard -1", "firm -1",
+                "-1000", "-100", "a big -1", "big -1", "i'm -1", "i am -1", "my -1", "not in my lifetime",
+                "the answer is no", "answer is no", "the answer remains no", "no means no", "asked and answered",
+                "i said no", "i've said no", "i already said no"
+        });
+        CUES.put("exit_threat", new String[] {
+                "i'll fork", "i will fork", "fork the project", "fork python", "fork cpython", "fork the language",
+                "we'll fork", "we will fork", "threaten to fork", "threat of a fork", "hostile fork", "forking python",
+                "i'm leaving", "i am leaving", "i'll leave", "i will leave", "i quit", "i'm quitting", "i am quitting",
+                "i resign", "i'm resigning", "i am resigning", "resignation", "step down", "stepping down",
+                "stepped down", "i'm stepping down", "i'm done", "i am done", "count me out", "i give up",
+                "i'm giving up", "i am giving up", "i'm walking away", "walk away", "walking away", "take my ball",
+                "i'll stop contributing", "stop contributing", "stop maintaining", "no longer maintain", "i'll withdraw",
+                "i withdraw", "withdrawing my", "i'm withdrawing", "i am withdrawing", "withdraw the pep",
+                "withdraw this pep", "withdraw my pep", "abandon the pep", "abandon this pep", "i'm abandoning",
+                "i am abandoning", "if this goes in", "if this is accepted", "if this pep is accepted",
+                "if this is rejected", "if this gets rejected", "if this gets in", "you'll lose", "you will lose",
+                "python will lose", "lose contributors", "lose me", "drive away", "driving away", "driven away",
+                "burn out", "burned out", "burnt out", "burnout", "permanent vacation", "vacation from", "tired of",
+                "sick of", "fed up", "last straw", "ultimatum", "not worth my time", "waste of my time",
+                "waste my time", "wasting my time", "no longer worth", "done with this", "i'm done here",
+                "my last message", "last message on this", "unsubscribe", "unsubscribed", "unsubscribing",
+                "leaving the list", "leave the list", "leave python-dev", "leave python-ideas", "leaving python-dev",
+                "leaving python-ideas", "mute this thread", "muting this thread", "muting the thread", "i'm muting",
+                "i am muting", "fight so hard", "don't want to fight", "no longer want to", "i no longer",
+                "no energy", "out of energy", "exhausted", "exhausting", "demoralizing", "demoralising",
+                "demoralized", "demoralised", "disheartening", "disheartened", "i'm tired", "i am tired",
+                "i'm exhausted", "i am exhausted", "take a break from", "taking a break from", "hiatus", "retire",
+                "retiring", "retired from", "hand over", "handing over", "hand it over", "someone else can",
+                "someone else will have to", "find someone else"
+        });
+        CUES.put("incivility", new String[] {
+                "stupid", "idiotic", "idiot", "idiots", "moron", "moronic", "dumb", "ridiculous", "absurd", "nonsense",
+                "nonsensical", "laughable", "insane", "crazy idea", "braindead", "brain-dead", "brain dead", "clueless",
+                "incompetent", "ignorant", "ignorance", "pathetic", "garbage", "crap", "crappy", "bullshit", "wtf",
+                "shut up", "stfu", "fuck", "fucking", "screw this", "screw it", "troll", "trolling", "trolls", "flame",
+                "flamewar", "flame war", "flaming", "flamefest", "ranting", "whining", "whine", "childish", "grow up",
+                "get a life", "you clearly don't", "you obviously don't", "you don't understand", "you have no idea",
+                "you have no clue", "you people", "you guys never", "waste of time", "waste of everyone's time",
+                "wasting everyone's time", "wasting our time", "bikeshed", "bikeshedding", "bike shed", "bike-shed",
+                "bike-shedding", "bike shedding", "paint the bikeshed", "ad hominem", "personal attack",
+                "personal attacks", "insult", "insulting", "insulted", "insults", "rude", "rudeness", "hostile",
+                "hostility", "toxic", "toxicity", "condescending", "condescension", "patronizing", "patronising",
+                "arrogant", "arrogance", "dismissive", "bullying", "bully", "bullied", "harass", "harassment",
+                "harassing", "abusive", "aggressive", "passive-aggressive", "passive aggressive", "snark", "snarky",
+                "sarcasm", "sarcastic", "nasty", "mean-spirited", "disrespectful", "disrespect", "code of conduct",
+                "civility", "uncivil", "incivility", "the tone of", "your tone", "tone down", "calm down",
+                "take a deep breath", "*sigh*", "facepalm", "eye roll", "rolls eyes", "seriously?", "are you kidding",
+                "you must be joking", "give me a break", "oh please", "yeah right", "who cares", "nobody cares",
+                "no one cares", "get over it", "deal with it", "cry me a river", "boo hoo", "shouting", "yelling",
+                "screaming", "name-calling", "name calling", "belittle", "belittling", "mocking", "ridicule",
+                "ridiculing", "contempt", "contemptuous", "attacking me", "attacking you", "attacking him",
+                "attacking her", "unprofessional", "out of line", "over the line", "crossed a line", "crosses a line",
+                "pissed", "piss off", "pissing", "angry"
+        });
+        CUES.put("backchannel", new String[] {
+                "offline", "off-line", "off list", "off-list", "offlist", "privately", "in private", "private email",
+                "private mail", "private message", "private discussion", "private conversation", "private channel",
+                "private chat", "behind closed doors", "closed doors", "in person", "face to face", "face-to-face",
+                "at the sprint", "at the sprints", "during the sprint", "core sprint", "core dev sprint",
+                "core developer sprint", "language summit", "at pycon", "at europython", "at the summit",
+                "at the conference", "hallway", "hallway track", "over lunch", "over dinner", "over beer", "over beers",
+                "over drinks", "on irc", "on zulip", "on discord", "on slack", "in the chat", "on the phone",
+                "phone call", "video call", "zoom call", "on a call", "we discussed this", "we already discussed",
+                "as discussed with", "as agreed with", "i talked to", "i've talked to", "i spoke to", "i spoke with",
+                "i talked with", "i have talked to", "i discussed this with", "i've discussed this with", "guido and i",
+                "guido told me", "guido has told me", "guido agreed", "guido already agreed", "the council and i",
+                "was decided at", "decided at the", "agreed at the", "internal discussion", "internal mailing list",
+                "python-committers", "committers list", "the committers list", "private list", "secret", "secretly",
+                "not public", "non-public", "wasn't public", "was not public", "without public", "no public discussion",
+                "without discussion", "without any discussion", "without community", "without consulting",
+                "without asking", "no one was consulted", "nobody was consulted", "wasn't consulted", "weren't consulted",
+                "already been decided", "has already been decided", "was already decided", "already agreed",
+                "pre-decided", "predecided", "done deal", "foregone conclusion", "rubber stamp", "rubber-stamp",
+                "rubberstamp", "smoke-filled", "cabal", "inner circle", "old boys", "clique", "insiders", "insider",
+                "internally", "in the back room", "back room", "backroom", "back-room", "back channel", "backchannel",
+                "back-channel", "out of band", "out-of-band", "lack of transparency", "not transparent", "opaque"
+        });
+        CUES.put("procedural_control", new String[] {
+                "wrong list", "wrong venue", "wrong forum", "wrong place", "not the right place", "not the right venue",
+                "not the place for", "not the venue", "not the right list", "not the right forum", "belongs on",
+                "take it to", "take this to", "take that to", "move this to", "move it to", "please move",
+                "should go to python", "python-ideas is the", "go to python-ideas", "post to python-ideas",
+                "post it to python-ideas", "python-ideas, not", "belongs on python-ideas", "python-list is",
+                "this list is for", "this list is not", "not for this list", "not appropriate for this list",
+                "off-topic for", "off topic for", "out of scope", "outside the scope", "beyond the scope",
+                "not in scope", "scope creep", "per pep 1", "pep 1 says", "pep 1 requires", "according to pep 1",
+                "the pep process", "pep process", "process requires", "the process requires", "follow the process",
+                "not following the process", "didn't follow the process", "proper channels", "proper channel",
+                "through the proper", "wrong process", "procedural", "procedure", "procedurally", "on procedural grounds",
+                "moderator", "moderators", "moderation", "moderated", "i'm locking", "i am locking", "locking this",
+                "lock this thread", "locked this thread", "thread locked", "closing this thread", "close this thread",
+                "this thread is closed", "closing the thread", "i'm closing this", "thread is over", "muted this thread",
+                "let's end this thread", "end this thread", "kill this thread", "please stop", "stop posting",
+                "stop replying", "stop this thread", "drop it", "let it go", "let this die", "let it die",
+                "let the thread die", "run its course", "we've been over this", "been over this", "already discussed",
+                "already been discussed", "discussed to death", "discussed many times", "discussed before", "rehash",
+                "rehashing", "rehashed", "beating a dead horse", "dead horse", "flogging a dead horse",
+                "here we go again", "comes up every", "every few months", "every few years", "read the archives",
+                "search the archives", "check the archives", "the archives", "needs a sponsor", "need a sponsor",
+                "find a sponsor", "no sponsor", "without a sponsor", "core dev sponsor", "needs a pep", "write a pep",
+                "needs to be a pep", "requires a pep", "submit a pep", "needs a champion", "needs a reference implementation",
+                "no reference implementation", "not a complete pep", "incomplete pep", "too late for", "missed the deadline",
+                "after the freeze", "after beta", "not in time for", "not the time", "not the right time", "wrong time",
+                "bad timing", "not how we do things", "not how things work", "that's not how", "not the way we",
+                "rules are rules", "against the rules", "policy says", "letter of the", "by the book", "pep 13",
+                "pep 8001", "pep 8016", "per the pep", "as the pep says", "formal process", "formal vote"
+        });
+
         NEAR_REQUIRED.put("break", new String[] { "compatib", "existing", "code", "api", "user", "change", "backward", "program", "script", "software", "thing" });
         NEAR_REQUIRED.put("breaks", NEAR_REQUIRED.get("break"));
         NEAR_REQUIRED.put("broke", NEAR_REQUIRED.get("break"));
@@ -178,6 +384,128 @@ public class InfluenceTypeDetector {
         NEAR_REQUIRED.put("crash", new String[] { "interpreter", "python", "segfault", "will", "can", "cause" });
         NEAR_REQUIRED.put("crashes", NEAR_REQUIRED.get("crash"));
         NEAR_REQUIRED.put("spam", new String[] { "attack", "network", "transaction", "list" });
+
+        /* controversial mechanisms: broad cues that only count near a disambiguating word */
+        String[] ownership = { "won't", "will not", "not ", "reject", "refuse", "decide", "so i", "and i", "therefore",
+                "object", "veto", "no ", "never", "final", "approve", "accept", "my say", "responsib", "i say", "i think" };
+        NEAR_REQUIRED.put("my module", ownership);
+        NEAR_REQUIRED.put("my code", ownership);
+        NEAR_REQUIRED.put("my package", ownership);
+        NEAR_REQUIRED.put("i own", ownership);
+        NEAR_REQUIRED.put("i maintain", ownership);
+        NEAR_REQUIRED.put("i wrote", ownership);
+        NEAR_REQUIRED.put("i designed", ownership);
+        NEAR_REQUIRED.put("i created", ownership);
+        NEAR_REQUIRED.put("i'm responsible for", ownership);
+        NEAR_REQUIRED.put("i am responsible for", ownership);
+        NEAR_REQUIRED.put("as the author of", ownership);
+        NEAR_REQUIRED.put("as the original author", ownership);
+        String[] refusalObject = { "pep", "proposal", "merge", "accept", "approve", "this", "that", "it ", "change", "feature", "syntax" };
+        NEAR_REQUIRED.put("no way", new String[] { "accept", "merge", "pep", "proposal", "i'm", "i am", "going to", "i will", "allow", "approve", "happen", "in hell" });
+        NEAR_REQUIRED.put("no chance", refusalObject);
+        NEAR_REQUIRED.put("won't happen", refusalObject);
+        NEAR_REQUIRED.put("will not happen", refusalObject);
+        NEAR_REQUIRED.put("not happening", refusalObject);
+        NEAR_REQUIRED.put("never going to", new String[] { "accept", "merge", "approve", "happen", "agree", "allow", "get in", "go in", "be accepted" });
+        NEAR_REQUIRED.put("my call", new String[] { "it's", "it is", "this is", "that's", "final", "make", "not your" });
+        NEAR_REQUIRED.put("fiat", new String[] { "by", "decision", "decree", "bdfl", "guido", "council" });
+        NEAR_REQUIRED.put("already merged", new String[] { "pep", "change", "without", "before", "anyway", "discussion", "so ", "already merged it", "i " });
+        NEAR_REQUIRED.put("already committed", NEAR_REQUIRED.get("already merged"));
+        NEAR_REQUIRED.put("i decide", new String[] { "what", "whether", "if ", "that", "how", "when", "which", "to " });
+        NEAR_REQUIRED.put("like it or not", new String[] { "whether", "this", "that", "is ", "will", "going" });
+
+        String[] employerContext = { "employer", "company", "work", "paid", "corporate", "business", "customer", "product",
+                "commercial", "fund", "sponsor", "google", "microsoft", "dropbox", "red hat", "canonical", "enterprise" };
+        NEAR_REQUIRED.put("grant", new String[] { "psf", "funding", "money", "receive", "awarded", "fund", "pay", "sponsor" });
+        NEAR_REQUIRED.put("contract", new String[] { "work", "paid", "company", "client", "fund", "consult", "hire", "employ" });
+        NEAR_REQUIRED.put("consulting", new String[] { "work", "client", "paid", "company", "do ", "my ", "business", "gig" });
+        NEAR_REQUIRED.put("full-time", new String[] { "paid", "work", "on this", "employ", "hire", "developer", "job", "salary" });
+        NEAR_REQUIRED.put("full time", NEAR_REQUIRED.get("full-time"));
+        NEAR_REQUIRED.put("hired", employerContext);
+        NEAR_REQUIRED.put("hire", employerContext);
+        NEAR_REQUIRED.put("employs", employerContext);
+        NEAR_REQUIRED.put("employee", employerContext);
+        NEAR_REQUIRED.put("employees", employerContext);
+        NEAR_REQUIRED.put("we depend on", new String[] { "work", "company", "production", "product", "customer", "internally", "codebase", "business" });
+        NEAR_REQUIRED.put("we rely on", NEAR_REQUIRED.get("we depend on"));
+        NEAR_REQUIRED.put("corporation", new String[] { "large", "big", "interest", "agenda", "influence", "control", "dominat", "money", "fund" });
+        NEAR_REQUIRED.put("corporations", NEAR_REQUIRED.get("corporation"));
+        NEAR_REQUIRED.put("management has", new String[] { "decided", "asked", "told", "want", "require", "approved", "mandated" });
+
+        String[] exitFirstPerson = { "i'll", "i will", "i'm", "i am", "leave", "quit", "fork", "stop", "done", "withdraw",
+                "resign", "never", "me ", "my " };
+        NEAR_REQUIRED.put("if this goes in", exitFirstPerson);
+        NEAR_REQUIRED.put("if this is accepted", exitFirstPerson);
+        NEAR_REQUIRED.put("if this pep is accepted", exitFirstPerson);
+        NEAR_REQUIRED.put("if this is rejected", exitFirstPerson);
+        NEAR_REQUIRED.put("if this gets rejected", exitFirstPerson);
+        NEAR_REQUIRED.put("if this gets in", exitFirstPerson);
+        NEAR_REQUIRED.put("walk away", new String[] { "i ", "me", "from this", "from python", "from the", "i'll", "i'd" });
+        NEAR_REQUIRED.put("hiatus", new String[] { "i ", "me", "my", "from python", "from core", "from the", "taking", "on " });
+        NEAR_REQUIRED.put("retire", NEAR_REQUIRED.get("hiatus"));
+        NEAR_REQUIRED.put("retiring", NEAR_REQUIRED.get("hiatus"));
+        NEAR_REQUIRED.put("retired from", NEAR_REQUIRED.get("hiatus"));
+        NEAR_REQUIRED.put("hand over", new String[] { "maintain", "my", "i ", "to someone", "the reins", "responsib", "ownership" });
+        NEAR_REQUIRED.put("handing over", NEAR_REQUIRED.get("hand over"));
+        NEAR_REQUIRED.put("hand it over", NEAR_REQUIRED.get("hand over"));
+        NEAR_REQUIRED.put("someone else can", new String[] { "maintain", "i won't", "i'm not", "i am not", "i don't", "i'm done", "take over", "champion", "sponsor", "write", "do it" });
+        NEAR_REQUIRED.put("someone else will have to", NEAR_REQUIRED.get("someone else can"));
+        NEAR_REQUIRED.put("find someone else", NEAR_REQUIRED.get("someone else can"));
+        NEAR_REQUIRED.put("no longer want to", new String[] { "contribut", "maintain", "participat", "work on", "care", "fight", "support", "spend", "argue", "discuss" });
+        NEAR_REQUIRED.put("i no longer", NEAR_REQUIRED.get("no longer want to"));
+        NEAR_REQUIRED.put("i'm done", new String[] { "with this", "here", "arguing", "discussing", "with python", "with the", "fighting", "talking", "trying" });
+        NEAR_REQUIRED.put("i am done", NEAR_REQUIRED.get("i'm done"));
+        String[] burnoutContext = { "i ", "me", "my", "this discussion", "this thread", "this pep", "contributor", "maintainer", "core dev", "people", "everyone" };
+        NEAR_REQUIRED.put("exhausted", burnoutContext);
+        NEAR_REQUIRED.put("exhausting", burnoutContext);
+        NEAR_REQUIRED.put("demoralizing", burnoutContext);
+        NEAR_REQUIRED.put("demoralising", burnoutContext);
+        NEAR_REQUIRED.put("demoralized", burnoutContext);
+        NEAR_REQUIRED.put("demoralised", burnoutContext);
+        NEAR_REQUIRED.put("disheartening", burnoutContext);
+        NEAR_REQUIRED.put("disheartened", burnoutContext);
+        NEAR_REQUIRED.put("tired of", new String[] { "i'm", "i am", "we're", "we are", "getting", "people are", "everyone", "sick and" });
+        NEAR_REQUIRED.put("sick of", NEAR_REQUIRED.get("tired of"));
+        NEAR_REQUIRED.put("step down", new String[] { "i ", "i'll", "i'm", "guido", "bdfl", "as ", "from", "should", "will" });
+        NEAR_REQUIRED.put("stepping down", NEAR_REQUIRED.get("step down"));
+        NEAR_REQUIRED.put("stepped down", NEAR_REQUIRED.get("step down"));
+
+        NEAR_REQUIRED.put("angry", new String[] { "you", "me", "people", "make", "getting", "why so", "i'm", "i am", "so " });
+        NEAR_REQUIRED.put("insane", new String[] { "this is", "that's", "idea", "proposal", "would be", "is ", "crazy" });
+        NEAR_REQUIRED.put("flame", new String[] { "war", "fest", "bait", "me", "you", "don't", "not ", "start", "this is", "thread" });
+        NEAR_REQUIRED.put("insult", new String[] { "you", "me", "people", "to ", "an ", "is ", "not ", "intelligence", "personal" });
+        NEAR_REQUIRED.put("aggressive", new String[] { "passive", "tone", "you", "being", "too ", "so ", "response", "reply", "post" });
+        NEAR_REQUIRED.put("hostile", new String[] { "tone", "you", "being", "so ", "response", "reply", "post", "environment", "fork", "toward" });
+
+        NEAR_REQUIRED.put("offline", new String[] { "discuss", "talk", "take", "conversation", "chat", "decid", "agree", "with", "meet", "this " });
+        NEAR_REQUIRED.put("off-line", NEAR_REQUIRED.get("offline"));
+        NEAR_REQUIRED.put("internally", new String[] { "discuss", "decid", "agree", "talk", "meeting", "among", "we ", "the council", "the team" });
+        NEAR_REQUIRED.put("secret", new String[] { "decid", "discuss", "meeting", "agree", "kept", "cabal", "in secret", "no secret", "not a secret" });
+        NEAR_REQUIRED.put("in person", new String[] { "discuss", "talk", "meet", "decid", "agree", "conversation", "sprint", "summit", "pycon" });
+        String[] venueContext = { "discuss", "talk", "decid", "agree", "meet", "conversation", "we ", "i ", "chat", "spoke", "told" };
+        NEAR_REQUIRED.put("at pycon", venueContext);
+        NEAR_REQUIRED.put("at europython", venueContext);
+        NEAR_REQUIRED.put("at the conference", venueContext);
+        NEAR_REQUIRED.put("at the summit", venueContext);
+        NEAR_REQUIRED.put("at the sprint", venueContext);
+        NEAR_REQUIRED.put("at the sprints", venueContext);
+        NEAR_REQUIRED.put("during the sprint", venueContext);
+        NEAR_REQUIRED.put("opaque", new String[] { "process", "decision", "how ", "why ", "council", "governance", "to the community", "to outsiders" });
+        NEAR_REQUIRED.put("insider", new String[] { "knowledge", "only", "decid", "core", "club", "few", "handful", "not an" });
+        NEAR_REQUIRED.put("insiders", NEAR_REQUIRED.get("insider"));
+
+        NEAR_REQUIRED.put("procedure", new String[] { "pep", "process", "follow", "correct", "proper", "wrong", "standard", "according", "formal" });
+        NEAR_REQUIRED.put("belongs on", new String[] { "python-ideas", "python-list", "python-dev", "the list", "another list", "a different", "discourse", "the tracker", "bug tracker" });
+        NEAR_REQUIRED.put("the archives", new String[] { "read", "search", "check", "look", "see", "in ", "dig", "consult" });
+        NEAR_REQUIRED.put("drop it", new String[] { "please", "just", "let's", "should", "i'd", "suggest", "time to" });
+        NEAR_REQUIRED.put("let it go", NEAR_REQUIRED.get("drop it"));
+        NEAR_REQUIRED.put("please stop", new String[] { "this", "posting", "replying", "arguing", "repeating", "the ", "with", "now" });
+        NEAR_REQUIRED.put("letter of the", new String[] { "pep", "law", "rule", "process", "spec", "policy" });
+        NEAR_REQUIRED.put("by the book", new String[] { "process", "pep", "go ", "do ", "did", "done", "play", "everything" });
+        NEAR_REQUIRED.put("not the time", new String[] { "now is", "this is", "to ", "for " });
+        NEAR_REQUIRED.put("wrong time", NEAR_REQUIRED.get("not the time"));
+        NEAR_REQUIRED.put("moderation", new String[] { "list", "thread", "post", "queue", "moderator", "need", "heavy", "team", "policy" });
+        NEAR_REQUIRED.put("moderated", new String[] { "list", "thread", "post", "being", "was", "is ", "get", "should" });
 
         for (Map.Entry<String, String[]> e : CUES.entrySet()) {
             String[] cues = e.getValue();

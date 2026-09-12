@@ -150,7 +150,10 @@ public class InfluenceReportGenerator {
             }
             w.println();
 
-            h2(w, "8. Limitations of the current heuristic method");
+            h2(w, "8. Controversial mechanisms (unilateral, corporate_interest, gatekeeping, exit_threat, incivility, backchannel, procedural_control)");
+            controversialSection(w, a);
+
+            h2(w, "9. Limitations of the current heuristic method");
             w.println("- Labels come from cue-phrase rules (InfluenceTypeDetector, InfluenceDirectionDetector, ...); no");
             w.println("  gold standard has been applied yet, so precision/recall are unknown. Use");
             w.println("  influence_annotation_sample.csv to build one.");
@@ -196,6 +199,100 @@ public class InfluenceReportGenerator {
         w.println("=".repeat(t.length()));
         w.println(t);
         w.println("=".repeat(t.length()));
+    }
+
+
+    /*
+     * Section on the seven controversial mechanisms: how often each occurs, who carries
+     * it (role and era shares), the actors who use it most, and the highest-scoring
+     * example sentences per mechanism so the labels can be eyeballed.
+     */
+    private static void controversialSection(PrintWriter w, InfluenceResultAggregator.Aggregates a) {
+        int total = a.totalCandidates;
+        int flagged = 0;
+        for (InfluenceCandidateRepository.StoredCandidate c : a.candidates) {
+            if (InfluenceTypeDetector.hasControversial(c.influenceTypes)) flagged++;
+        }
+        w.println("Candidates carrying at least one controversial mechanism: " + flagged + " / " + total
+                + " (" + InfluenceCsvExporter.pct(flagged, total) + "%)");
+        w.println();
+        w.println(String.format("  %-20s %8s %7s", "mechanism", "n", "% cand"));
+        for (int i = 0; i < InfluenceTypeDetector.CONTROVERSIAL_TYPES.length; i++) {
+            String t = InfluenceTypeDetector.CONTROVERSIAL_TYPES[i];
+            Integer n = a.typeDistribution.get(t);
+            int v = n == null ? 0 : n.intValue();
+            w.println(String.format("  %-20s %8d %7s", t, v, InfluenceCsvExporter.pct(v, total)));
+        }
+        w.println();
+
+        w.println("Share of each role's candidates that carry the mechanism (percent):");
+        crossTabRows(w, a.typeByRole, a.roleDistribution, InfluenceTypeDetector.CONTROVERSIAL_TYPES);
+        w.println();
+        w.println("Share of each era's candidates that carry the mechanism (percent):");
+        crossTabRows(w, a.typeByEra, a.eraDistribution, InfluenceTypeDetector.CONTROVERSIAL_TYPES);
+        w.println();
+
+        for (int i = 0; i < InfluenceTypeDetector.CONTROVERSIAL_TYPES.length; i++) {
+            String t = InfluenceTypeDetector.CONTROVERSIAL_TYPES[i];
+            w.println("-- " + t);
+            w.println("   top actors (n = candidates of this actor carrying the mechanism):");
+            java.util.List<InfluenceResultAggregator.ActorSummary> actors =
+                    new java.util.ArrayList<InfluenceResultAggregator.ActorSummary>(a.actorsOverall.values());
+            final String tt = t;
+            java.util.Collections.sort(actors, new java.util.Comparator<InfluenceResultAggregator.ActorSummary>() {
+                public int compare(InfluenceResultAggregator.ActorSummary x, InfluenceResultAggregator.ActorSummary y) {
+                    return y.typeCounts.get(tt).intValue() - x.typeCounts.get(tt).intValue();
+                }
+            });
+            int shown = 0;
+            for (InfluenceResultAggregator.ActorSummary s : actors) {
+                int n = s.typeCounts.get(t).intValue();
+                if (n == 0 || shown >= 8) break;
+                w.println(String.format("     %-32s %-18s %5d of %5d (%s%% of the actor's candidates)",
+                        cut(s.authorName, 32), cut(s.authorRole, 18), n, s.total, InfluenceCsvExporter.pct(n, s.total)));
+                shown++;
+            }
+            w.println("   highest-scoring examples:");
+            java.util.List<InfluenceCandidateRepository.StoredCandidate> ex =
+                    new java.util.ArrayList<InfluenceCandidateRepository.StoredCandidate>();
+            for (InfluenceCandidateRepository.StoredCandidate c : a.candidates) {
+                if (c.hasType(t)) ex.add(c);
+            }
+            java.util.Collections.sort(ex, new java.util.Comparator<InfluenceCandidateRepository.StoredCandidate>() {
+                public int compare(InfluenceCandidateRepository.StoredCandidate x, InfluenceCandidateRepository.StoredCandidate y) {
+                    return Double.compare(y.score, x.score);
+                }
+            });
+            java.util.Set<String> seenActors = new java.util.HashSet<String>();
+            shown = 0;
+            for (InfluenceCandidateRepository.StoredCandidate c : ex) {
+                String key = InfluenceCandidateRepository.actorKey(c);
+                if (seenActors.contains(key)) continue;   // one example per actor keeps the list varied
+                seenActors.add(key);
+                w.println(String.format("     [PEP %d, %s, %s, %.1f] %s", c.proposalNumber, cut(c.authorName, 24),
+                        cut(c.authorRole, 16), c.score, cut(c.sentence, 200)));
+                w.println("         cues: " + cut(c.evidenceCues, 160));
+                if (++shown >= 5) break;
+            }
+            w.println();
+        }
+    }
+
+    /* rows = groups (roles/eras), columns = the given types; cell = percent of the group's candidates */
+    private static void crossTabRows(PrintWriter w, Map<String, Map<String, Integer>> t, Map<String, Integer> groupTotals, String[] types) {
+        StringBuilder head = new StringBuilder(String.format("  %-22s %7s", "group", "n"));
+        for (int i = 0; i < types.length; i++) head.append(String.format(" %10s", cut(types[i], 10)));
+        w.println(head.toString());
+        for (Map.Entry<String, Map<String, Integer>> e : t.entrySet()) {
+            Integer gt = groupTotals.get(e.getKey());
+            int n = gt == null ? 0 : gt.intValue();
+            StringBuilder row = new StringBuilder(String.format("  %-22s %7d", cut(e.getKey(), 22), n));
+            for (int i = 0; i < types.length; i++) {
+                Integer v = e.getValue().get(types[i]);
+                row.append(String.format(" %10s", InfluenceCsvExporter.pct(v == null ? 0 : v.intValue(), n)));
+            }
+            w.println(row.toString());
+        }
     }
 
     private static void h2(PrintWriter w, String t) {
