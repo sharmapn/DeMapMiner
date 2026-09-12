@@ -146,9 +146,12 @@ public class DiscourseToPipermail {
         java.time.LocalDate end = java.time.LocalDate.now().plusMonths(1).withDayOfMonth(1);
         int viaSearch = 0;
         while (month.isBefore(end)) {
-            java.time.LocalDate next = month.plusMonths(1);
+            java.time.LocalDate next = month.plusDays(15).isBefore(month.plusMonths(1)) ? month.plusDays(15) : month.plusMonths(1);
             for (int sp = 1; sp < 40; sp++) {
-                String q = "%23" + slug + "%20after%3A" + month + "%20before%3A" + next + "%20order%3Alatest";
+                // in:first = topic-opening posts only, so each topic is returned once and a
+                // half-month window stays well under the 50-result cap
+                String q = "%23" + slug + "%20in%3Afirst%20after%3A" + month + "%20before%3A" + next + "%20order%3Alatest";
+                Thread.sleep(4500); // anonymous search trips at ~15-20 requests per minute on discuss.python.org
                 String json = get(BASE + "/search.json?q=" + q + "&page=" + sp);
                 if (json == null) break;
                 Map<String, Object> root = asMap(Json.parse(json));
@@ -357,12 +360,12 @@ public class DiscourseToPipermail {
                 return null;
             }
             if (code == 429 || code >= 500) {
-                long wait = 15000L * (attempt + 1);
+                long wait = 65000L; // the search quota is per minute: wait for the window to reset
                 String ra = resp.headers().firstValue("Retry-After").orElse(null);
                 if (ra != null) {
                     try { wait = Math.max(wait, Long.parseLong(ra.trim()) * 1000L); } catch (NumberFormatException ignored) { }
                 }
-                System.out.println("  HTTP " + code + ", waiting " + (wait / 1000) + "s");
+                System.out.println("  HTTP " + code + ", waiting " + (wait / 1000) + "s  " + url);
                 Thread.sleep(wait);
                 continue;
             }
