@@ -217,7 +217,7 @@ public class InfluenceTypeDetector {
                 "at netflix", "at spotify", "at shopify", "at stripe", "at cisco", "at rackspace", "at zope corporation",
                 "in our codebase", "our codebase", "our code base", "our production", "in production at",
                 "production code at", "our customers", "our product", "our products", "paid to", "being paid",
-                "getting paid", "paid by", "paid for by", "funded by", "funding for", "funding from", "grant",
+                "getting paid", "paid for by", "funded by", "funding for", "funding from", "grant",
                 "sponsored by", "sponsorship", "commercial interest", "commercial interests", "business interest",
                 "business interests", "business needs", "business reasons", "business case", "vendor lock",
                 "vendor lock-in", "conflict of interest", "conflicts of interest", "corporate agenda",
@@ -264,7 +264,7 @@ public class InfluenceTypeDetector {
                 "i withdraw", "withdrawing my", "i'm withdrawing", "i am withdrawing", "withdraw the pep",
                 "withdraw this pep", "withdraw my pep", "abandon the pep", "abandon this pep", "i'm abandoning",
                 "i am abandoning", "if this goes in", "if this is accepted", "if this pep is accepted",
-                "if this is rejected", "if this gets rejected", "if this gets in", "you'll lose", "you will lose",
+                "if this is rejected", "if this gets rejected", "if this gets in",
                 "python will lose", "lose contributors", "lose me", "drive away", "driving away", "driven away",
                 "burn out", "burned out", "burnt out", "burnout", "permanent vacation", "vacation from", "tired of",
                 "sick of", "fed up", "last straw", "ultimatum", "not worth my time", "waste of my time",
@@ -276,8 +276,7 @@ public class InfluenceTypeDetector {
                 "no energy", "out of energy", "exhausted", "exhausting", "demoralizing", "demoralising",
                 "demoralized", "demoralised", "disheartening", "disheartened", "i'm tired", "i am tired",
                 "i'm exhausted", "i am exhausted", "take a break from", "taking a break from", "hiatus", "retire",
-                "retiring", "retired from", "hand over", "handing over", "hand it over", "someone else can",
-                "someone else will have to", "find someone else"
+                "retiring", "retired from", "hand over", "handing over", "hand it over"
         });
         CUES.put("incivility", new String[] {
                 "stupid", "idiotic", "idiot", "idiots", "moron", "moronic", "dumb", "ridiculous", "absurd", "nonsense",
@@ -297,7 +296,7 @@ public class InfluenceTypeDetector {
                 "civility", "uncivil", "incivility", "the tone of", "your tone", "tone down", "calm down",
                 "take a deep breath", "*sigh*", "facepalm", "eye roll", "rolls eyes", "seriously?", "are you kidding",
                 "you must be joking", "give me a break", "oh please", "yeah right", "who cares", "nobody cares",
-                "no one cares", "get over it", "deal with it", "cry me a river", "boo hoo", "shouting", "yelling",
+                "no one cares", "get over it", "cry me a river", "boo hoo", "shouting", "yelling",
                 "screaming", "name-calling", "name calling", "belittle", "belittling", "mocking", "ridicule",
                 "ridiculing", "contempt", "contemptuous", "attacking me", "attacking you", "attacking him",
                 "attacking her", "unprofessional", "out of line", "over the line", "crossed a line", "crosses a line",
@@ -337,7 +336,7 @@ public class InfluenceTypeDetector {
                 "not in scope", "scope creep", "per pep 1", "pep 1 says", "pep 1 requires", "according to pep 1",
                 "the pep process", "pep process", "process requires", "the process requires", "follow the process",
                 "not following the process", "didn't follow the process", "proper channels", "proper channel",
-                "through the proper", "wrong process", "procedural", "procedure", "procedurally", "on procedural grounds",
+                "through the proper", "wrong process", "procedure", "procedurally", "on procedural grounds",
                 "moderator", "moderators", "moderation", "moderated", "i'm locking", "i am locking", "locking this",
                 "lock this thread", "locked this thread", "thread locked", "closing this thread", "close this thread",
                 "this thread is closed", "closing the thread", "i'm closing this", "thread is over", "muted this thread",
@@ -353,8 +352,8 @@ public class InfluenceTypeDetector {
                 "no reference implementation", "not a complete pep", "incomplete pep", "too late for", "missed the deadline",
                 "after the freeze", "after beta", "not in time for", "not the time", "not the right time", "wrong time",
                 "bad timing", "not how we do things", "not how things work", "that's not how", "not the way we",
-                "rules are rules", "against the rules", "policy says", "letter of the", "by the book", "pep 13",
-                "pep 8001", "pep 8016", "per the pep", "as the pep says", "formal process", "formal vote"
+                "rules are rules", "against the rules", "policy says", "pep 13",
+                "pep 8001", "pep 8016", "formal process", "formal vote"
         });
 
         NEAR_REQUIRED.put("break", new String[] { "compatib", "existing", "code", "api", "user", "change", "backward", "program", "script", "software", "thing" });
@@ -386,8 +385,9 @@ public class InfluenceTypeDetector {
         NEAR_REQUIRED.put("spam", new String[] { "attack", "network", "transaction", "list" });
 
         /* controversial mechanisms: broad cues that only count near a disambiguating word */
-        String[] ownership = { "won't", "will not", "not ", "reject", "refuse", "decide", "so i", "and i", "therefore",
-                "object", "veto", "no ", "never", "final", "approve", "accept", "my say", "responsib", "i say", "i think" };
+        /* ownership claims count only in the first person and next to a refusal/decision word */
+        String[] ownership = { "i ", "i'", "my ", "me ", "won't", "will not", "refuse", "reject", "veto", "object",
+                "decide", "never", "my say", "i say" };
         NEAR_REQUIRED.put("my module", ownership);
         NEAR_REQUIRED.put("my code", ownership);
         NEAR_REQUIRED.put("my package", ownership);
@@ -448,9 +448,6 @@ public class InfluenceTypeDetector {
         NEAR_REQUIRED.put("hand over", new String[] { "maintain", "my", "i ", "to someone", "the reins", "responsib", "ownership" });
         NEAR_REQUIRED.put("handing over", NEAR_REQUIRED.get("hand over"));
         NEAR_REQUIRED.put("hand it over", NEAR_REQUIRED.get("hand over"));
-        NEAR_REQUIRED.put("someone else can", new String[] { "maintain", "i won't", "i'm not", "i am not", "i don't", "i'm done", "take over", "champion", "sponsor", "write", "do it" });
-        NEAR_REQUIRED.put("someone else will have to", NEAR_REQUIRED.get("someone else can"));
-        NEAR_REQUIRED.put("find someone else", NEAR_REQUIRED.get("someone else can"));
         NEAR_REQUIRED.put("no longer want to", new String[] { "contribut", "maintain", "participat", "work on", "care", "fight", "support", "spend", "argue", "discuss" });
         NEAR_REQUIRED.put("i no longer", NEAR_REQUIRED.get("no longer want to"));
         NEAR_REQUIRED.put("i'm done", new String[] { "with this", "here", "arguing", "discussing", "with python", "with the", "fighting", "talking", "trying" });
@@ -500,8 +497,6 @@ public class InfluenceTypeDetector {
         NEAR_REQUIRED.put("drop it", new String[] { "please", "just", "let's", "should", "i'd", "suggest", "time to" });
         NEAR_REQUIRED.put("let it go", NEAR_REQUIRED.get("drop it"));
         NEAR_REQUIRED.put("please stop", new String[] { "this", "posting", "replying", "arguing", "repeating", "the ", "with", "now" });
-        NEAR_REQUIRED.put("letter of the", new String[] { "pep", "law", "rule", "process", "spec", "policy" });
-        NEAR_REQUIRED.put("by the book", new String[] { "process", "pep", "go ", "do ", "did", "done", "play", "everything" });
         NEAR_REQUIRED.put("not the time", new String[] { "now is", "this is", "to ", "for " });
         NEAR_REQUIRED.put("wrong time", NEAR_REQUIRED.get("not the time"));
         NEAR_REQUIRED.put("moderation", new String[] { "list", "thread", "post", "queue", "moderator", "need", "heavy", "team", "policy" });
