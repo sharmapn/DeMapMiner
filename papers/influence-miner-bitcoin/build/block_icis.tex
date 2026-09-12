@@ -1,0 +1,52 @@
+\subsection{The Three BIPs of the Earlier Study}
+\label{sec:icis}
+
+The group's earlier Bitcoin study \cite{thapa2021bitcoin} examined three rule changes by hand: the activation mechanism BIP~9, Segregated Witness (BIP~141) and Taproot (BIPs 340--342). It identified the ``influencers'' of each discussion by social-network centrality on the mailing-list threads and, by reading the threads, IRC meeting minutes and podcasts, described five tactics through which those influencers steered the decisions, derived from the lateral-influence tactics of Ngwenyama and Nielsen \cite{ngwenyama2014} (rational persuasion, personal appeals, reciprocity, alliance, intermediaries): \emph{political neutrality} (T1: the influencer favours Bitcoin as a whole, not a faction), \emph{shepherding the community} (T2: identifying issues and laying out the steps to resolve them), a \emph{participative approach} (T3: seeking input and using it to form an alliance), \emph{sticking to the laid plan} (T4: holding the community to an agreement already made) and \emph{developing reciprocal relationships} (T5: deals between member groups, such as the Hong Kong and New York agreements). Table~\ref{tab:icis} maps those tactics onto the mechanisms Influence Miner labels, and Table~\ref{tab:icisbips} gives the tool's profile of the same three discussions over their whole life, including the years after the earlier study closed.
+
+\begin{table}[t]
+\caption{The five influencer tactics of the earlier Bitcoin study \cite{thapa2021bitcoin} and the Influence Miner mechanisms that carry them.}
+\label{tab:icis}
+\footnotesize
+\begin{tabular}{p{0.30\columnwidth}p{0.62\columnwidth}}
+\toprule
+Tactic (source of influence) & Mechanisms in which it surfaces \\
+\midrule
+T1 Political neutrality (personal appeals, rational persuasion) & \emph{strategic} (the long-term good of Bitcoin, decentralisation, censorship resistance); \emph{user demand} (``real users'', ``the ecosystem'') \\
+T2 Shepherding the community (identification, development, evaluation) & \emph{tactical} (summarising, reframing, ``the real question is''), \emph{operational} (laying out implementation and deployment steps), \emph{security} and \emph{compatibility} (naming the risks to be resolved) \\
+T3 Participative approach (alliance) & \emph{coalition} (``several people'', ``consensus seems to be''), \emph{user demand}; and, when the alliance is with companies or miners, \emph{organizational} and \emph{corporate interest} \\
+T4 Stick to the laid plan (personal appeals, solution evaluation) & \emph{procedural control} (``that's not how BIP 9 works'', ``out of scope''), \emph{gatekeeping} (refusals to reopen a settled question), \emph{standards} (``as the BIP says'') \\
+T5 Developing reciprocal relationships (reciprocity) & \emph{backchannel} (agreements reached off-list, at conferences, on IRC), \emph{organizational} and \emph{economic} (what miners, companies and exchanges get in return) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\caption{Influence Miner's profile of the three discussions of the earlier study (\% of the BIP's candidates; whole life of the discussion).}
+\label{tab:icisbips}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lrrrr}
+\toprule
+ & BIP 9 & BIP 141 & BIP 340/341 & BIP 342 \\
+\midrule
+Candidates & 3,065 & 2,598 & 3,261 & 551 \\
+Participants & 107 & 97 & 98 & 29 \\
+Years & 2015--26 & 2016--26 & 2020--26 & 2020--26 \\
+\midrule
+Ecosystem & 36.1 & 39.8 & 22.6 & 16.2 \\
+Operational & 40.9 & 24.7 & 20.1 & 21.4 \\
+Compatibility & 22.2 & 16.1 & 8.0 & 11.4 \\
+Security & 12.1 & 14.4 & 27.0 & 12.5 \\
+Economic & 11.4 & 19.5 & 15.4 & 27.2 \\
+Functional & 5.2 & 4.8 & 8.6 & 15.1 \\
+Strategic & 2.2 & 2.8 & 7.5 & 10.2 \\
+Tactical & 3.3 & 2.9 & 3.9 & 2.7 \\
+Coalition & 2.7 & 2.1 & 2.1 & 1.8 \\
+Authority & 2.5 & 1.2 & 1.3 & 1.1 \\
+Any controversial & 2.7 & 2.6 & 3.8 & 2.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The profiles agree with the earlier reading and add to it. BIP~9 and BIP~141 are the two most \emph{operational} and \emph{compatibility}-laden discussions in the corpus (40.9\% and 22.2\% for BIP~9): they were argued as questions of how to activate a rule and what would happen to nodes and miners that did not follow, which is the substance of the shepherding and stick-to-the-plan tactics the earlier study found there. Taproot, by contrast, is the most \emph{security}-laden (27\%) and \emph{strategic} (7.5\%) discussion---the cryptographic design was argued on attack surface and on Bitcoin's long-term direction, the register of political neutrality---and it is the only one of the three with a controversial share above the corpus average, most of it from the 2021 activation dispute rather than from the design. The tool also names the people the earlier study had to anonymise: on BIP~9 the most active participants were Johnson Lau, Jorge Tim\'on, Anthony Towns, shaolinfry, Matt Corallo and Ariel Luaces; on BIP~141 Johnson Lau (as author), Gloria Zhao, Antoine Riard, James Hilliard, Eric Voskuil and Matt Corallo---with Zhao's and Riard's contributions coming after 2021, in the package-relay and mempool-policy threads that reference SegWit; on BIP~341 Antoine Riard, Anthony Towns (as author), \emph{conduition}, Yuval Kogman, Salvatore Ingala and James T. None of the six most active participants on any of the three BIPs is a maintainer or an editor, which is the earlier study's finding about ``influencers'' without formal office, measured a different way. What the sentence-level labels add is the content of the influence: the earlier study described the influencers' \emph{manner} (neutral, participative, plan-bound); the mechanisms describe the \emph{arguments}, and show that the manner rode on operational, compatibility and ecosystem claims for the activation debates and on security and strategic claims for Taproot. What they cannot add is the reciprocity tactic: deals between companies and miners were made in Hong Kong and New York, not on the list, and the tool sees only their traces (``as was discussed at the summit'', ``the position of Blockstream employees'').
+

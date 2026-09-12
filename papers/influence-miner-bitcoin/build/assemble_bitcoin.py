@@ -51,6 +51,7 @@ parts.append(rd('block_corpus.tex'))
 parts.append(rd('block_timeline_ext.tex'))
 parts.append(rd('block_results.tex'))
 parts.append(rd('block_rq6.tex'))
+parts.append(rd('block_icis.tex'))
 parts.append(rd('block_compare.tex'))
 parts.append(rd('block_discussion.tex'))
 # shared appendix on detector rules, with the Bitcoin cue additions

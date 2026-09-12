@@ -91,7 +91,7 @@ Three episodes shaped the community's understanding of its own governance and re
 
 \subsection{How Bitcoin and Open Source Projects Are Influenced}
 
-The literature on influence in open source development reviewed in the Python study \cite{influenceMinerPython}---core/periphery structure \cite{mockus2002, crowston2005}, status \cite{stewart2005}, lateral authority \cite{dahlander2011}, governance modes \cite{omahony2007, markus2007, shaikh2017}, the evaluation of contributions \cite{tsay2014, alami2020}, firms \cite{schaarschmidt2015, zhang2022}, conflict and incivility \cite{filippova2016, ferreira2021, miller2022}, exit and forks \cite{hirschman1970, robles2012}---applies to Bitcoin with two twists. First, the fork is not a last resort but a constitutional instrument: Bitcoin's rules are whatever the economically dominant chain enforces, so the threat to fork, the counter-threat to reject a fork, and the coalition-building that precedes both are the ordinary currency of its hardest decisions \cite{bier2021, bohme2015}. Second, the ``users'' are not passive: mining pools, exchanges, wallet vendors and node operators are organised actors whose choices decide activation, and whose representatives write on the list. Bitcoin-specific studies have quantified the concentration of code and discussion in a few hands \cite{azouvi2018} and of mining and network resources \cite{gencer2018, gervais2014}, described the political structure as technocratic and largely invisible to users \cite{defilippi2016}, as senatorial competition among bureaucratic parties \cite{parkin2019}, and as an off-chain governance layer that the code cannot replace \cite{reijers2021}; the earlier Bitcoin work of the DeMaP Miner group identified influence mechanisms in mailing-list and IRC traces qualitatively \cite{thapa2021bitcoin}. None of this work classifies the arguments at the sentence level or follows them across the whole history of the list; that is what Influence Miner adds.
+The literature on influence in open source development reviewed in the Python study \cite{influenceMinerPython}---core/periphery structure \cite{mockus2002, crowston2005}, status \cite{stewart2005}, lateral authority \cite{dahlander2011}, governance modes \cite{omahony2007, markus2007, shaikh2017}, the evaluation of contributions \cite{tsay2014, alami2020}, firms \cite{schaarschmidt2015, zhang2022}, conflict and incivility \cite{filippova2016, ferreira2021, miller2022}, exit and forks \cite{hirschman1970, robles2012}---applies to Bitcoin with two twists. First, the fork is not a last resort but a constitutional instrument: Bitcoin's rules are whatever the economically dominant chain enforces, so the threat to fork, the counter-threat to reject a fork, and the coalition-building that precedes both are the ordinary currency of its hardest decisions \cite{bier2021, bohme2015}. Second, the ``users'' are not passive: mining pools, exchanges, wallet vendors and node operators are organised actors whose choices decide activation, and whose representatives write on the list. Bitcoin-specific studies have quantified the concentration of code and discussion in a few hands \cite{azouvi2018} and of mining and network resources \cite{gencer2018, gervais2014}, described the political structure as technocratic and largely invisible to users \cite{defilippi2016}, as senatorial competition among bureaucratic parties \cite{parkin2019}, and as an off-chain governance layer that the code cannot replace \cite{reijers2021}; the earlier Bitcoin work of the DeMaP Miner group identified the ``influencers'' of three rule changes by network centrality and, from the mailing list, IRC minutes and podcasts, described five tactics they used---political neutrality, shepherding the community, a participative approach, sticking to the laid plan and developing reciprocal relationships---built on the lateral-influence tactics of Ngwenyama and Nielsen \cite{thapa2021bitcoin, ngwenyama2014}; Section~\ref{sec:icis} returns to those three BIPs and maps the tactics onto the mechanisms. None of this work classifies the arguments at the sentence level or follows them across the whole history of the list; that is what Influence Miner adds.
 
 \subsection{The DeMaP Miner Line}
 
@@ -340,6 +340,8 @@ BIP 1/2/3 and repository history & BIP editors and their terms; lead maintainers
 \paragraph{Proposal metadata and state history.} The \texttt{bitcoin/bips} repository was cloned and each document's preamble parsed. Two preamble conventions coexist: BIP 2's (\emph{Author}, \emph{Created}, statuses Draft, Proposed, Final, Active, Deferred, Rejected, Withdrawn, Replaced and Obsolete) and BIP 3's, introduced in 2025 (\emph{Authors}, \emph{Assigned}, statuses Draft, Deployed, Complete and Closed). Every commit that changes a \texttt{Status:} line yields a (BIP, from, to, timestamp) record, giving 505 status changes for 197 BIPs. On 12 April 2025 a single commit relabelled every BIP into the new vocabulary (Final $\to$ Deployed or Complete, Rejected/Withdrawn/Obsolete/Replaced $\to$ Closed); the final decision used for RQ4 is therefore the last status \emph{before} that commit where one exists, and the current status otherwise, so that ``Closed'' does not erase the distinction between rejected and withdrawn proposals. The tool's outcome resolver was extended to read the BIP vocabulary (Proposed as a pre-decision state; Deployed and Complete as positive; Closed and Obsolete as negative).
 
 \paragraph{Roles.} Bitcoin has no BDFL, no delegates and no council, so the role vocabulary was rebuilt from the project's own records. The \emph{lead maintainer} (Gavin Andresen to 7 April 2014, Wladimir van der Laan to 31 January 2022) is the closest analogue of Python's BDFL. \emph{Maintainers} are the authors of merge commits in \texttt{bitcoin/bitcoin} (at least twenty merges; the role is time-bounded by their first and last merge), \emph{core developers} are contributors with at least ten non-merge commits from the date of their first commit, \emph{BIP editors} are taken from the history of BIP 1, BIP 2 and the repository's README with their terms (Amir Taaki 2011--2013, Gregory Maxwell 2013--2016, Luke Dashjr 2016--2026, Kalle Alm 2021--2024, and Bryan Bishop, Jon Atack, Mark Erhardt, Olaoluwa Osuntokun and Ruben Somsen from April 2024), and \emph{proposal authors} come from the BIP preambles and hold that role on their own BIP only. Everyone else is a \emph{community member}. Roles are proposal- and date-specific: the same person is an author on their BIP, a maintainer while they merge, and a community member before their first commit. Names were clustered by address and a short alias list (handles such as \emph{sipa}, \emph{gmaxwell}, \emph{luke-jr}, \emph{roasbeef}, \emph{fanquake}, \emph{glozow}, \emph{kanzure}, \emph{murch} map to the person). Per message--BIP row the corpus holds 6,762 community-member, 2,514 core-developer, 1,095 author, 530 editor, 353 maintainer and 223 lead-maintainer rows.
+
+\paragraph{Cross-check against the 2021 database.} The group's earlier Bitcoin database (built in 2021 from the Linux Foundation archives of bitcoin-dev, bitcoin-core-dev and bitcoin-discuss) survives as its sentence and paragraph tables---284,303 sentences from 18,600 messages on 146 BIPs, split into a 50-column feature layout written for reason extraction and topic modelling---and was attached to the same server for comparison. Up to the date of that database (13 May 2021) the rebuilt corpus holds 18,830 bitcoin-dev messages linked to 146 BIPs, against the 18,288 bitcoin-dev messages and 144 BIPs of the 2021 tables; per BIP the counts agree closely (BIP~9: 348 vs.\ 353 messages; BIP~141: 287 vs.\ 283; BIP~341: 37 vs.\ 32). The automated linking therefore reproduces the hand-checked coverage of the earlier study. The two lists the earlier database also read, bitcoin-core-dev and bitcoin-discuss (7\% of its sentences), are not in the rebuilt corpus.
 
 \paragraph{Governance eras.} For RQ3 the split date is 1 February 2022, the end of the lead-maintainer role; the analysis also reports four finer periods---the Andresen years (June 2011 to April 2014), the block-size war (April 2014 to the activation of Segregated Witness on 24 August 2017), the van der Laan years after the war (to January 2022) and the post-lead era (from February 2022)---because the war is the period in which the community's governance was contested most openly.
 
@@ -775,6 +777,58 @@ Year & BIP & Author (role) & Mechanisms & Sentence \\
 \end{tabular}
 \end{table*}
 
+\subsection{The Three BIPs of the Earlier Study}
+\label{sec:icis}
+
+The group's earlier Bitcoin study \cite{thapa2021bitcoin} examined three rule changes by hand: the activation mechanism BIP~9, Segregated Witness (BIP~141) and Taproot (BIPs 340--342). It identified the ``influencers'' of each discussion by social-network centrality on the mailing-list threads and, by reading the threads, IRC meeting minutes and podcasts, described five tactics through which those influencers steered the decisions, derived from the lateral-influence tactics of Ngwenyama and Nielsen \cite{ngwenyama2014} (rational persuasion, personal appeals, reciprocity, alliance, intermediaries): \emph{political neutrality} (T1: the influencer favours Bitcoin as a whole, not a faction), \emph{shepherding the community} (T2: identifying issues and laying out the steps to resolve them), a \emph{participative approach} (T3: seeking input and using it to form an alliance), \emph{sticking to the laid plan} (T4: holding the community to an agreement already made) and \emph{developing reciprocal relationships} (T5: deals between member groups, such as the Hong Kong and New York agreements). Table~\ref{tab:icis} maps those tactics onto the mechanisms Influence Miner labels, and Table~\ref{tab:icisbips} gives the tool's profile of the same three discussions over their whole life, including the years after the earlier study closed.
+
+\begin{table}[t]
+\caption{The five influencer tactics of the earlier Bitcoin study \cite{thapa2021bitcoin} and the Influence Miner mechanisms that carry them.}
+\label{tab:icis}
+\footnotesize
+\begin{tabular}{p{0.30\columnwidth}p{0.62\columnwidth}}
+\toprule
+Tactic (source of influence) & Mechanisms in which it surfaces \\
+\midrule
+T1 Political neutrality (personal appeals, rational persuasion) & \emph{strategic} (the long-term good of Bitcoin, decentralisation, censorship resistance); \emph{user demand} (``real users'', ``the ecosystem'') \\
+T2 Shepherding the community (identification, development, evaluation) & \emph{tactical} (summarising, reframing, ``the real question is''), \emph{operational} (laying out implementation and deployment steps), \emph{security} and \emph{compatibility} (naming the risks to be resolved) \\
+T3 Participative approach (alliance) & \emph{coalition} (``several people'', ``consensus seems to be''), \emph{user demand}; and, when the alliance is with companies or miners, \emph{organizational} and \emph{corporate interest} \\
+T4 Stick to the laid plan (personal appeals, solution evaluation) & \emph{procedural control} (``that's not how BIP 9 works'', ``out of scope''), \emph{gatekeeping} (refusals to reopen a settled question), \emph{standards} (``as the BIP says'') \\
+T5 Developing reciprocal relationships (reciprocity) & \emph{backchannel} (agreements reached off-list, at conferences, on IRC), \emph{organizational} and \emph{economic} (what miners, companies and exchanges get in return) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\caption{Influence Miner's profile of the three discussions of the earlier study (\% of the BIP's candidates; whole life of the discussion).}
+\label{tab:icisbips}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lrrrr}
+\toprule
+ & BIP 9 & BIP 141 & BIP 340/341 & BIP 342 \\
+\midrule
+Candidates & 3,065 & 2,598 & 3,261 & 551 \\
+Participants & 107 & 97 & 98 & 29 \\
+Years & 2015--26 & 2016--26 & 2020--26 & 2020--26 \\
+\midrule
+Ecosystem & 36.1 & 39.8 & 22.6 & 16.2 \\
+Operational & 40.9 & 24.7 & 20.1 & 21.4 \\
+Compatibility & 22.2 & 16.1 & 8.0 & 11.4 \\
+Security & 12.1 & 14.4 & 27.0 & 12.5 \\
+Economic & 11.4 & 19.5 & 15.4 & 27.2 \\
+Functional & 5.2 & 4.8 & 8.6 & 15.1 \\
+Strategic & 2.2 & 2.8 & 7.5 & 10.2 \\
+Tactical & 3.3 & 2.9 & 3.9 & 2.7 \\
+Coalition & 2.7 & 2.1 & 2.1 & 1.8 \\
+Authority & 2.5 & 1.2 & 1.3 & 1.1 \\
+Any controversial & 2.7 & 2.6 & 3.8 & 2.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The profiles agree with the earlier reading and add to it. BIP~9 and BIP~141 are the two most \emph{operational} and \emph{compatibility}-laden discussions in the corpus (40.9\% and 22.2\% for BIP~9): they were argued as questions of how to activate a rule and what would happen to nodes and miners that did not follow, which is the substance of the shepherding and stick-to-the-plan tactics the earlier study found there. Taproot, by contrast, is the most \emph{security}-laden (27\%) and \emph{strategic} (7.5\%) discussion---the cryptographic design was argued on attack surface and on Bitcoin's long-term direction, the register of political neutrality---and it is the only one of the three with a controversial share above the corpus average, most of it from the 2021 activation dispute rather than from the design. The tool also names the people the earlier study had to anonymise: on BIP~9 the most active participants were Johnson Lau, Jorge Tim\'on, Anthony Towns, shaolinfry, Matt Corallo and Ariel Luaces; on BIP~141 Johnson Lau (as author), Gloria Zhao, Antoine Riard, James Hilliard, Eric Voskuil and Matt Corallo---with Zhao's and Riard's contributions coming after 2021, in the package-relay and mempool-policy threads that reference SegWit; on BIP~341 Antoine Riard, Anthony Towns (as author), \emph{conduition}, Yuval Kogman, Salvatore Ingala and James T. None of the six most active participants on any of the three BIPs is a maintainer or an editor, which is the earlier study's finding about ``influencers'' without formal office, measured a different way. What the sentence-level labels add is the content of the influence: the earlier study described the influencers' \emph{manner} (neutral, participative, plan-bound); the mechanisms describe the \emph{arguments}, and show that the manner rode on operational, compatibility and ecosystem claims for the activation debates and on security and strategic claims for Taproot. What they cannot add is the reciprocity tactic: deals between companies and miners were made in Hong Kong and New York, not on the list, and the tool sees only their traces (``as was discussed at the summit'', ``the position of Blockstream employees'').
+
 \section{Bitcoin and Python Compared}
 \label{sec:compare}
 
@@ -1129,6 +1183,9 @@ Shaolin Fry. 2017. BIP 148 -- Mandatory activation of segwit deployment. Retriev
 
 \bibitem{hearn2016}
 Mike Hearn. 2016. The resolution of the Bitcoin experiment. Medium, 14 January 2016. Retrieved September 12, 2026 from \url{https://blog.plan99.net/the-resolution-of-the-bitcoin-experiment-dabb30201f7}
+
+\bibitem{ngwenyama2014}
+Ojelanki Ngwenyama and Peter Axel Nielsen. 2014. Using organizational influence processes to overcome IS implementation barriers: Lessons from a longitudinal case study of SPI implementation. \emph{European Journal of Information Systems} 23, 2, 205--222.
 
 \bibitem{gnusha}
 Bryan Bishop. 2024. bitcoin-dev mailing list archive (public-inbox mirror). Retrieved September 12, 2026 from \url{https://gnusha.org/pi/bitcoindev/}
