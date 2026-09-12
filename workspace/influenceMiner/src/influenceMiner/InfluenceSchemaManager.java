@@ -24,11 +24,14 @@ public class InfluenceSchemaManager {
     public static final String ACTOR_SUMMARY = "influence_actor_summary";
     public static final String PROPOSAL_SUMMARY = "influence_proposal_summary";
 
-    public static final String[] TYPE_COUNT_COLUMNS = {
-            "strategic_count", "operational_count", "functional_count", "tactical_count", "authority_count",
-            "compatibility_count", "security_count", "standards_count", "ecosystem_count", "economic_count",
-            "organizational_count", "coalition_count", "user_demand_count"
-    };
+    /* one <mechanism>_count column per entry of InfluenceTypeDetector.TYPES, in the same order */
+    public static final String[] TYPE_COUNT_COLUMNS = typeCountColumns();
+
+    private static String[] typeCountColumns() {
+        String[] cols = new String[InfluenceTypeDetector.TYPES.length];
+        for (int i = 0; i < cols.length; i++) cols[i] = InfluenceTypeDetector.TYPES[i] + "_count";
+        return cols;
+    }
 
     public static void ensureSchema(Connection connection) throws SQLException {
 
@@ -115,6 +118,14 @@ public class InfluenceSchemaManager {
                     + "max_score DOUBLE,"
                     + "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
                     + ")");
+
+            // summary tables created by an earlier version lack the controversial-mechanism columns
+            for (int i = 0; i < TYPE_COUNT_COLUMNS.length; i++) {
+                addColumnIfMissing(connection, st, ACTOR_SUMMARY, TYPE_COUNT_COLUMNS[i], "INT DEFAULT 0");
+                addColumnIfMissing(connection, st, PROPOSAL_SUMMARY, TYPE_COUNT_COLUMNS[i], "INT DEFAULT 0");
+            }
+            addColumnIfMissing(connection, st, CANDIDATES, "controversial", "BOOLEAN DEFAULT 0");
+            addIndexIfMissing(connection, st, CANDIDATES, "idx_influence_controversial", "controversial");
 
             addIndexIfMissing(connection, st, ACTOR_SUMMARY, "idx_actor_summary_proposal", "proposal_identifier, proposal_number");
             addIndexIfMissing(connection, st, PROPOSAL_SUMMARY, "idx_proposal_summary_proposal", "proposal_identifier, proposal_number");

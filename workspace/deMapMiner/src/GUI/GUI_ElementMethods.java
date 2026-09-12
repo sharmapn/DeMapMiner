@@ -382,7 +382,15 @@ public class GUI_ElementMethods extends GUI_Elements {
 				+ "FROM influence_candidates WHERE proposal_number = ? AND influence_score >= ?");
 		java.util.List<Object> params = new java.util.ArrayList<Object>();
 		params.add(proposal); params.add(minScore);
-		if (!mechanism.startsWith("All")) { sql.append(" AND FIND_IN_SET(?, influence_types) > 0"); params.add(mechanism); }
+		if (mechanism.startsWith("Controversial")) {
+			// any of the seven controversial mechanisms (Sept 2026)
+			StringBuilder any = new StringBuilder();
+			for (String t : new String[] { "unilateral", "corporate_interest", "gatekeeping", "exit_threat", "incivility", "backchannel", "procedural_control" }) {
+				if (any.length() > 0) any.append(" OR ");
+				any.append("FIND_IN_SET(?, influence_types) > 0"); params.add(t);
+			}
+			sql.append(" AND (").append(any).append(")");
+		} else if (!mechanism.startsWith("All")) { sql.append(" AND FIND_IN_SET(?, influence_types) > 0"); params.add(mechanism); }
 		if (!direction.startsWith("All")) { sql.append(" AND influence_direction = ?"); params.add(direction); }
 		if (!role.startsWith("All")) { sql.append(" AND author_role = ?"); params.add(role); }
 		if (!era.startsWith("All")) { sql.append(" AND governance_era = ?"); params.add(era); }

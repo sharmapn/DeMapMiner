@@ -544,39 +544,33 @@ public class GUI_Elements extends JFrame {
 		//--------------------------------Left part
 		JPanel fourth = new JPanel();
 		fourth.add(firstButton);		fourth.add(previousButton);		fourth.add(nextButton);		fourth.add(lastButton);  fourth.add(goToMIDButton);	
-		JPanel labels = new JPanel(new GridLayout(19,1));		JPanel controls = new JPanel(new GridLayout(19,1));	JPanel controlsButtons = new JPanel(new GridLayout(19,1));
-		sixth.add(labels, BorderLayout.WEST);		sixth.add(controls, BorderLayout.CENTER); 		sixth.add(controlsButtons, BorderLayout.EAST);
-		labels.add(new JLabel("Proposal:"));		controls.add(proposalNumberText);				controlsButtons.add(freeQueryButton);
-		labels.add(new JLabel("With Text:"));		controls.add(searchText);						controlsButtons.add(nextResultRecordButton);
-		labels.add(new JLabel("MessageID:"));		controls.add(messageIdText);					controlsButtons.add(gotoMessageIdButton);	
-		labels.add(new JLabel("DateFrom:"));		controls.add(DateFromText);						controlsButtons.add(searchWithDatesQueryButton);
-		labels.add(new JLabel("DateTo:"));			controls.add(DateToText);						controlsButtons.add(new JLabel(""));
-		labels.add(new JLabel("Rowcount:"));		controls.add(rowCountText);						controlsButtons.add(searchWithRowQueryButton);
-		//May 2021, 
-		//msgSubjectCombo = "";
-		//String[] messagesSub = new String[] {"Select Proposal"};    
-		msgSubjectCombo = new JComboBox<MessageSubject>(); //(messagesSub);	
-		msgAuthorCombo  = new JComboBox<MessageAuthor>(); //(messagesSub);	
-		msgDateCombo    = new JComboBox<MessageDate>(); //(messagesSub);
-		labels.add(new JLabel("ChooseMessageSubject:"));	controls.add(new JLabel(""));			controlsButtons.add(msgSubjectCombo); //msgSubjectCombo);			//controlsButtons.add(new JLabel(""));	
-		labels.add(new JLabel("Only Author Messages:"));controls.add(new JLabel(""));				controlsButtons.add(msgByAuthorButton);
-		labels.add(new JLabel("ChooseMessageAuthor:"));  controls.add(new JLabel(""));				controlsButtons.add(msgAuthorCombo);  //msgByBDFLButton
-		labels.add(new JLabel("ChooseMessageDate:"));  controls.add(new JLabel(""));				controlsButtons.add(msgDateCombo);  //msgByBDFLButton
-		labels.add(new JLabel("ChooseFolder"));		controls.add(addParameters);				    controlsButtons.add(location);			//controlsButtons.add(new JLabel(""));	
-		labels.add(new JLabel("MSGNumberInFile"));	controls.add(msgNumberInFile);					controlsButtons.add(new JLabel(""));
-		labels.add(new JLabel("AuthorRole"));		controls.add(authorRole);						controlsButtons.add(new JLabel(""));
-		labels.add(new JLabel("MessageType"));		controls.add(messageType);						controlsButtons.add(new JLabel(""));
-		//		searchText.setText("Use with Search Proposal");
-//		labels.add(new JLabel("More Params")); 		controls.add(new JLabel(""));					controlsButtons.add(new JLabel(""));
-		//another panel for setting values
-		//seventh.setLayout(new BorderLayout(2,3)); 													  JPanel controlsButtons2 = new JPanel(new GridLayout(2,1));   
-		//seventh.add(labels7, BorderLayout.WEST);		seventh.add(controls7, BorderLayout.CENTER);  seventh.add(controlsButtons2, BorderLayout.EAST);	
-//		labels.add(new JLabel("ChooseFolder"));		controls.add(addParameters);				    controlsButtons.add(location);			//controlsButtons.add(new JLabel(""));				
-		//		labels.add(new JLabel("Status From:"));		controls.add(statusChangedCheck);			    controlsButtons.add(sfromCBox);	
-		//		labels.add(new JLabel("Status To:"));		controls.add(new JLabel(""));					controlsButtons.add(sToCBox);
-		labels.add(new JLabel("MessageID:"));		controls.add(messageIDText); //messageIDText);
-		labels.add(new JLabel("Date:"));			controls.add(dateText);		
-		labels.add(new JLabel("Location:"));		controls.add(locationText);
+		// Parameters block: two columns only (label | control). Buttons that belong to a
+		// text field sit in the same cell as the field (Sept 2026 clean-up; the old third
+		// "controlsButtons" column made the panel wider than the screen).
+		JPanel labels = new JPanel(new GridLayout(19,1,2,2));		JPanel controls = new JPanel(new GridLayout(19,1,2,2));
+		sixth.add(labels, BorderLayout.WEST);		sixth.add(controls, BorderLayout.CENTER);
+		Dimension comboSize = new Dimension(200, 24);
+		msgSubjectCombo = new JComboBox<MessageSubject>();		msgSubjectCombo.setPreferredSize(comboSize);
+		msgAuthorCombo  = new JComboBox<MessageAuthor>();		msgAuthorCombo.setPreferredSize(comboSize);
+		msgDateCombo    = new JComboBox<MessageDate>();			msgDateCombo.setPreferredSize(comboSize);
+		if (location != null) location.setPreferredSize(comboSize);
+		labels.add(new JLabel("Proposal:"));				controls.add(fieldWithButton(proposalNumberText, freeQueryButton));
+		labels.add(new JLabel("With Text:"));				controls.add(fieldWithButton(searchText, nextResultRecordButton));
+		labels.add(new JLabel("MessageID:"));				controls.add(fieldWithButton(messageIdText, gotoMessageIdButton));
+		labels.add(new JLabel("DateFrom:"));				controls.add(fieldWithButton(DateFromText, searchWithDatesQueryButton));
+		labels.add(new JLabel("DateTo:"));					controls.add(DateToText);
+		labels.add(new JLabel("Rowcount:"));				controls.add(fieldWithButton(rowCountText, searchWithRowQueryButton));
+		labels.add(new JLabel("ChooseMessageSubject:"));	controls.add(msgSubjectCombo);
+		labels.add(new JLabel("Only Author Messages:"));	controls.add(msgByAuthorButton);
+		labels.add(new JLabel("ChooseMessageAuthor:"));		controls.add(msgAuthorCombo);
+		labels.add(new JLabel("ChooseMessageDate:"));		controls.add(msgDateCombo);
+		labels.add(new JLabel("ChooseFolder:"));			controls.add(fieldWithButton(location, addParameters));
+		labels.add(new JLabel("MSGNumberInFile:"));			controls.add(msgNumberInFile);
+		labels.add(new JLabel("AuthorRole:"));				controls.add(authorRole);
+		labels.add(new JLabel("MessageType:"));				controls.add(messageType);
+		labels.add(new JLabel("MessageID:"));				controls.add(messageIDText);
+		labels.add(new JLabel("Date:"));					controls.add(dateText);
+		labels.add(new JLabel("Location:"));				controls.add(locationText);
 		JTextField highlighter = new JTextField(10);
 		labels.add(new JLabel("Find String: "));  controls.add(highlighter);
 		//the query buttons are here - several shifted to another column in labels panel above
@@ -896,8 +890,10 @@ public class GUI_Elements extends JFrame {
 		// so that clicking a row shows the source message exactly as for reasons.
 		JPanel influenceMinerTabRightSideOfFrame = new JPanel();
 		influenceMinerTabRightSideOfFrame.setLayout(new GridLayout(0, 2));
-		imMechanismCombo = new JComboBox<String>(new String[] { "All mechanisms", "strategic", "operational", "functional", "tactical",
-				"authority", "compatibility", "security", "standards", "ecosystem", "economic", "organizational", "coalition", "user_demand" });
+		imMechanismCombo = new JComboBox<String>(new String[] { "All mechanisms", "Controversial (any of the 7)", "strategic", "operational",
+				"functional", "tactical", "authority", "compatibility", "security", "standards", "ecosystem", "economic", "organizational",
+				"coalition", "user_demand", "unilateral", "corporate_interest", "gatekeeping", "exit_threat", "incivility", "backchannel",
+				"procedural_control" });
 		imDirectionCombo = new JComboBox<String>(new String[] { "All directions", "supporting", "blocking", "revising", "neutral" });
 		imRoleCombo = new JComboBox<String>(new String[] { "All roles", "BDFL", "steering council", "BDFL delegate", "proposal author",
 				"PEP editor", "core developer", "community member" });
@@ -913,9 +909,17 @@ public class GUI_Elements extends JFrame {
 		JPanel imScoreSort = new JPanel(new GridLayout(1, 2)); imScoreSort.add(imMinScoreText); imScoreSort.add(imSortCombo);
 		influenceMinerTabRightSideOfFrame.add(imScoreSort);
 		influenceMinerTabRightSideOfFrame.add(loadInfluenceCandidatesButton);		influenceMinerTabRightSideOfFrame.add(runInfluenceMinerButton);
-		influenceMinerTabRightSideOfFrame.add(new JLabel("Summary: "));			influenceMinerTabRightSideOfFrame.add(imSummaryLabel);
-		if (addInfluenceMinerTab)
-			jtp2.addTab("Influence Miner", influenceMinerTabRightSideOfFrame);
+		if (addInfluenceMinerTab) {
+			// filter grid anchored to the top (GridLayout gives every row the height of its tallest
+			// cell, so the multi-line summary lives below the grid, not in it); a fixed preferred
+			// width makes the HTML summary wrap instead of stretching the whole frame
+			JPanel imWrap = new JPanel(new BorderLayout(4, 4));
+			imWrap.add(influenceMinerTabRightSideOfFrame, BorderLayout.NORTH);
+			imSummaryLabel.setPreferredSize(new Dimension(640, 60));
+			imSummaryLabel.setVerticalAlignment(JLabel.TOP);
+			imWrap.add(imSummaryLabel, BorderLayout.CENTER);
+			jtp2.addTab("Influence Miner", imWrap);
+		}
 		
 		
 		
@@ -1023,6 +1027,14 @@ public class GUI_Elements extends JFrame {
 		    }
 		} */
 		
+	}
+
+	/** One parameter cell: the input field fills the cell and its action button sits at the right edge. */
+	static JPanel fieldWithButton(java.awt.Component field, java.awt.Component button) {
+		JPanel cell = new JPanel(new BorderLayout(2, 0));
+		if (field != null)  cell.add(field, BorderLayout.CENTER);
+		if (button != null) cell.add(button, BorderLayout.EAST);
+		return cell;
 	}
 }
 //A simple class that searches for a word in //a document and highlights occurrences of that word

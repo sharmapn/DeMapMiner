@@ -68,7 +68,10 @@ public class InfluenceDirectionDetector {
             "i vote no", "i vote against", "please don't", "please do not", "must not", "over my dead body",
             "no way", "absolutely not", "i'd reject", "i would reject", "kill this", "kill the pep", "drop this", "drop the pep",
             "withdraw the pep", "should be withdrawn", "not worth it", "waste of", "abomination", "unacceptable",
-            "i'm not in favour", "i'm not in favor", "i am not in favour", "i am not in favor", "i really don't", "strong no"
+            "i'm not in favour", "i'm not in favor", "i am not in favour", "i am not in favor", "i really don't", "strong no",
+            /* gatekeeping phrasings (Sept 2026) */
+            "not going to happen", "will not merge", "won't merge", "not going to merge", "dead on arrival", "won't fly",
+            "not a chance", "i refuse", "i will revert", "i'll revert", "the answer is no", "-1000", "-100"
     };
 
     private static final String[] REVISE = {

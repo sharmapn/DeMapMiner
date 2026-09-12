@@ -21,8 +21,8 @@ public class InfluenceDatabaseWriter {
             + "message_date, sentence, influence_types, primary_influence_type, influence_scope, "
             + "influence_direction, influence_target, influence_score, final_decision, "
             + "aligns_with_outcome, extraction_scheme, evidence_cues, decision_date, days_before_decision, "
-            + "decision_phase, governance_era) "
-            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            + "decision_phase, governance_era, controversial) "
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     public static void saveCandidate(Connection connection, InfluenceCandidate candidate) throws SQLException {
 
@@ -100,6 +100,7 @@ public class InfluenceDatabaseWriter {
         }
         ps.setString(21, trim(c.decisionPhase, 30));
         ps.setString(22, trim(c.governanceEra, 30));
+        ps.setBoolean(23, InfluenceTypeDetector.hasControversial(c.influenceTypes));
     }
 
     private static String trim(String v, int max) {
