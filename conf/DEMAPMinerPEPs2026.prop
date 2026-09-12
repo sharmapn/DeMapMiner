@@ -29,7 +29,7 @@ database=peps_2026
 -- mailing_list=C:\\datasets\\python-dev\\ C:\\datasets\\python-patches\\ C:\\datasets\\python-ideas\\ C:\\datasets\\python-announce-list\\ C:\\datasets\\python-distutils-sig\\ C:\\datasets\\python-authors\\ C:\\datasets\\python-bugs-list\\ C:\\datasets\\python-committers\\ C:\\datasets\\python-checkins\\ C:\\datasets\\python-3000\\ C:\\datasets\\python-lists\\ 
 -- may 2021 - reading in post BDFL data
 -- original line mailing_list=D:\\datasets\\postBDFL_may2021\\mailingLists\\python-dev D:\\datasets\\postBDFL_may2021\\mailingLists\\python-announce-list\\ D:\\datasets\\postBDFL_may2021\\mailingLists\\python-committers\\ D:\\datasets\\postBDFL_may2021\\mailingLists\\python-checkins\\ D:\\datasets\\postBDFL_may2021\\mailingLists\\distutils-sig\\ D:\\datasets\\postBDFL_may2021\\mailingLists\\core-workflow\\ D:\\datasets\\postBDFL_may2021\\mailingLists\\datetime-sig\\ D:\\datasets\\postBDFL_may2021\\mailingLists\\python-list\\ D:\\datasets\\postBDFL_may2021\\mailingLists\\python-bugs-list\\
-mailing_list=C:\\datasets\\postBDFL_2026\\python-bugs-list
+mailing_list=C:\\datasets\\postBDFL_2026\\discourse\\discourse-peps C:\\datasets\\postBDFL_2026\\discourse\\discourse-core-dev C:\\datasets\\postBDFL_2026\\discourse\\discourse-committers C:\\datasets\\postBDFL_2026\\discourse\\discourse-ideas
 -- D:\\datasets\\postBDFL_may2021\\mailingLists\\python-3000\\ 
 -- D:\\datasets\\postBDFL_may2021\\mailingLists\\python-authors\\
 -- D:\\datasets\\postBDFL_may2021\\mailingLists\\python-patches\\ D:\\datasets\\postBDFL_may2021\\mailingLists\\python-ideas\\
