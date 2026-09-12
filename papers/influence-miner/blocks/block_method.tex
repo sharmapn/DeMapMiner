@@ -1,0 +1,76 @@
+\section{Influence Miner: Approach and Implementation}
+\label{sec:approach}
+
+\subsection{Overview}
+\label{sec:overview}
+
+Influence Miner is a heuristics-based extraction system in the line of Rationale Miner \cite{sharma2021rationale}: it does not learn a classifier from labelled data but applies inspectable rules---cue lexicons, disambiguation contexts, role and timing features and an additive score---to every sentence of every proposal-linked message, and stores the result so that each label can be traced back to the cue that produced it and to the message it came from. Figure~\ref{fig:pipeline} depicts the approach. It comprises ten steps in three phases: the \emph{corpus} phase (steps 1--4) builds the database from the project's repositories and archives and is shared with the other DeMaP Miner tools; the \emph{extraction} phase (steps 5--8) runs once per proposal and produces the table of \emph{influence candidates}, the unit of analysis of this study; and the \emph{analysis} phase (steps 9--10) aggregates the candidates into the tables of Section~\ref{sec:results} and presents them in the viewer.
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  font=\scriptsize,
+  src/.style={draw=gray!70, rounded corners=1.5pt, fill=gray!8, align=center, inner sep=2.5pt, text width=1.55cm, minimum height=9mm},
+  stepA/.style={draw=orange!60!black, rounded corners=1.5pt, fill=yellow!22, align=left, inner sep=3pt, text width=2.25cm},
+  stepB/.style={draw=green!40!black, rounded corners=1.5pt, fill=green!12, align=left, inner sep=3pt, text width=5.1cm},
+  stepC/.style={draw=blue!40!black, rounded corners=1.5pt, fill=blue!7, align=left, inner sep=3pt, text width=4.45cm},
+  db/.style={cylinder, shape border rotate=90, draw=cyan!50!black, fill=cyan!10, aspect=0.18, align=center, inner sep=2pt, minimum width=3.2cm, minimum height=1.05cm},
+  outb/.style={draw=gray!60, rounded corners=1.5pt, fill=white, align=center, inner sep=2.5pt, text width=1.35cm},
+  arr/.style={-{Stealth[length=1.6mm]}, thick, gray!55!black},
+  num/.style={font=\scriptsize\bfseries},
+  phase/.style={font=\footnotesize\bfseries, anchor=north},
+]
+% ================= Phase A: corpus =================
+\node[src] (s1) at (0.85,5.2) {Proposal repository \\ (\texttt{python/peps})};
+\node[src] (s2) at (2.65,5.2) {Mailing lists and Discourse archives};
+\node[src] (s3) at (4.45,5.2) {Project records: rosters, dates};
+\node[stepA] (a1) at (1.2,3.55) {\textbf{1. Proposals}: number, title, authors, status, created};
+\node[stepA] (a2) at (1.2,2.35) {\textbf{2. State history}: every status change with its date};
+\node[stepA] (a3) at (3.95,3.55) {\textbf{3. Messages}: read, threaded, linked to the proposals they mention};
+\node[stepA] (a4) at (3.95,2.35) {\textbf{4. Roles}: who held which role, on which proposal, from when};
+\node[db] (dbA) at (2.65,0.75) {corpus database \\ \texttt{allmessages}, details, \\ states, roles};
+\draw[arr] (s1) -- (a1);
+\draw[arr] (s2.south) -- (a3.north); \draw[arr] (s3.south) -- (5.35,4.6) -- (5.35,2.35) -- (a4.east);
+\draw[arr] (a2.south) -- (dbA.north west); \draw[arr] (a4.south) -- (dbA.north east);
+\draw[arr] (a1) -- (a2);
+% ================= Phase B: extraction =================
+\node[stepB] (b5) at (8.9,4.85) {\textbf{5. Select and resolve}: the proposal's messages; drop automated senders (commit and tracker robots, release notes); map addresses to persons; assign each writer's role on that proposal at that date};
+\node[stepB] (b6) at (8.9,3.45) {\textbf{6. Clean and split}: remove quoted text, signatures, footers, code, embedded proposal text; split into sentences; drop fragments};
+\node[stepB] (b7) at (8.9,2.05) {\textbf{7. Label each sentence}: influence mechanisms (20, multi-label) with the cue phrases as evidence; direction (supporting, blocking, revising, neutral); scope (internal, external, mixed); target};
+\node[stepB] (b8) at (8.9,0.65) {\textbf{8. Situate and score}: outcome of the proposal, days to the decision, decision phase, governance era; additive heuristic score; keep sentences scoring $\geq 1.0$};
+\draw[arr] (dbA.east) -- (5.62,0.75) -- (5.62,4.85) -- (b5.west);
+\draw[arr] (b5) -- (b6); \draw[arr] (b6) -- (b7); \draw[arr] (b7) -- (b8);
+% ================= Phase C: analysis =================
+\node[db] (dbC) at (14.75,4.9) {\texttt{influence\_candidates} \\ one row per labelled sentence};
+\node[stepC] (c9) at (14.75,3.35) {\textbf{9. Aggregate}: per actor, per proposal, per role, era, phase and outcome; mechanism $\times$ outcome and $\times$ era cross-tabulations; direction--outcome alignment};
+\node[outb] (o1) at (13.0,1.85) {CSV tables};
+\node[outb] (o2) at (14.75,1.85) {annotation sample};
+\node[outb] (o3) at (16.5,1.85) {text report};
+\node[stepC] (c10) at (14.75,0.65) {\textbf{10. Present}: Influence Miner tab in the desktop and web viewers---candidate sentence, its cues and score, one click from the source message};
+\draw[arr] (b8.east) -- ++(0.35,0) |- (dbC.west);
+\draw[arr] (dbC) -- (c9);
+\draw[arr] (c9.south) -- (o1.north); \draw[arr] (c9.south) -- (o2.north); \draw[arr] (c9.south) -- (o3.north);
+\draw[arr] (dbC.east) -- (17.45,4.9) -- (17.45,0.65) -- (c10.east);
+% ================= phase labels =================
+\node[phase] at (2.65,-0.25) {Corpus construction (shared with DeMaP Miner)};
+\node[phase] at (8.9,-0.25) {Influence extraction (per proposal)};
+\node[phase] at (14.75,-0.25) {Analysis and presentation};
+\draw[gray!40, dashed] (6.0,-0.6) -- (6.0,5.75);
+\draw[gray!40, dashed] (11.95,-0.6) -- (11.95,5.75);
+\end{tikzpicture}
+\caption{Influence Miner methodology. Steps 1--4 build the DeMaP Miner corpus from the project's repositories, archives and rosters; steps 5--8 turn each proposal's messages into labelled and scored influence candidates; steps 9--10 aggregate and present them. The candidate table is the unit of analysis for all research questions.}
+\Description{A three-phase flow diagram. On the left, three sources (proposal repository, mailing-list archives, project records) feed four numbered steps that populate a corpus database. In the middle, four numbered steps select and resolve messages, clean and split them into sentences, label each sentence with mechanisms, direction, scope and target, and situate and score it, producing an influence-candidates table on the right. On the right, an aggregation step produces CSV tables, an annotation sample and a text report, and a presentation step shows the candidates in the desktop and web viewers.}
+\label{fig:pipeline}
+\end{figure*}
+
+\paragraph{Steps 1--4: corpus construction.} The proposal repository is cloned and each proposal document's preamble parsed for its number, title, authors, current status and creation date (step~1); every commit that changes a status line yields a dated state transition, giving the state history that the study uses to fix the decision date of each proposal (step~2) \cite{sharma2022demap}. The discussion archives are read into a MySQL table with one row per message, with sender, date, subject, thread and body, and each message is linked to the proposals it mentions by number in the subject or body, so that a message about two proposals appears once for each (step~3). The project's own records---the rosters of developers with commit rights, editors, delegates and council members, and the dates on which each was appointed and left---are loaded as role tables, and a post-reading script assigns every message--proposal row the role its writer held on that proposal on that day (step~4). These four steps are the DeMaP Miner corpus and are shared with Rationale Miner and Preference Miner; Section~\ref{sec:extension} describes how they were re-run to extend the Python corpus, and the Bitcoin study \cite{influenceMinerBitcoin} how they were re-implemented for a different project.
+
+\paragraph{Steps 5--8: influence extraction.} For each proposal the tool selects its linked messages, discards messages from automated senders, resolves each writer to a person (a person may write from several addresses) and reads the role from the corpus (step~5, Sections~\ref{sec:filtering} and \ref{sec:roles}). Each message body is then cleaned of quoted text, signatures, list footers, code and embedded proposal text and split into sentences (step~6, Section~\ref{sec:cleaning}). Each sentence is then labelled by four rule-based detectors (step~7, Section~\ref{sec:classification}): the \emph{mechanism} detector assigns any number of the twenty influence mechanisms of Section~\ref{sec:taxonomy} by matching cue phrases with disambiguating context, and records the cues that fired as evidence; the \emph{direction} detector decides whether the sentence supports, blocks or seeks to revise the proposal or is neutral; the \emph{scope} detector decides whether the influence invoked is internal to the project's governance, external to it, or mixed; and the \emph{target} detector names what is being influenced (the proposal, its implementation, governance, compatibility, security, the ecosystem or users). Finally each sentence is situated in the life of its proposal---the proposal's outcome, the number of days between the message and the decision, the decision phase, the governance era---and given an additive heuristic score that rewards mechanisms, decision and justification language, an explicit reference to the proposal, a non-neutral direction, a resolved scope and target, the writer's formal role and proximity to the decision; sentences scoring at least 1.0 are stored as \emph{influence candidates} with all their labels (step~8, Sections~\ref{sec:features} and \ref{sec:scoring}). A sentence with no mechanism is never a candidate; the score orders candidates rather than selects them, and the threshold only removes sentences that carry a mechanism and nothing else.
+
+\paragraph{Steps 9--10: analysis and presentation.} The candidate table is aggregated into per-actor and per-proposal summaries and into the distributions and cross-tabulations that answer the research questions---mechanisms by role, era, phase and outcome, direction against outcome---and exported as CSV files, a stratified annotation sample for human validation, and a plain-text report (step~9, Section~\ref{sec:outputs}). The same table drives the Influence Miner tab of the desktop and web viewers, where an analyst filters candidates by mechanism, direction, role or era and opens the source message of any candidate in its thread (step~10, Section~\ref{sec:interfaces}).
+
+%%EXAMPLE-BEGIN
+\paragraph{A worked example.} Four days before PEP~540 (UTF-8 mode) was accepted, Guido van Rossum wrote on python-dev: ``I am very worried about this long and rambling PEP, and I propose that it not be accepted without a major rewrite to focus on clarity of the specification.'' Step~5 resolves the writer and gives him the role \emph{BDFL} on that date; step~6 isolates the sentence from the quoted text around it; step~7 labels it \emph{tactical} (cue \emph{focus on}) and \emph{standards} (cue \emph{specification}), direction \emph{revising} (``not be accepted'' is conditioned on ``without a major rewrite'', so the sentence asks for a change rather than blocking), scope \emph{internal} and target \emph{proposal}; step~8 attaches the outcome \emph{accepted}, four days to the decision and the phase \emph{decision window}, and scores it 4.8 (two mechanisms 1.0, decision language +0.6, reference to the PEP +0.5, non-neutral direction +0.4, internal scope +0.2, target +0.3, BDFL role +1.0, within seven days of the decision +0.8). In step~9 it counts once towards each of its two mechanisms, towards the BDFL's revising signals in the decision window, and---because a revising signal on an accepted proposal is not counted as aligned---towards the unaligned cases of RQ4; in step~10 it is the top-ranked candidate of PEP~540 in the viewer.
+%%EXAMPLE-END
+
+The rest of this section describes each step as built. Influence Miner is implemented in Java as an extension of DeMaP Miner, following the design of Preference Miner, and reads the same MySQL corpus.

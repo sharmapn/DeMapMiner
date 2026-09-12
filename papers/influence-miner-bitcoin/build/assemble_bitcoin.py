@@ -5,7 +5,6 @@ import os
 import re
 
 S = os.path.dirname(os.path.abspath(__file__))
-PY = os.path.join(os.path.dirname(os.path.dirname(S)), 'influence-miner', 'influence-miner-acm-full.tex')
 OUT = os.path.join(os.path.dirname(S), 'influence-miner-bitcoin.tex')
 
 
@@ -39,12 +38,20 @@ parts.append(rd('block_intro.tex'))
 parts.append(rd('block_background.tex'))
 parts.append(rd('block_rqs.tex'))
 # shared: conceptualisation + taxonomy (Python examples are kept; they are illustrations of the categories)
-tax = between('\\section{Conceptualising Influence in OSS Decision-Making}', '\\section{Influence Miner: Implementation}')
+tax = between('\\section{Conceptualising Influence in OSS Decision-Making}', '\\section{Influence Miner: Approach and Implementation}')
 tax = tax.replace('Table~\\ref{tab:samples} in Section~\\ref{sec:results} shows two sentences per mechanism as extracted by the tool.',
                   'Table~\\ref{tab:samples} in Section~\\ref{sec:results} shows two Bitcoin sentences per mechanism as extracted by the tool.')
 parts.append(tax)
 # shared: implementation (without the Python tool-interface figures), plus the Bitcoin adaptation
-impl = between('\\section{Influence Miner: Implementation}', '\\subsection{Tool Interfaces}')
+impl = between('\\section{Influence Miner: Approach and Implementation}', '\\subsection{Tool Interfaces}')
+# methodology figure and walk-through: Bitcoin sources, Bitcoin worked example, no tool-interface section
+impl = impl.replace('(\\texttt{python/peps})', '(\\texttt{bitcoin/bips})')
+impl = impl.replace('Mailing lists and Discourse archives', 'bitcoin-dev public-inbox archive')
+impl = impl.replace('Project records: rosters, dates', 'Project records: \\texttt{bitcoin/bitcoin}, BIP editors')
+impl = impl.replace('Section~\\ref{sec:extension} describes how they were re-run to extend the Python corpus, and the Bitcoin study \\cite{influenceMinerBitcoin} how they were re-implemented for a different project.',
+                    'Section~\\ref{sec:corpus} describes how they were carried out for Bitcoin.')
+impl = impl.replace('(step~10, Section~\\ref{sec:interfaces})', '(step~10; both viewers read the Bitcoin database unchanged, Section~\\ref{sec:adaptation})')
+impl = re.sub(r'%%EXAMPLE-BEGIN.*?%%EXAMPLE-END', lambda m: rd('block_example_bitcoin.tex').strip(), impl, flags=re.S)
 parts.append(impl)
 parts.append(rd('block_adaptation.tex'))
 parts.append(rd('block_corpus.tex'))
