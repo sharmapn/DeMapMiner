@@ -241,9 +241,9 @@ public class InfluenceTypeDetector {
                 "i will veto", "my veto", "i object", "i strongly object", "i formally object", "formal objection",
                 "not on my watch", "no way", "absolutely not", "hell no", "never going to", "i will never",
                 "i'll never accept", "i'll never approve", "as long as i'm", "as long as i am", "while i'm the",
-                "while i am the", "my module", "my code", "my package", "i own", "i maintain", "i'm the maintainer",
+                "while i am the", "my module", "my code", "my package", "i maintain", "i'm the maintainer",
                 "i am the maintainer", "as the maintainer", "as maintainer", "as the author of", "as the original author",
-                "as its author", "as its maintainer", "i wrote", "i designed", "i created", "i'm the author",
+                "as its author", "as its maintainer", "i'm the author",
                 "i am the author", "i'm responsible for", "i am responsible for", "you need my", "requires my approval",
                 "my approval", "my sign-off", "sign-off from me", "my blessing", "needs my ok", "not without my",
                 "dead on arrival", "won't fly", "will not fly", "doesn't fly", "no chance", "not a chance",
@@ -385,17 +385,13 @@ public class InfluenceTypeDetector {
         NEAR_REQUIRED.put("spam", new String[] { "attack", "network", "transaction", "list" });
 
         /* controversial mechanisms: broad cues that only count near a disambiguating word */
-        /* ownership claims count only in the first person and next to a refusal/decision word */
-        String[] ownership = { "i ", "i'", "my ", "me ", "won't", "will not", "refuse", "reject", "veto", "object",
-                "decide", "never", "my say", "i say" };
+        /* ownership claims count only next to a refusal/decision word */
+        String[] ownership = { "won't", "will not", "refuse", "reject", "veto", "object", "decide", "never", "not going",
+                "no way", "-1", "my say", "i say", "not accept", "not merge", "not allow", "not let" };
         NEAR_REQUIRED.put("my module", ownership);
         NEAR_REQUIRED.put("my code", ownership);
         NEAR_REQUIRED.put("my package", ownership);
-        NEAR_REQUIRED.put("i own", ownership);
         NEAR_REQUIRED.put("i maintain", ownership);
-        NEAR_REQUIRED.put("i wrote", ownership);
-        NEAR_REQUIRED.put("i designed", ownership);
-        NEAR_REQUIRED.put("i created", ownership);
         NEAR_REQUIRED.put("i'm responsible for", ownership);
         NEAR_REQUIRED.put("i am responsible for", ownership);
         NEAR_REQUIRED.put("as the author of", ownership);
