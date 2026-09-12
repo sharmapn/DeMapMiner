@@ -1,0 +1,18 @@
+USE peps_2026;
+CREATE TABLE IF NOT EXISTS pepdetails LIKE peps_new.pepdetails; ALTER TABLE pepdetails ROW_FORMAT=DYNAMIC; INSERT INTO pepdetails SELECT * FROM peps_new.pepdetails;
+CREATE TABLE IF NOT EXISTS proposaldetails LIKE peps_new.proposaldetails; ALTER TABLE proposaldetails ROW_FORMAT=DYNAMIC; INSERT INTO proposaldetails SELECT * FROM peps_new.proposaldetails;
+CREATE TABLE IF NOT EXISTS accrejpeps LIKE peps_new.accrejpeps; ALTER TABLE accrejpeps ROW_FORMAT=DYNAMIC; INSERT INTO accrejpeps SELECT * FROM peps_new.accrejpeps;
+CREATE TABLE IF NOT EXISTS pepstates_danieldata_datetimestamp LIKE peps_new.pepstates_danieldata_datetimestamp; ALTER TABLE pepstates_danieldata_datetimestamp ROW_FORMAT=DYNAMIC; INSERT INTO pepstates_danieldata_datetimestamp SELECT * FROM peps_new.pepstates_danieldata_datetimestamp;
+CREATE TABLE IF NOT EXISTS pepstates_github LIKE peps_new.pepstates_github; ALTER TABLE pepstates_github ROW_FORMAT=DYNAMIC; INSERT INTO pepstates_github SELECT * FROM peps_new.pepstates_github;
+CREATE TABLE IF NOT EXISTS pepdetails_github LIKE peps_new.pepdetails_github; ALTER TABLE pepdetails_github ROW_FORMAT=DYNAMIC; INSERT INTO pepdetails_github SELECT * FROM peps_new.pepdetails_github;
+CREATE TABLE IF NOT EXISTS authorandrole LIKE peps_new.authorandrole; ALTER TABLE authorandrole ROW_FORMAT=DYNAMIC; INSERT INTO authorandrole SELECT * FROM peps_new.authorandrole;
+CREATE TABLE IF NOT EXISTS coredevelopers LIKE peps_new.coredevelopers; ALTER TABLE coredevelopers ROW_FORMAT=DYNAMIC; INSERT INTO coredevelopers SELECT * FROM peps_new.coredevelopers;
+CREATE TABLE IF NOT EXISTS pepeditors LIKE peps_new.pepeditors; ALTER TABLE pepeditors ROW_FORMAT=DYNAMIC; INSERT INTO pepeditors SELECT * FROM peps_new.pepeditors;
+CREATE TABLE IF NOT EXISTS pythonmembers_coredevelopers LIKE peps_new.pythonmembers_coredevelopers; ALTER TABLE pythonmembers_coredevelopers ROW_FORMAT=DYNAMIC; INSERT INTO pythonmembers_coredevelopers SELECT * FROM peps_new.pythonmembers_coredevelopers;
+CREATE TABLE IF NOT EXISTS pythonmembers_pepeditors LIKE peps_new.pythonmembers_pepeditors; ALTER TABLE pythonmembers_pepeditors ROW_FORMAT=DYNAMIC; INSERT INTO pythonmembers_pepeditors SELECT * FROM peps_new.pythonmembers_pepeditors;
+CREATE TABLE IF NOT EXISTS alldevelopers LIKE peps_new.alldevelopers; ALTER TABLE alldevelopers ROW_FORMAT=DYNAMIC; INSERT INTO alldevelopers SELECT * FROM peps_new.alldevelopers;
+CREATE TABLE IF NOT EXISTS distinctsenders LIKE peps_new.distinctsenders; ALTER TABLE distinctsenders ROW_FORMAT=DYNAMIC; INSERT INTO distinctsenders SELECT * FROM peps_new.distinctsenders;
+CREATE TABLE IF NOT EXISTS preference_candidates LIKE peps_new.preference_candidates; ALTER TABLE preference_candidates ROW_FORMAT=DYNAMIC; INSERT INTO preference_candidates SELECT * FROM peps_new.preference_candidates;
+CREATE TABLE IF NOT EXISTS results LIKE peps_new.results; ALTER TABLE results ROW_FORMAT=DYNAMIC; INSERT INTO results SELECT * FROM peps_new.results;
+CREATE TABLE IF NOT EXISTS labels LIKE peps_new.labels; ALTER TABLE labels ROW_FORMAT=DYNAMIC; INSERT INTO labels SELECT * FROM peps_new.labels;
+CREATE TABLE IF NOT EXISTS influence_candidates LIKE peps_new.influence_candidates; CREATE TABLE IF NOT EXISTS allmessages_debug LIKE allmessages; SELECT 'copy done' AS s;

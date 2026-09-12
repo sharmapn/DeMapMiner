@@ -70,7 +70,12 @@ public class GenericMailingListReader_Main extends GenericMailingListReader_Meth
 			
 			if(messageIDForRestart==null || messageIDForRestart==0)	{
 				messageIDForRestart=0; mailinglistDir= ""; 
-				markFound=true; System.out.println("First Time reading");//  //important  
+				markFound=true; System.out.println("First Time reading");//  //important
+				// Sept 2026: never reuse message IDs already present in allmessages (earlier imports started at 10066939)
+				try (java.sql.Statement st = conn.createStatement(); java.sql.ResultSet rs = st.executeQuery("SELECT COALESCE(MAX(messageID),0)+1 FROM allmessages")) {
+					if (rs.next() && rs.getInt(1) > messageID) { messageID = rs.getInt(1); }
+				}
+				System.out.println("Starting messageID: " + messageID);
 			}
 			else {  System.out.println("Restart= true");
 				mailinglistDir   =   	prp.getPd().getMaxProcessedMailingListForProposalFromStorageTable(conn,messageIDForRestart, prp);  //select max messageid from tabkle for that particular pep
@@ -103,12 +108,13 @@ public class GenericMailingListReader_Main extends GenericMailingListReader_Meth
 			
 			int i = 0;
 			// System.out.println(searchKeyAllA.get(1));
-			File statText = new File("d:/scripts/ProposalOutput" + i + ".txt");
+			new File("C:/DeMapMiner/datafiles/output").mkdirs();
+			File statText = new File("C:/DeMapMiner/datafiles/output/ProposalOutput" + i + ".txt");
 			// output file declaration
 			FileOutputStream is = new FileOutputStream(statText);			OutputStreamWriter osw = new OutputStreamWriter(is);
 			Writer w = new BufferedWriter(osw);
 			// DEBUG File
-			File debugText = new File("d:/scripts/ProposalDebug.txt");
+			File debugText = new File("C:/DeMapMiner/datafiles/output/ProposalDebug.txt");
 			// output file declaration
 			FileOutputStream debug = new FileOutputStream(debugText);			OutputStreamWriter debugosw = new OutputStreamWriter(debug);
 			//this function has the folders being specified and then processed
