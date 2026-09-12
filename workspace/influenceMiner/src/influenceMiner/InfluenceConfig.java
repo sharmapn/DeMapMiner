@@ -66,6 +66,29 @@ public class InfluenceConfig {
         return cachedExcludeLists;
     }
 
+    /* Subjects matched by this regex (case-insensitive) are skipped: release announcements,
+       whose release notes list dozens of proposals and are not discussion (Sept 2026). */
+    public static final String DEFAULT_EXCLUDE_SUBJECT_REGEX = "";
+    private static java.util.regex.Pattern cachedExcludeSubject;
+    private static boolean excludeSubjectLoaded;
+
+    public static java.util.regex.Pattern excludeSubjectPattern() {
+        if (!excludeSubjectLoaded) {
+            excludeSubjectLoaded = true;
+            String v = read("influence.excludeSubjectRegex", "influenceExcludeSubjectRegex", DEFAULT_EXCLUDE_SUBJECT_REGEX);
+            if (v != null && v.trim().length() > 0 && !v.trim().equalsIgnoreCase("none")) {
+                try { cachedExcludeSubject = java.util.regex.Pattern.compile(v.trim(), java.util.regex.Pattern.CASE_INSENSITIVE); }
+                catch (Exception ex) { System.err.println("Bad influenceExcludeSubjectRegex: " + ex.getMessage()); }
+            }
+        }
+        return cachedExcludeSubject;
+    }
+
+    public static boolean isExcludedSubject(String subject) {
+        java.util.regex.Pattern p = excludeSubjectPattern();
+        return p != null && subject != null && p.matcher(subject).find();
+    }
+
     /*
      * True when the message comes from an automated sender or an excluded list.
      */

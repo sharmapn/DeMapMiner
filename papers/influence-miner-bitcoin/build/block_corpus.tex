@@ -1,0 +1,39 @@
+\section{Study Design}
+\label{sec:design}
+
+\subsection{Building the Bitcoin Corpus}
+\label{sec:corpus}
+
+The corpus was rebuilt from public sources so that it covers the whole life of the list and can be regenerated. Table~\ref{tab:sources} summarises it.
+
+\begin{table}[t]
+\caption{Sources of the Bitcoin corpus (June 2011 to September 2026).}
+\label{tab:sources}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{p{0.46\columnwidth}p{0.48\columnwidth}}
+\toprule
+Source & Content \\
+\midrule
+bitcoin-dev public-inbox mirror (gnusha.org) & 24,663 messages, 2011-06-11 to 2026-09-11, spanning the SourceForge, Linux Foundation and Google Groups eras; 24,391 read, 6,886 linked to a BIP number (11,477 message--BIP rows, 205 BIPs) \\
+\texttt{bitcoin/bips} repository & 211 BIP documents (preamble: number, title, authors, status, type, layer, created) and 505 status changes for 197 BIPs from the git history \\
+\texttt{bitcoin/bitcoin} repository & 50,557 commits: merge committers (maintainers, with active dates) and contributors with at least ten commits (from first commit) \\
+BIP 1/2/3 and repository history & BIP editors and their terms; lead maintainers and their terms \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Mailing list.} bitcoin-dev has had three homes: SourceForge (as bitcoin-development, 2011--2015), the Linux Foundation (2015--February 2024) and Google Groups (since February 2024). The public-inbox archive maintained by Bryan Bishop at gnusha.org \cite{gnusha} holds all three as one git repository with one RFC-822 message per blob. It was mirrored with \texttt{git clone --mirror}, every message was exported into a monthly mbox by its \texttt{Date:} header, and the mboxes were converted into the pipermail monthly text format that DeMaP Miner's reader was written for, using the converter built for Python's Mailman~3 archives. One Bitcoin-specific fix was needed: Google Groups rewrites the \texttt{From:} header of every post to the group's own address for DMARC, keeping the real sender in \texttt{X-Original-From}; the converter now prefers that header, without which the 687 posts of the Google Groups era would have been credited to one sender. The reader then linked each message to the BIP numbers it mentions (subject and body, ``BIP 341'', ``BIP-341'', ``bip341''), storing a message once per BIP as it does for PEPs; messages that discuss a proposal before it has a number, or by name only (``Taproot'', ``CTV''), are not linked, which is the main coverage limit of this study and is discussed in Section~\ref{sec:threats}.
+
+\paragraph{Proposal metadata and state history.} The \texttt{bitcoin/bips} repository was cloned and each document's preamble parsed. Two preamble conventions coexist: BIP 2's (\emph{Author}, \emph{Created}, statuses Draft, Proposed, Final, Active, Deferred, Rejected, Withdrawn, Replaced and Obsolete) and BIP 3's, introduced in 2025 (\emph{Authors}, \emph{Assigned}, statuses Draft, Deployed, Complete and Closed). Every commit that changes a \texttt{Status:} line yields a (BIP, from, to, timestamp) record, giving 505 status changes for 197 BIPs. On 12 April 2025 a single commit relabelled every BIP into the new vocabulary (Final $\to$ Deployed or Complete, Rejected/Withdrawn/Obsolete/Replaced $\to$ Closed); the final decision used for RQ4 is therefore the last status \emph{before} that commit where one exists, and the current status otherwise, so that ``Closed'' does not erase the distinction between rejected and withdrawn proposals. The tool's outcome resolver was extended to read the BIP vocabulary (Proposed as a pre-decision state; Deployed and Complete as positive; Closed and Obsolete as negative).
+
+\paragraph{Roles.} Bitcoin has no BDFL, no delegates and no council, so the role vocabulary was rebuilt from the project's own records. The \emph{lead maintainer} (Gavin Andresen to 7 April 2014, Wladimir van der Laan to 31 January 2022) is the closest analogue of Python's BDFL. \emph{Maintainers} are the authors of merge commits in \texttt{bitcoin/bitcoin} (at least twenty merges; the role is time-bounded by their first and last merge), \emph{core developers} are contributors with at least ten non-merge commits from the date of their first commit, \emph{BIP editors} are taken from the history of BIP 1, BIP 2 and the repository's README with their terms (Amir Taaki 2011--2013, Gregory Maxwell 2013--2016, Luke Dashjr 2016--2026, Kalle Alm 2021--2024, and Bryan Bishop, Jon Atack, Mark Erhardt, Olaoluwa Osuntokun and Ruben Somsen from April 2024), and \emph{proposal authors} come from the BIP preambles and hold that role on their own BIP only. Everyone else is a \emph{community member}. Roles are proposal- and date-specific: the same person is an author on their BIP, a maintainer while they merge, and a community member before their first commit. Names were clustered by address and a short alias list (handles such as \emph{sipa}, \emph{gmaxwell}, \emph{luke-jr}, \emph{roasbeef}, \emph{fanquake}, \emph{glozow}, \emph{kanzure}, \emph{murch} map to the person). Per message--BIP row the corpus holds 6,762 community-member, 2,514 core-developer, 1,095 author, 530 editor, 353 maintainer and 223 lead-maintainer rows.
+
+\paragraph{Cross-check against the 2021 database.} The group's earlier Bitcoin database (built in 2021 from the Linux Foundation archives of bitcoin-dev, bitcoin-core-dev and bitcoin-discuss) survives as its sentence and paragraph tables---284,303 sentences from 18,600 messages on 146 BIPs, split into a 50-column feature layout written for reason extraction and topic modelling---and was attached to the same server for comparison. Up to the date of that database (13 May 2021) the rebuilt corpus holds 18,830 bitcoin-dev messages linked to 146 BIPs, against the 18,288 bitcoin-dev messages and 144 BIPs of the 2021 tables; per BIP the counts agree closely (BIP~9: 348 vs.\ 353 messages; BIP~141: 287 vs.\ 283; BIP~341: 37 vs.\ 32). The automated linking therefore reproduces the hand-checked coverage of the earlier study. The two lists the earlier database also read, bitcoin-core-dev and bitcoin-discuss (7\% of its sentences), are not in the rebuilt corpus.
+
+\paragraph{Governance eras.} For RQ3 the split date is 1 February 2022, the end of the lead-maintainer role; the analysis also reports four finer periods---the Andresen years (June 2011 to April 2014), the block-size war (April 2014 to the activation of Segregated Witness on 24 August 2017), the van der Laan years after the war (to January 2022) and the post-lead era (from February 2022)---because the war is the period in which the community's governance was contested most openly.
+
+\subsection{Analysis}
+
+The analysis mirrors the Python study. RQ1 uses the multi-label mechanism distribution, its profile across decision phases and the timing of signals relative to the decision; RQ2 the role distribution and actor-level aggregates; RQ3 the era comparison; RQ4 the mechanism mix by outcome and direction--outcome alignment against the base rate; RQ5 the overlap with preference signals; RQ6 the seven controversial mechanisms, their concentration by role, era, proposal and phase, and the year-by-year landmark acts nominated by the tool. Section~\ref{sec:compare} then sets the Bitcoin profile against the Python profile obtained with the same detector. All statistics are descriptive.
+

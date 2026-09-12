@@ -46,6 +46,15 @@ public class InfluenceRoleMapper {
     public static final String ROLE_DELEGATE = "BDFL delegate";
     public static final String ROLE_AUTHOR = "proposal author";
     public static final String ROLE_EDITOR = "PEP editor";
+    public static final String ROLE_BIP_EDITOR = "BIP editor";
+    /* Bitcoin: the Bitcoin Core lead maintainer (Gavin Andresen 2011-14, Wladimir van der Laan 2014-22) is the
+       closest analogue of the BDFL; other maintainers hold merge access. */
+    public static final String ROLE_LEAD_MAINTAINER = "lead maintainer";
+
+    /* editor label for the identifier in use (PEP editor / BIP editor) */
+    public static String editorRole(String proposalIdentifier) {
+        return "bip".equalsIgnoreCase(proposalIdentifier == null ? "" : proposalIdentifier.trim()) ? ROLE_BIP_EDITOR : ROLE_EDITOR;
+    }
     public static final String ROLE_CORE = "core developer";
     public static final String ROLE_RELEASE = "release manager";
     public static final String ROLE_MAINTAINER = "maintainer";
@@ -90,7 +99,7 @@ public class InfluenceRoleMapper {
         // 3. proposal-specific metadata
         String proposalRole = null;
         if (connection != null && proposalNumber > 0) {
-            ProposalPeople people = proposalPeople(connection, proposalNumber);
+            ProposalPeople people = proposalPeople(connection, proposalIdentifier, proposalNumber);
             if (people != null) {
                 if (matchesEmail(people.authorEmails, email) || people.authorNames.contains(name)) {
                     proposalRole = ROLE_AUTHOR;
@@ -105,7 +114,7 @@ public class InfluenceRoleMapper {
         // dataset's own convention (authorsrole2020 = proposalAuthor on the
         // author's own PEP); only the BDFL / steering council keep their role.
         if (proposalRole != null) {
-            if (fromRow != null && (fromRow.equals(ROLE_BDFL) || fromRow.equals(ROLE_STEERING))) {
+            if (fromRow != null && (fromRow.equals(ROLE_BDFL) || fromRow.equals(ROLE_STEERING) || fromRow.equals(ROLE_LEAD_MAINTAINER))) {
                 return fromRow;
             }
             if (fromRow != null && fromRow.equals(ROLE_DELEGATE) && proposalRole.equals(ROLE_AUTHOR)) {
@@ -119,9 +128,9 @@ public class InfluenceRoleMapper {
 
         // 4. project-wide tables
         if (connection != null) {
-            loadProjectTables(connection);
+            loadProjectTables(connection, proposalIdentifier);
             if (name.length() > 0) {
-                if (isListedAt(pepEditors, name, messageDate)) return ROLE_EDITOR;
+                if (isListedAt(pepEditors, name, messageDate)) return editorRole(proposalIdentifier);
                 if (isListedAt(coreDevelopers, name, messageDate)) return ROLE_CORE;
                 String r = authorRoles.get(name);
                 if (r != null) return r;
@@ -135,6 +144,8 @@ public class InfluenceRoleMapper {
         }
         if (combined.contains("steering")) return ROLE_STEERING;
         if (combined.contains("delegate")) return ROLE_DELEGATE;
+        if (combined.contains("gavinandresen") || combined.contains("gavin andresen") || combined.contains("laanwj")
+                || combined.contains("wladimir")) return ROLE_LEAD_MAINTAINER;
         if (combined.contains("maintainer")) return ROLE_MAINTAINER;
         if (combined.contains("wallet")) return "wallet provider";
         if (combined.contains("exchange")) return "exchange";
@@ -152,11 +163,12 @@ public class InfluenceRoleMapper {
         String r = raw.trim().toLowerCase();
         if (r.length() == 0 || r.equals("null")) return null;
         if (r.equals("bdfl")) return ROLE_BDFL;
+        if (r.contains("leadmaintainer") || r.contains("lead maintainer")) return ROLE_LEAD_MAINTAINER;
         if (r.contains("steering")) return ROLE_STEERING;
         if (r.contains("delegate")) return ROLE_DELEGATE;
         if (r.contains("proposalauthor") || r.equals("author") || r.contains("pep author") || r.contains("bip author")) return ROLE_AUTHOR;
         if (r.contains("pepeditor")) return ROLE_EDITOR;
-        if (r.contains("bipeditor") || r.contains("bip editor")) return "BIP editor";
+        if (r.contains("bipeditor") || r.contains("bip editor")) return ROLE_BIP_EDITOR;
         if (r.contains("coredeveloper") || r.contains("core developer") || r.contains("core dev")) return ROLE_CORE;
         if (r.contains("release")) return ROLE_RELEASE;
         if (r.contains("maintainer")) return ROLE_MAINTAINER;
@@ -198,17 +210,18 @@ public class InfluenceRoleMapper {
         return !m.isBefore(a);
     }
 
-    private static ProposalPeople proposalPeople(Connection connection, int proposalNumber) {
+    private static ProposalPeople proposalPeople(Connection connection, String proposalIdentifier, int proposalNumber) {
         Integer key = Integer.valueOf(proposalNumber);
         if (proposalCache.containsKey(key)) {
             return proposalCache.get(key);
         }
         ProposalPeople people = new ProposalPeople();
-        String[] tables = { InfluenceOutcomeResolver.DETAILS_TABLE, InfluenceOutcomeResolver.DETAILS_TABLE_FALLBACK };
+        String id = InfluenceOutcomeResolver.identifierOf(proposalIdentifier);
+        String[] tables = { InfluenceOutcomeResolver.detailsTable(id), InfluenceOutcomeResolver.DETAILS_TABLE_FALLBACK };
         for (int t = 0; t < tables.length; t++) {
             try {
                 PreparedStatement ps = connection.prepareStatement(
-                        "SELECT author, authorCorrected, authorEmail, bdfl_delegate, bdfl_delegateCorrected FROM " + tables[t] + " WHERE pep = ?");
+                        "SELECT author, authorCorrected, authorEmail, bdfl_delegate, bdfl_delegateCorrected FROM " + tables[t] + " WHERE `" + id + "` = ?");
                 ps.setInt(1, proposalNumber);
                 ResultSet rs = ps.executeQuery();
                 boolean any = false;
@@ -251,7 +264,8 @@ public class InfluenceRoleMapper {
         }
     }
 
-    private static synchronized void loadProjectTables(Connection connection) {
+    private static synchronized void loadProjectTables(Connection connection, String proposalIdentifier) {
+        String id = InfluenceOutcomeResolver.identifierOf(proposalIdentifier);
         if (loadedFor == connection && coreDevelopers != null) {
             return;
         }
@@ -261,7 +275,7 @@ public class InfluenceRoleMapper {
         authorRoles = new HashMap<String, String>();
 
         loadNameDateTable(connection, "SELECT coredeveloper, dateadded FROM coredevelopers", coreDevelopers);
-        loadNameDateTable(connection, "SELECT pepeditor, dateadded FROM pepeditors", pepEditors);
+        loadNameDateTable(connection, "SELECT " + id + "editor, dateadded FROM " + id + "editors", pepEditors);
 
         try {
             Statement st = connection.createStatement();

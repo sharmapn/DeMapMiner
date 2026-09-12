@@ -45,6 +45,7 @@ public class InfluencePipeline {
             InfluenceResultAggregator.Aggregates a = InfluenceResultAggregator.aggregate(connection, identifier);
             InfluenceResultAggregator.aggregateActorSummary(connection, a);
             InfluenceResultAggregator.aggregateProposalSummary(connection, a);
+            InfluenceMessageRanker.rebuild(connection, identifier);   // message-based ranking (MBS), Sept 2026
             InfluenceCsvExporter.exportAll(connection, a, InfluenceConfig.outputDir());
             InfluenceAnnotationSampler.exportSample(a.candidates, InfluenceConfig.outputFile(InfluenceAnnotationSampler.FILE_NAME).getPath(),
                     100, 100, 20, 42L);

@@ -786,4 +786,58 @@ public class WordSearcher {
 		}
 		return result;
 	}
+	
+	/*
+	 * Sept 2026 - Influence Miner. Underline one sentence in the message text.
+	 *
+	 * The candidate sentence was cut from the cleaned message (quotes, signatures
+	 * and URLs removed, whitespace collapsed), so it rarely matches the raw text
+	 * byte for byte. The match is therefore tolerant: every run of non-word
+	 * characters in the sentence matches any run of non-word characters in the
+	 * text (line breaks, quote markers, punctuation), and the comparison ignores
+	 * case. If the whole sentence is not found, the longest prefix of at least
+	 * six words is tried, so a sentence whose tail was trimmed by the cleaner
+	 * still gets its head underlined. Returns the offset of the underline, or -1.
+	 */
+	public int underlineSentence(String sentence) {
+		if (sentence == null || comp == null) return -1;
+		String content;
+		try {
+			Document d = comp.getDocument();
+			content = d.getText(0, d.getLength());
+		} catch (BadLocationException e) {
+			return -1;
+		}
+		String[] words = sentence.trim().split("[^\\p{L}\\p{N}']+");
+		java.util.List<String> ws = new java.util.ArrayList<String>();
+		for (String w : words) if (w.length() > 0) ws.add(w);
+		if (ws.isEmpty()) return -1;
+		for (int n = ws.size(); n >= Math.min(6, ws.size()); n--) {
+			StringBuilder re = new StringBuilder();
+			for (int i = 0; i < n; i++) {
+				if (i > 0) re.append("[^\\p{L}\\p{N}']{1,12}");
+				re.append(java.util.regex.Pattern.quote(ws.get(i)));
+			}
+			java.util.regex.Matcher m = java.util.regex.Pattern.compile(re.toString(), java.util.regex.Pattern.CASE_INSENSITIVE).matcher(content);
+			if (m.find()) {
+				try {
+					comp.getHighlighter().addHighlight(m.start(), m.end(), painter);
+				} catch (BadLocationException e) {
+					return -1;
+				}
+				return m.start();
+			}
+			if (n == ws.size() && ws.size() > 6) n = 7; // whole sentence failed: try the six-word prefix next
+		}
+		return -1;
+	}
+
+	/* Remove every underline this class has painted on the component. */
+	public void clearUnderlines() {
+		if (comp == null) return;
+		Highlighter h = comp.getHighlighter();
+		for (Highlighter.Highlight hl : h.getHighlights()) {
+			if (hl.getPainter() instanceof UnderlineHighlighter.UnderlineHighlightPainter) h.removeHighlight(hl);
+		}
+	}
 }

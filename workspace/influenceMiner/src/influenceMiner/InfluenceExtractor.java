@@ -110,7 +110,7 @@ public class InfluenceExtractor {
 
                 // commit notifications / tracker robots are not discussion
                 // (checked on the resolved address: on shifted rows senderemail belongs to another message)
-                if (InfluenceConfig.isExcludedMessage(author.email, message.mailingList)) {
+                if (InfluenceConfig.isExcludedMessage(author.email, message.mailingList) || InfluenceConfig.isExcludedSubject(message.subject)) {
                     stats.messagesExcludedAutomated++;
                     continue;
                 }

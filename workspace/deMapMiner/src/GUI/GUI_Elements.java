@@ -149,7 +149,7 @@ public class GUI_Elements extends JFrame {
 	public static boolean addInfluenceTab = true, addSentimentTab = true, addInfluenceMinerTab = true; // Sept 2026: Influence Miner results tab
 	// Sept 2026 - Influence Miner tab controls (results go into stateJTable like the reason candidates)
 	protected JButton loadInfluenceCandidatesButton, runInfluenceMinerButton;
-	protected JComboBox<String> imMechanismCombo, imDirectionCombo, imRoleCombo, imEraCombo, imSortCombo;
+	protected JComboBox<String> imMechanismCombo, imDirectionCombo, imRoleCombo, imEraCombo, imSortCombo, imRankCombo;
 	protected JTextField imMinScoreText = new JTextField("1.0", 4);
 	protected JLabel imSummaryLabel = new JLabel(" ");
 	
@@ -899,14 +899,17 @@ public class GUI_Elements extends JFrame {
 				"PEP editor", "core developer", "community member" });
 		imEraCombo = new JComboBox<String>(new String[] { "All eras", "bdfl_era", "post_bdfl_era" });
 		imSortCombo = new JComboBox<String>(new String[] { "Score (high first)", "Date (oldest first)", "Date (newest first)" });
+		// Sept 2026: sentence-based (one row per candidate sentence) or message-based ranking
+		// (one row per message, scored by the sum of its candidates; table influence_message_summary)
+		imRankCombo = new JComboBox<String>(new String[] { "Rank sentences (SBS)", "Rank messages (MBS)" });
 		loadInfluenceCandidatesButton = new JButton("Load Influence Candidates");
 		runInfluenceMinerButton = new JButton("Run Influence Miner for PEP");
 		influenceMinerTabRightSideOfFrame.add(new JLabel("Mechanism: "));			influenceMinerTabRightSideOfFrame.add(imMechanismCombo);
 		influenceMinerTabRightSideOfFrame.add(new JLabel("Direction: "));			influenceMinerTabRightSideOfFrame.add(imDirectionCombo);
 		influenceMinerTabRightSideOfFrame.add(new JLabel("Author role: "));		influenceMinerTabRightSideOfFrame.add(imRoleCombo);
 		influenceMinerTabRightSideOfFrame.add(new JLabel("Governance era: "));	influenceMinerTabRightSideOfFrame.add(imEraCombo);
-		influenceMinerTabRightSideOfFrame.add(new JLabel("Min. score / sort: "));
-		JPanel imScoreSort = new JPanel(new GridLayout(1, 2)); imScoreSort.add(imMinScoreText); imScoreSort.add(imSortCombo);
+		influenceMinerTabRightSideOfFrame.add(new JLabel("Min. score / sort / rank: "));
+		JPanel imScoreSort = new JPanel(new GridLayout(1, 3)); imScoreSort.add(imMinScoreText); imScoreSort.add(imSortCombo); imScoreSort.add(imRankCombo);
 		influenceMinerTabRightSideOfFrame.add(imScoreSort);
 		influenceMinerTabRightSideOfFrame.add(loadInfluenceCandidatesButton);		influenceMinerTabRightSideOfFrame.add(runInfluenceMinerButton);
 		if (addInfluenceMinerTab) {

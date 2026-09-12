@@ -354,6 +354,70 @@ public class GUI_ElementMethods extends GUI_Elements {
 	
 	//The critical functions
 	/*
+	 * Sept 2026 - true while stateJTable holds Influence Miner rows. The row-selection
+	 * listener then opens the message directly from the messages table (it no longer
+	 * depends on the recordset of the last message search) and underlines the
+	 * candidate sentences of that message, as Rationale Miner does for reasons.
+	 */
+	protected static boolean influenceTableActive = false;
+
+	protected void showInfluenceMessage(int row) {
+		if (row < 0 || row >= model.getRowCount()) return;
+		String mid = String.valueOf(model.getValueAt(row, 1));
+		String clicked = String.valueOf(model.getValueAt(row, 3));
+		int cueStart = clicked.lastIndexOf("   {");
+		if (cueStart > 0) clicked = clicked.substring(0, cueStart);		// strip the "{evidence cues}" suffix
+		try {
+			int proposal = Integer.parseInt(proposalNumberText.getText().trim());
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM " + messagesTableName + " WHERE messageid = ? AND " + proposalIdentifier + " = ? LIMIT 1");
+			ps.setString(1, mid); ps.setInt(2, proposal);
+			ResultSet m = ps.executeQuery();
+			if (!m.next()) { m.close(); ps.close(); rowCountText.setText("message " + mid + " not found"); return; }
+			messageIDText.setText(m.getString("messageid"));	proposalDetailsText.setText(authorcorrected + " " + bdfl_delegatecorrected);	dateText.setText(m.getString("date2"));
+			locationText.setText(m.getString("folder"));	tsText.setText(m.getString("file"));
+			String msg = m.getString("email") == null ? "" : m.getString("email");
+			activeTSText.setText(msg);		analyseWordsText.setText(m.getString("analysewords"));
+			String newMessage = assignNumbersToSentences_FindMessageEnd(msg, "", m.getString("author"));
+			markedMessageText.setText(newMessage);
+			wordsText.setText(m.getString("subject"));    rowCountText.setText((row + 1) + "/" + model.getRowCount());
+			activeTSText.setCaretPosition(0);	analyseWordsText.setCaretPosition(0);	markedMessageText.setCaretPosition(0);
+			m.close(); ps.close();
+
+			// underline every candidate sentence of this message (blue) and the clicked one (red), then scroll to it
+			final WordSearcher blue = new WordSearcher(activeTSText, Color.blue);
+			final WordSearcher red = new WordSearcher(activeTSText, Color.red);
+			blue.clearUnderlines();
+			int scrollTo = -1;
+			PreparedStatement ps2 = connection.prepareStatement("SELECT sentence FROM influence_candidates WHERE proposal_number = ? AND message_id = ? ORDER BY influence_score DESC");
+			ps2.setInt(1, proposal); ps2.setString(2, mid);
+			ResultSet c = ps2.executeQuery();
+			while (c.next()) {
+				String sentence = c.getString("sentence");
+				boolean isClicked = imRankCombo.getSelectedIndex() == 0 && sentence != null && clicked.trim().equalsIgnoreCase(sentence.trim());
+				int off = (isClicked ? red : blue).underlineSentence(sentence);
+				if (off >= 0 && (isClicked || scrollTo < 0)) scrollTo = off;
+			}
+			c.close(); ps2.close();
+			if (scrollTo >= 0) {
+				// scroll after the text component has laid out the new text
+				final int target = scrollTo;
+				SwingUtilities.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							java.awt.Rectangle r = activeTSText.modelToView(target);
+							if (r != null) { int vh = Math.max(200, activeTSText.getVisibleRect().height); r.y = Math.max(0, r.y - vh / 3); r.height = vh - 10; activeTSText.scrollRectToVisible(r); }
+						} catch (BadLocationException ignored) { }
+					}
+				});
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			rowCountText.setText("Error: " + ex.getMessage());
+		}
+		repaint();
+	}
+
+	/*
 	 * Sept 2026 - Influence Miner tab. Fills stateJTable with the influence
 	 * candidates of the current proposal (table influence_candidates, written by
 	 * influenceMiner.InfluenceExtractor). Columns follow the reason-candidate
@@ -396,11 +460,14 @@ public class GUI_ElementMethods extends GUI_Elements {
 		if (!era.startsWith("All")) { sql.append(" AND governance_era = ?"); params.add(era); }
 		sql.append(order);
 
+		influenceTableActive = true;
+		boolean byMessage = imRankCombo.getSelectedIndex() == 1;
 		model.setRowCount(0);
 		java.util.Map<String, Integer> byType = new java.util.LinkedHashMap<String, Integer>();
 		java.util.Map<String, Integer> byDirection = new java.util.LinkedHashMap<String, Integer>();
 		java.util.Set<String> actors = new java.util.HashSet<String>();
 		int n = 0; String outcome = "";
+		java.util.Map<String, Object[]> perMessage = new java.util.LinkedHashMap<String, Object[]>();
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql.toString());
 			for (int i = 0; i < params.size(); i++) ps.setObject(i + 1, params.get(i));
@@ -418,9 +485,32 @@ public class GUI_ElementMethods extends GUI_Elements {
 				String cues = r.getString("evidence_cues");
 				String sentence = r.getString("sentence") + (cues == null || cues.isEmpty() ? "" : "   {" + cues + "}");
 				String date = r.getString("message_date") == null ? "" : r.getString("message_date").substring(0, Math.min(10, r.getString("message_date").length()));
+				if (byMessage) {
+					// message-based scheme: fold the sentences of one message into one row
+					String key = r.getString("message_id");
+					Object[] agg = perMessage.get(key);
+					if (agg == null) {
+						agg = new Object[] { date, key, r.getString("author_name") + " (" + r.getString("author_role") + ")", new java.util.LinkedHashSet<String>(), r.getString("sentence"), 0.0, 0, r.getDouble("influence_score") };
+						perMessage.put(key, agg);
+					}
+					for (String t : types.split(",")) if (t.trim().length() > 0) ((java.util.Set<String>) agg[3]).add(t.trim());
+					agg[5] = (Double) agg[5] + r.getDouble("influence_score");
+					agg[6] = (Integer) agg[6] + 1;
+					if (r.getDouble("influence_score") > (Double) agg[7]) { agg[7] = r.getDouble("influence_score"); agg[4] = r.getString("sentence"); }
+					continue;
+				}
 				model.addRow(new Object[] { date, r.getString("message_id"), author, sentence, String.valueOf(r.getDouble("influence_score")) });
 			}
 			r.close(); ps.close();
+			if (byMessage) {
+				java.util.List<Object[]> rows = new java.util.ArrayList<Object[]>(perMessage.values());
+				if (imSortCombo.getSelectedIndex() == 0) rows.sort((x, y) -> Double.compare((Double) y[5], (Double) x[5]));
+				for (Object[] agg : rows) {
+					String author = agg[2] + "  [" + agg[6] + " sentences; " + String.join(",", (java.util.Set<String>) agg[3]) + "]";
+					String top = "top: " + agg[4];
+					model.addRow(new Object[] { agg[0], agg[1], author, top, String.format("%.2f (max %.2f)", (Double) agg[5], (Double) agg[7]) });
+				}
+			}
 		} catch (Exception ex) {
 			imSummaryLabel.setText("Error: " + ex.getMessage());
 			ex.printStackTrace();
@@ -432,7 +522,7 @@ public class GUI_ElementMethods extends GUI_Elements {
 		summary.append("<br>");
 		for (java.util.Map.Entry<String, Integer> en : byDirection.entrySet()) summary.append(en.getKey()).append(' ').append(en.getValue()).append("  ");
 		imSummaryLabel.setText(summary.append("</html>").toString());
-		rowCountText.setText(n + " influence candidates");
+		rowCountText.setText(byMessage ? perMessage.size() + " messages (" + n + " candidate sentences)" : n + " influence candidates");
 	}
 
 	public void setButtonsEventListners() //JTable wordListTable, JCheckBox statusCheck, JCheckBox addParameters,JCheckBox statusChangedCheck, final WordSearcher searcher, JComboBox<String> location)
@@ -1554,6 +1644,11 @@ public class GUI_ElementMethods extends GUI_Elements {
 		ListSelectionModel cellSelectionModel6 = stateJTable.getSelectionModel();			cellSelectionModel6.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);			
 		cellSelectionModel6.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
+				// Sept 2026: Influence Miner rows open their message directly and underline the candidate sentences
+				if (influenceTableActive) {
+					if (!e.getValueIsAdjusting()) showInfluenceMessage(stateJTable.getSelectedRow());
+					return;
+				}
 				//call jtp change listerner
 				
 				//as soon as cell selection is changed, we go through the entire recordset, starting from the beginning 
@@ -1806,6 +1901,7 @@ public class GUI_ElementMethods extends GUI_Elements {
 	        	
 	        	
 	        	int index = jtp2.getSelectedIndex();		            System.out.println("Selected Tab: " + index);
+	        	influenceTableActive = "Influence Miner".equals(jtp2.getTitleAt(index));	// Sept 2026
 	            if(index==0) {	//FOR FIRST TAB
 	            	String pep = proposalNumberText.getText();	            	
 	            	//Right Side Panel...show jtable for first tabbed pane, show candidate sentences based on automatic approach.

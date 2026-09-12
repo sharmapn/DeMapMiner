@@ -114,7 +114,8 @@ public class InfluenceTypeDetector {
                 "release manager", "decision maker", "pronounce", "pronouncement", "pronounced", "veto", "expert",
                 "experts", "guido", "gvr", "final say", "final decision", "the decision is", "i have decided",
                 "i'm accepting", "i am accepting", "i'm rejecting", "i am rejecting", "accepted the pep", "rejected the pep",
-                "ruling", "authority", "in charge", "the council"
+                "ruling", "authority", "in charge", "the council", "lead maintainer", "core maintainer", "core maintainers",
+                "wladimir", "laanwj", "gavin", "gmaxwell", "sipa", "bip editors", "the editors"
         });
         CUES.put("compatibility", new String[] {
                 "backward compatibility", "backwards compatibility", "backward compatible", "backwards compatible",
@@ -195,7 +196,7 @@ public class InfluenceTypeDetector {
                 "i'm going to pronounce", "i am going to pronounce", "i hereby", "i pronounce", "consider it accepted",
                 "consider it rejected", "consider this rejected", "consider this accepted", "end of discussion",
                 "end of story", "discussion is over", "the discussion is closed", "case closed", "no further discussion",
-                "this is final", "final answer", "i overrule", "overruled", "overruling", "unilateral", "unilaterally",
+                "this is final", "final answer", "i overrule", "overruled", "overruling", "unilaterally", "unilateral decision",
                 "by fiat", "fiat", "dictator", "dictatorial", "dictatorship", "benevolent dictator", "my call",
                 "not up for debate", "not open for discussion", "not open to discussion", "not negotiable",
                 "non-negotiable", "whether you like it or not", "like it or not", "i will merge", "i'm merging",
@@ -215,6 +216,11 @@ public class InfluenceTypeDetector {
                 "at jetbrains", "at meta", "at amazon", "at intel", "at ibm", "at oracle", "at mozilla", "at nvidia",
                 "at quansight", "at anaconda", "at continuum", "at enthought", "at yelp", "at linkedin", "at twitter",
                 "at netflix", "at spotify", "at shopify", "at stripe", "at cisco", "at rackspace", "at zope corporation",
+                "at blockstream", "at chaincode", "at coinbase", "at bitmain", "at bitpay", "at square", "at spiral", "at brink",
+                "at mit dci", "at digital currency initiative", "at lightning labs", "at bitgo", "at blockchain.info", "at kraken",
+                "at bitfinex", "at bitfury", "at okcoin", "at f2pool", "at antpool", "at galaxy", "at river", "at nydig",
+                "funded by blockstream", "blockstream employee", "blockstream employees", "pays my salary", "sponsors my work",
+                "my sponsor", "our sponsors", "grant from", "hrf grant", "brink grant", "opensats", "spiral grant",
                 "in our codebase", "our codebase", "our code base", "our production", "in production at",
                 "production code at", "our customers", "our product", "our products", "paid to", "being paid",
                 "getting paid", "paid for by", "funded by", "funding for", "funding from", "grant",
@@ -239,7 +245,7 @@ public class InfluenceTypeDetector {
                 "i will revert", "i'll revert", "i'm reverting", "i am reverting", "revert it", "reverted your",
                 "i will block", "i'll block", "i'm blocking", "i am blocking", "i block", "i veto", "i'll veto",
                 "i will veto", "my veto", "i object", "i strongly object", "i formally object", "formal objection",
-                "not on my watch", "no way", "absolutely not", "hell no", "never going to", "i will never",
+                "not on my watch", "no way i", "no way we", "no way this", "no way that", "no way in hell", "hell no", "never going to", "i will never",
                 "i'll never accept", "i'll never approve", "as long as i'm", "as long as i am", "while i'm the",
                 "while i am the", "my module", "my code", "my package", "i maintain", "i'm the maintainer",
                 "i am the maintainer", "as the maintainer", "as maintainer", "as the author of", "as the original author",
@@ -256,6 +262,9 @@ public class InfluenceTypeDetector {
         CUES.put("exit_threat", new String[] {
                 "i'll fork", "i will fork", "fork the project", "fork python", "fork cpython", "fork the language",
                 "we'll fork", "we will fork", "threaten to fork", "threat of a fork", "hostile fork", "forking python",
+                "fork bitcoin", "contentious hard fork", "contentious fork", "chain split threat", "split the chain",
+                "we will split", "i'll run a different", "switch to another implementation", "run bitcoin xt", "run bitcoin classic",
+                "run bitcoin unlimited", "leave bitcoin", "leaving bitcoin", "abandon bitcoin", "sell my coins",
                 "i'm leaving python", "leaving python", "leave python", "leaving the project", "leave the project",
                 "leaving the community", "leave the community", "leaving core", "i quit", "i'm quitting", "i am quitting",
                 "i resign", "i'm resigning", "i am resigning", "resignation", "step down", "stepping down",
@@ -301,7 +310,9 @@ public class InfluenceTypeDetector {
                 "screaming", "name-calling", "name calling", "belittle", "belittling", "mocking", "ridicule",
                 "ridiculing", "contempt", "contemptuous", "attacking me", "attacking you", "attacking him",
                 "attacking her", "unprofessional", "out of line", "over the line", "crossed a line", "crosses a line",
-                "pissed", "piss off", "pissing", "angry"
+                "pissed", "piss off", "pissing", "angry", "shill", "shills", "shilling", "scammer", "scammers", "scam coin",
+                "altcoin shill", "sockpuppet", "sock puppet", "brigading", "brigade", "concern troll", "concern trolling",
+                "bad faith", "acting in bad faith", "dishonest", "liar", "disingenuous"
         });
         CUES.put("backchannel", new String[] {
                 "offline", "off-line", "off list", "off-list", "offlist", "privately", "in private", "private email",
@@ -349,7 +360,9 @@ public class InfluenceTypeDetector {
                 "here we go again", "comes up every", "every few months", "every few years", "read the archives",
                 "search the archives", "check the archives", "the archives", "needs a sponsor", "need a sponsor",
                 "find a sponsor", "no sponsor", "without a sponsor", "core dev sponsor", "needs a pep", "write a pep",
-                "needs to be a pep", "requires a pep", "submit a pep", "needs a champion", "needs a reference implementation",
+                "needs to be a pep", "requires a pep", "submit a pep", "needs a champion", "needs a reference implementation", "censored", "censoring", "censor the list", "censorship on",
+                "banned from the list", "ban him", "ban them", "moderation queue", "moderated list", "list moderators",
+                "the moderators", "moderator decision", "off-topic for this list", "this is bitcoin-dev, not",
                 "no reference implementation", "not a complete pep", "incomplete pep", "too late for", "missed the deadline",
                 "after the freeze", "after beta", "not in time for", "not the time", "not the right time", "wrong time",
                 "bad timing", "not how we do things", "not how things work", "that's not how", "not the way we",
@@ -406,7 +419,6 @@ public class InfluenceTypeDetector {
         NEAR_REQUIRED.put("i am the author", ownership);
         NEAR_REQUIRED.put("as the original author", ownership);
         String[] refusalObject = { "pep", "proposal", "merge", "accept", "approve", "never", "not going", "in python", "in 3." };
-        NEAR_REQUIRED.put("no way", new String[] { "no way i", "no way we", "no way this", "no way that", "accept", "merge", "allow", "approve", "in hell", "no way." });
         NEAR_REQUIRED.put("no chance", refusalObject);
         NEAR_REQUIRED.put("won't happen", refusalObject);
         NEAR_REQUIRED.put("will not happen", refusalObject);
@@ -421,6 +433,13 @@ public class InfluenceTypeDetector {
 
         String[] employerContext = { "employer", "company", "work", "paid", "corporate", "business", "customer", "product",
                 "commercial", "fund", "sponsor", "google", "microsoft", "dropbox", "red hat", "canonical", "enterprise" };
+        String[] payContext = { "work", "develop", "employ", "company", "salary", "contract", "full-time", "grant", "sponsor", "foundation", "to do", "for this", "maintain" };
+        NEAR_REQUIRED.put("paid to", payContext);
+        NEAR_REQUIRED.put("being paid", payContext);
+        NEAR_REQUIRED.put("getting paid", payContext);
+        NEAR_REQUIRED.put("funded by", new String[] { "company", "foundation", "grant", "employer", "sponsor", "blockstream", "chaincode", "psf", "google", "work", "develop", "project", "research" });
+        NEAR_REQUIRED.put("funding for", NEAR_REQUIRED.get("funded by"));
+        NEAR_REQUIRED.put("funding from", NEAR_REQUIRED.get("funded by"));
         NEAR_REQUIRED.put("grant", new String[] { "psf", "funding", "money", "receive", "awarded", "fund", "pay", "sponsor" });
         NEAR_REQUIRED.put("contract", new String[] { "work", "paid", "company", "client", "fund", "consult", "hire", "employ" });
         NEAR_REQUIRED.put("consulting", new String[] { "work", "client", "paid", "company", "do ", "my ", "business", "gig" });
@@ -445,7 +464,7 @@ public class InfluenceTypeDetector {
         NEAR_REQUIRED.put("if this is rejected", exitFirstPerson);
         NEAR_REQUIRED.put("if this gets rejected", exitFirstPerson);
         NEAR_REQUIRED.put("if this gets in", exitFirstPerson);
-        NEAR_REQUIRED.put("walk away", new String[] { "i ", "me", "from this", "from python", "from the", "i'll", "i'd" });
+        NEAR_REQUIRED.put("walk away", new String[] { "i'll walk", "i will walk", "i'd walk", "i walk", "me walk", "from this project", "from python", "from bitcoin" });
         NEAR_REQUIRED.put("hiatus", new String[] { "i ", "me", "my", "from python", "from core", "from the", "taking", "on " });
         NEAR_REQUIRED.put("retire", NEAR_REQUIRED.get("hiatus"));
         NEAR_REQUIRED.put("retiring", NEAR_REQUIRED.get("hiatus"));
@@ -473,13 +492,16 @@ public class InfluenceTypeDetector {
         NEAR_REQUIRED.put("stepped down", NEAR_REQUIRED.get("step down"));
 
         NEAR_REQUIRED.put("angry", new String[] { "you", "me", "people", "make", "getting", "why so", "i'm", "i am", "so " });
+        NEAR_REQUIRED.put("dumb", new String[] { "you", "idea", "proposal", "this is", "that's", "stupid", "so dumb", "really dumb", "pretty dumb" });
+        NEAR_REQUIRED.put("out of band", new String[] { "discuss", "talk", "agree", "decid", "asked", "told", "conversation" });
+        NEAR_REQUIRED.put("out-of-band", NEAR_REQUIRED.get("out of band"));
         NEAR_REQUIRED.put("insane", new String[] { "this is", "that's", "idea", "proposal", "would be", "is ", "crazy" });
         NEAR_REQUIRED.put("flame", new String[] { "war", "fest", "bait", "me", "you", "don't", "not ", "start", "this is", "thread" });
         NEAR_REQUIRED.put("insult", new String[] { "you", "me", "people", "to ", "an ", "is ", "not ", "intelligence", "personal" });
         NEAR_REQUIRED.put("aggressive", new String[] { "passive", "tone", "you", "being", "too ", "so ", "response", "reply", "post" });
         NEAR_REQUIRED.put("hostile", new String[] { "tone", "you", "being", "so ", "response", "reply", "post", "environment", "fork", "toward" });
 
-        NEAR_REQUIRED.put("offline", new String[] { "discuss", "talk", "take", "conversation", "chat", "decid", "agree", "with", "meet", "this " });
+        NEAR_REQUIRED.put("offline", new String[] { "discuss", "talk", "take this", "take it", "conversation", "chat", "decid", "agree", "meet", "spoke", "told" });
         NEAR_REQUIRED.put("off-line", NEAR_REQUIRED.get("offline"));
         NEAR_REQUIRED.put("internally", new String[] { "discuss", "decid", "agree", "talk", "meeting", "among", "we ", "the council", "the team" });
         NEAR_REQUIRED.put("secret", new String[] { "decid", "discuss", "meeting", "agree", "kept", "cabal", "in secret", "no secret", "not a secret" });
