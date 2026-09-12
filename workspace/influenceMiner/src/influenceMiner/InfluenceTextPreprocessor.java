@@ -75,7 +75,11 @@ public class InfluenceTextPreprocessor {
             Pattern.compile(".*[{}\\[\\]();=<>]{3,}.*");
 
     private static final Pattern MAILMAN_FOOTER =
-            Pattern.compile("^\\s*(_{5,}|python-\\w+ mailing list|https?://mail\\.python\\.org|unsubscribe:.*|code of conduct:.*|message archived at.*)\\s*$",
+            Pattern.compile("^\\s*(_{5,}|python-\\w+ mailing list|https?://mail\\.python\\.org|unsubscribe:.*|code of conduct:.*|message archived at.*"
+                    /* bitcoin-dev footers: Linux Foundation Mailman and Google Groups (Sept 2026) */
+                    + "|bitcoin-dev mailing list|bitcoin-development mailing list|https?://lists\\.linuxfoundation\\.org/.*|https?://lists\\.sourceforge\\.net/.*"
+                    + "|you received this message because.*|to unsubscribe from this group.*|to view this discussion.*|https?://groups\\.google\\.com/.*"
+                    + "|.*bitcoindev\\+unsubscribe@googlegroups\\.com\\.?)\\s*$",
                     Pattern.CASE_INSENSITIVE);
 
     /* Gmail-style quote intros and header debris that survive DeMaP Miner's own cleaning:

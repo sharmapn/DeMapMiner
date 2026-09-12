@@ -50,6 +50,15 @@ public class InfluenceOutcomeResolver {
     };
 
     public static final String ACCREJ_TABLE = "accrejpeps";
+
+    /* Table and column names follow the proposal identifier: accrejpeps/pepdetails/PEP for
+       Python, accrejbips/bipdetails/BIP for Bitcoin (Sept 2026). */
+    public static String identifierOf(String proposalIdentifier) {
+        return proposalIdentifier == null || proposalIdentifier.trim().isEmpty() ? "pep" : proposalIdentifier.trim().toLowerCase();
+    }
+    public static String accrejTable(String proposalIdentifier) { return "accrej" + identifierOf(proposalIdentifier) + "s"; }
+    public static String detailsTable(String proposalIdentifier) { return identifierOf(proposalIdentifier) + "details"; }
+    public static String proposalColumn(String proposalIdentifier) { return identifierOf(proposalIdentifier).toUpperCase(); }
     public static final String DEFAULT_STATE_TABLE = "pepstates_danieldata_datetimestamp";
     /* The DeMaP Miner prop key proposalStateTableName (or -Dinfluence.stateTable) selects the
        state-history table, e.g. pepstates_github for the 2026 corpus. */
@@ -77,19 +86,20 @@ public class InfluenceOutcomeResolver {
 
         InfluenceOutcome outcome = new InfluenceOutcome();
 
+        String id = identifierOf(proposalIdentifier);
         if (connection != null) {
             try {
-                resolveFromAccRej(connection, proposalNumber, outcome);
+                resolveFromAccRej(connection, id, proposalNumber, outcome);
             } catch (Exception e) {
                 // table may not exist in this database; fall through
             }
             try {
-                resolveFromStates(connection, proposalNumber, outcome);
+                resolveFromStates(connection, id, proposalNumber, outcome);
             } catch (Exception e) {
                 // ignore and fall through
             }
             try {
-                resolveCreatedDate(connection, proposalNumber, outcome);
+                resolveCreatedDate(connection, id, proposalNumber, outcome);
             } catch (Exception e) {
                 // ignore
             }
@@ -117,9 +127,9 @@ public class InfluenceOutcomeResolver {
      * several rows (PEP 308: rejected 2003, accepted 2005) the latest row is
      * the final decision and the earliest is the first decision.
      */
-    private static void resolveFromAccRej(Connection connection, int proposalNumber, InfluenceOutcome outcome) throws Exception {
+    private static void resolveFromAccRej(Connection connection, String id, int proposalNumber, InfluenceOutcome outcome) throws Exception {
 
-        String sql = "SELECT state, date2 FROM " + ACCREJ_TABLE + " WHERE PEP = ? ORDER BY date2 ASC";
+        String sql = "SELECT state, date2 FROM " + accrejTable(id) + " WHERE " + proposalColumn(id) + " = ? ORDER BY date2 ASC";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1, proposalNumber);
         ResultSet rs = ps.executeQuery();
@@ -143,7 +153,7 @@ public class InfluenceOutcomeResolver {
             outcome.decisionDate = lastDate;
             outcome.firstDecision = first;
             outcome.firstDecisionDate = firstDate;
-            outcome.source = ACCREJ_TABLE;
+            outcome.source = accrejTable(id);
         }
     }
 
@@ -152,9 +162,9 @@ public class InfluenceOutcomeResolver {
      * withdrawn, superseded, draft ...). It is used when accrejpeps has no
      * row, and it always supplies the first accepted/rejected date when known.
      */
-    private static void resolveFromStates(Connection connection, int proposalNumber, InfluenceOutcome outcome) throws Exception {
+    private static void resolveFromStates(Connection connection, String id, int proposalNumber, InfluenceOutcome outcome) throws Exception {
 
-        String sql = "SELECT state, dateTimeStamp FROM " + stateTable() + " WHERE PEP = ? ORDER BY dateTimeStamp ASC, id ASC";
+        String sql = "SELECT state, dateTimeStamp FROM " + stateTable() + " WHERE " + proposalColumn(id) + " = ? ORDER BY dateTimeStamp ASC, id ASC";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1, proposalNumber);
         ResultSet rs = ps.executeQuery();
@@ -226,12 +236,12 @@ public class InfluenceOutcomeResolver {
         }
     }
 
-    private static void resolveCreatedDate(Connection connection, int proposalNumber, InfluenceOutcome outcome) throws Exception {
-        String[] tables = { DETAILS_TABLE, DETAILS_TABLE_FALLBACK };
+    private static void resolveCreatedDate(Connection connection, String id, int proposalNumber, InfluenceOutcome outcome) throws Exception {
+        String[] tables = { detailsTable(id), DETAILS_TABLE_FALLBACK };
         for (int t = 0; t < tables.length; t++) {
             try {
                 PreparedStatement ps = connection.prepareStatement(
-                        "SELECT created FROM " + tables[t] + " WHERE pep = ? AND created IS NOT NULL ORDER BY created ASC LIMIT 1");
+                        "SELECT created FROM " + tables[t] + " WHERE `" + id + "` = ? AND created IS NOT NULL ORDER BY created ASC LIMIT 1");
                 ps.setInt(1, proposalNumber);
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
@@ -272,6 +282,11 @@ public class InfluenceOutcomeResolver {
         if (s.startsWith("supersed") || s.startsWith("replace")) return "superseded";
         if (s.startsWith("draft") || s.startsWith("incomplete")) return "draft";
         if (s.startsWith("provisional")) return "provisional";
+        /* BIP vocabulary (BIP 2 and the 2025 BIP 3 revision): Proposed is a pre-decision state, Deployed
+           and Complete are positive terminal states, Obsolete/Closed are negative terminal states. */
+        if (s.startsWith("propos")) return "draft";
+        if (s.startsWith("deploy")) return "final";
+        if (s.startsWith("obsolete") || s.startsWith("closed")) return "withdrawn";
         return "unknown";
     }
 

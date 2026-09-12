@@ -124,6 +124,7 @@ public class InfluenceHeuristics {
         String r = authorRole.toLowerCase();
 
         if (r.contains("bdfl") && !r.contains("delegate")) return 1.0;
+        if (r.contains("lead maintainer")) return 1.0;
         if (r.contains("steering council")) return 1.0;
         if (r.contains("delegate")) return 0.9;
         if (r.contains("bip editor")) return 0.9;

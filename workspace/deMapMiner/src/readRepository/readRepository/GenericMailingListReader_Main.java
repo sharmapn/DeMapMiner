@@ -38,6 +38,9 @@ public class GenericMailingListReader_Main extends GenericMailingListReader_Meth
 	        //includeStateData
 			proposalIdentifier = wpf.readFromPropertiesFile("proposalIdentifier",false).toLowerCase();
 			System.out.println("proposalIdentifier: " +proposalIdentifier);
+			// optional dataset root (Sept 2026): stripped from folder paths to form the lastdir label
+			try { String bd = wpf.readFromPropertiesFile("datasetBaseDir", true); if (bd != null && bd.trim().length() > 0) baseDir = bd.trim(); } catch (Exception e) { }
+			System.out.println("datasetBaseDir: " + baseDir);
 			
 			//read mailing lists to read into database table
 			String mailing_lists[] = wpf.readFromPropertiesFile("mailing_list",false).split(" ");

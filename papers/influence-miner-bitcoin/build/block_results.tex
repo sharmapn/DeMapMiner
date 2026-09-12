@@ -1,0 +1,191 @@
+\section{Results}
+\label{sec:results}
+
+Table~\ref{tab:corpus} summarises the run. Of the 11,477 message--BIP rows, none came from automated senders; 331 rows (229 messages) were release announcements and were skipped. Cleaning and splitting the rest produced about 205,000 sentences, of which 62,791 (about 31\%) carried at least one mechanism and scored above the threshold: on average 1.38 mechanisms per candidate, from 636 participants on 199 BIPs. Outcomes were resolved for 157 BIPs: 89 final, 22 rejected, 15 withdrawn, 25 draft, 5 superseded, 4 deferred and 3 active; 36 BIPs (2,404 candidates) have no recorded decision.
+
+\begin{table}[t]
+\caption{Corpus and extraction summary (Bitcoin).}
+\label{tab:corpus}
+\small
+\begin{tabular}{lr}
+\toprule
+bitcoin-dev messages read & 24,391 \\
+\quad linked to a BIP number & 6,886 (11,477 message--BIP rows) \\
+\quad release announcements skipped & 229 messages (331 rows) \\
+BIPs with linked messages & 205 \\
+Influence candidate sentences stored & 62,791 \\
+BIPs with at least one candidate & 199 \\
+Distinct participants (actors) & 636 \\
+Mechanisms per candidate & 1.38 \\
+Period covered & 2011-06 to 2026-09 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{RQ1: Influence Mechanisms}
+
+Table~\ref{tab:rq1} shows how often each base mechanism occurs. Bitcoin's profile is not Python's. \emph{Ecosystem} arguments lead by a wide margin (33.7\% of candidates): what wallets, nodes, miners, exchanges and other implementations will do or suffer is the community's first consideration. \emph{Operational} arguments (22.0\%: implementation, deployment, activation, releases) come second, and then two mechanisms that were marginal in Python: \emph{security} (17.5\%---attacks, chain splits, fund loss, denial of service, malleability) and \emph{economic} (14.8\%---fees, miner incentives, cost, the fee market). \emph{Compatibility} follows (12.1\%: soft and hard forks, non-upgraded nodes, replay protection), and only then \emph{functional} arguments about whether the design solves the problem (7.6\%), which were Python's second mechanism at 25.8\%. \emph{Authority} is invoked in 2.5\% of candidates, a third of Python's 7.6\%, and \emph{coalition} in 2.1\%. Two caveats apply as in Python: the multi-label counts sum to more than 100\%, and \emph{ecosystem} in Bitcoin is inflated by the fact that nodes, wallets and miners are components of the protocol as well as constituencies---a sentence that describes what a node does fires the same cue as one that argues from what node operators will accept. The rank order is nonetheless robust to that inflation: the four Bitcoin-specific mechanisms the taxonomy singled out (ecosystem, security, economic, compatibility) occupy four of the top five places.
+
+\begin{table}[t]
+\caption{RQ1: base influence mechanisms in 62,791 candidate sentences (multi-label), with the Python share on the extended corpus for comparison.}
+\label{tab:rq1}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Mechanism & Candidates & \% Bitcoin & \% Python \\
+\midrule
+Ecosystem & 21,151 & 33.7 & 18.4 \\
+Operational & 13,812 & 22.0 & 27.0 \\
+Security & 10,976 & 17.5 & 2.6 \\
+Economic & 9,324 & 14.8 & 2.3 \\
+Compatibility & 7,568 & 12.1 & 13.6 \\
+Functional & 4,755 & 7.6 & 25.8 \\
+Standards & 4,095 & 6.5 & 8.8 \\
+Organizational & 2,796 & 4.5 & 3.2 \\
+Strategic & 2,667 & 4.2 & 5.0 \\
+Tactical & 2,065 & 3.3 & 4.9 \\
+User demand & 1,976 & 3.1 & 3.6 \\
+Authority & 1,596 & 2.5 & 7.6 \\
+Coalition & 1,317 & 2.1 & 2.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:samples} shows two sentences per mechanism as the tool extracted and labelled them. They illustrate what the labels mean in Bitcoin: an ecosystem argument is a claim about miners, wallets or a chain split (``If miners interpret the situation as being forced to run non-reference software in order to prevent a chain split \ldots that could be a one-way street''); a security argument is about fund loss and attacks (``Wallets can't share keys unless their functionality is identical, half-interoperability can lead to funds loss''); an economic argument is about fees and incentives (``it's miner-incentive compatible''); an authority argument names the BIP editors or the maintainers rather than a person with the power to decide.
+
+\begin{table*}[t]
+\caption{Sample sentences per base mechanism as extracted and labelled by Influence Miner (Bitcoin corpus). Multi-label; the mechanism shown is one of those assigned.}
+\label{tab:samples}
+\small
+\begin{tabular}{p{0.10\textwidth}p{0.155\textwidth}p{0.69\textwidth}}
+\toprule
+Mechanism & BIP, author (role) & Sentence \\
+\midrule
+Strategic & 101, Garzik (core dev.) & Many miners, for example, openly state they prefer long term system growth over maximizing tiny amounts of current day income. \\
+Strategic & 341, symphonicbtc (community) & It is important to consider that miners are not always incentivized by what brings them the most profit in the moment, but also their long-term prospects. \\
+Operational & 32, Hearn (core dev.) & I definitely want to implement HD wallets in bitcoinj to allow this and if that means not using the same tree structure as in the BIP then so be it. \\
+Operational & 148, Alm (core dev.) & One thing about BIP148 activation that may be affected by this is the fact that segwit signalling non-BIP148 miners + BIP148 miners may hold majority hash power and prevent a chain split. \\
+Functional & 44, Maxwell (core dev.) & Wallets can't share keys unless their functionality is identical, half-interoperability can lead to funds loss. \\
+Functional & 34, Wuille (maintainer) & I believe we should get rid of checkpoints because they seem to be misunderstood as a security feature rather than as an optimization. \\
+Tactical & 91, Aronesty (community) & The BIP should be modified to provide evidence and justification for the timeline that is consistent with the level of risk the network would bear if it were enacted. \\
+Tactical & 148, Eliosoff (community) & Unless the HF code is ready and agreed on soon (say by Jul 1), my vote is to keep the main chain backwards-compatible, especially if evidence of miner support for BIP148 doesn't materialize soon. \\
+Authority & 2, Corallo (core dev.) & While there are plenty of competent technical folks who would make fine BIP editors, I'd suggest Kanzure and Murch as clear candidates over others. \\
+Authority & 8, Tim\'on (core dev.) & I think the option of ``permanent failure because miners veto'' should actually be abandoned. \\
+Compatibility & 9, Lau (core dev.) & To avoid risks of fund loss, users MUST NOT create P2WSH scripts that are incompatible with this BIP. \\
+Compatibility & 148, Dashjr (BIP editor) & Replay protection is equally a concern for the main (BIP148) chain and any legacy chains malicious miners might choose to split off. \\
+Security & 91, Hilliard (author) & Since this BIP only activates with a clear miner majority it should not increase the risk of an extended chain split. \\
+Security & 65, Tim\'on (core dev.) & Can you give an example of an attack in which a non-upgraded full node wallet is defrauded with BIP65 but could not with the hardfork alternative? \\
+Standards & 68, Todd (core dev.) & If it had done that, that text would be part of a ``Standard BIP'' rather than ``Informational BIP'', thus I'll argue that BIP9 should also be a ``Standard BIP''. \\
+Standards & 39, Provoost (core dev.) & Wallets need to be able to distinguish between the old and new standard, so un-upgraded BIP 39 wallets should consider all new mnemonics invalid. \\
+Ecosystem & 148, Friedenbach (core dev.) & If miners interpret the situation as being forced to run non-reference software in order to prevent a chain split because a lack of support from Bitcoin Core, that could be a one-way street. \\
+Ecosystem & 70, Andresen (lead maint.) & If the spec said that wallets must not broadcast until they receive a PaymentACK, then you'd have to violate the spec to do CoinJoin. \\
+Economic & 125, Ruane (core dev.) & An advantage of this mempool-accept policy change is that it's miner-incentive compatible (miners would prefer to mine a transaction with a higher feerate). \\
+Economic & 109, Towns (core dev.) & Likewise we don't want to have miners or pool operators have to take responsibility for managing the whole economy, rather than just keeping their systems running. \\
+Organizational & 101, Hearn (core dev.) & I agree with Gavin---whilst it's great that a Blockstream employee has finally made a realistic proposal (i.e.\ not ``let's all use Lightning'')---this BIP is virtually the same as keeping the 1mb cap. \\
+Organizational & 62, Maxwell (BIP editor) & If you are running third-party or self-compiled Bitcoin Core or an alternative implementation using OpenSSL you must not update OpenSSL or must run a Bitcoin software containing a workaround. \\
+Coalition & 70, Andresen (author) & Consensus is the spec should be clarified to match current behavior, so it won't change. \\
+Coalition & 38, Dashjr (BIP editor) & For example, many people seem to think BIP 38 is a good idea simply because it is a Final BIP, whereas in general we would want to discourage using it since it cannot really be used safely. \\
+User demand & 70, Hearn (author) & Whilst having an extension cannot really hurt, obviously, BIP70 will not be amended to reduce the certificate types it allows in favour of a system that has a very low chance of mainstream adoption. \\
+User demand & 62, Hearn (core dev.) & Although I agree not having to support all of DER is nice, in practice I think all implementations do and libraries to parse DER are widespread. \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Direction and scope.} Direction is neutral for 88.5\% of candidates, revising for 8.7\%, supporting for 1.5\% and blocking for 1.4\%---almost exactly Python's distribution (87.7 / 8.8 / 2.0 / 1.5). Scope differs: 17.6\% of Bitcoin's candidates are \emph{external} and 10.0\% \emph{mixed}, against 3.0\% and 4.7\% in Python, because Bitcoin's arguments name users, wallets, exchanges, miners and companies far more often; 32.8\% are internal and 39.7\% unresolved.
+
+\paragraph{When influence is exercised.} The temporal profile is where the two projects differ most, and the difference is instructive. In Python, signalling peaked sharply in the four weeks around the recorded decision. In Bitcoin only 102 candidates (0.2\%) fall in the two weeks before the recorded decision and 3.1\% in the first month after a BIP's creation; 56.7\% are ``active debate'' and 36.5\% post-decision. The reason is that a BIP's recorded status change is not the moment of its decision. Consensus BIPs become \emph{Final} when they are deployed and activated, often years after the debate (BIP~141 was discussed in 2015--2017 and marked Final in August 2017, BIP~341 in February 2023), and many early BIPs received their terminal status in bulk clean-ups of the repository (5 on 21 October 2013, 13 on 1 February 2016, 15 on 10 July 2024, 24 on 12 April 2025). The decision in Bitcoin is made in the ecosystem---by what is merged, released, signalled and run---and the repository records it afterwards; the tool's decision-window phase, which worked for Python because the BDFL's pronouncement and the PEP's status change coincide, has no counterpart here. Mechanism shares are accordingly flat across phases (ecosystem 34.5\% in active debate, 32.7\% after the decision; security 16.4\% and 19.8\%; economic 16.1\% and 12.9\%), with authority and standards higher only in the small early-discussion and pre-draft phases (6.3\% and 8.3\%).
+
+\subsection{RQ2: Who Exercises Influence}
+
+Table~\ref{tab:roles} gives the candidates by role. Community members---participants who are neither authors of the BIP under discussion, nor Bitcoin Core contributors, maintainers or editors---write 57.6\% of Bitcoin's influence candidates, against 37\% in Python; core developers 27.1\%, proposal authors 9.8\%, BIP editors 2.4\%, maintainers 2.0\% and the lead maintainer 1.0\%. The last figure is the starkest contrast with Python, where the BDFL alone wrote 8--11\% of candidates: Gavin Andresen and Wladimir van der Laan together account for 655 candidate sentences on 45 BIPs, and after 2015 the lead maintainer disappears from the list altogether (0.0\% of candidates in every year from 2016), his contributions being the release announcements that the tool sets aside. Bitcoin's decisions were not argued by its formal leaders. The roles differ in what they argue about: editors and maintainers invoke authority most (5.5\% and 3.7\%) and security least among the developer roles; community members and core developers carry the highest security shares (17.9\% and 18.1\%); economic arguments are made by everyone except the editors (7.9\%). Average scores rise with role weight as designed (community 1.67, core developer 2.42, editor 2.64).
+
+\begin{table}[t]
+\caption{RQ2: candidates by author role, with each role's share of authority, security and economic mechanisms (\%).}
+\label{tab:roles}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+Role & Cand. & \% & People & Auth. & Sec. & Econ. \\
+\midrule
+Community member & 36,139 & 57.6 & 597 & 2.3 & 17.9 & 13.7 \\
+Core developer & 17,045 & 27.1 & 48 & 2.8 & 18.1 & 17.4 \\
+Proposal author & 6,179 & 9.8 & 67 & 1.9 & 16.3 & 16.6 \\
+BIP editor & 1,530 & 2.4 & 7 & 5.5 & 12.4 & 7.9 \\
+Maintainer & 1,245 & 2.0 & 9 & 3.7 & 13.5 & 13.3 \\
+Lead maintainer & 655 & 1.0 & 2 & 4.4 & 7.8 & 15.3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The most active individuals are core developers and long-standing community members rather than office-holders: Antoine Riard (about 3,700 candidates on 64 BIPs), Anthony Towns (1,900 on 58), Eric Voskuil (1,800 on 49), the pseudonymous \emph{conduition} (1,700 on 19), Peter Todd (1,400 on 51), Johnson Lau (3,000 across his roles as core developer, author and community member), Jorge Tim\'on (1,100 on 35), Matt Corallo (950 on 59) and Mike Hearn (800 on 17). Direction does not vary by role (supporting 0.8--2.6\%, blocking 0.7--1.6\%, revising 6.6--9.1\%); maintainers are the most supportive (2.6\%) and least blocking (0.7\%) role, the lead maintainer the least supportive (0.8\%).
+
+\subsection{RQ3: Governance Periods}
+
+Table~\ref{tab:eras} compares the four periods. Two things stay constant: the ordering of the top mechanisms (ecosystem, operational, then security or economic) and the near-absence of authority (4.5\% in the Andresen years, 1.5--3.0\% afterwards). Three things change. First, the block-size war has the highest \emph{compatibility} share of any period (18.3\%, against 7--10\% before and after): the war was argued as a question of what a hard fork would break and whom it would leave behind. Second, \emph{security} rises steadily from 12.9\% to 22.4\% and \emph{economic} from 10.1\% to 17.9\% across the four periods, so that in the post-lead era the two together outweigh operational arguments; the covenant, relay-policy and quantum-resistance debates of 2022--2026 are argued in terms of attacks and incentives. Third, the share of the lead maintainer, maintainers and editors in the conversation shrinks from 17.8\% of candidates in the Andresen years to 3.4\% in the post-lead era while core developers grow from 20.7\% to 33.6\%; in 2024 core developers wrote 56\% of all candidates. Whether the war's end changed the register can be read from the drop in controversial mechanisms from 5.8\% (Andresen years) to 3.4\% (war) and 3.2\% (post-war), and their rise again to 4.6\% in the post-lead era (Section~\ref{sec:rq6}).
+
+\begin{table}[t]
+\caption{RQ3: mechanism shares (\%) and role shares (\%) by governance period.}
+\label{tab:eras}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrr}
+\toprule
+ & Andresen & Block-size war & van der Laan & Post-lead \\
+ & 2011--14 & 2014--17 & 2017--22 & 2022--26 \\
+\midrule
+Candidates & 3,472 & 21,713 & 14,900 & 22,706 \\
+BIPs & 33 & 101 & 106 & 131 \\
+Participants & 102 & 270 & 225 & 243 \\
+\midrule
+Ecosystem & 33.4 & 37.8 & 34.9 & 28.8 \\
+Operational & 18.6 & 22.8 & 25.3 & 19.5 \\
+Security & 12.9 & 13.7 & 16.3 & 22.4 \\
+Economic & 10.1 & 12.3 & 14.8 & 17.9 \\
+Compatibility & 7.1 & 18.3 & 9.5 & 8.5 \\
+Functional & 10.5 & 6.1 & 8.7 & 7.7 \\
+Standards & 11.3 & 5.2 & 7.6 & 6.3 \\
+Authority & 4.5 & 3.0 & 1.5 & 2.5 \\
+Strategic & 4.5 & 3.7 & 4.3 & 4.7 \\
+Coalition & 1.6 & 2.3 & 2.2 & 1.9 \\
+\midrule
+Lead maint.\ + maint.\ + editors & 17.8 & 6.8 & 3.8 & 3.4 \\
+Core developers & 20.7 & 22.3 & 25.7 & 33.6 \\
+Community members & 50.3 & 59.3 & 61.6 & 54.5 \\
+\midrule
+Any controversial & 5.8 & 3.4 & 3.2 & 4.6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{RQ4: Alignment with Outcomes}
+
+Because 75\% of candidates sit on BIPs that became final, outcome comparisons rest on smaller groups (Table~\ref{tab:outcomes}). Rejected BIPs attract proportionally more \emph{compatibility} (20.1\% vs.\ 12.1\% on final BIPs), \emph{economic} (18.4\% vs.\ 14.4\%) and \emph{authority} (5.6\% vs.\ 1.8\%) signals and fewer \emph{security} (9.1\% vs.\ 17.7\%) and \emph{operational} (17.2\% vs.\ 22.7\%) ones: proposals fail in Bitcoin when they are argued to break things, to misalign incentives, or to need someone's permission, and succeed when the discussion has moved to attacks and implementation. Draft BIPs carry the most security (26.8\%) and economic (21.0\%) argument---the covenant and quantum proposals still under discussion---and superseded BIPs the most authority and strategic argument (8.6\% each). Direction--outcome alignment is 74.9\% for supporting sentences, 12.1\% for blocking and 9.7\% for revising, against a base rate of 76\% of decided candidates on positive outcomes; as in Python, counting explicit stances predicts nothing, and in Bitcoin the blocking figure is lower still because so few discussed BIPs are formally rejected---objections that succeed leave a BIP a draft forever rather than ``Rejected''.
+
+\begin{table}[t]
+\caption{RQ4: mechanism share (\%) by proposal outcome.}
+\label{tab:outcomes}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\toprule
+Mechanism & Final (89) & Rejected (22) & Withdrawn (15) & Draft (25) \\
+\midrule
+Ecosystem & 35.1 & 35.0 & 32.8 & 26.7 \\
+Operational & 22.7 & 17.2 & 22.6 & 18.7 \\
+Security & 17.7 & 9.1 & 12.9 & 26.8 \\
+Economic & 14.4 & 18.4 & 14.9 & 21.0 \\
+Compatibility & 12.1 & 20.1 & 14.2 & 7.5 \\
+Functional & 7.4 & 5.8 & 8.0 & 8.8 \\
+Standards & 6.9 & 3.2 & 4.0 & 5.3 \\
+Authority & 1.8 & 5.6 & 4.5 & 2.1 \\
+Organizational & 4.1 & 5.0 & 6.3 & 4.9 \\
+Strategic & 4.0 & 4.8 & 3.7 & 4.3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{RQ5: Complementarity with Preference Miner}
+
+Preference Miner has not yet been run on the rebuilt Bitcoin corpus, so the overlap measured for Python (1.6\% of influence sentences coincide with preference sentences) cannot be reported for Bitcoin. The two tools read the same tables and the Bitcoin database carries the same schema, so the comparison requires only a Preference Miner run; it is left for the next iteration.
+

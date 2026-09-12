@@ -141,6 +141,14 @@ public class HyperKittyMboxToPipermail {
         String body = decodeBody(bodyLines, headers.get("content-type"), headers.get("content-transfer-encoding"));
 
         String from = decodeWords(nz(headers.get("from")));
+        // Google Groups (bitcoindev, 2024-) rewrites From: to the group address for DMARC; the
+        // real sender is kept in X-Original-From, so prefer that when present (Sept 2026)
+        String origFrom = decodeWords(nz(headers.get("x-original-from")));
+        if (origFrom.length() > 0 && from.toLowerCase().contains("googlegroups.com")) {
+            String[] o = splitAddress(origFrom);
+            String[] g = splitAddress(from);
+            from = (g[2].length() > 0 && !g[2].equalsIgnoreCase(g[0]) ? g[2] : o[2]) + " <" + o[0] + "@" + o[1] + ">";
+        }
         String[] addr = splitAddress(from);
         String local = addr[0], domain = addr[1], name = addr[2];
         String date = nz(headers.get("date"));
