@@ -1,0 +1,432 @@
+============================================
+INFLUENCE MINER - PRELIMINARY RESULTS REPORT
+============================================
+Generated: 2026-09-13T04:28:28.232037400
+Extraction scheme: heuristic-v2 (rule-based heuristics; see limitations)
+Minimum score: 1.0
+Governance split date: 2022-02-01 (bdfl_era before, post_bdfl_era on/after)
+
+1. Corpus coverage
+------------------
+Proposals with influence candidates : 199
+Messages linked to those proposals  : 11469
+Influence candidate sentences       : 62789
+Distinct actors                     : 636
+(sentence and message totals per batch run are in influence_batch_log.txt)
+
+2. RQ1 - Influence mechanisms (multi-label; a sentence can carry several types)
+-------------------------------------------------------------------------------
+  type                      count       %
+  strategic                  2666    4.2%
+  operational               13812   22.0%
+  functional                 4755    7.6%
+  tactical                   2065    3.3%
+  authority                  1596    2.5%
+  compatibility              7568   12.1%
+  security                  10975   17.5%
+  standards                  4095    6.5%
+  ecosystem                 21151   33.7%
+  economic                   9324   14.8%
+  organizational             2796    4.5%
+  coalition                  1317    2.1%
+  user_demand                1976    3.1%
+  unilateral                  141    0.2%
+  corporate_interest          308    0.5%
+  gatekeeping                 108    0.2%
+  exit_threat                  81    0.1%
+  incivility                  900    1.4%
+  backchannel                 456    0.7%
+  procedural_control          488    0.8%
+
+Primary (first-listed) type only:
+  primary type              count       %
+  authority                  1294    2.1%
+  backchannel                 268    0.4%
+  coalition                   658    1.0%
+  compatibility              5507    8.8%
+  corporate_interest           90    0.1%
+  economic                   4785    7.6%
+  ecosystem                 13053   20.8%
+  exit_threat                  39    0.1%
+  functional                 4059    6.5%
+  gatekeeping                  72    0.1%
+  incivility                  522    0.8%
+  operational               13603   21.7%
+  organizational             1303    2.1%
+  procedural_control          263    0.4%
+  security                   8879   14.1%
+  standards                  3004    4.8%
+  strategic                  2666    4.2%
+  tactical                   1794    2.9%
+  unilateral                   65    0.1%
+  user_demand                 865    1.4%
+
+3. RQ2 - Who exercises influence
+--------------------------------
+Candidates by author role:
+  role                      count       %
+  BIP editor                 1530    2.4%
+  community member          36137   57.6%
+  core developer            17045   27.1%
+  lead maintainer             655    1.0%
+  maintainer                 1243    2.0%
+  proposal author            6179    9.8%
+
+Top 15 actors by number of influence candidates:
+  actor                            role                PEPs      n      avg  top types
+  Antoine Riard                    core developer        64   3709     2.32  ecosystem(1316), security(1147), economic(1097)
+  Johnson Lau                      core developer        37   2966     2.19  compatibility(1234), ecosystem(956), operational(464)
+  Anthony Towns                    core developer        66   2486     2.35  operational(812), ecosystem(736), economic(460)
+  Peter Todd                       core developer        54   2020     2.35  ecosystem(616), security(594), economic(511)
+  Eric Voskuil                     community member      49   1825     1.51  security(471), operational(470), ecosystem(416)
+  conduition                       community member      19   1711     1.61  security(514), ecosystem(506), operational(294)
+  Mike Hearn                       core developer        23   1388     2.34  ecosystem(574), operational(213), functional(166)
+  Jorge Tim√≥n                     core developer        38   1352     2.49  operational(430), ecosystem(403), compatibility(359)
+  Pieter Wuille                    proposal author       56   1290     2.33  ecosystem(294), operational(269), security(239)
+  Gregory Maxwell                  core developer        60   1107     2.43  ecosystem(340), security(256), operational(202)
+  Gloria Zhao                      community member       7   1079     1.61  ecosystem(665), economic(527), security(73)
+  Matt Corallo                     core developer        64   1020     2.52  ecosystem(414), operational(330), security(163)
+  Luke Dashjr                      BIP editor            85   1006     2.67  ecosystem(307), operational(270), compatibility(215)
+  Olaoluwa Osuntokun               community member      28    912     1.98  ecosystem(276), security(237), operational(193)
+  James Hilliard                   community member      14    872     2.18  operational(538), ecosystem(403), security(157)
+
+Top 15 actors by average influence score (minimum 20 candidates):
+  actor                            role                PEPs      n      avg
+  0xB10C                           core developer        12     32     2.75
+  Jon Atack                        BIP editor             5     38     2.68
+  Luke Dashjr                      BIP editor            85   1006     2.67
+  Suhas Daftuar                    core developer        19    251     2.65
+  Mark Erhardt                     BIP editor            12    203     2.64
+  Matt Corallo                     core developer        64   1020     2.52
+  josibake                         core developer         8    437     2.52
+  Gavin Andresen                   lead maintainer       24    558     2.51
+  dentondevelopment                community member       3     25     2.50
+  Tim Ruffing                      core developer        14    148     2.50
+  Tom Harding                      core developer        13     52     2.49
+  Jorge Tim√≥n                     core developer        38   1352     2.49
+  Alex Morcos                      core developer        10     66     2.46
+  Pavol Rusnak                     proposal author       13    165     2.45
+  David A. Harding                 core developer        39    671     2.45
+
+Type mix by role (percent of that role's candidates):
+  BIP editor           n=2162   authority=3.9% backchannel=0.7% coalition=0.7% compatibility=12.8% corporate_interest=0.1% economic=5.6% ecosystem=21.9% exit_threat=0.1% functional=4.9% incivility=1.7% operational=18.1% organizational=3.6% procedural_control=0.5% security=8.8% standards=6.0% strategic=2.7% tactical=3.5% unilateral=0.5% user_demand=3.7%
+  community member     n=49414  authority=1.7% backchannel=0.6% coalition=1.6% compatibility=8.0% corporate_interest=0.4% economic=10.0% ecosystem=26.0% exit_threat=0.1% functional=5.1% gatekeeping=0.2% incivility=1.0% operational=15.5% organizational=2.7% procedural_control=0.6% security=13.1% standards=5.3% strategic=3.3% tactical=2.5% unilateral=0.2% user_demand=2.2%
+  core developer       n=24275  authority=1.9% backchannel=0.4% coalition=1.4% compatibility=9.7% corporate_interest=0.3% economic=12.2% ecosystem=22.7% exit_threat=0.1% functional=5.6% gatekeeping=0.1% incivility=1.1% operational=16.8% organizational=4.3% procedural_control=0.5% security=12.7% standards=3.4% strategic=2.4% tactical=2.0% unilateral=0.1% user_demand=2.2%
+  lead maintainer      n=859    authority=3.4% backchannel=0.1% coalition=0.3% compatibility=8.4% corporate_interest=0.6% economic=11.6% ecosystem=20.7% functional=7.7% gatekeeping=0.2% incivility=0.8% operational=27.6% organizational=5.2% security=5.9% standards=4.1% strategic=0.6% tactical=1.7% unilateral=0.2% user_demand=0.7%
+  maintainer           n=1606   authority=2.9% backchannel=0.5% coalition=1.7% compatibility=5.7% corporate_interest=0.2% economic=10.3% ecosystem=28.4% exit_threat=0.1% functional=8.5% gatekeeping=0.1% incivility=2.0% operational=10.8% organizational=3.7% procedural_control=0.3% security=10.5% standards=5.7% strategic=3.8% tactical=2.3% user_demand=2.4%
+  proposal author      n=8262   authority=1.4% backchannel=0.5% coalition=1.4% compatibility=10.1% corporate_interest=0.4% economic=12.4% ecosystem=20.5% exit_threat=0.1% functional=6.7% gatekeeping=0.1% incivility=1.0% operational=15.5% organizational=2.8% procedural_control=0.5% security=12.2% standards=4.6% strategic=3.7% tactical=2.8% unilateral=0.2% user_demand=2.9%
+
+4. RQ3 - Governance eras
+------------------------
+  era                       count       %
+  bdfl_era                  40084   63.8%
+  post_bdfl_era             22705   36.2%
+
+Influence types by era (percent within era):
+  bdfl_era             n=55481  authority=1.9% backchannel=0.6% coalition=1.6% compatibility=10.2% corporate_interest=0.4% economic=9.4% ecosystem=26.3% exit_threat=0.1% functional=5.4% gatekeeping=0.2% incivility=0.9% operational=16.9% organizational=3.1% procedural_control=0.3% security=10.6% standards=4.8% strategic=2.9% tactical=2.2% unilateral=0.2% user_demand=2.2%
+  post_bdfl_era        n=31097  authority=1.8% backchannel=0.4% coalition=1.4% compatibility=6.2% corporate_interest=0.3% economic=13.1% ecosystem=21.1% exit_threat=0.1% functional=5.7% gatekeeping=0.0% incivility=1.3% operational=14.3% organizational=3.5% procedural_control=1.0% security=16.4% standards=4.6% strategic=3.4% tactical=2.7% unilateral=0.2% user_demand=2.4%
+
+Direction by era:
+  bdfl_era             n=40084  blocking=1.6% neutral=89.4% revising=7.5% supporting=1.5%
+  post_bdfl_era        n=22705  blocking=1.1% neutral=89.6% revising=7.9% supporting=1.4%
+
+Scope by era:
+  bdfl_era             n=40084  external=19.7% internal=30.2% mixed=10.7% unknown=39.3%
+  post_bdfl_era        n=22705  external=13.7% internal=37.4% mixed=8.7% unknown=40.2%
+
+5. Direction and scope
+----------------------
+Direction:
+  direction                 count       %
+  blocking                    887    1.4%
+  neutral                   56155   89.4%
+  revising                   4818    7.7%
+  supporting                  929    1.5%
+Scope (internal vs external influence):
+  scope                     count       %
+  external                  11030   17.6%
+  internal                  20604   32.8%
+  mixed                      6268   10.0%
+  unknown                   24887   39.6%
+Target:
+  target                    count       %
+  compatibility              6802   10.8%
+  ecosystem                 13154   20.9%
+  governance                  495    0.8%
+  implementation             9534   15.2%
+  proposal                   4258    6.8%
+  security                   7764   12.4%
+  unknown                   19931   31.7%
+  users                       851    1.4%
+Decision phase of the message:
+  phase                     count       %
+  active_debate             35616   56.7%
+  decision_window             102    0.2%
+  early_discussion           1938    3.1%
+  post_decision             22949   36.5%
+  pre_draft                   643    1.0%
+  revision                   1160    1.8%
+  unknown                     381    0.6%
+
+6. RQ4 - Alignment with proposal outcomes (association, not causation)
+----------------------------------------------------------------------
+Candidates by proposal outcome:
+  outcome                   count       %
+  active                      510    0.8%
+  deferred                    480    0.8%
+  draft                      3738    6.0%
+  final                     47094   75.0%
+  rejected                   2885    4.6%
+  superseded                 2171    3.5%
+  unknown                    2403    3.8%
+  withdrawn                  3508    5.6%
+
+Influence types by outcome (percent within outcome):
+  active               n=701    authority=10.3% backchannel=0.4% coalition=2.4% compatibility=6.3% corporate_interest=0.4% economic=3.4% ecosystem=13.1% exit_threat=0.3% functional=6.3% incivility=2.1% operational=17.8% organizational=4.1% procedural_control=1.9% security=7.0% standards=9.3% strategic=1.9% tactical=8.6% unilateral=0.3% user_demand=4.1%
+  deferred             n=629    authority=3.8% backchannel=0.6% coalition=1.7% compatibility=1.7% corporate_interest=0.3% economic=8.4% ecosystem=17.8% exit_threat=0.2% functional=5.6% gatekeeping=0.5% incivility=1.6% operational=11.3% organizational=5.6% procedural_control=0.3% security=18.4% standards=9.4% strategic=7.0% tactical=2.9% user_demand=2.9%
+  draft                n=5209   authority=1.5% backchannel=0.6% coalition=1.3% compatibility=5.4% corporate_interest=0.2% economic=15.1% ecosystem=19.2% exit_threat=0.2% functional=6.3% gatekeeping=0.0% incivility=1.2% operational=13.5% organizational=3.6% procedural_control=0.5% security=19.3% standards=3.8% strategic=3.1% tactical=2.6% unilateral=0.2% user_demand=2.3%
+  final                n=65002  authority=1.3% backchannel=0.5% coalition=1.5% compatibility=8.8% corporate_interest=0.4% economic=10.4% ecosystem=25.5% exit_threat=0.1% functional=5.3% gatekeeping=0.1% incivility=0.9% operational=16.5% organizational=3.0% procedural_control=0.5% security=12.8% standards=5.0% strategic=2.9% tactical=2.1% unilateral=0.1% user_demand=2.2%
+  rejected             n=4035   authority=4.0% backchannel=0.8% coalition=1.6% compatibility=14.4% corporate_interest=0.5% economic=13.2% ecosystem=25.2% exit_threat=0.1% functional=4.2% gatekeeping=0.4% incivility=1.1% operational=12.4% organizational=3.6% procedural_control=0.3% security=6.6% standards=2.3% strategic=3.4% tactical=3.4% unilateral=0.2% user_demand=2.2%
+  superseded           n=2893   authority=6.5% backchannel=0.8% coalition=1.7% compatibility=4.9% corporate_interest=0.3% economic=8.7% ecosystem=18.4% exit_threat=0.2% functional=4.3% gatekeeping=0.1% incivility=1.6% operational=12.2% organizational=4.7% procedural_control=2.4% security=14.2% standards=6.1% strategic=6.5% tactical=3.4% unilateral=0.1% user_demand=2.8%
+  unknown              n=3253   authority=1.8% backchannel=0.4% coalition=1.6% compatibility=8.5% corporate_interest=0.3% economic=11.2% ecosystem=20.4% exit_threat=0.1% functional=9.1% gatekeeping=0.1% incivility=2.2% operational=16.4% organizational=3.6% procedural_control=0.8% security=10.3% standards=4.0% strategic=3.8% tactical=2.5% unilateral=0.1% user_demand=2.7%
+  withdrawn            n=4856   authority=3.3% backchannel=0.5% coalition=1.9% compatibility=10.3% corporate_interest=0.3% economic=10.8% ecosystem=23.8% exit_threat=0.1% functional=5.8% gatekeeping=0.2% incivility=1.2% operational=16.3% organizational=4.6% procedural_control=0.4% security=9.4% standards=2.9% strategic=2.7% tactical=2.9% unilateral=0.3% user_demand=2.5%
+
+Direction by outcome (percent within outcome):
+  active               n=510    blocking=1.2% neutral=83.3% revising=11.8% supporting=3.7%
+  deferred             n=480    blocking=2.1% neutral=86.9% revising=8.5% supporting=2.5%
+  draft                n=3738   blocking=0.8% neutral=89.7% revising=8.4% supporting=1.1%
+  final                n=47094  blocking=1.4% neutral=89.6% revising=7.5% supporting=1.4%
+  rejected             n=2885   blocking=1.7% neutral=87.0% revising=8.8% supporting=2.5%
+  superseded           n=2171   blocking=1.7% neutral=89.4% revising=6.7% supporting=2.3%
+  unknown              n=2403   blocking=1.4% neutral=89.1% revising=8.2% supporting=1.2%
+  withdrawn            n=3508   blocking=1.2% neutral=90.1% revising=7.2% supporting=1.5%
+
+Direction-outcome alignment (supporting~accepted/final/active, blocking~rejected/withdrawn/deferred,
+revising~deferred/superseded/draft/provisional):
+  blocking     aligned    103 /    887  (11.6%)
+  neutral      aligned      0 /  56155  (0.0%)
+  revising     aligned    500 /   4818  (10.4%)
+  supporting   aligned    673 /    929  (72.4%)
+  overall      aligned   1276 /  62789  (2.0%)
+
+7. Proposals with the highest influence intensity
+-------------------------------------------------
+  PEP    outcome          n actors   sup   blk   rev   neu  top types
+  32     final         4435    187    68    44   328  3995  ecosystem(1644), security(1007), operational(702)
+  9      final         3065    107    40    76   266  2683  operational(1255), ecosystem(1106), compatibility(680)
+  125    final         2850     62    35    21   208  2586  economic(1389), ecosystem(1102), security(625)
+  141    final         2597     97    37    35   221  2304  ecosystem(1034), operational(641), economic(506)
+  70     final         2426    108    36    40   172  2178  ecosystem(849), security(404), operational(320)
+  8      final         2227     68    36    76   212  1903  operational(1072), ecosystem(679), compatibility(348)
+  39     final         2012    141    25    16   145  1826  ecosystem(771), security(383), operational(333)
+  340    final         1829     66    27    21   148  1633  security(501), ecosystem(387), operational(368)
+  148    final         1440     61    16    30   121  1273  operational(614), ecosystem(557), compatibility(255)
+  341    final         1432     63    22    14   130  1266  security(380), ecosystem(351), operational(289)
+  66     final         1384     71    17    21    93  1253  ecosystem(480), operational(415), compatibility(338)
+  44     final         1378     92    20    17    93  1248  ecosystem(683), security(214), standards(213)
+  119    unknown       1338     51    12    27   122  1177  operational(347), ecosystem(240), functional(197)
+  65     final         1257     58    24    17    85  1131  ecosystem(503), compatibility(315), operational(268)
+  34     final         1237     63    16    23    91  1107  compatibility(327), ecosystem(322), operational(319)
+  360    draft         1229     47    15     9   101  1104  security(415), ecosystem(315), operational(259)
+  101    withdrawn     1123     54    24    15    64  1020  ecosystem(417), economic(253), operational(208)
+  100    rejected      1073     68    29    31    82   931  ecosystem(398), economic(243), operational(136)
+  16     final          964     60    12    15    75   862  ecosystem(335), operational(289), compatibility(149)
+  143    final          956     50     7    15    48   886  ecosystem(303), security(217), operational(207)
+
+8. Controversial mechanisms (unilateral, corporate_interest, gatekeeping, exit_threat, incivility, backchannel, procedural_control)
+-----------------------------------------------------------------------------------------------------------------------------------
+Candidates carrying at least one controversial mechanism: 2458 / 62789 (3.9%)
+
+  mechanism                   n  % cand
+  unilateral                141     0.2
+  corporate_interest        308     0.5
+  gatekeeping               108     0.2
+  exit_threat                81     0.1
+  incivility                900     1.4
+  backchannel               456     0.7
+  procedural_control        488     0.8
+
+Share of each role's candidates that carry the mechanism (percent):
+  group                        n unilateral corporate~ gatekeepi~ exit_thre~ incivility backchann~ procedura~
+  BIP editor                1530        0.7        0.2        0.0        0.1        2.4        1.0        0.7
+  community member         36137        0.2        0.6        0.2        0.1        1.3        0.8        0.8
+  core developer           17045        0.2        0.4        0.1        0.1        1.6        0.6        0.8
+  lead maintainer            655        0.3        0.8        0.3        0.0        1.1        0.2        0.0
+  maintainer                1243        0.0        0.3        0.1        0.2        2.6        0.6        0.4
+  proposal author           6179        0.2        0.5        0.1        0.1        1.4        0.7        0.6
+
+Share of each era's candidates that carry the mechanism (percent):
+  group                        n unilateral corporate~ gatekeepi~ exit_thre~ incivility backchann~ procedura~
+  bdfl_era                 40084        0.2        0.6        0.2        0.1        1.2        0.8        0.5
+  post_bdfl_era            22705        0.2        0.4        0.1        0.2        1.8        0.6        1.3
+
+-- unilateral
+   top actors (n = candidates of this actor carrying the mechanism):
+     Olaoluwa Osuntokun               community member      14 of   912 (1.5% of the actor's candidates)
+     Ali Sherief                      community member       9 of   490 (1.8% of the actor's candidates)
+     Ava Chow                         community member       8 of   238 (3.4% of the actor's candidates)
+     Antoine Riard                    core developer         7 of  3709 (0.2% of the actor's candidates)
+     Antoine Poinsot                  core developer         7 of   822 (0.9% of the actor's candidates)
+     Mark Friedenbach                 core developer         6 of   415 (1.4% of the actor's candidates)
+     Michael Folkson                  community member       6 of   766 (0.8% of the actor's candidates)
+     Matt Corallo                     core developer         5 of  1020 (0.5% of the actor's candidates)
+   highest-scoring examples:
+     [PEP 62, Peter Todd, core developer, 3.8] I'll have to admit, I decided to keep quiet about it because it's a good example of how relying on BIP62 for specialty contract applications that absolutely need to avoid malleability for security re~
+         cues: security: security; unilateral: i decided
+     [PEP 99, Jorge Tim√≥n, proposal author, 3.6] Whatever term and defintion we chose for this concept, it has to be neutral to whether the consensus rule changes are can be deployed as a softfork or only as a hardfork [although we have had many ha~
+         cues: operational: deployed; compatibility: softfork|hardfork; ecosystem: miners; unilateral: unilaterally
+     [PEP 32, ??????, community member, 3.2] That is similar to an idea at FC15 ( <URL> but instead of increasing the number of keys needed up to m, and protecting against m-1 leaks. (so if you have to give keys out to 10 departments you must s~
+         cues: authority: i have decided; standards: convention; unilateral: i have decided
+     [PEP 54, Antoine Poinsot, proposal author, 3.1] However i decided against including this additional measure in BIP54 because: - of the inherent complexity of the discussed schemes, which would make it hard to reason about constructing transactions~
+         cues: compatibility: legacy; unilateral: i decided
+     [PEP 38, Luke Dashjr, BIP editor, 2.9] The wiki page is meant to be a place to leave comments recommending or discouraging adoption of a completed BIP, after discussion is over.
+         cues: user_demand: adoption; unilateral: discussion is over
+
+-- corporate_interest
+   top actors (n = candidates of this actor carrying the mechanism):
+     Antoine Riard                    core developer        22 of  3709 (0.6% of the actor's candidates)
+     Mike Hearn                       core developer        20 of  1388 (1.4% of the actor's candidates)
+     Johnson Lau                      core developer        18 of  2966 (0.6% of the actor's candidates)
+     Yuval Kogman                     community member      14 of   717 (2.0% of the actor's candidates)
+     Dr Maxim Orlovsky                community member      10 of   274 (3.6% of the actor's candidates)
+     Jorge Tim√≥n                     core developer         9 of  1352 (0.7% of the actor's candidates)
+     Eric Voskuil                     community member       7 of  1825 (0.4% of the actor's candidates)
+     Ava Chow                         community member       7 of   238 (2.9% of the actor's candidates)
+   highest-scoring examples:
+     [PEP 1, Antoine Riard, core developer, 4.0] - Murch was mentioning Luke's conflict of interest as a motivation to remove him from his BIP editor. nothing says in BIP3 editor's responsibilities that they should stay free from "conflict of inter~
+         cues: operational: implementation; authority: bip editor|editor|bip editors; ecosystem: editors; corporate_interest: conflict of interest
+     [PEP 101, Mike Hearn, core developer, 4.0] I agree with Gavin - whilst it's great that a Blockstream employee has finally made a realistic proposal (i.e. not "let's all use Lightning") - this BIP is virtually the same as keeping the 1mb cap.
+         cues: authority: gavin; ecosystem: lightning; organizational: blockstream; coalition: i agree with; corporate_interest: blockstream employee
+     [PEP 39, Sjors Provoost, core developer, 3.3] Very few wallets support anything other than English, which can lead to vendor lock-in and long term loss of funds if a rare non-English wallet disappears.
+         cues: strategic: long term; ecosystem: wallet|wallets; corporate_interest: vendor lock|vendor lock-in
+     [PEP 300, Paul Sztorc, proposal author, 3.3] Finally, to me it makes no difference if users have their funds stolen from a centralized Solana contract (because there is only one full node which the operator resets), or from a bip300 centralized~
+         cues: ecosystem: node|full node; corporate_interest: contract
+     [PEP 32, Dr Maxim Orlovsky, community member, 3.2] **Case** This is the same as a ‚Äúchange‚ÄĚ field before (under BIP44 etc), however it is proposed to change the name to denote that the field may have other values and is used for signalling support~
+         cues: strategic: values; operational: signalling; corporate_interest: contract
+
+-- gatekeeping
+   top actors (n = candidates of this actor carrying the mechanism):
+     Will                             community member      15 of    73 (20.5% of the actor's candidates)
+     Raystonn .                       community member      12 of   156 (7.7% of the actor's candidates)
+     odinn                            community member      10 of   205 (4.9% of the actor's candidates)
+     Eric Voskuil                     community member       5 of  1825 (0.3% of the actor's candidates)
+     Keagan McClelland                community member       5 of   268 (1.9% of the actor's candidates)
+     Mike Hearn                       core developer         4 of  1388 (0.3% of the actor's candidates)
+     Johnson Lau                      core developer         4 of  2966 (0.1% of the actor's candidates)
+     moonsettler                      community member       4 of   147 (2.7% of the actor's candidates)
+   highest-scoring examples:
+     [PEP 37, Gregory Maxwell, core developer, 3.4] Because it does not propose any "identity system" or authorization (also, I object to your apparent characterization of authentication as as an 'identity system'-- do you also call Bitcoin addresses ~
+         cues: strategic: identity; gatekeeping: i object
+     [PEP 100, odinn, community member, 3.4] ~ Jeff Garzik, with respect to his BIP 100 (note Evan Mo, CEO of Huobi's mining project Digcoin, clarified that the big Chinese mining pools consider further adjustments to the protocol beyond the su~
+         cues: authority: core developer|gavin; organizational: bitcoin core; gatekeeping: -100
+     [PEP 100, Gavin Andresen, core developer, 3.3] This might be more compatible with future opcodes that require larger-than-100,000-byte transactions, although any such future opcodes would likely require changes to the Script validation rules anyw~
+         cues: compatibility: compatible; gatekeeping: -100
+     [PEP 151, Pieter Wuille, maintainer, 3.2] BIP 151 plus a non-leaking public key authentication scheme (where peers can query "are you the peer with pubkey X?" but don't learn anything if the answer is no) with keys specific to the IP address~
+         cues: security: security; gatekeeping: the answer is no|answer is no
+     [PEP 150, Eric Voskuil, community member, 3.0] Anonymous node identity is pointless, and is why I object to BIP151.
+         cues: strategic: identity; gatekeeping: i object
+
+-- exit_threat
+   top actors (n = candidates of this actor carrying the mechanism):
+     conduition                       community member      16 of  1711 (0.9% of the actor's candidates)
+     Antoine Riard                    core developer        11 of  3709 (0.3% of the actor's candidates)
+     Gregory Maxwell                  core developer         3 of  1107 (0.3% of the actor's candidates)
+     Thomas Voegtlin                  community member       3 of   558 (0.5% of the actor's candidates)
+     Michael Folkson                  community member       3 of   766 (0.4% of the actor's candidates)
+     Rusty Russell                    community member       3 of   295 (1.0% of the actor's candidates)
+     Kalle Rosenbaum                  community member       2 of   174 (1.1% of the actor's candidates)
+     Johnson Lau                      core developer         2 of  2966 (0.1% of the actor's candidates)
+   highest-scoring examples:
+     [PEP 1, Antoine Riard, core developer, 4.0] On this last point, I would strongly suggest to amend the BIP3 document to underscore that editors have an explicit duty of neutrality, and that under this duty they should not engage in the promotio~
+         cues: operational: implementation; authority: maintainer; ecosystem: node|editors; exit_threat: contentious fork
+     [PEP 120, Kalle Rosenbaum, proposal author, 4.0] If there is no good solution to the soft-fork issue, I suggest that I withdraw BIP120 and BIP121.
+         cues: exit_threat: i withdraw
+     [PEP 16, Gregory Maxwell, BIP editor, 3.2] With the soft fork Bitcoin Core users are informed that unexpected things are going on, and they are free to look at whats going on and decide how to handle it, or just accept that the new thing is a~
+         cues: compatibility: soft fork; ecosystem: miners|the network; organizational: bitcoin core; exit_threat: fork bitcoin
+     [PEP 101, Jeff Garzik, core developer, 2.7] Observation: Contentious hard fork is an Economic Change Event.
+         cues: compatibility: hard fork; economic: economic; exit_threat: contentious hard fork
+     [PEP 158, Olaoluwa Osuntokun, proposal author, 2.5] Finally, I've addressed the remaining comments on my PR modifying the BIP from my last message.
+         cues: exit_threat: my last message
+
+-- incivility
+   top actors (n = candidates of this actor carrying the mechanism):
+     Jorge Tim√≥n                     core developer        66 of  1352 (4.9% of the actor's candidates)
+     Anthony Towns                    core developer        66 of  2486 (2.7% of the actor's candidates)
+     Olaoluwa Osuntokun               community member      36 of   912 (3.9% of the actor's candidates)
+     Antoine Riard                    core developer        32 of  3709 (0.9% of the actor's candidates)
+     Gregory Maxwell                  core developer        29 of  1107 (2.6% of the actor's candidates)
+     Peter Todd                       core developer        26 of  2020 (1.3% of the actor's candidates)
+     Pieter Wuille                    proposal author       26 of  1290 (2.0% of the actor's candidates)
+     Eric Voskuil                     community member      25 of  1825 (1.4% of the actor's candidates)
+   highest-scoring examples:
+     [PEP 434, Antoine Riard, core developer, 4.0] I was thinking more about the second alternative where it's an agreement among multiple peers, where it sounds step one sybil all your peers (what can be done for the bip 157 security model), then st~
+         cues: security: security; incivility: crappy
+     [PEP 3, Gregory Maxwell, core developer, 3.6] (He could debate the degree of confiscation risk,-- though I know for a fact that it's a certainty-- but saying there is *none* is just a toxic lie that should cause us to reject his proposal on the ~
+         cues: strategic: principle; incivility: toxic
+     [PEP 20, Matt Corallo, core developer, 3.6] The send crap was not in the original spec, is not implemented anywhere, and should have been removed as part of the BIP 21 copy/paste.
+         cues: operational: implemented; standards: spec; incivility: crap
+     [PEP 65, Peter Todd, proposal author, 3.5] Unless you have an actual technical justification, arguments such as the above are highly dishonest and need to be removed from your BIP.
+         cues: incivility: dishonest
+     [PEP 66, Raystonn ., community member, 3.5] I have seen this question asked many times.¬† Most developers become defensive and they usually give a very vague 1-sentence answer when this question is asked.¬† It seems to be it is based on person~
+         cues: economic: incentive|paid; organizational: companies; incivility: insult
+
+-- backchannel
+   top actors (n = candidates of this actor carrying the mechanism):
+     Antoine Riard                    core developer        37 of  3709 (1.0% of the actor's candidates)
+     Eric Voskuil                     community member      22 of  1825 (1.2% of the actor's candidates)
+     Andreas Schildbach               community member      21 of   380 (5.5% of the actor's candidates)
+     Ty Everett                       community member      21 of   255 (8.2% of the actor's candidates)
+     Gregory Maxwell                  core developer        20 of  1107 (1.8% of the actor's candidates)
+     Peter Todd                       core developer        17 of  2020 (0.8% of the actor's candidates)
+     josibake                         core developer        16 of   437 (3.7% of the actor's candidates)
+     Michael Folkson                  community member      15 of   766 (2.0% of the actor's candidates)
+   highest-scoring examples:
+     [PEP 68, Pieter Wuille, core developer, 4.0] Given that, as of now, there are no consensus rules (or even generally-adopted relay policies) that care about the version number except it being 1 or 2 (due to BIP68), I would say that the usage of ~
+         cues: security: privacy; user_demand: adopted; backchannel: privately
+     [PEP 8, Mark Friedenbach, core developer, 3.8] Note: I have circulated this idea privately among a few people, and I will note that there is one piece of feedback which I agree with but is not incorporated yet: there should be a multi-element MBV~
+         cues: coalition: i agree with; backchannel: privately
+     [PEP 2, Antoine Riard, core developer, 3.6] "Off-list BIP-related correspondence should be sent (or CC'd) to the BIP editors."
+         cues: authority: bip editors; ecosystem: editors; backchannel: off-list
+     [PEP 102, Peter Todd, core developer, 3.6] Ironically that makes it harder to get a BIP # if you know what you're doing, because Gregory Maxwell will argue against you in private and delay actually allocating one if he knows you should know b~
+         cues: backchannel: in private
+     [PEP 30, Antoine Poinsot, core developer, 3.5] I chose to go with mandating nLockTime be set in coinbase transactions to the height of the block they are included in minus 1 because it has marginal benefits in addition to ensuring coinbase transa~
+         cues: ecosystem: miners; backchannel: privately
+
+-- procedural_control
+   top actors (n = candidates of this actor carrying the mechanism):
+     Anthony Towns                    core developer        33 of  2486 (1.3% of the actor's candidates)
+     Salvatore Ingala                 community member      33 of   539 (6.1% of the actor's candidates)
+     Bryan Bishop                     community member      28 of   514 (5.4% of the actor's candidates)
+     Antoine Riard                    core developer        27 of  3709 (0.7% of the actor's candidates)
+     conduition                       community member      21 of  1711 (1.2% of the actor's candidates)
+     Jorge Tim√≥n                     core developer        17 of  1352 (1.3% of the actor's candidates)
+     josibake                         core developer        17 of   437 (3.9% of the actor's candidates)
+     Michael Folkson                  community member      14 of   766 (1.8% of the actor's candidates)
+   highest-scoring examples:
+     [PEP 1, Jorge Tim√≥n, core developer, 4.0] If you mean "software fork" (like libcoin or bitcoin xt [pre-controversial-bip101]) those are completely fine and out of scope for this BIP, since they don't require coordination by the different use~
+         cues: operational: implement; procedural_control: out of scope
+     [PEP 32, Pavol Rusnak, core developer, 4.0] However, the BIP also indicates that "details of hand computation are outside the scope of this standard, and implementers do not need to be concerned with this possibility." Therefore, I am curious ~
+         cues: standards: standard; procedural_control: outside the scope
+     [PEP 3, Mark Erhardt, proposal author, 3.9] Since BIP?2 doesn‚Äôt specify a procedure for activating Process BIPs, I suggest that people who wish to state their support leave an ACK on #1820 or reply in this thread.
+         cues: procedural_control: procedure
+     [PEP 46, Luke Dashjr, BIP editor, 3.9] - BIP 82 is currently officially assigned and pending in <URL> ; I personally think this is outside the scope of BIPs since it does not deal with Bitcoin, and encourage Justus to move it to the SLIP ~
+         cues: standards: standard; procedural_control: move it to|outside the scope
+     [PEP 48, Sjors Provoost, core developer, 3.8] Maybe this is out of scope. * one way to resolve xpub reuse would be to make the "BIP48" path a function of the co-signer fingerprints and wallet threshold, but this requires an extra communication r~
+         cues: ecosystem: wallet; procedural_control: out of scope
+
+9. Limitations of the current heuristic method
+----------------------------------------------
+- Labels come from cue-phrase rules (InfluenceTypeDetector, InfluenceDirectionDetector, ...); no
+  gold standard has been applied yet, so precision/recall are unknown. Use
+  influence_annotation_sample.csv to build one.
+- A stored row is a candidate influence SIGNAL. Alignment between direction and outcome is
+  descriptive association; it does not show that the sentence changed the decision.
+- Roles are taken from the dataset's authorsrole2020 labels and pepdetails; most community
+  members remain 'community member' or 'unknown'. Roles are only partly time-sensitive.
+- Decision dates come from accrejpeps / the PEP state history; proposals without a terminal
+  state have no temporal features (days_before_decision is NULL).
+- Quoted text, signatures and attached PEP text are removed heuristically; some quoted
+  material survives and some genuine prose inside code-like lines is dropped.
+- The governance-era split is a single date; messages are not linked to the governance
+  process that actually decided each PEP.
+- Multi-label counts sum to more than the number of candidates.

@@ -1,7 +1,7 @@
 \section{Results}
 \label{sec:results}
 
-Table~\ref{tab:corpus} summarises the run. Of the 11,477 message--BIP rows, none came from automated senders; 331 rows (229 messages) were release announcements and were skipped. Cleaning and splitting the rest produced about 205,000 sentences, of which 62,791 (about 31\%) carried at least one mechanism and scored above the threshold: on average 1.38 mechanisms per candidate, from 636 participants on 199 BIPs. Outcomes were resolved for 157 BIPs: 89 final, 22 rejected, 15 withdrawn, 25 draft, 5 superseded, 4 deferred and 3 active; 36 BIPs (2,404 candidates) have no recorded decision.
+Table~\ref{tab:corpus} summarises the run. Of the 11,477 message--BIP rows, none came from automated senders; 331 rows (229 messages) were release announcements and were skipped. Cleaning and splitting the rest produced about 205,000 sentences, of which 62,789 (about 31\%) carried at least one mechanism and scored above the threshold: on average 1.38 mechanisms per candidate, from 636 participants on 199 BIPs. Outcomes were resolved for 157 BIPs: 89 final, 22 rejected, 15 withdrawn, 25 draft, 5 superseded, 4 deferred and 3 active; 36 BIPs (2,404 candidates) have no recorded decision.
 
 \begin{table}[t]
 \caption{Corpus and extraction summary (Bitcoin).}
@@ -13,7 +13,7 @@ bitcoin-dev messages read & 24,391 \\
 \quad linked to a BIP number & 6,886 (11,477 message--BIP rows) \\
 \quad release announcements skipped & 229 messages (331 rows) \\
 BIPs with linked messages & 205 \\
-Influence candidate sentences stored & 62,791 \\
+Influence candidate sentences stored & 62,789 \\
 BIPs with at least one candidate & 199 \\
 Distinct participants (actors) & 636 \\
 Mechanisms per candidate & 1.38 \\
@@ -27,7 +27,7 @@ Period covered & 2011-06 to 2026-09 \\
 Table~\ref{tab:rq1} shows how often each base mechanism occurs. Bitcoin's profile is not Python's. \emph{Ecosystem} arguments lead by a wide margin (33.7\% of candidates): what wallets, nodes, miners, exchanges and other implementations will do or suffer is the community's first consideration. \emph{Operational} arguments (22.0\%: implementation, deployment, activation, releases) come second, and then two mechanisms that were marginal in Python: \emph{security} (17.5\%---attacks, chain splits, fund loss, denial of service, malleability) and \emph{economic} (14.8\%---fees, miner incentives, cost, the fee market). \emph{Compatibility} follows (12.1\%: soft and hard forks, non-upgraded nodes, replay protection), and only then \emph{functional} arguments about whether the design solves the problem (7.6\%), which were Python's second mechanism at 25.8\%. \emph{Authority} is invoked in 2.5\% of candidates, a third of Python's 7.6\%, and \emph{coalition} in 2.1\%. Two caveats apply as in Python: the multi-label counts sum to more than 100\%, and \emph{ecosystem} in Bitcoin is inflated by the fact that nodes, wallets and miners are components of the protocol as well as constituencies---a sentence that describes what a node does fires the same cue as one that argues from what node operators will accept. The rank order is nonetheless robust to that inflation: the four Bitcoin-specific mechanisms the taxonomy singled out (ecosystem, security, economic, compatibility) occupy four of the top five places.
 
 \begin{table}[t]
-\caption{RQ1: base influence mechanisms in 62,791 candidate sentences (multi-label), with the Python share on the extended corpus for comparison.}
+\caption{RQ1: base influence mechanisms in 62,789 candidate sentences (multi-label), with the Python share on the extended corpus for comparison.}
 \label{tab:rq1}
 \small
 \begin{tabular}{lrrr}
@@ -91,7 +91,7 @@ User demand & 62, Hearn (core dev.) & Although I agree not having to support all
 \end{tabular}
 \end{table*}
 
-\paragraph{Direction and scope.} Direction is neutral for 88.5\% of candidates, revising for 8.7\%, supporting for 1.5\% and blocking for 1.4\%---almost exactly Python's distribution (87.7 / 8.8 / 2.0 / 1.5). Scope differs: 17.6\% of Bitcoin's candidates are \emph{external} and 10.0\% \emph{mixed}, against 3.0\% and 4.7\% in Python, because Bitcoin's arguments name users, wallets, exchanges, miners and companies far more often; 32.8\% are internal and 39.7\% unresolved.
+\paragraph{Direction and scope.} Direction is neutral for 89.4\% of candidates, revising for 7.7\%, supporting for 1.5\% and blocking for 1.4\%---close to Python's distribution (87.7 / 8.8 / 2.0 / 1.5); the revising share is lower than Python's because the ``split'' cue, which reads as a request to divide a proposal in Python, was withdrawn after it proved to fire on \emph{chain split} in Bitcoin. Scope differs: 17.6\% of Bitcoin's candidates are \emph{external} and 10.0\% \emph{mixed}, against 3.0\% and 4.7\% in Python, because Bitcoin's arguments name users, wallets, exchanges, miners and companies far more often; 32.8\% are internal and 39.7\% unresolved.
 
 \paragraph{When influence is exercised.} The temporal profile is where the two projects differ most, and the difference is instructive. In Python, signalling peaked sharply in the four weeks around the recorded decision. In Bitcoin only 102 candidates (0.2\%) fall in the two weeks before the recorded decision and 3.1\% in the first month after a BIP's creation; 56.7\% are ``active debate'' and 36.5\% post-decision. The reason is that a BIP's recorded status change is not the moment of its decision. Consensus BIPs become \emph{Final} when they are deployed and activated, often years after the debate (BIP~141 was discussed in 2015--2017 and marked Final in August 2017, BIP~341 in February 2023), and many early BIPs received their terminal status in bulk clean-ups of the repository (5 on 21 October 2013, 13 on 1 February 2016, 15 on 10 July 2024, 24 on 12 April 2025). The decision in Bitcoin is made in the ecosystem---by what is merged, released, signalled and run---and the repository records it afterwards; the tool's decision-window phase, which worked for Python because the BDFL's pronouncement and the PEP's status change coincide, has no counterpart here. Mechanism shares are accordingly flat across phases (ecosystem 34.5\% in active debate, 32.7\% after the decision; security 16.4\% and 19.8\%; economic 16.1\% and 12.9\%), with authority and standards higher only in the small early-discussion and pre-draft phases (6.3\% and 8.3\%).
 
@@ -108,7 +108,7 @@ Table~\ref{tab:roles} gives the candidates by role. Community members---particip
 \toprule
 Role & Cand. & \% & People & Auth. & Sec. & Econ. \\
 \midrule
-Community member & 36,139 & 57.6 & 597 & 2.3 & 17.9 & 13.7 \\
+Community member & 36,137 & 57.6 & 597 & 2.3 & 17.9 & 13.7 \\
 Core developer & 17,045 & 27.1 & 48 & 2.8 & 18.1 & 17.4 \\
 Proposal author & 6,179 & 9.8 & 67 & 1.9 & 16.3 & 16.6 \\
 BIP editor & 1,530 & 2.4 & 7 & 5.5 & 12.4 & 7.9 \\
@@ -160,7 +160,7 @@ Any controversial & 5.8 & 3.4 & 3.2 & 4.6 \\
 
 \subsection{RQ4: Alignment with Outcomes}
 
-Because 75\% of candidates sit on BIPs that became final, outcome comparisons rest on smaller groups (Table~\ref{tab:outcomes}). Rejected BIPs attract proportionally more \emph{compatibility} (20.1\% vs.\ 12.1\% on final BIPs), \emph{economic} (18.4\% vs.\ 14.4\%) and \emph{authority} (5.6\% vs.\ 1.8\%) signals and fewer \emph{security} (9.1\% vs.\ 17.7\%) and \emph{operational} (17.2\% vs.\ 22.7\%) ones: proposals fail in Bitcoin when they are argued to break things, to misalign incentives, or to need someone's permission, and succeed when the discussion has moved to attacks and implementation. Draft BIPs carry the most security (26.8\%) and economic (21.0\%) argument---the covenant and quantum proposals still under discussion---and superseded BIPs the most authority and strategic argument (8.6\% each). Direction--outcome alignment is 74.9\% for supporting sentences, 12.1\% for blocking and 9.7\% for revising, against a base rate of 76\% of decided candidates on positive outcomes; as in Python, counting explicit stances predicts nothing, and in Bitcoin the blocking figure is lower still because so few discussed BIPs are formally rejected---objections that succeed leave a BIP a draft forever rather than ``Rejected''.
+Because 75\% of candidates sit on BIPs that became final, outcome comparisons rest on smaller groups (Table~\ref{tab:outcomes}). Rejected BIPs attract proportionally more \emph{compatibility} (20.1\% vs.\ 12.1\% on final BIPs), \emph{economic} (18.4\% vs.\ 14.4\%) and \emph{authority} (5.6\% vs.\ 1.8\%) signals and fewer \emph{security} (9.1\% vs.\ 17.7\%) and \emph{operational} (17.2\% vs.\ 22.7\%) ones: proposals fail in Bitcoin when they are argued to break things, to misalign incentives, or to need someone's permission, and succeed when the discussion has moved to attacks and implementation. Draft BIPs carry the most security (26.8\%) and economic (21.0\%) argument---the covenant and quantum proposals still under discussion---and superseded BIPs the most authority and strategic argument (8.6\% each). Direction--outcome alignment is 74.9\% for supporting sentences, 12.1\% for blocking and 10.8\% for revising, against a base rate of 76\% of decided candidates on positive outcomes; as in Python, counting explicit stances predicts nothing, and in Bitcoin the blocking figure is lower still because so few discussed BIPs are formally rejected---objections that succeed leave a BIP a draft forever rather than ``Rejected''.
 
 \begin{table}[t]
 \caption{RQ4: mechanism share (\%) by proposal outcome.}

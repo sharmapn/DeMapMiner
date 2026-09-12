@@ -37,7 +37,7 @@
 \renewcommand{\shortauthors}{Sharma}
 
 \begin{abstract}
-Bitcoin changes its rules without anyone being in charge of them. Proposals are written as Bitcoin Improvement Proposals (BIPs), argued on the bitcoin-dev mailing list, and adopted or not by the maintainers, miners, wallets, exchanges and node operators who decide what to run. This paper applies Influence Miner, a tool and taxonomy for mining sentence-level influence signals from open source decision-making discussions, to the complete public record of those arguments: every bitcoin-dev message from June 2011 to September 2026 (24,391 messages), linked to the 205 BIPs they discuss, with the status history of every BIP taken from the \texttt{bitcoin/bips} repository and roles derived from the reference implementation's history. Influence Miner classifies each signal into thirteen base mechanisms and seven controversial ones---unilateral decision, corporate interest, gatekeeping, exit threat, incivility, backchannel and procedural control---and attaches direction, scope, target, role, outcome and timing. The 62,791 candidate sentences show a profile unlike Python's, on which the tool was developed: ecosystem (34\%), operational (22\%), security (17\%) and economic (15\%) arguments dominate, functional arguments about whether a design solves its problem are rare (8\%), and authority is invoked in 2.5\% of sentences; 58\% of the signals come from community members and 1\% from the lead maintainer, who vanishes from the record after 2015. The block-size war of 2015--2017 was argued as a compatibility question and was, on this measure, less contested than the early or the post-2022 years; security and economic argument have risen monotonically to the present; rejected BIPs attract compatibility, economic and authority signals while accepted ones move to attacks and implementation; and stance volume predicts outcomes no better than chance. The repository's status changes record deployments, not decisions, so the decision-window peak found in Python does not exist in Bitcoin. Controversial mechanisms mark 3.9\% of sentences, led by incivility and backchannel references, concentrated in the earliest years and in the post-lead era. Measured on the same instrument, Bitcoin and Python differ in what they argue about and who argues, and agree in how explicitly they argue. The contributions are a reproducible Bitcoin corpus, the first sentence-level influence profile of Bitcoin's proposal discussions, the cross-project comparison the taxonomy was designed for, and a year-by-year timeline of the influence acts the tool nominates from the corpus itself.
+Bitcoin changes its rules without anyone being in charge of them. Proposals are written as Bitcoin Improvement Proposals (BIPs), argued on the bitcoin-dev mailing list, and adopted or not by the maintainers, miners, wallets, exchanges and node operators who decide what to run. This paper applies Influence Miner, a tool and taxonomy for mining sentence-level influence signals from open source decision-making discussions, to the complete public record of those arguments: every bitcoin-dev message from June 2011 to September 2026 (24,391 messages), linked to the 205 BIPs they discuss, with the status history of every BIP taken from the \texttt{bitcoin/bips} repository and roles derived from the reference implementation's history. Influence Miner classifies each signal into thirteen base mechanisms and seven controversial ones---unilateral decision, corporate interest, gatekeeping, exit threat, incivility, backchannel and procedural control---and attaches direction, scope, target, role, outcome and timing. The 62,789 candidate sentences show a profile unlike Python's, on which the tool was developed: ecosystem (34\%), operational (22\%), security (17\%) and economic (15\%) arguments dominate, functional arguments about whether a design solves its problem are rare (8\%), and authority is invoked in 2.5\% of sentences; 58\% of the signals come from community members and 1\% from the lead maintainer, who vanishes from the record after 2015. The block-size war of 2015--2017 was argued as a compatibility question and was, on this measure, less contested than the early or the post-2022 years; security and economic argument have risen monotonically to the present; rejected BIPs attract compatibility, economic and authority signals while accepted ones move to attacks and implementation; and stance volume predicts outcomes no better than chance. The repository's status changes record deployments, not decisions, so the decision-window peak found in Python does not exist in Bitcoin. Controversial mechanisms mark 3.9\% of sentences, led by incivility and backchannel references, concentrated in the earliest years and in the post-lead era. Measured on the same instrument, Bitcoin and Python differ in what they argue about and who argues, and agree in how explicitly they argue. The contributions are a reproducible Bitcoin corpus, the first sentence-level influence profile of Bitcoin's proposal discussions, the cross-project comparison the taxonomy was designed for, and a year-by-year timeline of the influence acts the tool nominates from the corpus itself.
 \end{abstract}
 
 
@@ -469,7 +469,7 @@ The analysis mirrors the Python study. RQ1 uses the multi-label mechanism distri
 \section{Results}
 \label{sec:results}
 
-Table~\ref{tab:corpus} summarises the run. Of the 11,477 message--BIP rows, none came from automated senders; 331 rows (229 messages) were release announcements and were skipped. Cleaning and splitting the rest produced about 205,000 sentences, of which 62,791 (about 31\%) carried at least one mechanism and scored above the threshold: on average 1.38 mechanisms per candidate, from 636 participants on 199 BIPs. Outcomes were resolved for 157 BIPs: 89 final, 22 rejected, 15 withdrawn, 25 draft, 5 superseded, 4 deferred and 3 active; 36 BIPs (2,404 candidates) have no recorded decision.
+Table~\ref{tab:corpus} summarises the run. Of the 11,477 message--BIP rows, none came from automated senders; 331 rows (229 messages) were release announcements and were skipped. Cleaning and splitting the rest produced about 205,000 sentences, of which 62,789 (about 31\%) carried at least one mechanism and scored above the threshold: on average 1.38 mechanisms per candidate, from 636 participants on 199 BIPs. Outcomes were resolved for 157 BIPs: 89 final, 22 rejected, 15 withdrawn, 25 draft, 5 superseded, 4 deferred and 3 active; 36 BIPs (2,404 candidates) have no recorded decision.
 
 \begin{table}[t]
 \caption{Corpus and extraction summary (Bitcoin).}
@@ -481,7 +481,7 @@ bitcoin-dev messages read & 24,391 \\
 \quad linked to a BIP number & 6,886 (11,477 message--BIP rows) \\
 \quad release announcements skipped & 229 messages (331 rows) \\
 BIPs with linked messages & 205 \\
-Influence candidate sentences stored & 62,791 \\
+Influence candidate sentences stored & 62,789 \\
 BIPs with at least one candidate & 199 \\
 Distinct participants (actors) & 636 \\
 Mechanisms per candidate & 1.38 \\
@@ -495,7 +495,7 @@ Period covered & 2011-06 to 2026-09 \\
 Table~\ref{tab:rq1} shows how often each base mechanism occurs. Bitcoin's profile is not Python's. \emph{Ecosystem} arguments lead by a wide margin (33.7\% of candidates): what wallets, nodes, miners, exchanges and other implementations will do or suffer is the community's first consideration. \emph{Operational} arguments (22.0\%: implementation, deployment, activation, releases) come second, and then two mechanisms that were marginal in Python: \emph{security} (17.5\%---attacks, chain splits, fund loss, denial of service, malleability) and \emph{economic} (14.8\%---fees, miner incentives, cost, the fee market). \emph{Compatibility} follows (12.1\%: soft and hard forks, non-upgraded nodes, replay protection), and only then \emph{functional} arguments about whether the design solves the problem (7.6\%), which were Python's second mechanism at 25.8\%. \emph{Authority} is invoked in 2.5\% of candidates, a third of Python's 7.6\%, and \emph{coalition} in 2.1\%. Two caveats apply as in Python: the multi-label counts sum to more than 100\%, and \emph{ecosystem} in Bitcoin is inflated by the fact that nodes, wallets and miners are components of the protocol as well as constituencies---a sentence that describes what a node does fires the same cue as one that argues from what node operators will accept. The rank order is nonetheless robust to that inflation: the four Bitcoin-specific mechanisms the taxonomy singled out (ecosystem, security, economic, compatibility) occupy four of the top five places.
 
 \begin{table}[t]
-\caption{RQ1: base influence mechanisms in 62,791 candidate sentences (multi-label), with the Python share on the extended corpus for comparison.}
+\caption{RQ1: base influence mechanisms in 62,789 candidate sentences (multi-label), with the Python share on the extended corpus for comparison.}
 \label{tab:rq1}
 \small
 \begin{tabular}{lrrr}
@@ -559,7 +559,7 @@ User demand & 62, Hearn (core dev.) & Although I agree not having to support all
 \end{tabular}
 \end{table*}
 
-\paragraph{Direction and scope.} Direction is neutral for 88.5\% of candidates, revising for 8.7\%, supporting for 1.5\% and blocking for 1.4\%---almost exactly Python's distribution (87.7 / 8.8 / 2.0 / 1.5). Scope differs: 17.6\% of Bitcoin's candidates are \emph{external} and 10.0\% \emph{mixed}, against 3.0\% and 4.7\% in Python, because Bitcoin's arguments name users, wallets, exchanges, miners and companies far more often; 32.8\% are internal and 39.7\% unresolved.
+\paragraph{Direction and scope.} Direction is neutral for 89.4\% of candidates, revising for 7.7\%, supporting for 1.5\% and blocking for 1.4\%---close to Python's distribution (87.7 / 8.8 / 2.0 / 1.5); the revising share is lower than Python's because the ``split'' cue, which reads as a request to divide a proposal in Python, was withdrawn after it proved to fire on \emph{chain split} in Bitcoin. Scope differs: 17.6\% of Bitcoin's candidates are \emph{external} and 10.0\% \emph{mixed}, against 3.0\% and 4.7\% in Python, because Bitcoin's arguments name users, wallets, exchanges, miners and companies far more often; 32.8\% are internal and 39.7\% unresolved.
 
 \paragraph{When influence is exercised.} The temporal profile is where the two projects differ most, and the difference is instructive. In Python, signalling peaked sharply in the four weeks around the recorded decision. In Bitcoin only 102 candidates (0.2\%) fall in the two weeks before the recorded decision and 3.1\% in the first month after a BIP's creation; 56.7\% are ``active debate'' and 36.5\% post-decision. The reason is that a BIP's recorded status change is not the moment of its decision. Consensus BIPs become \emph{Final} when they are deployed and activated, often years after the debate (BIP~141 was discussed in 2015--2017 and marked Final in August 2017, BIP~341 in February 2023), and many early BIPs received their terminal status in bulk clean-ups of the repository (5 on 21 October 2013, 13 on 1 February 2016, 15 on 10 July 2024, 24 on 12 April 2025). The decision in Bitcoin is made in the ecosystem---by what is merged, released, signalled and run---and the repository records it afterwards; the tool's decision-window phase, which worked for Python because the BDFL's pronouncement and the PEP's status change coincide, has no counterpart here. Mechanism shares are accordingly flat across phases (ecosystem 34.5\% in active debate, 32.7\% after the decision; security 16.4\% and 19.8\%; economic 16.1\% and 12.9\%), with authority and standards higher only in the small early-discussion and pre-draft phases (6.3\% and 8.3\%).
 
@@ -576,7 +576,7 @@ Table~\ref{tab:roles} gives the candidates by role. Community members---particip
 \toprule
 Role & Cand. & \% & People & Auth. & Sec. & Econ. \\
 \midrule
-Community member & 36,139 & 57.6 & 597 & 2.3 & 17.9 & 13.7 \\
+Community member & 36,137 & 57.6 & 597 & 2.3 & 17.9 & 13.7 \\
 Core developer & 17,045 & 27.1 & 48 & 2.8 & 18.1 & 17.4 \\
 Proposal author & 6,179 & 9.8 & 67 & 1.9 & 16.3 & 16.6 \\
 BIP editor & 1,530 & 2.4 & 7 & 5.5 & 12.4 & 7.9 \\
@@ -628,7 +628,7 @@ Any controversial & 5.8 & 3.4 & 3.2 & 4.6 \\
 
 \subsection{RQ4: Alignment with Outcomes}
 
-Because 75\% of candidates sit on BIPs that became final, outcome comparisons rest on smaller groups (Table~\ref{tab:outcomes}). Rejected BIPs attract proportionally more \emph{compatibility} (20.1\% vs.\ 12.1\% on final BIPs), \emph{economic} (18.4\% vs.\ 14.4\%) and \emph{authority} (5.6\% vs.\ 1.8\%) signals and fewer \emph{security} (9.1\% vs.\ 17.7\%) and \emph{operational} (17.2\% vs.\ 22.7\%) ones: proposals fail in Bitcoin when they are argued to break things, to misalign incentives, or to need someone's permission, and succeed when the discussion has moved to attacks and implementation. Draft BIPs carry the most security (26.8\%) and economic (21.0\%) argument---the covenant and quantum proposals still under discussion---and superseded BIPs the most authority and strategic argument (8.6\% each). Direction--outcome alignment is 74.9\% for supporting sentences, 12.1\% for blocking and 9.7\% for revising, against a base rate of 76\% of decided candidates on positive outcomes; as in Python, counting explicit stances predicts nothing, and in Bitcoin the blocking figure is lower still because so few discussed BIPs are formally rejected---objections that succeed leave a BIP a draft forever rather than ``Rejected''.
+Because 75\% of candidates sit on BIPs that became final, outcome comparisons rest on smaller groups (Table~\ref{tab:outcomes}). Rejected BIPs attract proportionally more \emph{compatibility} (20.1\% vs.\ 12.1\% on final BIPs), \emph{economic} (18.4\% vs.\ 14.4\%) and \emph{authority} (5.6\% vs.\ 1.8\%) signals and fewer \emph{security} (9.1\% vs.\ 17.7\%) and \emph{operational} (17.2\% vs.\ 22.7\%) ones: proposals fail in Bitcoin when they are argued to break things, to misalign incentives, or to need someone's permission, and succeed when the discussion has moved to attacks and implementation. Draft BIPs carry the most security (26.8\%) and economic (21.0\%) argument---the covenant and quantum proposals still under discussion---and superseded BIPs the most authority and strategic argument (8.6\% each). Direction--outcome alignment is 74.9\% for supporting sentences, 12.1\% for blocking and 10.8\% for revising, against a base rate of 76\% of decided candidates on positive outcomes; as in Python, counting explicit stances predicts nothing, and in Bitcoin the blocking figure is lower still because so few discussed BIPs are formally rejected---objections that succeed leave a BIP a draft forever rather than ``Rejected''.
 
 \begin{table}[t]
 \caption{RQ4: mechanism share (\%) by proposal outcome.}
@@ -663,7 +663,7 @@ Preference Miner has not yet been run on the rebuilt Bitcoin corpus, so the over
 \paragraph{How much and which.} 2,458 candidates (3.9\%) carry at least one of the seven controversial mechanisms, slightly fewer than Python's 4.7\% (Table~\ref{tab:rq6}). The ordering is Python's with one change: incivility leads (1.43\%), then procedural control (0.78\%) and backchannel references (0.73\%), but corporate interest (0.49\%) comes next and ahead of unilateral decisions (0.22\%), which in Python were twice as frequent as corporate stakes. Gatekeeping (0.17\%) and exit threats (0.13\%) are rarer than in Python by about half. The Bitcoin numbers are also the more conservative ones: four rounds of cue tightening removed the technical homonyms (unilateral close, fork off, offline signing, out-of-band fees, dumb clients) that Bitcoin's vocabulary shares with the cue lists, and each round lowered the controversial share (from 4.7\% on the first full run to 3.9\%). Concentration follows the same pattern as in Python. Among BIPs with at least 150 candidates the highest densities belong to the process BIP itself (BIP~2, 9.0\%---the 2024 dispute over the editorship) and to the proposals the community remembers as contested: the covenant proposal BIP~119 (7.3\%), the dynamic block-size proposal BIP~100 (6.5\%), the activation proposal BIP~8 (4.9\%), the payment protocol BIP~70 (4.7\%) and Taproot's BIP~341 (4.4\%), against 3.5\% on BIPs that became final. Superseded and still-active BIPs carry the most (7.4\% and 7.3\%), rejected ones 4.8\%. By phase, the controversial share is highest before a BIP is assigned (6.1\%) and in its first month (5.3\%), and lowest after the recorded decision (3.3\%).
 
 \begin{table}[t]
-\caption{RQ6: controversial mechanisms in the Bitcoin corpus (62,791 candidates): count, share of all candidates, and share within each governance period.}
+\caption{RQ6: controversial mechanisms in the Bitcoin corpus (62,789 candidates): count, share of all candidates, and share within each governance period.}
 \label{tab:rq6}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -695,7 +695,7 @@ Any controversial & 2,458 & 3.9 & 5.8 & 3.4 & 3.2 & 4.6 \\
 \toprule
 Role & $n$ & Unil. & Corp. & Gate. & Exit & Inciv. & Back. & Proc. \\
 \midrule
-Community member & 36,139 & 0.23 & 0.56 & 0.22 & 0.13 & 1.30 & 0.78 & 0.83 \\
+Community member & 36,137 & 0.23 & 0.56 & 0.22 & 0.13 & 1.30 & 0.78 & 0.83 \\
 Core developer & 17,045 & 0.19 & 0.38 & 0.11 & 0.13 & 1.58 & 0.62 & 0.77 \\
 Proposal author & 6,179 & 0.23 & 0.49 & 0.13 & 0.10 & 1.36 & 0.70 & 0.65 \\
 BIP editor & 1,530 & 0.65 & 0.20 & 0.00 & 0.13 & 2.35 & 1.05 & 0.72 \\
@@ -876,7 +876,7 @@ T5 Developing reciprocal relationships (reciprocity) & \emph{backchannel} (agree
 \toprule
  & BIP 9 & BIP 141 & BIP 340/341 & BIP 342 \\
 \midrule
-Candidates & 3,065 & 2,598 & 3,261 & 551 \\
+Candidates & 3,065 & 2,597 & 3,261 & 551 \\
 Participants & 107 & 97 & 98 & 29 \\
 Years & 2015--26 & 2016--26 & 2020--26 & 2020--26 \\
 \midrule
@@ -900,7 +900,7 @@ The profiles agree with the earlier reading and add to it. BIP~9 and BIP~141 are
 \section{Bitcoin and Python Compared}
 \label{sec:compare}
 
-The Python study designed the comparison this paper completes. Table~\ref{tab:compare} sets the two projects side by side on the same detector, using Python's extended corpus (1999--2026, 299,192 candidates) and Bitcoin's (2011--2026, 62,791 candidates).
+The Python study designed the comparison this paper completes. Table~\ref{tab:compare} sets the two projects side by side on the same detector, using Python's extended corpus (1999--2026, 299,192 candidates) and Bitcoin's (2011--2026, 62,789 candidates).
 
 \begin{table}[t]
 \caption{Bitcoin and Python on the same instrument (\% of candidates unless stated).}
@@ -912,7 +912,7 @@ The Python study designed the comparison this paper completes. Table~\ref{tab:co
  & Bitcoin & Python \\
 \midrule
 Proposals with candidates & 199 & 764 \\
-Candidate sentences & 62,791 & 299,192 \\
+Candidate sentences & 62,789 & 299,192 \\
 Participants & 636 & 3,639 \\
 Mechanisms per candidate & 1.38 & 1.27 \\
 \midrule
@@ -930,7 +930,7 @@ User demand & 3.1 & 3.6 \\
 Authority & 2.5 & 7.6 \\
 Coalition & 2.1 & 2.0 \\
 \midrule
-Supporting / blocking / revising & 1.5 / 1.4 / 8.7 & 2.0 / 1.5 / 8.8 \\
+Supporting / blocking / revising & 1.5 / 1.4 / 7.7 & 2.0 / 1.5 / 8.8 \\
 External or mixed scope & 27.6 & 7.7 \\
 Formal leader's share of candidates$^a$ & 1.0 & 8.0 \\
 Community members' share & 57.6 & 37.1 \\
@@ -946,7 +946,7 @@ Blocking aligned with outcome & 12.1 & 26.5 \\
 
 \paragraph{What it did not predict.} Three differences were not anticipated. First, \emph{functional} argument---whether the design solves the problem---is Python's second mechanism (25.8\%) and Bitcoin's sixth (7.6\%). Python's discussions are about language design, where the question is whether a feature is worth having; Bitcoin's are about protocol changes, where the question of whether a change is desirable is settled quickly and the argument moves to whether it is safe, what it costs and who will run it. Second, the formal leader is nearly absent from Bitcoin's record. Python's BDFL wrote 8\% of candidates and pronounced on most contested PEPs; Bitcoin's lead maintainers wrote 1\% and, after 2015, nothing that the tool counts as argument. The lead maintainer role in Bitcoin was administrative---merge, release, announce---and its holders declined to argue proposals on the list, which is why the era comparison shows no analogue of Python's authority-invoking council. Third, the Python paper's temporal finding---signalling peaking in the four weeks around the decision---does not transfer, for a reason that is itself a finding about governance: in Bitcoin the repository's status change records a deployment, not a decision, and the decision is distributed across merges, releases, signalling periods and node upgrades that no single timestamp captures.
 
-\paragraph{What is the same.} Direction distributions are nearly identical (about 88\% neutral, 9\% revising, 1.5\% supporting, 1.4\% blocking), stance alignment with outcomes sits at the base rate in both projects, coalition signals are equally rare (2\%), and controversial mechanisms mark about one candidate in twenty-five in Bitcoin and one in twenty in Python. Two communities with opposite governance designs---a single decision-maker replaced by a council, and no decision-maker at all---argue with the same explicitness and the same small share of contested moves; what differs is what they argue about and who does the arguing.
+\paragraph{What is the same.} Direction distributions are nearly identical (88--89\% neutral, 8--9\% revising, 1.5--2\% supporting, 1.4--1.5\% blocking), stance alignment with outcomes sits at the base rate in both projects, coalition signals are equally rare (2\%), and controversial mechanisms mark about one candidate in twenty-five in Bitcoin and one in twenty in Python. Two communities with opposite governance designs---a single decision-maker replaced by a council, and no decision-maker at all---argue with the same explicitness and the same small share of contested moves; what differs is what they argue about and who does the arguing.
 
 \section{Discussion}
 
@@ -978,7 +978,7 @@ Four properties of the sources would have distorted the results if left untreate
 
 \section{Conclusion}
 
-This paper applied Influence Miner to the complete public record of Bitcoin's proposal discussions, after rebuilding the corpus from the public-inbox mirror of bitcoin-dev, the BIP repository's history and the reference implementation's commit history. Across 199 BIPs and 62,791 candidate sentences, Bitcoin argues about the ecosystem, deployment, security and incentives where Python argues about implementation and design; its formal leaders barely argue at all; its decisions are recorded by the repository long after they are taken; its most contested period was argued as a compatibility question; and its controversial influence has shifted, since the lead maintainer left, from the formal core to a larger informal one and from fiat to process and incivility. Measured on the same instrument, the two projects differ in what they argue about and who argues, and agree in how explicitly they argue and how little stance volume tells about outcomes. The next steps are the annotation study, title-based linking of pre-number discussions, a decision clock built from releases and activations rather than repository status, the Preference Miner run that RQ5 needs, and the extension of the corpus to the pull-request and Delving Bitcoin venues.
+This paper applied Influence Miner to the complete public record of Bitcoin's proposal discussions, after rebuilding the corpus from the public-inbox mirror of bitcoin-dev, the BIP repository's history and the reference implementation's commit history. Across 199 BIPs and 62,789 candidate sentences, Bitcoin argues about the ecosystem, deployment, security and incentives where Python argues about implementation and design; its formal leaders barely argue at all; its decisions are recorded by the repository long after they are taken; its most contested period was argued as a compatibility question; and its controversial influence has shifted, since the lead maintainer left, from the formal core to a larger informal one and from fiat to process and incivility. Measured on the same instrument, the two projects differ in what they argue about and who argues, and agree in how explicitly they argue and how little stance volume tells about outcomes. The next steps are the annotation study, title-based linking of pre-number discussions, a decision clock built from releases and activations rather than repository status, the Preference Miner run that RQ5 needs, and the extension of the corpus to the pull-request and Delving Bitcoin venues.
 
 \appendix
 

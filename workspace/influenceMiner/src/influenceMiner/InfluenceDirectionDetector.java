@@ -74,6 +74,11 @@ public class InfluenceDirectionDetector {
             "not a chance", "i refuse", "i will revert", "i'll revert", "the answer is no", "-1000", "-100"
     };
 
+    /*
+     * Sept 2026: the bare cue "split" was removed - in the Bitcoin corpus it fired on
+     * "chain split" and "network split", which are security arguments, not revisions.
+     * Only proposal-splitting phrasings remain.
+     */
     private static final String[] REVISE = {
             "revise", "revised", "revision", "modify", "modified", "modification", "change the proposal", "change the pep",
             "change the bip", "alternative", "alternatively", "compromise", "defer", "deferred", "postpone", "postponed",
@@ -83,7 +88,8 @@ public class InfluenceDirectionDetector {
             "should be updated", "should be changed", "should be clarified", "should be amended", "should be reworked",
             "i suggest changing", "i'd suggest", "i would suggest", "suggest", "could be improved", "can be improved",
             "improve", "tweak", "adjust", "instead of", "rather than", "what about", "how about", "why not", "consider",
-            "reconsider", "amend", "amendment", "split", "separate pep", "separate proposal", "not yet", "premature",
+            "reconsider", "amend", "amendment", "split the pep", "split the bip", "split the proposal", "split this", "split it",
+            "split into", "split off", "split out", "be split", "splitting the", "separate pep", "separate proposal", "not yet", "premature",
             "wait until", "hold off", "table this", "put on hold", "if you change", "if it were", "would be better if",
             "i'd prefer", "i would prefer", "prefer", "conditional", "provided that", "as long as", "unless"
     };

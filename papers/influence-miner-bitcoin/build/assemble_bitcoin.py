@@ -43,7 +43,7 @@ tax = tax.replace('Table~\\ref{tab:samples} in Section~\\ref{sec:results} shows 
                   'Table~\\ref{tab:samples} in Section~\\ref{sec:results} shows two Bitcoin sentences per mechanism as extracted by the tool.')
 parts.append(tax)
 # shared: implementation (without the Python tool-interface figures), plus the Bitcoin adaptation
-impl = between('\\section{Influence Miner: Approach and Implementation}', '\\subsection{Tool Interfaces}')
+impl = between('\\section{Influence Miner: Approach and Implementation}', '\\subsection{Ranking Schemes and Stored Output}')   # the ranking subsection reports Python-only numbers
 # methodology figure and walk-through: Bitcoin sources, Bitcoin worked example, no tool-interface section
 impl = impl.replace('(\\texttt{python/peps})', '(\\texttt{bitcoin/bips})')
 impl = impl.replace('Mailing lists and Discourse archives', 'bitcoin-dev public-inbox archive')

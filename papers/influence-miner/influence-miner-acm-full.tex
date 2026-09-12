@@ -448,23 +448,93 @@ A batch runner processes one proposal, a range or the whole corpus, continues af
 
 The heuristic score is additive and every component is inspectable. A candidate starts at 0.8 for carrying at least one mechanism (+0.2 for a second, +0.2 for a third); +0.6 for deontic or decision language (\emph{should, must, need to, recommend, object, reject, accept, agree, insist, strongly, clearly}); +0.4 for justification language (\emph{because, therefore, for example, evidence, in practice, in my experience, shows that}); +0.5 for an explicit reference to the proposal (\emph{PEP~572, this change, this syntax, the spec}); +0.4 for a non-neutral direction; +0.2 for an internal or external scope and +0.4 for a mixed one; +0.3 for a recognised target; a role weight of 1.0 for the BDFL or Steering Council, 0.9 for a delegate, 0.8 for a core developer or release manager, 0.7 for a proposal author or PEP editor, 0.2 for a community member; +0.8, +0.5 or +0.2 when the message precedes a known decision by at most 7, 30 or 90 days; $-$0.2 for hedging (\emph{maybe, perhaps, not sure, I wonder}) and $-$0.3 for sentences shorter than six words unless they are votes. Unknown decision dates and post-decision messages add nothing, so proposals without a resolved decision are not boosted. The threshold of 1.0 keeps every sentence with a mechanism and at least one further signal; the annotation study will tell whether it should be raised.
 
+\subsection{Ranking Schemes and Stored Output}
+\label{sec:ranking}
+
+Rationale Miner ranked its candidates under two schemes, a sentence-based scheme (SBS) that orders sentences by their heuristic score and a message-based scheme (MBS) that orders whole messages, and found that MBS recovered more of the ground truth in the top ranks---61.5\% against 39.7\% of the accepted-PEP rationales in the top five, 74.4\% against 48.0\% for rejected PEPs---because a message that carries several signals is read once, in context \cite{sharma2021rationale}. Influence Miner keeps both schemes, and this section makes explicit what is stored, how each scheme orders it, and which scheme each part of the study uses.
+
+\paragraph{What is stored.} Step~8 writes one row per candidate sentence into \texttt{influence\_candidates} (Table~\ref{tab:fields}). Every label is stored next to the evidence that produced it: the cue phrases that fired, per mechanism, so that a label can be checked against its sentence without re-running the detector; the score, so that any ordering can be reproduced; and the message id, so that the sentence can be opened in its thread. Nothing is stored for a sentence without a mechanism. On the extended Python corpus the table holds 299,192 rows for 764 PEPs; the scores run from the threshold of 1.0 to 5.4 with a mean of 2.13, 60.1\% of the rows score at least 2.0, 11.3\% at least 3.0 and 0.6\% at least 4.0, so the score separates a small head of strong signals---several mechanisms, an explicit stance, a formal role, proximity to the decision---from a long tail of single-mechanism sentences.
+
+\begin{table}[t]
+\caption{Fields stored per influence candidate (\texttt{influence\_candidates}).}
+\label{tab:fields}
+\footnotesize
+\begin{tabular}{p{0.30\columnwidth}p{0.62\columnwidth}}
+\toprule
+Field & Content \\
+\midrule
+proposal, message\_id, message\_date & the proposal--message pair the sentence came from (a message linked to two proposals yields two rows) \\
+author\_name, author\_email, author\_role & the writer after identity resolution, and the role held on that proposal on that date \\
+sentence & the cleaned sentence \\
+influence\_types, primary\_influence\_type & the mechanisms detected (multi-label), and the first of them \\
+evidence\_cues & the cue phrases that fired, per mechanism (``authority: the council; procedural\_control: pep 13'') \\
+influence\_direction, influence\_scope, influence\_target & supporting, blocking, revising or neutral; internal, external, mixed or unknown; what is being influenced \\
+controversial & 1 if any of the seven controversial mechanisms is present \\
+final\_decision, decision\_date, days\_before\_decision, decision\_phase, governance\_era & the proposal's outcome and the sentence's position in its life \\
+aligns\_with\_outcome & whether the direction agrees with the outcome (Section~\ref{sec:features}) \\
+influence\_score & the additive heuristic score (Section~\ref{sec:scoring}) \\
+extraction\_scheme & the detector version that produced the row (\texttt{heuristic-v2}) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Sentence-based scheme.} SBS is the native order of the table: within a proposal, candidates are ranked by score, ties broken by date. It is the scheme behind every corpus statistic in Section~\ref{sec:results}, where the unit is the sentence and each row counts once towards its mechanisms, its direction, its writer's role and its phase. The threshold of 1.0 admits every sentence with a mechanism and at least one further signal, so SBS is an ordering of the whole candidate set rather than a selection from it; the annotation sample (Section~\ref{sec:outputs}) draws from its head, its tail and its strata so that the annotation study can tell where along the ranking precision falls off.
+
+\paragraph{Message-based scheme.} MBS folds the candidates of one message into one row of \texttt{influence\_message\_summary}, rebuilt from the candidate table by one grouped query in step~9: the number of candidate sentences, the sum of their scores, the highest score, the union of their mechanisms, the counts of supporting, blocking and revising sentences, the strongest sentence, and the writer, role and outcome. Messages are ranked by the sum by default---a message that argues on several fronts ranks above a one-line remark---with the maximum as the alternative that favours the single strongest sentence. Table~\ref{tab:mbs} gives the scheme's shape on the Python corpus. Half of the proposal-linked message rows carry at least one candidate; of those, a third carry exactly one and 7\% carry ten or more, and it is the latter---position statements, summaries, pronouncements---that MBS is built to surface. For the 607 PEPs with at least fifty candidates, the ten highest-ranked messages (8\% of a PEP's messages on average) hold half of its candidates under the sum and 37\% under the maximum; the two variants agree on about five of their ten messages; and 57\% of a PEP's ten highest-scoring sentences sit inside its ten highest-ranked messages, so the schemes point at the same core of the discussion from different sides. The schemes also differ in whom they put first: the highest-scoring \emph{sentence} of a PEP is most often a core developer's or the BDFL's, while the highest-ranked \emph{message} is most often the BDFL's, and community members and PEP editors---who write long, structured messages---move up under MBS (Table~\ref{tab:mbs}, lower panel). This is the long-message bias the sum carries, and the reason the maximum is kept beside it.
+
+\begin{table}[t]
+\caption{Sentence- and message-based ranking on the extended Python corpus.}
+\label{tab:mbs}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{0.56\columnwidth}r}
+\toprule
+Candidate sentences (SBS rows) & 299,192 \\
+Proposal--message rows with $\geq 1$ candidate (MBS rows) & 76,087 \\
+\quad as a share of the 150,007 proposal-linked message rows & 50.7\% \\
+\quad distinct messages & 64,375 \\
+Candidates per message: mean & 3.93 \\
+\quad exactly 1 / 2 / 3 / 4--9 / $\geq 10$ (\% of messages) & 35.4 / 21.2 / 12.9 / 23.7 / 6.8 \\
+Message score: mean sum / mean maximum & 8.37 / 2.41 \\
+Messages with a controversial mechanism & 14.1\% \\
+\midrule
+\multicolumn{2}{l}{\emph{607 PEPs with $\geq 50$ candidates (mean 124 messages, 488 candidates)}} \\
+Share of candidates in the top-10 messages: by sum / by maximum & 51.6\% / 36.8\% \\
+Top-10 messages shared by the sum and maximum variants & 4.9 of 10 \\
+Top-10 SBS sentences inside the top-10 MBS messages & 56.9\% \\
+Candidates per top-10 message (mean) / their maximum score & 15.4 / 3.07 \\
+\midrule
+\multicolumn{2}{l}{\emph{Role of the top-ranked item per PEP (764 PEPs): SBS sentence / MBS message}} \\
+Core developer & 232 / 178 \\
+BDFL & 187 / 211 \\
+Steering Council & 127 / 82 \\
+Proposal author & 112 / 75 \\
+Community member & 41 / 122 \\
+PEP editor & 36 / 84 \\
+BDFL delegate & 29 / 12 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Which scheme where.} The corpus statistics use SBS because the research questions are about signals, not messages: how often each mechanism is used, by whom, when, and with what outcome. MBS is the reading order: it is what the viewer shows an analyst who wants to know which messages shaped a proposal, and it is the order in which the annotation study will present messages to annotators, following the finding of the rationale study that annotators judge a signal more reliably when they see the whole message. Both orders are reproducible from the stored fields alone, without re-running the detectors.
+
 \subsection{Tool Interfaces}
 \label{sec:interfaces}
 
-Influence Miner is delivered as a tab in both incarnations of the DeMaP Miner viewer, so that a candidate sentence is never more than one click away from the message it came from. In the Java desktop tool (Figure~\ref{fig:desktop}) the tab sits on the right-hand tabbed pane next to the existing \emph{Reasons}, \emph{InfluenceOfRoles} and \emph{SentimentOfMembers} tabs. Its controls filter by mechanism (including a \emph{Controversial (any of the 7)} option for the mechanisms of Section~\ref{sec:controversial}), direction, author role, governance era, minimum score and sort order; \emph{Load Influence Candidates} fills the results table of the viewer with the proposal's candidates (date, message id, author with role, mechanisms, direction, scope and target, sentence with its evidence cues, score) and a summary line gives the counts by mechanism and direction; \emph{Run Influence Miner for PEP} re-extracts the proposal in the background. Selecting a row loads the source message into the central viewer, exactly as for reason candidates, so that an analyst can read the sentence in its thread. In the web version (Figure~\ref{fig:web}), a Flask port of the same layout, the right-hand panel carries \emph{Reasons}, \emph{Preference Miner} and \emph{Influence Miner} tabs; the Influence Miner tab adds bar summaries of mechanisms and directions (controversial mechanisms highlighted in red), role and phase tags, a top-participants table and the candidate table with message links, and a separate overview page reports the corpus-wide distributions and the governance-era comparison of Section~\ref{sec:results}. Both interfaces read the same \texttt{influence\_candidates} table and can be pointed at either the original or the extended database.
+Influence Miner is delivered as a tab in both incarnations of the DeMaP Miner viewer, so that a candidate sentence is never more than one click away from the message it came from. In the Java desktop tool (Figure~\ref{fig:desktop}) the tab sits on the right-hand tabbed pane next to the existing \emph{Reasons}, \emph{InfluenceOfRoles} and \emph{SentimentOfMembers} tabs. Its controls filter by mechanism (including a \emph{Controversial (any of the 7)} option for the mechanisms of Section~\ref{sec:controversial}), direction, author role, governance era and minimum score, choose the sort order and the ranking scheme of Section~\ref{sec:ranking}---one row per candidate sentence (SBS) or one row per message with its candidate count, mechanism union, strongest sentence and summed score (MBS); \emph{Load Influence Candidates} fills the results table of the viewer accordingly and a summary line gives the counts by mechanism and direction; \emph{Run Influence Miner for PEP} re-extracts the proposal in the background. Selecting a row opens the source message in the central viewer and underlines every candidate sentence in it, in blue, with the selected sentence in red and scrolled into view, as Rationale Miner does for reason sentences; the underline is placed by a tolerant match that ignores line breaks, quote markers and punctuation between the words of the stored sentence, since the sentence was cut from the cleaned text. An analyst therefore reads each signal in its thread, and sees at once how much of the message the tool has labelled. In the web version (Figure~\ref{fig:web}), a Flask port of the same layout, the right-hand panel carries \emph{Reasons}, \emph{Preference Miner} and \emph{Influence Miner} tabs; the Influence Miner tab adds bar summaries of mechanisms and directions (controversial mechanisms highlighted in red), role and phase tags, a top-participants table, the same sentence/message ranking switch, and the candidate table, every row of which opens its message in the central panel with the candidate sentences underlined in the same way; a separate overview page reports the corpus-wide distributions and the governance-era comparison of Section~\ref{sec:results}. Both interfaces read the same \texttt{influence\_candidates} table and can be pointed at either the original or the extended database.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{fig_desktop_influence_tab_crop.png}
-\caption{Influence Miner tab in the DeMaP Miner desktop tool (PEP~572, extended corpus). Right: filters, summary and the candidate table; centre: the message selected from the table; left: navigation, parameters and the PEP's state history.}
-\Description{Screenshot of a Java Swing application with a maximised window: a left navigation panel, a central message viewer showing a python-dev e-mail, and a right panel whose "Influence Miner" tab shows filter drop-downs, a summary of 3,534 candidates and a table of candidate sentences with scores.}
+\caption{Influence Miner tab in the DeMaP Miner desktop tool (PEP~572, extended corpus). Right: filters, ranking switch, summary and the candidate table; centre: the message opened by selecting the first row, with its candidate sentences underlined (blue) and the selected one in red; left: navigation, parameters and the PEP's state history.}
+\Description{Screenshot of a Java Swing application with a maximised window: a left navigation panel, a central message viewer showing a python-dev e-mail with two sentences underlined, and a right panel whose "Influence Miner" tab shows filter drop-downs, a summary of 3,717 candidates and a table of candidate sentences with scores.}
 \label{fig:desktop}
 \end{figure*}
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{fig_web_influence_tab_crop.png}
-\caption{Influence Miner tab in the web version of DeMaP Miner (PEP~703, a Steering-Council-era proposal discussed on discuss.python.org). Left: the PEP's status history from the \texttt{python/peps} repository; centre: the selected Discourse post; right: filters, mechanism and direction bars, roles, phases and the candidate table.}
+\caption{Influence Miner tab in the web version of DeMaP Miner (PEP~703, a Steering-Council-era proposal discussed on discuss.python.org). Left: the PEP's status history from the \texttt{python/peps} repository; centre: the Steering Council's acceptance post, opened from the first row of the candidate table, with its 33 candidate sentences underlined and the selected one in red; right: filters, ranking switch, mechanism and direction bars, roles, phases and the candidate table.}
 \Description{Screenshot of a browser window with three columns: committed states on the left, a message viewer in the middle, and on the right the Influence Miner tab with horizontal bars for thirteen mechanisms and four directions, role and phase tags, and the start of a candidate table.}
 \label{fig:web}
 \end{figure*}
