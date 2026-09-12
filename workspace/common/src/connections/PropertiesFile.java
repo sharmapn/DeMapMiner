@@ -18,7 +18,8 @@ public class PropertiesFile {
 													//  DEMAPMinerPEPsNew.prop";  //MAIN FILE
 	//static String propertiesFileName = "C:\\DeMap_Miner\\conf\\spbooks.prop";
 	//static String propertiesFileName = "D:\\DeMap_Miner\\conf\\DEMAPMinerBIPs2021.prop";
-	static String propertiesFileName = "C:\\DeMapMiner\\conf\\DEMAPMinerPEPsNew.prop";
+	// Sept 2026: override with -Ddemap.prop=C:\path\to\file.prop (e.g. DEMAPMinerPEPs2026.prop for the peps_2026 database)
+	static String propertiesFileName = System.getProperty("demap.prop", "C:\\DeMapMiner\\conf\\DEMAPMinerPEPsNew.prop");
 										// "C:\\DeMap_Miner\\conf\\DEMAPMinerPEPsNew.prop";  //// normally usedfile for peps file 
 										// "C:\\DeMap_Miner\\conf\\DEMAPMinerBIPs2021.prop"; 
 	//static String propertiesFileName = "C:\\DeMap_Miner\\conf\\DEMAPMinerJEPs2019.prop";      //DEMAPMinerNewToReadML.prop"  - created to read just additional Mailing list python 3000;

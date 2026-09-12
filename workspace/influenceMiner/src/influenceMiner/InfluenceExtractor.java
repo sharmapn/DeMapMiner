@@ -59,7 +59,7 @@ public class InfluenceExtractor {
         public String toString() {
             return "proposal " + proposalNumber + ": messages=" + messagesProcessed + " (empty " + messagesSkippedEmpty + ", automated " + messagesExcludedAutomated
                     + "), sentences=" + sentencesProcessed + " (dup " + sentencesDuplicate + ", noise " + sentencesNoise
-                    + "), shiftedNames=" + messagesWithShiftedNames + " (recovered " + namesRecovered + "), typed=" + sentencesWithInfluenceType + ", saved=" + candidatesSaved + ", outcome="
+                    + "), shiftedAddressRows=" + messagesWithShiftedNames + " (address recovered from header " + namesRecovered + "), typed=" + sentencesWithInfluenceType + ", saved=" + candidatesSaved + ", outcome="
                     + finalDecision + (decisionDate != null ? " @ " + decisionDate : "") + " [" + outcomeSource + "]"
                     + (failed ? " FAILED: " + error : "");
         }
@@ -106,8 +106,11 @@ public class InfluenceExtractor {
 
                 InfluenceMessageSource.Message message = messages.get(mi);
 
+                InfluenceAuthorResolver.Identity author = InfluenceAuthorResolver.resolve(message);
+
                 // commit notifications / tracker robots are not discussion
-                if (InfluenceConfig.isExcludedMessage(message.authorEmail, message.mailingList)) {
+                // (checked on the resolved address: on shifted rows senderemail belongs to another message)
+                if (InfluenceConfig.isExcludedMessage(author.email, message.mailingList)) {
                     stats.messagesExcludedAutomated++;
                     continue;
                 }
@@ -117,10 +120,9 @@ public class InfluenceExtractor {
                 }
                 stats.messagesProcessed++;
 
-                InfluenceAuthorResolver.Identity author = InfluenceAuthorResolver.resolve(connection, message);
                 if (author.rowUnreliable) {
                     stats.messagesWithShiftedNames++;
-                    if (author.nameRecovered) stats.namesRecovered++;
+                    if (author.emailRecovered) stats.namesRecovered++;
                 }
 
                 String role = InfluenceRoleMapper.mapRole(connection, identifier, proposalNumber,

@@ -164,7 +164,7 @@ public class GenericMailingListReader_BaseElements {
 	static String  markerFolder = ""; //always leave empty..will be populated automatically  //C:\\OSSDRepositories\\JEPs\\core-libs-dev //"C:\\datasets\\python-checkins"; //python-dev";// jmh-dev";	// C:\\datasets\\python-dev") && fileEntry.getName().equals("2009-January.txt"
 	static String  markerFile   = ""; //always leave empty..will be populated automatically  //2014-August.txt  //2013-November.txt";
 	//MAke sure comment the major directory from list that you dont want to process in the directory function //eg searchFilesForFolder(ideas_folder,
-	static String  baseDir      = "D:\\datasets\\postBDFL_may2021\\mailingLists\\"; //"C:\\OSSDRepositories\\JEPs\\";  //"c:\\datasets\\"  //remove this basedir from folder path when just extracting last dir
+	static String  baseDir      = "C:\\datasets\\postBDFL_2026\\"; // Sept 2026 dataset root; remove this basedir from folder path when just extracting last dir
 	
 	static Set<String> stopWordsSet = new HashSet<String>();	
 	static BufferedReader br = null;	

@@ -34,7 +34,7 @@ influenceMiner/
 │   ├── InfluencePipeline.java             extraction + aggregation + export + sample + report
 │   ├── InfluenceExtractor.java            per-proposal pipeline
 │   ├── InfluenceMessageSource.java        schema-aware reader for allmessages (dedups messageIDs)
-│   ├── InfluenceAuthorResolver.java       repairs shifted name/role columns (see Data notes)
+│   ├── InfluenceAuthorResolver.java       recovers the address on rows with shifted e-mail columns (see Data notes)
 │   ├── InfluenceTextPreprocessor.java     quote/signature/code/header removal, sentence splitting
 │   ├── InfluenceTypeDetector.java         13-type multi-label cue detector + evidence cues
 │   ├── InfluenceDirectionDetector.java    supporting | blocking | revising | neutral
@@ -146,12 +146,7 @@ java -cp %CP% influenceMiner.InfluencePipeline pep --no-extract      (reporting 
 
 ### Data notes / known issues in `allmessages`
 
-* Rows imported by the newer loader (`senderFullName LIKE 'From %'`, mostly 2017–2018, i.e. all of
-  PEP 572) have `clusterBySenderFullName`, `senderName` and `authorsrole2020` **shifted by one
-  row** – they describe the previous message's sender. `senderemail` is correct.
-  `InfluenceAuthorResolver` rebuilds name and role from the e-mail using the reliable rows;
-  the batch log reports `shiftedNames=… (recovered …)`. Authors who never posted before 2017
-  keep their e-mail local part as name and role `unknown`.
+* Rows imported by the newer loader (`senderFullName LIKE 'From %'`, mostly 2017–2018, i.e. all of  PEP 572) have `senderemail` and `senderFullName` **shifted by one row** – they belong to the  next message. `clusterBySenderFullName`, `senderName` and `authorsrole2020` agree with the raw  `From:` header stored in the `email` column (9,532 of 10,831 rows) and are used as they are;  `InfluenceAuthorResolver` takes the address from that header. The batch log reports  `shiftedAddressRows=… (address recovered from header …)`.
 * `messageID` is duplicated for messages that mention several PEPs (109,083 PEP-linked rows,
   91,562 distinct ids); duplicates within one PEP are collapsed.
 

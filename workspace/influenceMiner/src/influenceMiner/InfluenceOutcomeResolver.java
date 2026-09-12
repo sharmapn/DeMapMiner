@@ -50,7 +50,16 @@ public class InfluenceOutcomeResolver {
     };
 
     public static final String ACCREJ_TABLE = "accrejpeps";
-    public static final String STATE_TABLE = "pepstates_danieldata_datetimestamp";
+    public static final String DEFAULT_STATE_TABLE = "pepstates_danieldata_datetimestamp";
+    /* The DeMaP Miner prop key proposalStateTableName (or -Dinfluence.stateTable) selects the
+       state-history table, e.g. pepstates_github for the 2026 corpus. */
+    public static String stateTable() {
+        String v = System.getProperty("influence.stateTable");
+        if (v == null || v.trim().isEmpty()) {
+            try { v = connections.PropertiesFile.readFromPropertiesFile("proposalStateTableName", true); } catch (Exception e) { v = null; }
+        }
+        return v == null || v.trim().isEmpty() ? DEFAULT_STATE_TABLE : v.trim();
+    }
     public static final String DETAILS_TABLE = "pepdetails";
     public static final String DETAILS_TABLE_FALLBACK = "proposaldetails";
     public static final String CSV_FILE = "proposal_outcomes.csv";
@@ -145,7 +154,7 @@ public class InfluenceOutcomeResolver {
      */
     private static void resolveFromStates(Connection connection, int proposalNumber, InfluenceOutcome outcome) throws Exception {
 
-        String sql = "SELECT state, dateTimeStamp FROM " + STATE_TABLE + " WHERE PEP = ? ORDER BY dateTimeStamp ASC, id ASC";
+        String sql = "SELECT state, dateTimeStamp FROM " + stateTable() + " WHERE PEP = ? ORDER BY dateTimeStamp ASC, id ASC";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1, proposalNumber);
         ResultSet rs = ps.executeQuery();
@@ -206,7 +215,7 @@ public class InfluenceOutcomeResolver {
 
         String[] last = history.get(history.size() - 1);
         outcome.finalDecision = last[0];
-        outcome.source = STATE_TABLE;
+        outcome.source = stateTable();
 
         if (lastDecision != null) {
             outcome.decisionDate = lastDecision[1];

@@ -146,7 +146,12 @@ public class GUI_Elements extends JFrame {
 		
 	//june 2020..just to disable the reasons panel and all its components for screenshot
 	public static boolean gettingScreenshotForSubstatesOnly = false;
-	public static boolean addInfluenceTab = true, addSentimentTab = true;
+	public static boolean addInfluenceTab = true, addSentimentTab = true, addInfluenceMinerTab = true; // Sept 2026: Influence Miner results tab
+	// Sept 2026 - Influence Miner tab controls (results go into stateJTable like the reason candidates)
+	protected JButton loadInfluenceCandidatesButton, runInfluenceMinerButton;
+	protected JComboBox<String> imMechanismCombo, imDirectionCombo, imRoleCombo, imEraCombo, imSortCombo;
+	protected JTextField imMinScoreText = new JTextField("1.0", 4);
+	protected JLabel imSummaryLabel = new JLabel(" ");
 	
 	protected JButton getAccountButton, nextButton, previousButton, lastButton, firstButton, gotoButton, freeQueryButton, freeQueryButton2, searchWithDatesQueryButton,searchWithRowQueryButton, StatusChangedButton, 
 	classifyButton, changeButton, gotoMessageIdButton, SQLButton, FindWordsButton, FindWordsSameSentenceButton, locationQueryButton,goToMIDButton,
@@ -412,6 +417,21 @@ public class GUI_Elements extends JFrame {
 		
 		setVisible(true);
 		proposalNumberText.requestFocusInWindow();
+
+		// Sept 2026: -Ddemap.autoProposal=572 loads that proposal, opens the Influence
+		// Miner tab and fills the table on start-up (for demonstrations and screenshots).
+		final String autoProposal = System.getProperty("demap.autoProposal");
+		if (autoProposal != null && autoProposal.trim().length() > 0) {
+			new javax.swing.Timer(1500, new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					((javax.swing.Timer) e.getSource()).stop();
+					proposalNumberText.setText(autoProposal.trim());
+					freeQueryButton.doClick();
+					jtp2.setSelectedIndex(jtp2.getTabCount() - 1);
+					if (loadInfluenceCandidatesButton != null) loadInfluenceCandidatesButton.doClick();
+				}
+			}).start();
+		}
 	}
 
 	protected void declare_Initialise_SetGUIElementValues() {
@@ -866,9 +886,36 @@ public class GUI_Elements extends JFrame {
 		sentimentTabRightSideOfFrame.add(new JLabel("    "));						sentimentTabRightSideOfFrame.add(extractMsgSentSentimentDataForReasonJTable); //extractMsgSentSentimentDataForReasonJTable);
 		//add to panel
 		if (addInfluenceTab)
-			jtp2.addTab("InfluenceOfRoles", influenceTabRightSideOfFrame);	
+			jtp2.addTab("InfluenceOfRoles", influenceTabRightSideOfFrame);
 		if (addSentimentTab)
-			jtp2.addTab("SentimentOfMembers", sentimentTabRightSideOfFrame);	
+			jtp2.addTab("SentimentOfMembers", sentimentTabRightSideOfFrame);
+
+		//-------------------------INFLUENCE MINER SECTION (Sept 2026)
+		// Loads sentence-level influence candidates of the current proposal from
+		// influence_candidates into stateJTable (Date, MID, Author, Sentence, Score),
+		// so that clicking a row shows the source message exactly as for reasons.
+		JPanel influenceMinerTabRightSideOfFrame = new JPanel();
+		influenceMinerTabRightSideOfFrame.setLayout(new GridLayout(0, 2));
+		imMechanismCombo = new JComboBox<String>(new String[] { "All mechanisms", "strategic", "operational", "functional", "tactical",
+				"authority", "compatibility", "security", "standards", "ecosystem", "economic", "organizational", "coalition", "user_demand" });
+		imDirectionCombo = new JComboBox<String>(new String[] { "All directions", "supporting", "blocking", "revising", "neutral" });
+		imRoleCombo = new JComboBox<String>(new String[] { "All roles", "BDFL", "steering council", "BDFL delegate", "proposal author",
+				"PEP editor", "core developer", "community member" });
+		imEraCombo = new JComboBox<String>(new String[] { "All eras", "bdfl_era", "post_bdfl_era" });
+		imSortCombo = new JComboBox<String>(new String[] { "Score (high first)", "Date (oldest first)", "Date (newest first)" });
+		loadInfluenceCandidatesButton = new JButton("Load Influence Candidates");
+		runInfluenceMinerButton = new JButton("Run Influence Miner for PEP");
+		influenceMinerTabRightSideOfFrame.add(new JLabel("Mechanism: "));			influenceMinerTabRightSideOfFrame.add(imMechanismCombo);
+		influenceMinerTabRightSideOfFrame.add(new JLabel("Direction: "));			influenceMinerTabRightSideOfFrame.add(imDirectionCombo);
+		influenceMinerTabRightSideOfFrame.add(new JLabel("Author role: "));		influenceMinerTabRightSideOfFrame.add(imRoleCombo);
+		influenceMinerTabRightSideOfFrame.add(new JLabel("Governance era: "));	influenceMinerTabRightSideOfFrame.add(imEraCombo);
+		influenceMinerTabRightSideOfFrame.add(new JLabel("Min. score / sort: "));
+		JPanel imScoreSort = new JPanel(new GridLayout(1, 2)); imScoreSort.add(imMinScoreText); imScoreSort.add(imSortCombo);
+		influenceMinerTabRightSideOfFrame.add(imScoreSort);
+		influenceMinerTabRightSideOfFrame.add(loadInfluenceCandidatesButton);		influenceMinerTabRightSideOfFrame.add(runInfluenceMinerButton);
+		influenceMinerTabRightSideOfFrame.add(new JLabel("Summary: "));			influenceMinerTabRightSideOfFrame.add(imSummaryLabel);
+		if (addInfluenceMinerTab)
+			jtp2.addTab("Influence Miner", influenceMinerTabRightSideOfFrame);
 		
 		
 		

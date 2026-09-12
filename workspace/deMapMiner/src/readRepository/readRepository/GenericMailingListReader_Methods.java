@@ -493,7 +493,7 @@ public class GenericMailingListReader_Methods extends GenericMailingListReader_B
 			//System.out.println("here a");
 			
 			//String lastDir = v_rootfolder.toString().replace("C:\\OSSDRepositories\\JEPs\\","");
-			String lastDir = v_rootfolder.toString().replace("D:\\datasets\\postBDFL_may2021\\mailingLists","");
+			String lastDir = new java.io.File(v_rootfolder.toString()).getName(); // Sept 2026: just the list folder name, e.g. python-dev, discourse-peps
 			
 			//System.out.println("reply to " + v_inReplyTo + " ref = " + v_references);
 			// create the mysql insert preparedstatement

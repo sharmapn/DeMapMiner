@@ -353,9 +353,125 @@ public class GUI_ElementMethods extends GUI_Elements {
 
 	
 	//The critical functions
+	/*
+	 * Sept 2026 - Influence Miner tab. Fills stateJTable with the influence
+	 * candidates of the current proposal (table influence_candidates, written by
+	 * influenceMiner.InfluenceExtractor). Columns follow the reason-candidate
+	 * layout (Date, MID, Author, Sentence, Score) so the existing row-selection
+	 * listener opens the source message; mechanism, direction and evidence cues
+	 * are shown in the Author and Sentence cells and summarised in imSummaryLabel.
+	 */
+	protected void loadInfluenceCandidatesIntoTable() {
+		if (proposalNumberText.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Enter a proposal number first", "Influence Miner", JOptionPane.INFORMATION_MESSAGE);
+			return;
+		}
+		int proposal = Integer.parseInt(proposalNumberText.getText().trim());
+		String mechanism = String.valueOf(imMechanismCombo.getSelectedItem());
+		String direction = String.valueOf(imDirectionCombo.getSelectedItem());
+		String role = String.valueOf(imRoleCombo.getSelectedItem());
+		String era = String.valueOf(imEraCombo.getSelectedItem());
+		double minScore = 0.0;
+		try { minScore = Double.parseDouble(imMinScoreText.getText().trim()); } catch (NumberFormatException ignored) { }
+		String order = " ORDER BY influence_score DESC, message_date";
+		if (imSortCombo.getSelectedIndex() == 1) order = " ORDER BY message_date ASC, id";
+		if (imSortCombo.getSelectedIndex() == 2) order = " ORDER BY message_date DESC, id";
+
+		StringBuilder sql = new StringBuilder("SELECT message_date, message_id, author_name, author_role, influence_types, primary_influence_type, "
+				+ "influence_direction, influence_scope, influence_target, influence_score, evidence_cues, sentence, final_decision, governance_era "
+				+ "FROM influence_candidates WHERE proposal_number = ? AND influence_score >= ?");
+		java.util.List<Object> params = new java.util.ArrayList<Object>();
+		params.add(proposal); params.add(minScore);
+		if (!mechanism.startsWith("All")) { sql.append(" AND FIND_IN_SET(?, influence_types) > 0"); params.add(mechanism); }
+		if (!direction.startsWith("All")) { sql.append(" AND influence_direction = ?"); params.add(direction); }
+		if (!role.startsWith("All")) { sql.append(" AND author_role = ?"); params.add(role); }
+		if (!era.startsWith("All")) { sql.append(" AND governance_era = ?"); params.add(era); }
+		sql.append(order);
+
+		model.setRowCount(0);
+		java.util.Map<String, Integer> byType = new java.util.LinkedHashMap<String, Integer>();
+		java.util.Map<String, Integer> byDirection = new java.util.LinkedHashMap<String, Integer>();
+		java.util.Set<String> actors = new java.util.HashSet<String>();
+		int n = 0; String outcome = "";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql.toString());
+			for (int i = 0; i < params.size(); i++) ps.setObject(i + 1, params.get(i));
+			ResultSet r = ps.executeQuery();
+			while (r.next()) {
+				n++;
+				String types = r.getString("influence_types") == null ? "" : r.getString("influence_types");
+				String dir = r.getString("influence_direction") == null ? "neutral" : r.getString("influence_direction");
+				for (String t : types.split(",")) if (t.trim().length() > 0) byType.merge(t.trim(), 1, Integer::sum);
+				byDirection.merge(dir, 1, Integer::sum);
+				actors.add(String.valueOf(r.getString("author_name")));
+				outcome = r.getString("final_decision");
+				String author = r.getString("author_name") + " (" + r.getString("author_role") + ")  [" + types + " | " + dir
+						+ " | " + r.getString("influence_scope") + " -> " + r.getString("influence_target") + "]";
+				String cues = r.getString("evidence_cues");
+				String sentence = r.getString("sentence") + (cues == null || cues.isEmpty() ? "" : "   {" + cues + "}");
+				String date = r.getString("message_date") == null ? "" : r.getString("message_date").substring(0, Math.min(10, r.getString("message_date").length()));
+				model.addRow(new Object[] { date, r.getString("message_id"), author, sentence, String.valueOf(r.getDouble("influence_score")) });
+			}
+			r.close(); ps.close();
+		} catch (Exception ex) {
+			imSummaryLabel.setText("Error: " + ex.getMessage());
+			ex.printStackTrace();
+			return;
+		}
+		StringBuilder summary = new StringBuilder("<html>" + n + " candidates, " + actors.size() + " actors, outcome " + outcome + "<br>");
+		byType.entrySet().stream().sorted((a, b) -> b.getValue() - a.getValue()).limit(6)
+				.forEach(en -> summary.append(en.getKey()).append(' ').append(en.getValue()).append("  "));
+		summary.append("<br>");
+		for (java.util.Map.Entry<String, Integer> en : byDirection.entrySet()) summary.append(en.getKey()).append(' ').append(en.getValue()).append("  ");
+		imSummaryLabel.setText(summary.append("</html>").toString());
+		rowCountText.setText(n + " influence candidates");
+	}
+
 	public void setButtonsEventListners() //JTable wordListTable, JCheckBox statusCheck, JCheckBox addParameters,JCheckBox statusChangedCheck, final WordSearcher searcher, JComboBox<String> location)
-	//	,JComboBox<String> sfromCBox, JComboBox<String> sToCBox 
+	//	,JComboBox<String> sfromCBox, JComboBox<String> sToCBox
 	{
+		// ------------------------------------------------------------------ Influence Miner tab (Sept 2026)
+		loadInfluenceCandidatesButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				loadInfluenceCandidatesIntoTable();
+			}
+		});
+		runInfluenceMinerButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (proposalNumberText.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Enter a proposal number first", "Influence Miner", JOptionPane.INFORMATION_MESSAGE);
+					return;
+				}
+				final int proposal = Integer.parseInt(proposalNumberText.getText().trim());
+				runInfluenceMinerButton.setEnabled(false);
+				imSummaryLabel.setText("Running Influence Miner for " + proposalIdentifier.toUpperCase() + " " + proposal + " ...");
+				new Thread(new Runnable() {
+					public void run() {
+						String message;
+						try {
+							// The influenceMiner project depends on deMapMiner, not the other way round,
+							// so the extractor is reached by reflection; it is present whenever the GUI is
+							// started from the influenceMiner project (Influence_Miner_GUI) or its bin is on the classpath.
+							Class<?> runner = Class.forName("influenceMiner.InfluenceBatchRunner");
+							runner.getMethod("runForProposal", int.class, String.class).invoke(null, proposal, proposalIdentifier);
+							message = "done";
+						} catch (ClassNotFoundException cnf) {
+							message = "influenceMiner classes not on the classpath - start the GUI from the influenceMiner project";
+						} catch (Exception ex) {
+							message = "failed: " + ex;
+						}
+						final String finalMessage = message;
+						SwingUtilities.invokeLater(new Runnable() {
+							public void run() {
+								runInfluenceMinerButton.setEnabled(true);
+								if (finalMessage.equals("done")) loadInfluenceCandidatesIntoTable();
+								else imSummaryLabel.setText(finalMessage);
+							}
+						});
+					}
+				}).start();
+			}
+		});
 
 		SQLButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
