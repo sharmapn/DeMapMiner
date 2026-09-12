@@ -228,7 +228,7 @@ public class InfluenceTypeDetector {
                 "enterprise customers", "enterprise users", "commercial users", "commercial support", "contract",
                 "consulting", "my clients", "our clients", "clients pay", "who pays", "follow the money",
                 "full-time", "full time", "hired", "hire", "employs", "employed by", "employee", "employees",
-                "on the clock", "company time", "work hours", "the company i work", "company i work for",
+                "company time", "work hours", "the company i work", "company i work for",
                 "corporations", "corporation", "management wants", "management has", "my manager", "my boss"
         });
         CUES.put("gatekeeping", new String[] {
@@ -256,7 +256,8 @@ public class InfluenceTypeDetector {
         CUES.put("exit_threat", new String[] {
                 "i'll fork", "i will fork", "fork the project", "fork python", "fork cpython", "fork the language",
                 "we'll fork", "we will fork", "threaten to fork", "threat of a fork", "hostile fork", "forking python",
-                "i'm leaving", "i am leaving", "i'll leave", "i will leave", "i quit", "i'm quitting", "i am quitting",
+                "i'm leaving python", "leaving python", "leave python", "leaving the project", "leave the project",
+                "leaving the community", "leave the community", "leaving core", "i quit", "i'm quitting", "i am quitting",
                 "i resign", "i'm resigning", "i am resigning", "resignation", "step down", "stepping down",
                 "stepped down", "i'm stepping down", "i'm done", "i am done", "count me out", "i give up",
                 "i'm giving up", "i am giving up", "i'm walking away", "walk away", "walking away", "take my ball",
@@ -395,9 +396,17 @@ public class InfluenceTypeDetector {
         NEAR_REQUIRED.put("i'm responsible for", ownership);
         NEAR_REQUIRED.put("i am responsible for", ownership);
         NEAR_REQUIRED.put("as the author of", ownership);
+        NEAR_REQUIRED.put("as maintainer", ownership);
+        NEAR_REQUIRED.put("as the maintainer", ownership);
+        NEAR_REQUIRED.put("as its maintainer", ownership);
+        NEAR_REQUIRED.put("as its author", ownership);
+        NEAR_REQUIRED.put("i'm the maintainer", ownership);
+        NEAR_REQUIRED.put("i am the maintainer", ownership);
+        NEAR_REQUIRED.put("i'm the author", ownership);
+        NEAR_REQUIRED.put("i am the author", ownership);
         NEAR_REQUIRED.put("as the original author", ownership);
-        String[] refusalObject = { "pep", "proposal", "merge", "accept", "approve", "this", "that", "it ", "change", "feature", "syntax" };
-        NEAR_REQUIRED.put("no way", new String[] { "accept", "merge", "pep", "proposal", "i'm", "i am", "going to", "i will", "allow", "approve", "happen", "in hell" });
+        String[] refusalObject = { "pep", "proposal", "merge", "accept", "approve", "never", "not going", "in python", "in 3." };
+        NEAR_REQUIRED.put("no way", new String[] { "no way i", "no way we", "no way this", "no way that", "accept", "merge", "allow", "approve", "in hell", "no way." });
         NEAR_REQUIRED.put("no chance", refusalObject);
         NEAR_REQUIRED.put("won't happen", refusalObject);
         NEAR_REQUIRED.put("will not happen", refusalObject);
