@@ -92,12 +92,21 @@ public class InfluenceCandidateRepository {
     }
 
     /*
-     * Stable key for an actor: e-mail when present, otherwise the name.
+     * Stable key for an actor. The dataset's clusterBySenderFullName (which
+     * InfluenceAuthorResolver restores for the shifted rows) is the identity
+     * DeMaP Miner uses to merge one person's several addresses, so the
+     * normalised name is the primary key; the e-mail is the fallback when no
+     * name is known. Keying on e-mail alone would merge everyone who posts
+     * through a shared list address and split people with several addresses.
      */
     public static String actorKey(InfluenceCandidate c) {
+        String name = InfluenceRoleMapper.normaliseName(c.authorName);
+        if (name.length() > 0 && !name.equals("unknown")) {
+            return name;
+        }
         if (c.authorEmail != null && c.authorEmail.trim().length() > 0) {
             return c.authorEmail.trim().toLowerCase();
         }
-        return c.authorName == null ? "unknown" : c.authorName.trim().toLowerCase();
+        return "unknown";
     }
 }
